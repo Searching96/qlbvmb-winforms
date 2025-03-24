@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QLBVBM.DTO
 {
-    public class DTO_CHUYENBAY
+    public class DTO_ChuyenBay
     {
         public string MaChuyenBay { get; set; }
         public string MaSanBayDi { get; set; }

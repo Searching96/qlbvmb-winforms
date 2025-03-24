@@ -31,13 +31,13 @@ namespace QLBVBM.GUI
         {
             lblMaChuyenBay = new Label();
             txtMaChuyenBay = new TextBox();
-            label1 = new Label();
-            label2 = new Label();
+            lblSanBayDi = new Label();
+            lblSanBayDen = new Label();
             dateTimePicker1 = new DateTimePicker();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
+            lblNgayGioBay = new Label();
+            lblThoiGianBay = new Label();
+            lblSoLuongGheHang1 = new Label();
+            lblSoLuongGheHang2 = new Label();
             textBox5 = new TextBox();
             textBox3 = new TextBox();
             textBox4 = new TextBox();
@@ -65,21 +65,21 @@ namespace QLBVBM.GUI
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(413, 55);
-            label1.Name = "label1";
-            label1.Size = new Size(90, 20);
-            label1.TabIndex = 2;
-            label1.Text = "Sân bay đến";
+            lblSanBayDi.AutoSize = true;
+            lblSanBayDi.Location = new Point(413, 55);
+            lblSanBayDi.Name = "label1";
+            lblSanBayDi.Size = new Size(90, 20);
+            lblSanBayDi.TabIndex = 2;
+            lblSanBayDi.Text = "Sân bay đến";
             // 
             // label2
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(215, 56);
-            label2.Name = "label2";
-            label2.Size = new Size(78, 20);
-            label2.TabIndex = 3;
-            label2.Text = "Sân bay đi";
+            lblSanBayDen.AutoSize = true;
+            lblSanBayDen.Location = new Point(215, 56);
+            lblSanBayDen.Name = "label2";
+            lblSanBayDen.Size = new Size(78, 20);
+            lblSanBayDen.TabIndex = 3;
+            lblSanBayDen.Text = "Sân bay đi";
             // 
             // dateTimePicker1
             // 
@@ -90,39 +90,39 @@ namespace QLBVBM.GUI
             // 
             // label3
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(353, 204);
-            label3.Name = "label3";
-            label3.Size = new Size(147, 20);
-            label3.TabIndex = 7;
-            label3.Text = "Số lượng ghế hạng 2";
+            lblNgayGioBay.AutoSize = true;
+            lblNgayGioBay.Location = new Point(353, 204);
+            lblNgayGioBay.Name = "label3";
+            lblNgayGioBay.Size = new Size(147, 20);
+            lblNgayGioBay.TabIndex = 7;
+            lblNgayGioBay.Text = "Số lượng ghế hạng 2";
             // 
             // label4
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(19, 204);
-            label4.Name = "label4";
-            label4.Size = new Size(147, 20);
-            label4.TabIndex = 8;
-            label4.Text = "Số lượng ghế hạng 1";
+            lblThoiGianBay.AutoSize = true;
+            lblThoiGianBay.Location = new Point(19, 204);
+            lblThoiGianBay.Name = "label4";
+            lblThoiGianBay.Size = new Size(147, 20);
+            lblThoiGianBay.TabIndex = 8;
+            lblThoiGianBay.Text = "Số lượng ghế hạng 1";
             // 
             // label5
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(353, 124);
-            label5.Name = "label5";
-            label5.Size = new Size(99, 20);
-            label5.TabIndex = 9;
-            label5.Text = "Thời gian bay";
+            lblSoLuongGheHang1.AutoSize = true;
+            lblSoLuongGheHang1.Location = new Point(353, 124);
+            lblSoLuongGheHang1.Name = "label5";
+            lblSoLuongGheHang1.Size = new Size(99, 20);
+            lblSoLuongGheHang1.TabIndex = 9;
+            lblSoLuongGheHang1.Text = "Thời gian bay";
             // 
             // label6
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(19, 124);
-            label6.Name = "label6";
-            label6.Size = new Size(109, 20);
-            label6.TabIndex = 10;
-            label6.Text = "Ngày - Giờ bay";
+            lblSoLuongGheHang2.AutoSize = true;
+            lblSoLuongGheHang2.Location = new Point(19, 124);
+            lblSoLuongGheHang2.Name = "label6";
+            lblSoLuongGheHang2.Size = new Size(109, 20);
+            lblSoLuongGheHang2.TabIndex = 10;
+            lblSoLuongGheHang2.Text = "Ngày - Giờ bay";
             // 
             // textBox5
             // 
@@ -181,13 +181,13 @@ namespace QLBVBM.GUI
             Controls.Add(textBox4);
             Controls.Add(textBox3);
             Controls.Add(textBox5);
-            Controls.Add(label6);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
+            Controls.Add(lblSoLuongGheHang2);
+            Controls.Add(lblSoLuongGheHang1);
+            Controls.Add(lblThoiGianBay);
+            Controls.Add(lblNgayGioBay);
             Controls.Add(dateTimePicker1);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(lblSanBayDen);
+            Controls.Add(lblSanBayDi);
             Controls.Add(txtMaChuyenBay);
             Controls.Add(lblMaChuyenBay);
             Name = "GUI_TiepNhanLichChuyenBay";
@@ -201,13 +201,13 @@ namespace QLBVBM.GUI
 
         private Label lblMaChuyenBay;
         private TextBox txtMaChuyenBay;
-        private Label label1;
-        private Label label2;
+        private Label lblSanBayDi;
+        private Label lblSanBayDen;
         private DateTimePicker dateTimePicker1;
-        private Label label3;
-        private Label label4;
-        private Label label5;
-        private Label label6;
+        private Label lblNgayGioBay;
+        private Label lblThoiGianBay;
+        private Label lblSoLuongGheHang1;
+        private Label lblSoLuongGheHang2;
         private TextBox textBox5;
         private TextBox textBox3;
         private TextBox textBox4;

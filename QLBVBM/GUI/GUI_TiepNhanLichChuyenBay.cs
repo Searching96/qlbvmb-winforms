@@ -15,13 +15,15 @@ namespace QLBVBM.GUI
     public partial class GUI_TiepNhanLichChuyenBay : Form
     {
         private BUS_SanBay BUS_SanBay = new BUS_SanBay();
+        private BUS_ChuyenBay BUS_ChuyenBay = new BUS_ChuyenBay();
+
         public GUI_TiepNhanLichChuyenBay()
         {
             InitializeComponent();
             SetupDgvColumns(dgvDSSanBayTG, 2, BUS_SanBay.LayDanhSachSanBay());
+            PhatSinhMaChuyenBay();
             LoadSanBayToComboBox(cbbSanBayDi);
             LoadSanBayToComboBox(cbbSanBayDen);
-
         }
 
         private void LoadSanBayToComboBox(ComboBox cbb)
@@ -32,6 +34,22 @@ namespace QLBVBM.GUI
                 cbb.DataSource = dsSanBay;
                 cbb.DisplayMember = "TenSanBay";
                 cbb.ValueMember = "MaSanBay";
+            }
+        }
+
+        private void PhatSinhMaChuyenBay()
+        {
+            DTO_ChuyenBay chuyenBayCuoi = BUS_ChuyenBay.LayChuyenBayCuoi();
+            if (chuyenBayCuoi != null)
+            {
+                string maChuyenBayCuoi = chuyenBayCuoi.MaChuyenBay;
+                int lastNumber = int.Parse(maChuyenBayCuoi.Substring(2));
+                string maChuyenBayMoi = "CB" + (lastNumber + 1) .ToString("D5");
+                txtMaChuyenBay.Text = maChuyenBayMoi;
+            }
+            else
+            {
+                txtMaChuyenBay.Text = "CB00001";
             }
         }
 
