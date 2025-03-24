@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace QLBVBM.DTO
 {
-    internal class DTO_ThamSo
+    public class DTO_ThamSo
     {
+        public int SoSanBayTGToiDa { get; set; }
+        public int TGBayToiThieu { get; set; }
+        public int TGDungToiThieu { get; set; }
+        public int TGDungToiDa { get; set; }
     }
 }
