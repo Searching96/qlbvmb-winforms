@@ -152,9 +152,7 @@ namespace QLBVBM.GUI
             dgvDSSanBayTG.ColumnHeadersHeight = 29;
             dgvDSSanBayTG.Location = new Point(19, 298);
             dgvDSSanBayTG.Name = "dgvDSSanBayTG";
-            dgvDSSanBayTG.RowHeadersWidth = 51;
             dgvDSSanBayTG.Size = new Size(700, 172);
-            dgvDSSanBayTG.TabIndex = 0;
             // 
             // cbbSanBayDi
             // 
@@ -197,51 +195,6 @@ namespace QLBVBM.GUI
             ((System.ComponentModel.ISupportInitialize)dgvDSSanBayTG).EndInit();
             ResumeLayout(false);
             PerformLayout();
-        }
-
-        private void SetupDgvColumns(DataGridView dgv, int rowCount)
-        {
-            dgv.Columns.Clear();
-            dgv.RowHeadersVisible = false;
-
-            DataGridViewTextBoxColumn colSTT = new DataGridViewTextBoxColumn
-            {
-                Name = "STT",
-                HeaderText = "STT",
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.None,
-                Width = 50,
-                ReadOnly = true
-            };
-            dgv.Columns.Add(colSTT);
-
-            DataGridViewComboBoxColumn colTenSanBay = new DataGridViewComboBoxColumn
-            {
-                Name = "TenSanBay",
-                HeaderText = "Tên sân bay",
-                // Here will be changed
-                DataSource = new List<string> { "Hà Nội", "TP.Hồ Chí Minh", "Đà Nẵng" }
-            };
-            dgv.Columns.Add(colTenSanBay);
-
-            DataGridViewTextBoxColumn colThoiGianDung = new DataGridViewTextBoxColumn
-            {
-                Name = "ThoiGianDung",
-                HeaderText = "Thời gian dừng",
-            };
-            dgv.Columns.Add(colThoiGianDung);
-
-            DataGridViewTextBoxColumn colGhiChu = new DataGridViewTextBoxColumn
-            {
-                Name = "GhiChu",
-                HeaderText = "Ghi chú"
-            };
-            dgv.Columns.Add(colGhiChu);
-
-            dgv.Rows.Clear();
-            for (int i = 0; i < rowCount; i++)
-            {
-                dgv.Rows.Add(i + 1, "", "", "");
-            }
         }
 
         #endregion

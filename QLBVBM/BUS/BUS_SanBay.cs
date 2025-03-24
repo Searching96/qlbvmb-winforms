@@ -10,16 +10,16 @@ namespace QLBVBM.BUS
 {
     public class BUS_SanBay
     {
-        private DAL_SanBay dal = new DAL_SanBay();
+        private DAL_SanBay DAL_SanBay = new DAL_SanBay();
 
         public List<DTO_SanBay> LayDanhSachSanBay()
         {
-            return dal.LayDanhSachSanBay();
+            return DAL_SanBay.LayDanhSachSanBay();
         }
 
         public bool ThemSanBay(DTO_SanBay sanBay)
         {
-            return dal.ThemSanBay(sanBay);
+            return DAL_SanBay.ThemSanBay(sanBay);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace QLBVBM.GUI
 {
     public partial class GUI_ThemSanBay : Form
     {
-        private BUS_SanBay bus = new BUS_SanBay();
+        private BUS_SanBay busSanBay = new BUS_SanBay();
 
         public GUI_ThemSanBay()
         {
@@ -23,7 +23,7 @@ namespace QLBVBM.GUI
 
         private void LoadDanhSachSanBay()
         {
-            var dsSanBay = bus.LayDanhSachSanBay();
+            var dsSanBay = busSanBay.LayDanhSachSanBay();
             if (dsSanBay != null && dsSanBay.Count > 0)
             {
                 dgvSanBay.DataSource = dsSanBay;
@@ -47,7 +47,7 @@ namespace QLBVBM.GUI
                 TenSanBay = txtTenSanBay.Text
             };
 
-            if (bus.ThemSanBay(newSanBay))
+            if (busSanBay.ThemSanBay(newSanBay))
             {
                 MessageBox.Show("Thêm sân bay thành công");
                 LoadDanhSachSanBay();
