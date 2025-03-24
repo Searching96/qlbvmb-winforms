@@ -7,7 +7,7 @@ namespace QLBVBM.DAL
 {
     public class DataHelper
     {
-        private string connectionString = "server=localhost;database=QLBVMBDB;user=root;password=user";
+        private string connectionString = "server=localhost;database=QLBVMBDB;user=root;password=user;port=3307;";
 
         public MySqlConnection GetConnection()
         {
@@ -17,20 +17,27 @@ namespace QLBVBM.DAL
         public DataTable ExecuteQuery(string query, List<MySqlParameter> parameters = null)
         {
             DataTable dt = new DataTable();
-            using (MySqlConnection conn = GetConnection())
+            try
             {
-                conn.Open();
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                using (MySqlConnection conn = GetConnection())
                 {
-                    if (parameters != null)
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddRange(parameters.ToArray());
-                    }
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
-                    {
-                        adapter.Fill(dt);
+                        if (parameters != null)
+                        {
+                            cmd.Parameters.AddRange(parameters.ToArray());
+                        }
+                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                        {
+                            adapter.Fill(dt);
+                        }
                     }
                 }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Error connecting to the database: {ex.Message}", "Database Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             return dt;
