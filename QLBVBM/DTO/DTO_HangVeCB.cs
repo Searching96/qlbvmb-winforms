@@ -8,7 +8,7 @@ namespace QLBVBM.DTO
 {
     public class DTO_HangVeCB
     {
-        public string MaHangVe { get; set; }
+        public string MaHangGhe { get; set; }
         public string MaChuyenBay { get; set; }
         public int SoLuongGhe { get; set; }
     }

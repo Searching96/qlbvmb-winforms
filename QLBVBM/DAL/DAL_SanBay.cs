@@ -31,6 +31,7 @@ namespace QLBVBM.DAL
         public bool ThemSanBay(DTO_SanBay sanBay)
         {
             string query = "INSERT INTO SANBAY (MaSanBay, TenSanBay) VALUES (@MaSanBay, @TenSanBay)";
+            
             List<MySqlParameter> parameters = new List<MySqlParameter>()
             {
                 new MySqlParameter("@MaSanBay", sanBay.MaSanBay),

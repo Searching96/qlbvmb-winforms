@@ -16,5 +16,10 @@ namespace QLBVBM.BUS
         {
             return DAL_ChuyenBay.LayChuyenBayCuoi();
         }
+
+        public bool ThemChuyenBay(DTO_ChuyenBay chuyenBay)
+        {
+            return DAL_ChuyenBay.ThemChuyenBay(chuyenBay);
+        }
     }
 }

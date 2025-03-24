@@ -1,4 +1,5 @@
 ﻿using QLBVBM.BUS;
+using QLBVBM.DAL;
 using QLBVBM.DTO;
 using System;
 using System.Collections.Generic;
@@ -16,11 +17,16 @@ namespace QLBVBM.GUI
     {
         private BUS_SanBay BUS_SanBay = new BUS_SanBay();
         private BUS_ChuyenBay BUS_ChuyenBay = new BUS_ChuyenBay();
+        private BUS_CTChuyenBay BUS_CTChuyenBay = new BUS_CTChuyenBay();
+        private BUS_HangVeCB BUS_HangVeCB = new BUS_HangVeCB();
+        private BUS_ThamSo BUS_ThamSo = new BUS_ThamSo();
+
+        private ErrorProvider errorProvider = new ErrorProvider();
 
         public GUI_TiepNhanLichChuyenBay()
         {
             InitializeComponent();
-            SetupDgvColumns(dgvDSSanBayTG, 2, BUS_SanBay.LayDanhSachSanBay());
+            SetupDgvColumns(dgvDSSanBayTG, BUS_ThamSo.LaySoLuongSanBayToiDa(), BUS_SanBay.LayDanhSachSanBay());
             PhatSinhMaChuyenBay();
             LoadSanBayToComboBox(cbbSanBayDi);
             LoadSanBayToComboBox(cbbSanBayDen);
@@ -44,7 +50,7 @@ namespace QLBVBM.GUI
             {
                 string maChuyenBayCuoi = chuyenBayCuoi.MaChuyenBay;
                 int lastNumber = int.Parse(maChuyenBayCuoi.Substring(2));
-                string maChuyenBayMoi = "CB" + (lastNumber + 1) .ToString("D5");
+                string maChuyenBayMoi = "CB" + (lastNumber + 1).ToString("D5");
                 txtMaChuyenBay.Text = maChuyenBayMoi;
             }
             else
@@ -52,7 +58,6 @@ namespace QLBVBM.GUI
                 txtMaChuyenBay.Text = "CB00001";
             }
         }
-
 
         private void SetupDgvColumns(DataGridView dgv, int rowCount, List<DTO_SanBay> dsSanBay)
         {
@@ -98,6 +103,319 @@ namespace QLBVBM.GUI
             {
                 dgv.Rows.Add(i + 1, "", "", "");
             }
+        }
+
+        private bool HasErrors()
+        {
+            // Check for errors in form controls
+            foreach (Control control in this.Controls)
+            {
+                if (errorProvider.GetError(control) != string.Empty)
+                {
+                    return true;
+                }
+            }
+
+            // Check for errors in DataGridView cells
+            foreach (DataGridViewRow row in dgvDSSanBayTG.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    if (!string.IsNullOrEmpty(cell.ErrorText))
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        private bool HasIncompleteSanBayTGRowInput()
+        {
+            foreach (DataGridViewRow row in dgvDSSanBayTG.Rows)
+            {
+                if (row.IsNewRow)
+                    continue;
+
+                bool anyFieldFilled = false;
+                bool anyFieldEmpty = false;
+
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    string colName = dgvDSSanBayTG.Columns[cell.ColumnIndex].Name;
+
+                    // Skip non-required columns (for example, "GhiChu" and "STT")
+                    if (colName == "GhiChu" || colName == "STT")
+                        continue;
+
+                    // For required fields, consider a cell "empty" if its Value is null or whitespace.
+                    if (cell.Value == null || string.IsNullOrWhiteSpace(cell.Value.ToString()))
+                    {
+                        anyFieldEmpty = true;
+                    }
+                    else
+                    {
+                        anyFieldFilled = true;
+                    }
+                }
+
+                // If at least one required cell is filled but at least one is empty,
+                // then the row has incomplete input.
+                if (anyFieldFilled && anyFieldEmpty)
+                    return true;
+            }
+
+            return false;
+        }
+
+        private void btnTiepNhan_Click(object sender, EventArgs e)
+        {
+            //if (cbbSanBayDi.SelectedIndex == -1)
+            //{
+            //    errorProvider.SetError(cbbSanBayDi, "Sân bay đi không được để trống");
+            //}
+            //if (cbbSanBayDen.SelectedIndex == -1)
+            //{
+            //    errorProvider.SetError(cbbSanBayDen, "Sân bay đến không được để trống");
+            //}
+
+            if (string.IsNullOrEmpty(txtThoiGianBay.Text))
+            {
+                errorProvider.SetError(txtThoiGianBay, "Thời gian bay không được để trống");
+            }
+            if (string.IsNullOrEmpty(txtSoLuongGheHang1.Text))
+            {
+                errorProvider.SetError(txtSoLuongGheHang1, "Số lượng ghế hạng 1 không được để trống");
+            }
+            if (string.IsNullOrEmpty(txtSoLuongGheHang2.Text))
+            {
+                errorProvider.SetError(txtSoLuongGheHang2, "Số lượng ghế hạng 2 không được để trống");
+            }
+
+            if (HasErrors())
+            {
+                MessageBox.Show("Vui lòng sửa các lỗi trước khi tiếp tục.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (CheckDuplicateAirports())
+            {
+                MessageBox.Show("Có sân bay xuất hiện nhiều hơn một lần.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (HasIncompleteSanBayTGRowInput())
+            {
+                MessageBox.Show("Có hàng trong danh sách sân bay trung gian chưa được nhập đầy đủ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            DTO_ChuyenBay chuyenBayMoi = new DTO_ChuyenBay
+            {
+                MaChuyenBay = txtMaChuyenBay.Text,
+                MaSanBayDi = cbbSanBayDi.SelectedValue.ToString(),
+                MaSanBayDen = cbbSanBayDen.SelectedValue.ToString(),
+                NgayGioBay = dtpNgayGioBay.Value,
+                ThoiGianBay = int.Parse(txtThoiGianBay.Text)
+            };
+
+            if (BUS_ChuyenBay.ThemChuyenBay(chuyenBayMoi))
+            {
+                LuuCTChuyenBay(chuyenBayMoi.MaChuyenBay);
+                LuuHangVeCB(chuyenBayMoi.MaChuyenBay);
+                MessageBox.Show("Tiếp nhận lịch chuyến bay thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                PhatSinhMaChuyenBay();
+            }
+            else
+            {
+                MessageBox.Show("Tiếp nhận lịch chuyến bay thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        // it might be bool here, but I will change it later on
+        private void LuuCTChuyenBay(string maChuyenBay)
+        {
+            foreach (DataGridViewRow row in dgvDSSanBayTG.Rows)
+            {
+                if (row.IsNewRow)
+                    continue;
+
+                // Retrieve values from required cells.
+                var tenSanBay = row.Cells["TenSanBay"].Value?.ToString();
+                var thoiGianDungText = row.Cells["ThoiGianDung"].Value?.ToString();
+
+                // If both required fields are empty, skip this row.
+                if (string.IsNullOrWhiteSpace(tenSanBay) && string.IsNullOrWhiteSpace(thoiGianDungText))
+                    continue;
+
+                // Optionally, if ThoiGianDung must be valid, try parsing it.
+                if (!int.TryParse(thoiGianDungText, out int thoiGianDung))
+                {
+                    // Skip row or handle the parsing error as needed.
+                    continue;
+                }
+
+                var ghiChu = row.Cells["GhiChu"].Value?.ToString();
+                DTO_CTChuyenBay ctChuyenBay = new DTO_CTChuyenBay
+                {
+                    MaChuyenBay = maChuyenBay,
+                    MaSanBayTG = tenSanBay,
+                    ThoiGianDung = thoiGianDung,
+                    GhiChu = string.IsNullOrWhiteSpace(ghiChu) ? string.Empty : ghiChu
+                };
+
+                BUS_CTChuyenBay.ThemCTChuyenBay(ctChuyenBay);
+            }
+        }
+
+        // it might be bool here, but I will change it later on
+        private void LuuHangVeCB(string maChuyenBay)
+        {
+            DTO_HangVeCB hangVeHang1 = new DTO_HangVeCB
+            {
+                MaChuyenBay = maChuyenBay,
+                MaHangGhe = "HG00001", // here I'm hardcoding it, but it should be changed later on
+                SoLuongGhe = int.Parse(txtSoLuongGheHang1.Text)
+            };
+
+            DTO_HangVeCB hangVeHang2 = new DTO_HangVeCB
+            {
+                MaChuyenBay = maChuyenBay,
+                MaHangGhe = "HG00002", // here I'm hardcoding it, but it should be changed later on
+                SoLuongGhe = int.Parse(txtSoLuongGheHang2.Text)
+            };
+
+            BUS_HangVeCB.ThemHangVeCB(hangVeHang1);
+            BUS_HangVeCB.ThemHangVeCB(hangVeHang2);
+        }
+
+        private void txtThoiGianBay_TextChanged(object sender, EventArgs e)
+        {
+            int thoiGianBayToiThieu = BUS_ThamSo.LayThoiGianBayToiThieu();
+            if (string.IsNullOrWhiteSpace(txtThoiGianBay.Text)
+                || !int.TryParse(txtThoiGianBay.Text, out int thoiGianBay)
+                || thoiGianBay < thoiGianBayToiThieu)
+            {
+                errorProvider.SetError(txtThoiGianBay, $"Thời gian bay phải là số nguyên lớn hơn hay bằng {thoiGianBayToiThieu}");
+            }
+            else
+            {
+                errorProvider.SetError(txtThoiGianBay, string.Empty);
+            }
+        }
+
+        private void txtSoLuongGheHang1_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtSoLuongGheHang1.Text)
+                || !int.TryParse(txtSoLuongGheHang1.Text, out int soLuongGheHang1)
+                || soLuongGheHang1 < 0)
+            {
+                errorProvider.SetError(txtSoLuongGheHang1, "Số lượng ghế phải là số nguyên không âm");
+            }
+            else
+            {
+                errorProvider.SetError(txtSoLuongGheHang1, string.Empty);
+            }
+        }
+
+        private void txtSoLuongGheHang2_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtSoLuongGheHang2.Text)
+                || !int.TryParse(txtSoLuongGheHang2.Text, out int soLuongGheHang2)
+                || soLuongGheHang2 < 0)
+            {
+                errorProvider.SetError(txtSoLuongGheHang2, "Số lượng ghế phải là số nguyên không âm");
+            }
+            else
+            {
+                errorProvider.SetError(txtSoLuongGheHang2, string.Empty);
+            }
+        }
+
+        private void DgvDSSanBayTG_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            if (dgvDSSanBayTG.Columns[e.ColumnIndex].Name == "ThoiGianDung")
+            {
+                int thoiGianDungToiThieu = BUS_ThamSo.LayThoiGianDungToiThieu();
+                int thoiGianDungToiDa = BUS_ThamSo.LayThoiGianDungToiDa();
+
+                if (string.IsNullOrWhiteSpace(e.FormattedValue.ToString()))
+                {
+                    dgvDSSanBayTG.Rows[e.RowIndex].Cells[e.ColumnIndex].ErrorText = string.Empty;
+                    return;
+                }
+
+                if (!int.TryParse(e.FormattedValue.ToString(), out int thoiGianDung)
+                    || thoiGianDung < thoiGianDungToiThieu || thoiGianDung > thoiGianDungToiDa)
+                {
+                    dgvDSSanBayTG.Rows[e.RowIndex].Cells[e.ColumnIndex].ErrorText =
+                        $"Thời gian dừng phải là số nguyên từ {thoiGianDungToiThieu} đến {thoiGianDungToiDa}";
+                }
+                else
+                {
+                    dgvDSSanBayTG.Rows[e.RowIndex].Cells[e.ColumnIndex].ErrorText = string.Empty;
+                }
+            }
+        }
+
+        private bool CheckDuplicateAirports()
+        {
+            // Get selected values from comboboxes, ensuring they are not null or empty.
+            string sanBayDi = cbbSanBayDi.SelectedValue?.ToString();
+            string sanBayDen = cbbSanBayDen.SelectedValue?.ToString();
+            Dictionary<string, int> dictSanBay = new Dictionary<string, int>();
+
+            // Add sanBayDi to the dictionary if it's not empty.
+            if (!string.IsNullOrWhiteSpace(sanBayDi))
+            {
+                if (dictSanBay.ContainsKey(sanBayDi))
+                    dictSanBay[sanBayDi]++;
+                else
+                    dictSanBay[sanBayDi] = 1;
+            }
+
+            // Add sanBayDen to the dictionary if it's not empty.
+            if (!string.IsNullOrWhiteSpace(sanBayDen))
+            {
+                if (dictSanBay.ContainsKey(sanBayDen))
+                    dictSanBay[sanBayDen]++;
+                else
+                    dictSanBay[sanBayDen] = 1;
+            }
+
+            // Add all chosen sanBayTrungGian from dgvDSSanBayTG to the dictionary.
+            foreach (DataGridViewRow row in dgvDSSanBayTG.Rows)
+            {
+                if (row.IsNewRow)
+                    continue;
+
+                var cellValue = row.Cells["TenSanBay"].Value;
+                if (cellValue == null)
+                    continue;
+
+                string sanBayTrungGian = cellValue.ToString();
+                // Skip if the combobox cell has not been chosen (empty)
+                if (string.IsNullOrWhiteSpace(sanBayTrungGian))
+                    continue;
+
+                if (dictSanBay.ContainsKey(sanBayTrungGian))
+                    dictSanBay[sanBayTrungGian]++;
+                else
+                    dictSanBay[sanBayTrungGian] = 1;
+            }
+
+            // Check if any airport appears more than once.
+            foreach (var count in dictSanBay.Values)
+            {
+                if (count > 1)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }
