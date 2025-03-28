@@ -114,7 +114,7 @@ namespace QLBVBM.GUI
             lblSoLuongGheHang1.Name = "lblSoLuongGheHang1";
             lblSoLuongGheHang1.Size = new Size(99, 20);
             lblSoLuongGheHang1.TabIndex = 9;
-            lblSoLuongGheHang1.Text = "Thời gian bay";
+            lblSoLuongGheHang1.Text = "Thời gian bay (phút)";
             // 
             // lblSoLuongGheHang2
             // 
@@ -170,6 +170,7 @@ namespace QLBVBM.GUI
             cbbSanBayDi.Name = "cbbSanBayDi";
             cbbSanBayDi.Size = new Size(192, 28);
             cbbSanBayDi.TabIndex = 16;
+            cbbSanBayDi.DropDownStyle = ComboBoxStyle.DropDownList;
             // 
             // cbbSanBayDen
             // 
@@ -178,6 +179,7 @@ namespace QLBVBM.GUI
             cbbSanBayDen.Name = "cbbSanBayDen";
             cbbSanBayDen.Size = new Size(192, 28);
             cbbSanBayDen.TabIndex = 17;
+            cbbSanBayDen.DropDownStyle = ComboBoxStyle.DropDownList;
             // 
             // btnTiepNhan
             // 

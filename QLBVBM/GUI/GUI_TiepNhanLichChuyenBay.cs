@@ -45,18 +45,7 @@ namespace QLBVBM.GUI
 
         private void PhatSinhMaChuyenBay()
         {
-            DTO_ChuyenBay chuyenBayCuoi = BUS_ChuyenBay.LayChuyenBayCuoi();
-            if (chuyenBayCuoi != null)
-            {
-                string maChuyenBayCuoi = chuyenBayCuoi.MaChuyenBay;
-                int lastNumber = int.Parse(maChuyenBayCuoi.Substring(2));
-                string maChuyenBayMoi = "CB" + (lastNumber + 1).ToString("D5");
-                txtMaChuyenBay.Text = maChuyenBayMoi;
-            }
-            else
-            {
-                txtMaChuyenBay.Text = "CB00001";
-            }
+            txtMaChuyenBay.Text = BUS_ChuyenBay.PhatSinhMaChuyenBay();
         }
 
         private void SetupDgvColumns(DataGridView dgv, int rowCount, List<DTO_SanBay> dsSanBay)
@@ -87,7 +76,7 @@ namespace QLBVBM.GUI
             DataGridViewTextBoxColumn colThoiGianDung = new DataGridViewTextBoxColumn
             {
                 Name = "ThoiGianDung",
-                HeaderText = "Thời gian dừng",
+                HeaderText = "Thời gian dừng (phút)",
             };
             dgv.Columns.Add(colThoiGianDung);
 
@@ -171,15 +160,6 @@ namespace QLBVBM.GUI
 
         private void btnTiepNhan_Click(object sender, EventArgs e)
         {
-            //if (cbbSanBayDi.SelectedIndex == -1)
-            //{
-            //    errorProvider.SetError(cbbSanBayDi, "Sân bay đi không được để trống");
-            //}
-            //if (cbbSanBayDen.SelectedIndex == -1)
-            //{
-            //    errorProvider.SetError(cbbSanBayDen, "Sân bay đến không được để trống");
-            //}
-
             if (string.IsNullOrEmpty(txtThoiGianBay.Text))
             {
                 errorProvider.SetError(txtThoiGianBay, "Thời gian bay không được để trống");
@@ -294,9 +274,7 @@ namespace QLBVBM.GUI
         private void txtThoiGianBay_TextChanged(object sender, EventArgs e)
         {
             int thoiGianBayToiThieu = BUS_ThamSo.LayThoiGianBayToiThieu();
-            if (string.IsNullOrWhiteSpace(txtThoiGianBay.Text)
-                || !int.TryParse(txtThoiGianBay.Text, out int thoiGianBay)
-                || thoiGianBay < thoiGianBayToiThieu)
+            if (!BUS_ChuyenBay.ValidateThoiGianBay(txtThoiGianBay.Text))
             {
                 errorProvider.SetError(txtThoiGianBay, $"Thời gian bay phải là số nguyên lớn hơn hay bằng {thoiGianBayToiThieu}");
             }
@@ -308,9 +286,7 @@ namespace QLBVBM.GUI
 
         private void txtSoLuongGheHang1_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtSoLuongGheHang1.Text)
-                || !int.TryParse(txtSoLuongGheHang1.Text, out int soLuongGheHang1)
-                || soLuongGheHang1 < 0)
+            if (!BUS_ChuyenBay.ValidateSoLuongGhe(txtSoLuongGheHang1.Text))
             {
                 errorProvider.SetError(txtSoLuongGheHang1, "Số lượng ghế phải là số nguyên không âm");
             }
@@ -322,9 +298,7 @@ namespace QLBVBM.GUI
 
         private void txtSoLuongGheHang2_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtSoLuongGheHang2.Text)
-                || !int.TryParse(txtSoLuongGheHang2.Text, out int soLuongGheHang2)
-                || soLuongGheHang2 < 0)
+            if (!BUS_ChuyenBay.ValidateSoLuongGhe(txtSoLuongGheHang2.Text))
             {
                 errorProvider.SetError(txtSoLuongGheHang2, "Số lượng ghế phải là số nguyên không âm");
             }
@@ -347,8 +321,7 @@ namespace QLBVBM.GUI
                     return;
                 }
 
-                if (!int.TryParse(e.FormattedValue.ToString(), out int thoiGianDung)
-                    || thoiGianDung < thoiGianDungToiThieu || thoiGianDung > thoiGianDungToiDa)
+                if (!BUS_ChuyenBay.ValidateThoiGianDung(e.FormattedValue.ToString()))
                 {
                     dgvDSSanBayTG.Rows[e.RowIndex].Cells[e.ColumnIndex].ErrorText =
                         $"Thời gian dừng phải là số nguyên từ {thoiGianDungToiThieu} đến {thoiGianDungToiDa}";
@@ -362,30 +335,16 @@ namespace QLBVBM.GUI
 
         private bool CheckDuplicateAirports()
         {
-            // Get selected values from comboboxes, ensuring they are not null or empty.
+            List<string> selectedAirports = new List<string>();
             string sanBayDi = cbbSanBayDi.SelectedValue?.ToString();
             string sanBayDen = cbbSanBayDen.SelectedValue?.ToString();
-            Dictionary<string, int> dictSanBay = new Dictionary<string, int>();
 
-            // Add sanBayDi to the dictionary if it's not empty.
             if (!string.IsNullOrWhiteSpace(sanBayDi))
-            {
-                if (dictSanBay.ContainsKey(sanBayDi))
-                    dictSanBay[sanBayDi]++;
-                else
-                    dictSanBay[sanBayDi] = 1;
-            }
+                selectedAirports.Add(sanBayDi);
 
-            // Add sanBayDen to the dictionary if it's not empty.
             if (!string.IsNullOrWhiteSpace(sanBayDen))
-            {
-                if (dictSanBay.ContainsKey(sanBayDen))
-                    dictSanBay[sanBayDen]++;
-                else
-                    dictSanBay[sanBayDen] = 1;
-            }
+                selectedAirports.Add(sanBayDen);
 
-            // Add all chosen sanBayTrungGian from dgvDSSanBayTG to the dictionary.
             foreach (DataGridViewRow row in dgvDSSanBayTG.Rows)
             {
                 if (row.IsNewRow)
@@ -395,27 +354,14 @@ namespace QLBVBM.GUI
                 if (cellValue == null)
                     continue;
 
-                string sanBayTrungGian = cellValue.ToString();
-                // Skip if the combobox cell has not been chosen (empty)
-                if (string.IsNullOrWhiteSpace(sanBayTrungGian))
+                string sanBayTG = cellValue.ToString();
+                if (string.IsNullOrWhiteSpace(sanBayTG))
                     continue;
 
-                if (dictSanBay.ContainsKey(sanBayTrungGian))
-                    dictSanBay[sanBayTrungGian]++;
-                else
-                    dictSanBay[sanBayTrungGian] = 1;
+                selectedAirports.Add(sanBayTG);
             }
 
-            // Check if any airport appears more than once.
-            foreach (var count in dictSanBay.Values)
-            {
-                if (count > 1)
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            return BUS_ChuyenBay.CheckDuplicateAirports(selectedAirports);
         }
     }
 }
