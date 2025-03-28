@@ -15,28 +15,36 @@ namespace QLBVBM.DAL
         {
             string query = "SELECT SoSanBayTGToiDa FROM THAMSO";
             DataTable dt = dataHelper.ExecuteQuery(query);
-            return int.Parse(dt.Rows[0]["SoSanBayTGToiDa"].ToString());
+            int result;
+            int.TryParse(dt.Rows[0]["SoSanBayTGToiDa"].ToString(), out result);
+            return result;
         }
 
         public int LayThoiGianBayToiThieu()
         {
             string query = "SELECT TGBayToiThieu FROM THAMSO";
             DataTable dt = dataHelper.ExecuteQuery(query);
-            return int.Parse(dt.Rows[0]["TGBayToiThieu"].ToString());
+            int result;
+            int.TryParse(dt.Rows[0]["TGBayToiThieu"].ToString(), out result);
+            return result;
         }
 
         public int LayThoiGianDungToiThieu()
         {
             string query = "SELECT TGDungToiThieu FROM THAMSO";
             DataTable dt = dataHelper.ExecuteQuery(query);
-            return int.Parse(dt.Rows[0]["TGDungToiThieu"].ToString());
+            int result;
+            int.TryParse(dt.Rows[0]["TGDungToiThieu"].ToString(), out result);
+            return result;
         }
 
         public int LayThoiGianDungToiDa()
         {
             string query = "SELECT TGDungToiDa FROM THAMSO";
             DataTable dt = dataHelper.ExecuteQuery(query);
-            return int.Parse(dt.Rows[0]["TGDungToiDa"].ToString());
+            int result;
+            int.TryParse(dt.Rows[0]["TGDungToiDa"].ToString(), out result);
+            return result;
         }
     }
 }

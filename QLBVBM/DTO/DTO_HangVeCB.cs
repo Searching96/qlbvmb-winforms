@@ -8,8 +8,19 @@ namespace QLBVBM.DTO
 {
     public class DTO_HangVeCB
     {
-        public string MaHangGhe { get; set; }
-        public string MaChuyenBay { get; set; }
-        public int SoLuongGhe { get; set; }
+        private string? maHangGhe;
+        private string? maChuyenBay;
+        private int? soLuongGhe;
+
+        public DTO_HangVeCB(string? maHangGhe = null, string? maChuyenBay = null, int? soLuongGhe = null)
+        {
+            this.maHangGhe = maHangGhe;
+            this.maChuyenBay = maChuyenBay;
+            this.soLuongGhe = soLuongGhe;
+        }
+
+        public string? MaHangGhe { get => maHangGhe; set => maHangGhe = value; }
+        public string? MaChuyenBay { get => maChuyenBay; set => maChuyenBay = value; }
+        public int? SoLuongGhe { get => soLuongGhe; set => soLuongGhe = value; }
     }
 }
