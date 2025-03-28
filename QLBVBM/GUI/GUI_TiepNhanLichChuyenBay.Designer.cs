@@ -45,6 +45,8 @@ namespace QLBVBM.GUI
             cbbSanBayDi = new ComboBox();
             cbbSanBayDen = new ComboBox();
             btnTiepNhan = new Button();
+            btnThemSanBay = new Button();
+            btnThemHangGhe = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvDSSanBayTG).BeginInit();
             SuspendLayout();
             // 
@@ -59,15 +61,16 @@ namespace QLBVBM.GUI
             // 
             // txtMaChuyenBay
             // 
-            txtMaChuyenBay.Location = new Point(19, 79);
+            txtMaChuyenBay.Location = new Point(19, 78);
             txtMaChuyenBay.Name = "txtMaChuyenBay";
-            txtMaChuyenBay.Size = new Size(190, 27);
+            txtMaChuyenBay.Size = new Size(192, 27);
             txtMaChuyenBay.TabIndex = 1;
+            txtMaChuyenBay.ReadOnly = true;
             // 
             // lblSanBayDi
             // 
             lblSanBayDi.AutoSize = true;
-            lblSanBayDi.Location = new Point(413, 56);
+            lblSanBayDi.Location = new Point(527, 56);
             lblSanBayDi.Name = "lblSanBayDi";
             lblSanBayDi.Size = new Size(90, 20);
             lblSanBayDi.TabIndex = 2;
@@ -76,7 +79,7 @@ namespace QLBVBM.GUI
             // lblSanBayDen
             // 
             lblSanBayDen.AutoSize = true;
-            lblSanBayDen.Location = new Point(215, 56);
+            lblSanBayDen.Location = new Point(272, 54);
             lblSanBayDen.Name = "lblSanBayDen";
             lblSanBayDen.Size = new Size(78, 20);
             lblSanBayDen.TabIndex = 3;
@@ -86,13 +89,14 @@ namespace QLBVBM.GUI
             // 
             dtpNgayGioBay.Location = new Point(19, 147);
             dtpNgayGioBay.Name = "dtpNgayGioBay";
-            dtpNgayGioBay.Size = new Size(248, 27);
+            dtpNgayGioBay.Size = new Size(300, 27);
             dtpNgayGioBay.TabIndex = 6;
+            dtpNgayGioBay.Value = DateTime.Now.AddMonths(1);
             // 
             // lblNgayGioBay
             // 
             lblNgayGioBay.AutoSize = true;
-            lblNgayGioBay.Location = new Point(353, 204);
+            lblNgayGioBay.Location = new Point(419, 204);
             lblNgayGioBay.Name = "lblNgayGioBay";
             lblNgayGioBay.Size = new Size(147, 20);
             lblNgayGioBay.TabIndex = 7;
@@ -110,9 +114,9 @@ namespace QLBVBM.GUI
             // lblSoLuongGheHang1
             // 
             lblSoLuongGheHang1.AutoSize = true;
-            lblSoLuongGheHang1.Location = new Point(353, 124);
+            lblSoLuongGheHang1.Location = new Point(419, 124);
             lblSoLuongGheHang1.Name = "lblSoLuongGheHang1";
-            lblSoLuongGheHang1.Size = new Size(99, 20);
+            lblSoLuongGheHang1.Size = new Size(143, 20);
             lblSoLuongGheHang1.TabIndex = 9;
             lblSoLuongGheHang1.Text = "Thời gian bay (phút)";
             // 
@@ -127,17 +131,17 @@ namespace QLBVBM.GUI
             // 
             // txtThoiGianBay
             // 
-            txtThoiGianBay.Location = new Point(353, 147);
+            txtThoiGianBay.Location = new Point(419, 147);
             txtThoiGianBay.Name = "txtThoiGianBay";
-            txtThoiGianBay.Size = new Size(252, 27);
+            txtThoiGianBay.Size = new Size(300, 27);
             txtThoiGianBay.TabIndex = 13;
             txtThoiGianBay.TextChanged += txtThoiGianBay_TextChanged;
             // 
             // txtSoLuongGheHang2
             // 
-            txtSoLuongGheHang2.Location = new Point(353, 227);
+            txtSoLuongGheHang2.Location = new Point(419, 227);
             txtSoLuongGheHang2.Name = "txtSoLuongGheHang2";
-            txtSoLuongGheHang2.Size = new Size(252, 27);
+            txtSoLuongGheHang2.Size = new Size(300, 27);
             txtSoLuongGheHang2.TabIndex = 14;
             txtSoLuongGheHang2.TextChanged += txtSoLuongGheHang2_TextChanged;
             // 
@@ -145,7 +149,7 @@ namespace QLBVBM.GUI
             // 
             txtSoLuongGheHang1.Location = new Point(19, 227);
             txtSoLuongGheHang1.Name = "txtSoLuongGheHang1";
-            txtSoLuongGheHang1.Size = new Size(248, 27);
+            txtSoLuongGheHang1.Size = new Size(300, 27);
             txtSoLuongGheHang1.TabIndex = 15;
             txtSoLuongGheHang1.TextChanged += txtSoLuongGheHang1_TextChanged;
             // 
@@ -160,26 +164,24 @@ namespace QLBVBM.GUI
             dgvDSSanBayTG.Size = new Size(700, 172);
             dgvDSSanBayTG.TabIndex = 18;
             dgvDSSanBayTG.CellValidating += DgvDSSanBayTG_CellValidating;
-            dgvDSSanBayTG.ShowCellErrors = true;
-            dgvDSSanBayTG.ShowRowErrors = true;
             // 
             // cbbSanBayDi
             // 
+            cbbSanBayDi.DropDownStyle = ComboBoxStyle.DropDownList;
             cbbSanBayDi.FormattingEnabled = true;
-            cbbSanBayDi.Location = new Point(215, 79);
+            cbbSanBayDi.Location = new Point(272, 77);
             cbbSanBayDi.Name = "cbbSanBayDi";
             cbbSanBayDi.Size = new Size(192, 28);
             cbbSanBayDi.TabIndex = 16;
-            cbbSanBayDi.DropDownStyle = ComboBoxStyle.DropDownList;
             // 
             // cbbSanBayDen
             // 
+            cbbSanBayDen.DropDownStyle = ComboBoxStyle.DropDownList;
             cbbSanBayDen.FormattingEnabled = true;
-            cbbSanBayDen.Location = new Point(413, 79);
+            cbbSanBayDen.Location = new Point(527, 77);
             cbbSanBayDen.Name = "cbbSanBayDen";
             cbbSanBayDen.Size = new Size(192, 28);
             cbbSanBayDen.TabIndex = 17;
-            cbbSanBayDen.DropDownStyle = ComboBoxStyle.DropDownList;
             // 
             // btnTiepNhan
             // 
@@ -191,11 +193,32 @@ namespace QLBVBM.GUI
             btnTiepNhan.UseVisualStyleBackColor = true;
             btnTiepNhan.Click += btnTiepNhan_Click;
             // 
+            // btnThemSanBay
+            // 
+            btnThemSanBay.Location = new Point(19, 532);
+            btnThemSanBay.Name = "btnThemSanBay";
+            btnThemSanBay.Size = new Size(347, 29);
+            btnThemSanBay.TabIndex = 20;
+            btnThemSanBay.Text = "Thêm sân bay mới";
+            btnThemSanBay.UseVisualStyleBackColor = true;
+            btnThemSanBay.Click += btnThemSanBay_Click;
+            // 
+            // btnThemHangGhe
+            // 
+            btnThemHangGhe.Location = new Point(372, 532);
+            btnThemHangGhe.Name = "btnThemHangGhe";
+            btnThemHangGhe.Size = new Size(347, 29);
+            btnThemHangGhe.TabIndex = 21;
+            btnThemHangGhe.Text = "Thêm hạng ghế mới";
+            btnThemHangGhe.UseVisualStyleBackColor = true;
+            // 
             // GUI_TiepNhanLichChuyenBay
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1000, 573);
+            Controls.Add(btnThemHangGhe);
+            Controls.Add(btnThemSanBay);
             Controls.Add(btnTiepNhan);
             Controls.Add(cbbSanBayDen);
             Controls.Add(cbbSanBayDi);
@@ -237,5 +260,7 @@ namespace QLBVBM.GUI
         private ComboBox cbbSanBayDi;
         private ComboBox cbbSanBayDen;
         private Button btnTiepNhan;
+        private Button btnThemSanBay;
+        private Button btnThemHangGhe;
     }
 }

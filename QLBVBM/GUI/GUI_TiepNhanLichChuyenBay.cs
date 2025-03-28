@@ -200,10 +200,52 @@ namespace QLBVBM.GUI
                 ThoiGianBay = int.Parse(txtThoiGianBay.Text)
             };
 
-            if (BUS_ChuyenBay.ThemChuyenBay(chuyenBayMoi))
+            List<DTO_CTChuyenBay> dsCTChuyenBay = new List<DTO_CTChuyenBay>();
+            foreach (DataGridViewRow row in dgvDSSanBayTG.Rows)
             {
-                LuuCTChuyenBay(chuyenBayMoi.MaChuyenBay);
-                LuuHangVeCB(chuyenBayMoi.MaChuyenBay);
+                if (row.IsNewRow)
+                    continue;
+
+                var maSanBay = row.Cells["TenSanBay"].Value?.ToString();
+                var textThoiGianDung = row.Cells["ThoiGianDung"].Value?.ToString();
+
+                if (string.IsNullOrWhiteSpace(maSanBay) && string.IsNullOrWhiteSpace(textThoiGianDung))
+                    continue;
+
+                if (!int.TryParse(textThoiGianDung, out int thoiGianDung))
+                    continue;
+
+                var ghiChu = row.Cells["GhiChu"].Value?.ToString();
+
+                DTO_CTChuyenBay ctChuyenBay = new DTO_CTChuyenBay
+                {
+                    MaChuyenBay = chuyenBayMoi.MaChuyenBay,
+                    MaSanBayTG = maSanBay,
+                    ThoiGianDung = thoiGianDung,
+                    GhiChu = string.IsNullOrWhiteSpace(ghiChu) ? string.Empty : ghiChu
+                };
+
+                dsCTChuyenBay.Add(ctChuyenBay);
+            }
+
+            List<DTO_HangVeCB> dsHangVeCB = new List<DTO_HangVeCB>
+            {
+                new DTO_HangVeCB
+                {
+                    MaChuyenBay = chuyenBayMoi.MaChuyenBay,
+                    MaHangGhe = "HG00001",
+                    SoLuongGhe = int.Parse(txtSoLuongGheHang1.Text)
+                },
+                new DTO_HangVeCB
+                {
+                    MaChuyenBay = chuyenBayMoi.MaChuyenBay,
+                    MaHangGhe = "HG00002",
+                    SoLuongGhe = int.Parse(txtSoLuongGheHang2.Text)
+                }
+            };
+
+            if (BUS_ChuyenBay.ThemChuyenBayVaChiTiet(chuyenBayMoi, dsCTChuyenBay, dsHangVeCB))
+            {
                 MessageBox.Show("Tiếp nhận lịch chuyến bay thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 PhatSinhMaChuyenBay();
             }
@@ -211,64 +253,6 @@ namespace QLBVBM.GUI
             {
                 MessageBox.Show("Tiếp nhận lịch chuyến bay thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-
-        // it might be bool here, but I will change it later on
-        private void LuuCTChuyenBay(string maChuyenBay)
-        {
-            foreach (DataGridViewRow row in dgvDSSanBayTG.Rows)
-            {
-                if (row.IsNewRow)
-                    continue;
-
-                // Retrieve values from required cells.
-                var tenSanBay = row.Cells["TenSanBay"].Value?.ToString();
-                var thoiGianDungText = row.Cells["ThoiGianDung"].Value?.ToString();
-
-                // If both required fields are empty, skip this row.
-                if (string.IsNullOrWhiteSpace(tenSanBay) && string.IsNullOrWhiteSpace(thoiGianDungText))
-                    continue;
-
-                // Optionally, if ThoiGianDung must be valid, try parsing it.
-                if (!int.TryParse(thoiGianDungText, out int thoiGianDung))
-                {
-                    // Skip row or handle the parsing error as needed.
-                    continue;
-                }
-
-                var ghiChu = row.Cells["GhiChu"].Value?.ToString();
-                DTO_CTChuyenBay ctChuyenBay = new DTO_CTChuyenBay
-                {
-                    MaChuyenBay = maChuyenBay,
-                    MaSanBayTG = tenSanBay,
-                    ThoiGianDung = thoiGianDung,
-                    GhiChu = string.IsNullOrWhiteSpace(ghiChu) ? string.Empty : ghiChu
-                };
-
-                BUS_CTChuyenBay.ThemCTChuyenBay(ctChuyenBay);
-            }
-        }
-
-        // it might be bool here, but I will change it later on
-        private void LuuHangVeCB(string maChuyenBay)
-        {
-            DTO_HangVeCB hangVeHang1 = new DTO_HangVeCB
-            {
-                MaChuyenBay = maChuyenBay,
-                MaHangGhe = "HG00001", // here I'm hardcoding it, but it should be changed later on
-                SoLuongGhe = int.Parse(txtSoLuongGheHang1.Text)
-            };
-
-            DTO_HangVeCB hangVeHang2 = new DTO_HangVeCB
-            {
-                MaChuyenBay = maChuyenBay,
-                MaHangGhe = "HG00002", // here I'm hardcoding it, but it should be changed later on
-                SoLuongGhe = int.Parse(txtSoLuongGheHang2.Text)
-            };
-
-            BUS_HangVeCB.ThemHangVeCB(hangVeHang1);
-            BUS_HangVeCB.ThemHangVeCB(hangVeHang2);
         }
 
         private void txtThoiGianBay_TextChanged(object sender, EventArgs e)
@@ -362,6 +346,27 @@ namespace QLBVBM.GUI
             }
 
             return BUS_ChuyenBay.CheckDuplicateAirports(selectedAirports);
+        }
+
+        private void btnThemSanBay_Click(object sender, EventArgs e)
+        {
+            GUI_ThemSanBay frmThemSanBay = new GUI_ThemSanBay();
+            frmThemSanBay.ShowDialog();
+            LoadSanBayToComboBox(cbbSanBayDi);
+            LoadSanBayToComboBox(cbbSanBayDen);
+            ReloadSanBayComboBoxInDgv();
+        }
+
+        private void ReloadSanBayComboBoxInDgv()
+        {
+            List<DTO_SanBay> dsSanBay = BUS_SanBay.LayDanhSachSanBay();
+            if (dsSanBay != null && dsSanBay.Count > 0)
+            {
+                DataGridViewComboBoxColumn colTenSanBay = (DataGridViewComboBoxColumn)dgvDSSanBayTG.Columns["TenSanBay"];
+                colTenSanBay.DataSource = dsSanBay;
+                colTenSanBay.DisplayMember = "TenSanBay";
+                colTenSanBay.ValueMember = "MaSanBay";
+            }
         }
     }
 }
