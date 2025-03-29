@@ -17,8 +17,6 @@ namespace QLBVBM.GUI
     {
         private BUS_SanBay BUS_SanBay = new BUS_SanBay();
         private BUS_ChuyenBay BUS_ChuyenBay = new BUS_ChuyenBay();
-        private BUS_CTChuyenBay BUS_CTChuyenBay = new BUS_CTChuyenBay();
-        private BUS_HangVeCB BUS_HangVeCB = new BUS_HangVeCB();
         private BUS_ThamSo BUS_ThamSo = new BUS_ThamSo();
 
         private ErrorProvider errorProvider = new ErrorProvider();
@@ -367,6 +365,11 @@ namespace QLBVBM.GUI
                 colTenSanBay.DisplayMember = "TenSanBay";
                 colTenSanBay.ValueMember = "MaSanBay";
             }
+        }
+
+        private void btnThemHangGhe_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Will implement this later.");
         }
     }
 }

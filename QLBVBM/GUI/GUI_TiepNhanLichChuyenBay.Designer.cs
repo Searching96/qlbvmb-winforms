@@ -63,9 +63,9 @@ namespace QLBVBM.GUI
             // 
             txtMaChuyenBay.Location = new Point(19, 78);
             txtMaChuyenBay.Name = "txtMaChuyenBay";
+            txtMaChuyenBay.ReadOnly = true;
             txtMaChuyenBay.Size = new Size(192, 27);
             txtMaChuyenBay.TabIndex = 1;
-            txtMaChuyenBay.ReadOnly = true;
             // 
             // lblSanBayDi
             // 
@@ -91,7 +91,7 @@ namespace QLBVBM.GUI
             dtpNgayGioBay.Name = "dtpNgayGioBay";
             dtpNgayGioBay.Size = new Size(300, 27);
             dtpNgayGioBay.TabIndex = 6;
-            dtpNgayGioBay.Value = DateTime.Now.AddMonths(1);
+            dtpNgayGioBay.Value = new DateTime(2025, 4, 29, 11, 16, 0, 368);
             // 
             // lblNgayGioBay
             // 
@@ -211,6 +211,7 @@ namespace QLBVBM.GUI
             btnThemHangGhe.TabIndex = 21;
             btnThemHangGhe.Text = "Thêm hạng ghế mới";
             btnThemHangGhe.UseVisualStyleBackColor = true;
+            btnThemHangGhe.Click += btnThemHangGhe_Click;
             // 
             // GUI_TiepNhanLichChuyenBay
             // 
