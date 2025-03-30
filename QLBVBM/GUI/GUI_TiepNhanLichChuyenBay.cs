@@ -46,7 +46,7 @@ namespace QLBVBM.GUI
             txtMaChuyenBay.Text = BUS_ChuyenBay.PhatSinhMaChuyenBay();
         }
 
-        private void SetupDgvColumns(DataGridView dgv, int rowCount, List<DTO_SanBay> dsSanBay)
+        private void SetupDgvColumns(Guna.UI2.WinForms.Guna2DataGridView dgv, int rowCount, List<DTO_SanBay> dsSanBay)
         {
             dgv.Columns.Clear();
             dgv.RowHeadersVisible = false;

@@ -40,40 +40,43 @@
             // lblMaSanBay
             // 
             lblMaSanBay.AutoSize = true;
-            lblMaSanBay.Location = new Point(128, 80);
+            lblMaSanBay.Location = new Point(112, 60);
             lblMaSanBay.Name = "lblMaSanBay";
-            lblMaSanBay.Size = new Size(86, 20);
+            lblMaSanBay.Size = new Size(68, 15);
             lblMaSanBay.TabIndex = 2;
             lblMaSanBay.Text = "Mã Sân Bay";
             // 
             // lblTenSanBay
             // 
             lblTenSanBay.AutoSize = true;
-            lblTenSanBay.Location = new Point(128, 130);
+            lblTenSanBay.Location = new Point(112, 98);
             lblTenSanBay.Name = "lblTenSanBay";
-            lblTenSanBay.Size = new Size(88, 20);
+            lblTenSanBay.Size = new Size(70, 15);
             lblTenSanBay.TabIndex = 3;
             lblTenSanBay.Text = "Tên Sân Bay";
             // 
             // txtMaSanBay
             // 
-            txtMaSanBay.Location = new Point(220, 73);
+            txtMaSanBay.Location = new Point(192, 55);
+            txtMaSanBay.Margin = new Padding(3, 2, 3, 2);
             txtMaSanBay.Name = "txtMaSanBay";
-            txtMaSanBay.Size = new Size(212, 27);
+            txtMaSanBay.Size = new Size(186, 23);
             txtMaSanBay.TabIndex = 4;
             // 
             // txtTenSanBay
             // 
-            txtTenSanBay.Location = new Point(220, 123);
+            txtTenSanBay.Location = new Point(192, 92);
+            txtTenSanBay.Margin = new Padding(3, 2, 3, 2);
             txtTenSanBay.Name = "txtTenSanBay";
-            txtTenSanBay.Size = new Size(212, 27);
+            txtTenSanBay.Size = new Size(186, 23);
             txtTenSanBay.TabIndex = 5;
             // 
             // btnThem
             // 
-            btnThem.Location = new Point(220, 180);
+            btnThem.Location = new Point(192, 135);
+            btnThem.Margin = new Padding(3, 2, 3, 2);
             btnThem.Name = "btnThem";
-            btnThem.Size = new Size(94, 29);
+            btnThem.Size = new Size(82, 22);
             btnThem.TabIndex = 6;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = true;
@@ -82,23 +85,25 @@
             // dgvSanBay
             // 
             dgvSanBay.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvSanBay.Location = new Point(12, 244);
+            dgvSanBay.Location = new Point(10, 183);
+            dgvSanBay.Margin = new Padding(3, 2, 3, 2);
             dgvSanBay.Name = "dgvSanBay";
             dgvSanBay.RowHeadersWidth = 51;
-            dgvSanBay.Size = new Size(776, 194);
+            dgvSanBay.Size = new Size(679, 146);
             dgvSanBay.TabIndex = 7;
             // 
             // GUI_ThemSanBay
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(702, 344);
             Controls.Add(dgvSanBay);
             Controls.Add(btnThem);
             Controls.Add(txtTenSanBay);
             Controls.Add(txtMaSanBay);
             Controls.Add(lblTenSanBay);
             Controls.Add(lblMaSanBay);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "GUI_ThemSanBay";
             Text = "GUI_ThemSanBay";
             Load += GUI_ThemSanBay_Load;
