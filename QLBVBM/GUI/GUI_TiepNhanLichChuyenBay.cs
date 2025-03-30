@@ -51,6 +51,17 @@ namespace QLBVBM.GUI
             dgv.Columns.Clear();
             dgv.RowHeadersVisible = false;
 
+            // Set the theme to grey color
+            dgv.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
+            dgv.ThemeStyle.BackColor = Color.White;
+            dgv.ThemeStyle.GridColor = Color.LightGray;
+            dgv.ThemeStyle.HeaderStyle.BackColor = Color.White;
+            dgv.ThemeStyle.HeaderStyle.ForeColor = Color.Black;
+            dgv.ThemeStyle.RowsStyle.BackColor = Color.White;
+            dgv.ThemeStyle.RowsStyle.ForeColor = Color.Black;
+            dgv.ThemeStyle.RowsStyle.SelectionBackColor = Color.LightGray;
+            dgv.ThemeStyle.RowsStyle.SelectionForeColor = Color.Black;
+
             DataGridViewTextBoxColumn colSTT = new DataGridViewTextBoxColumn
             {
                 Name = "STT",

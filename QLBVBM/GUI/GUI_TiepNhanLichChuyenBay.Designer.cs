@@ -64,6 +64,7 @@ namespace QLBVBM.GUI
             txtSoLuongGheHang1 = new Guna.UI2.WinForms.Guna2TextBox();
             txtSoLuongGheHang2 = new Guna.UI2.WinForms.Guna2TextBox();
             dgvDSSanBayTG = new Guna.UI2.WinForms.Guna2DataGridView();
+            lblSBTGTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
             ((System.ComponentModel.ISupportInitialize)dgvDSSanBayTG).BeginInit();
             SuspendLayout();
             // 
@@ -111,7 +112,7 @@ namespace QLBVBM.GUI
             txtThoiGianBay.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             txtThoiGianBay.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtThoiGianBay.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtThoiGianBay.Font = new Font("Segoe UI", 9F);
+            txtThoiGianBay.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
             txtThoiGianBay.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtThoiGianBay.Location = new Point(417, 156);
             txtThoiGianBay.Name = "txtThoiGianBay";
@@ -135,7 +136,7 @@ namespace QLBVBM.GUI
             txtMaChuyenBay.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtMaChuyenBay.FillColor = Color.FromArgb(224, 224, 224);
             txtMaChuyenBay.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtMaChuyenBay.Font = new Font("Segoe UI", 9F);
+            txtMaChuyenBay.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
             txtMaChuyenBay.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtMaChuyenBay.Location = new Point(20, 60);
             txtMaChuyenBay.Name = "txtMaChuyenBay";
@@ -167,7 +168,7 @@ namespace QLBVBM.GUI
             cbbSanBayDi.FillColor = Color.FromArgb(224, 224, 224);
             cbbSanBayDi.FocusedColor = Color.FromArgb(94, 148, 255);
             cbbSanBayDi.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            cbbSanBayDi.Font = new Font("Segoe UI", 10F);
+            cbbSanBayDi.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 163);
             cbbSanBayDi.ForeColor = Color.FromArgb(68, 88, 112);
             cbbSanBayDi.ItemHeight = 30;
             cbbSanBayDi.Location = new Point(264, 60);
@@ -187,7 +188,7 @@ namespace QLBVBM.GUI
             cbbSanBayDen.FillColor = Color.FromArgb(224, 224, 224);
             cbbSanBayDen.FocusedColor = Color.FromArgb(94, 148, 255);
             cbbSanBayDen.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            cbbSanBayDen.Font = new Font("Segoe UI", 10F);
+            cbbSanBayDen.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 163);
             cbbSanBayDen.ForeColor = Color.FromArgb(68, 88, 112);
             cbbSanBayDen.ItemHeight = 30;
             cbbSanBayDen.Location = new Point(520, 60);
@@ -286,7 +287,7 @@ namespace QLBVBM.GUI
             txtSoLuongGheHang1.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             txtSoLuongGheHang1.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtSoLuongGheHang1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtSoLuongGheHang1.Font = new Font("Segoe UI", 9F);
+            txtSoLuongGheHang1.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
             txtSoLuongGheHang1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtSoLuongGheHang1.Location = new Point(20, 262);
             txtSoLuongGheHang1.Name = "txtSoLuongGheHang1";
@@ -308,7 +309,7 @@ namespace QLBVBM.GUI
             txtSoLuongGheHang2.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             txtSoLuongGheHang2.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtSoLuongGheHang2.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtSoLuongGheHang2.Font = new Font("Segoe UI", 9F);
+            txtSoLuongGheHang2.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
             txtSoLuongGheHang2.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtSoLuongGheHang2.Location = new Point(417, 262);
             txtSoLuongGheHang2.Name = "txtSoLuongGheHang2";
@@ -321,58 +322,73 @@ namespace QLBVBM.GUI
             // 
             // dgvDSSanBayTG
             // 
-            dataGridViewCellStyle1.BackColor = Color.White;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(247, 216, 189);
             dgvDSSanBayTG.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dgvDSSanBayTG.BorderStyle = BorderStyle.Fixed3D;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(230, 126, 34);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
             dataGridViewCellStyle2.ForeColor = Color.White;
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dgvDSSanBayTG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dgvDSSanBayTG.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvDSSanBayTG.ColumnHeadersHeight = 45;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(249, 229, 211);
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(238, 169, 107);
+            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dgvDSSanBayTG.DefaultCellStyle = dataGridViewCellStyle3;
-            dgvDSSanBayTG.GridColor = Color.FromArgb(231, 229, 255);
-            dgvDSSanBayTG.Location = new Point(20, 383);
+            dgvDSSanBayTG.EditMode = DataGridViewEditMode.EditOnEnter;
+            dgvDSSanBayTG.GridColor = Color.Gray;
+            dgvDSSanBayTG.Location = new Point(20, 395);
             dgvDSSanBayTG.Name = "dgvDSSanBayTG";
+            dgvDSSanBayTG.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken;
             dgvDSSanBayTG.RowHeadersVisible = false;
-            dgvDSSanBayTG.Size = new Size(717, 202);
+            dgvDSSanBayTG.Size = new Size(717, 167);
             dgvDSSanBayTG.TabIndex = 36;
-            dgvDSSanBayTG.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
+            dgvDSSanBayTG.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Carrot;
+            dgvDSSanBayTG.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(247, 216, 189);
             dgvDSSanBayTG.ThemeStyle.AlternatingRowsStyle.Font = null;
             dgvDSSanBayTG.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
             dgvDSSanBayTG.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
             dgvDSSanBayTG.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
             dgvDSSanBayTG.ThemeStyle.BackColor = Color.White;
-            dgvDSSanBayTG.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
-            dgvDSSanBayTG.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
+            dgvDSSanBayTG.ThemeStyle.GridColor = Color.Gray;
+            dgvDSSanBayTG.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(230, 126, 34);
             dgvDSSanBayTG.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
             dgvDSSanBayTG.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
             dgvDSSanBayTG.ThemeStyle.HeaderStyle.ForeColor = Color.White;
-            dgvDSSanBayTG.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDSSanBayTG.ThemeStyle.HeaderStyle.Height = 4;
+            dgvDSSanBayTG.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvDSSanBayTG.ThemeStyle.HeaderStyle.Height = 45;
             dgvDSSanBayTG.ThemeStyle.ReadOnly = false;
-            dgvDSSanBayTG.ThemeStyle.RowsStyle.BackColor = Color.White;
+            dgvDSSanBayTG.ThemeStyle.RowsStyle.BackColor = Color.FromArgb(249, 229, 211);
             dgvDSSanBayTG.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvDSSanBayTG.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F);
-            dgvDSSanBayTG.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
+            dgvDSSanBayTG.ThemeStyle.RowsStyle.ForeColor = Color.Black;
             dgvDSSanBayTG.ThemeStyle.RowsStyle.Height = 25;
-            dgvDSSanBayTG.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            dgvDSSanBayTG.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dgvDSSanBayTG.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(238, 169, 107);
+            dgvDSSanBayTG.ThemeStyle.RowsStyle.SelectionForeColor = Color.Black;
+            // 
+            // lblSBTGTitle
+            // 
+            lblSBTGTitle.BackColor = Color.Transparent;
+            lblSBTGTitle.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            lblSBTGTitle.Location = new Point(198, 347);
+            lblSBTGTitle.Name = "lblSBTGTitle";
+            lblSBTGTitle.Size = new Size(346, 31);
+            lblSBTGTitle.TabIndex = 37;
+            lblSBTGTitle.Text = "Danh sách sân bay trung gian";
             // 
             // GUI_TiepNhanLichChuyenBay
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(759, 736);
+            Controls.Add(lblSBTGTitle);
             Controls.Add(dgvDSSanBayTG);
             Controls.Add(txtSoLuongGheHang2);
             Controls.Add(txtSoLuongGheHang1);
@@ -418,5 +434,6 @@ namespace QLBVBM.GUI
         private Guna.UI2.WinForms.Guna2TextBox txtSoLuongGheHang1;
         private Guna.UI2.WinForms.Guna2TextBox txtSoLuongGheHang2;
         private Guna.UI2.WinForms.Guna2DataGridView dgvDSSanBayTG;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblSBTGTitle;
     }
 }
