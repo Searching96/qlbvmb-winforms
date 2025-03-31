@@ -54,6 +54,8 @@ namespace QLBVBM.GUI
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             txtThoiGianBay = new Guna.UI2.WinForms.Guna2TextBox();
             txtMaChuyenBay = new Guna.UI2.WinForms.Guna2TextBox();
             lblSanBayDi = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -73,6 +75,7 @@ namespace QLBVBM.GUI
             btnTiepNhan = new Guna.UI2.WinForms.Guna2Button();
             btnThemSanBay = new Guna.UI2.WinForms.Guna2Button();
             btnThemHangGhe = new Guna.UI2.WinForms.Guna2Button();
+            btnThoat = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)dgvDSSanBayTG).BeginInit();
             SuspendLayout();
             // 
@@ -425,11 +428,11 @@ namespace QLBVBM.GUI
             btnThemSanBay.FillColor = Color.FromArgb(64, 64, 64);
             btnThemSanBay.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 163);
             btnThemSanBay.ForeColor = Color.White;
-            btnThemSanBay.Location = new Point(34, 817);
+            btnThemSanBay.Location = new Point(26, 817);
             btnThemSanBay.Margin = new Padding(3, 4, 3, 4);
             btnThemSanBay.Name = "btnThemSanBay";
             btnThemSanBay.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            btnThemSanBay.Size = new Size(209, 59);
+            btnThemSanBay.Size = new Size(245, 59);
             btnThemSanBay.TabIndex = 39;
             btnThemSanBay.Text = "Thêm sân bay mới";
             btnThemSanBay.Click += btnThemSanBay_Click;
@@ -445,14 +448,34 @@ namespace QLBVBM.GUI
             btnThemHangGhe.FillColor = Color.FromArgb(64, 64, 64);
             btnThemHangGhe.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 163);
             btnThemHangGhe.ForeColor = Color.White;
-            btnThemHangGhe.Location = new Point(633, 817);
+            btnThemHangGhe.Location = new Point(310, 817);
             btnThemHangGhe.Margin = new Padding(3, 4, 3, 4);
             btnThemHangGhe.Name = "btnThemHangGhe";
             btnThemHangGhe.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            btnThemHangGhe.Size = new Size(209, 59);
+            btnThemHangGhe.Size = new Size(245, 59);
             btnThemHangGhe.TabIndex = 41;
             btnThemHangGhe.Text = "Thêm hạng ghế mới";
             btnThemHangGhe.Click += btnThemHangGhe_Click;
+            // 
+            // btnThoat
+            // 
+            btnThoat.BorderRadius = 10;
+            btnThoat.CustomizableEdges = customizableEdges21;
+            btnThoat.DisabledState.BorderColor = Color.DarkGray;
+            btnThoat.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnThoat.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnThoat.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnThoat.FillColor = Color.FromArgb(64, 64, 64);
+            btnThoat.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            btnThoat.ForeColor = Color.White;
+            btnThoat.Location = new Point(596, 817);
+            btnThoat.Margin = new Padding(3, 4, 3, 4);
+            btnThoat.Name = "btnThoat";
+            btnThoat.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            btnThoat.Size = new Size(245, 59);
+            btnThoat.TabIndex = 42;
+            btnThoat.Text = "Thoát";
+            btnThoat.Click += btnThoat_Click;
             // 
             // GUI_TiepNhanLichChuyenBay
             // 
@@ -460,6 +483,7 @@ namespace QLBVBM.GUI
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(867, 981);
+            Controls.Add(btnThoat);
             Controls.Add(btnThemHangGhe);
             Controls.Add(btnThemSanBay);
             Controls.Add(btnTiepNhan);
@@ -506,5 +530,6 @@ namespace QLBVBM.GUI
         private Guna.UI2.WinForms.Guna2Button btnTiepNhan;
         private Guna.UI2.WinForms.Guna2Button btnThemSanBay;
         private Guna.UI2.WinForms.Guna2Button btnThemHangGhe;
+        private Guna.UI2.WinForms.Guna2Button btnThoat;
     }
 }

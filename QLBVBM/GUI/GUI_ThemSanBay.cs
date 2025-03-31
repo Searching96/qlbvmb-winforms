@@ -1,32 +1,26 @@
 ﻿using QLBVBM.BUS;
 using QLBVBM.DTO;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace QLBVBM.GUI
 {
     public partial class GUI_ThemSanBay : Form
     {
-        private BUS_SanBay busSanBay = new BUS_SanBay();
+        private BUS_SanBay BUS_SanBay = new BUS_SanBay();
+
+        private ErrorProvider errorProvider = new ErrorProvider();
 
         public GUI_ThemSanBay()
         {
             InitializeComponent();
+            PhatSinhMaSanBay();
         }
 
         private void LoadDanhSachSanBay()
         {
-            var dsSanBay = busSanBay.LayDanhSachSanBay();
+            var dsSanBay = BUS_SanBay.LayDanhSachSanBay();
 
             dgvDSSanBay.Columns.Clear();
-            dgvDSSanBay.RowHeadersVisible = false;
 
             // Define the font for the header cells
             Font headerFont = new Font("Arial", 11, FontStyle.Regular);
@@ -69,23 +63,54 @@ namespace QLBVBM.GUI
             LoadDanhSachSanBay();
         }
 
+        private void PhatSinhMaSanBay()
+        {
+            txtMaSanBay.Text = BUS_SanBay.PhatSinhMaSanBay();
+        }
+
+        private bool HasError()
+        {
+            // Check for errors in form controls
+            foreach (Control control in this.Controls)
+                if (errorProvider.GetError(control) != string.Empty)
+                    return true;
+
+            return false;
+        }
+
         private void btnThem_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtTenSanBay.Text))
+                errorProvider.SetError(txtTenSanBay, "Tên sân bay không được để trống");
+
+            if (HasError())
+            {
+                MessageBox.Show("Vui lòng kiểm tra lại thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             DTO_SanBay newSanBay = new DTO_SanBay
             {
                 MaSanBay = txtMaSanBay.Text,
                 TenSanBay = txtTenSanBay.Text
             };
 
-            if (busSanBay.ThemSanBay(newSanBay))
+            if (BUS_SanBay.ThemSanBay(newSanBay))
             {
                 MessageBox.Show("Thêm sân bay thành công");
                 LoadDanhSachSanBay();
+                PhatSinhMaSanBay();
             }
             else
             {
                 MessageBox.Show("Thêm sân bay thất bại");
             }
+        }
+
+        private void txtTenSanBay_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtTenSanBay.Text))
+                errorProvider.SetError(txtTenSanBay, string.Empty);
         }
     }
 }

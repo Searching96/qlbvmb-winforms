@@ -16,7 +16,7 @@ namespace QLBVBM.BUS
         private BUS_CTChuyenBay BUS_CTChuyenBay = new BUS_CTChuyenBay();
         private BUS_HangVeCB BUS_HangVeCB = new BUS_HangVeCB();
 
-        public DTO_ChuyenBay LayChuyenBayCuoi()
+        public DTO_ChuyenBay? LayChuyenBayCuoi()
         {
             return DAL_ChuyenBay.LayChuyenBayCuoi();
         }

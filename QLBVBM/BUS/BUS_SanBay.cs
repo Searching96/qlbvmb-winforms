@@ -21,5 +21,25 @@ namespace QLBVBM.BUS
         {
             return DAL_SanBay.ThemSanBay(sanBay);
         }
+
+        public DTO_SanBay? LaySanBayCuoi()
+        {
+            return DAL_SanBay.LaySanBayCuoi();
+        }
+
+        public string PhatSinhMaSanBay()
+        {
+            DTO_SanBay sanBayCuoi = LaySanBayCuoi();
+            if (sanBayCuoi != null)
+            {
+                string maSanBayCuoi = sanBayCuoi.MaSanBay;
+                int lastNumber = int.Parse(maSanBayCuoi.Substring(2));
+                return "SB" + (lastNumber + 1).ToString("D5");
+            }
+            else
+            {
+                return "SB00001";
+            }
+        }
     }
 }

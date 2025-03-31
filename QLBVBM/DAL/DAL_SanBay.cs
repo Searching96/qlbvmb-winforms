@@ -41,5 +41,22 @@ namespace QLBVBM.DAL
             int result = dataHelper.ExecuteNonQuery(query, parameters);
             return result > 0;
         }
+
+        public DTO_SanBay? LaySanBayCuoi()
+        {
+            string query = "SELECT * FROM SANBAY ORDER BY MaSanBay DESC LIMIT 1";
+            DataTable dt = dataHelper.ExecuteQuery(query);
+
+            if (dt.Rows.Count > 0)
+            {
+                DataRow dr = dt.Rows[0];
+                return new DTO_SanBay
+                {
+                    MaSanBay = dr["MaSanBay"].ToString(),
+                };
+            }
+
+            return null;
+        }
     }
 }
