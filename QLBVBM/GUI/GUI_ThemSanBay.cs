@@ -24,14 +24,44 @@ namespace QLBVBM.GUI
         private void LoadDanhSachSanBay()
         {
             var dsSanBay = busSanBay.LayDanhSachSanBay();
-            if (dsSanBay != null && dsSanBay.Count > 0)
+
+            dgvDSSanBay.Columns.Clear();
+            dgvDSSanBay.RowHeadersVisible = false;
+
+            // Define the font for the header cells
+            Font headerFont = new Font("Arial", 11, FontStyle.Regular);
+
+            // Set the header row color to grey
+            dgvDSSanBay.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
+            dgvDSSanBay.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvDSSanBay.ColumnHeadersDefaultCellStyle.Font = headerFont;
+            dgvDSSanBay.EnableHeadersVisualStyles = false;
+
+            // Add MaSanBay column
+            DataGridViewTextBoxColumn colMaSanBay = new DataGridViewTextBoxColumn
             {
-                dgvSanBay.DataSource = dsSanBay;
-            }
-            else
+                Name = "MaSanBay",
+                HeaderText = "Mã sân bay",
+                DataPropertyName = "MaSanBay",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+            };
+            colMaSanBay.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            colMaSanBay.HeaderCell.Style.Font = headerFont;
+            dgvDSSanBay.Columns.Add(colMaSanBay);
+
+            // Add TenSanBay column
+            DataGridViewTextBoxColumn colTenSanBay = new DataGridViewTextBoxColumn
             {
-                MessageBox.Show("Không có dữ liệu sân bay.");
-            }
+                Name = "TenSanBay",
+                HeaderText = "Tên sân bay",
+                DataPropertyName = "TenSanBay",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+            };
+            colTenSanBay.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            colTenSanBay.HeaderCell.Style.Font = headerFont;
+            dgvDSSanBay.Columns.Add(colTenSanBay);
+
+            dgvDSSanBay.DataSource = dsSanBay;
         }
 
         private void GUI_ThemSanBay_Load(object sender, EventArgs e)

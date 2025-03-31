@@ -46,10 +46,30 @@ namespace QLBVBM.GUI
             txtMaChuyenBay.Text = BUS_ChuyenBay.PhatSinhMaChuyenBay();
         }
 
-        private void SetupDgvColumns(DataGridView dgv, int rowCount, List<DTO_SanBay> dsSanBay)
+        private void SetupDgvColumns(Guna.UI2.WinForms.Guna2DataGridView dgv, int rowCount, List<DTO_SanBay> dsSanBay)
         {
             dgv.Columns.Clear();
             dgv.RowHeadersVisible = false;
+
+            // Set the theme to grey color
+            dgv.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
+            dgv.ThemeStyle.BackColor = Color.White;
+            dgv.ThemeStyle.GridColor = Color.LightGray;
+            dgv.ThemeStyle.HeaderStyle.BackColor = Color.White;
+            dgv.ThemeStyle.HeaderStyle.ForeColor = Color.Black;
+            dgv.ThemeStyle.RowsStyle.BackColor = Color.White;
+            dgv.ThemeStyle.RowsStyle.ForeColor = Color.Black;
+            dgv.ThemeStyle.RowsStyle.SelectionBackColor = Color.LightGray;
+            dgv.ThemeStyle.RowsStyle.SelectionForeColor = Color.Black;
+
+            // Define the font for the header cells
+            Font headerFont = new Font("Arial", 11, FontStyle.Regular);
+
+            // Set the header row color to grey
+            dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
+            dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgv.ColumnHeadersDefaultCellStyle.Font = headerFont;
+            dgv.EnableHeadersVisualStyles = false;
 
             DataGridViewTextBoxColumn colSTT = new DataGridViewTextBoxColumn
             {
@@ -59,6 +79,8 @@ namespace QLBVBM.GUI
                 Width = 50,
                 ReadOnly = true
             };
+            colSTT.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            colSTT.HeaderCell.Style.Font = headerFont;
             dgv.Columns.Add(colSTT);
 
             DataGridViewComboBoxColumn colTenSanBay = new DataGridViewComboBoxColumn
@@ -69,13 +91,17 @@ namespace QLBVBM.GUI
                 DisplayMember = "TenSanBay",
                 ValueMember = "MaSanBay"
             };
+            colTenSanBay.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            colTenSanBay.HeaderCell.Style.Font = headerFont;
             dgv.Columns.Add(colTenSanBay);
 
             DataGridViewTextBoxColumn colThoiGianDung = new DataGridViewTextBoxColumn
             {
                 Name = "ThoiGianDung",
-                HeaderText = "Thời gian dừng (phút)",
+                HeaderText = "Thời gian dừng (phút)"
             };
+            colThoiGianDung.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            colThoiGianDung.HeaderCell.Style.Font = headerFont;
             dgv.Columns.Add(colThoiGianDung);
 
             DataGridViewTextBoxColumn colGhiChu = new DataGridViewTextBoxColumn
@@ -83,6 +109,8 @@ namespace QLBVBM.GUI
                 Name = "GhiChu",
                 HeaderText = "Ghi chú"
             };
+            colGhiChu.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            colGhiChu.HeaderCell.Style.Font = headerFont;
             dgv.Columns.Add(colGhiChu);
 
             dgv.Rows.Clear();
