@@ -50,6 +50,7 @@ namespace QLBVBM.GUI
         {
             dgv.Columns.Clear();
             dgv.RowHeadersVisible = false;
+            dgv.AllowUserToAddRows = false;
 
             // Set the theme to grey color
             dgv.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
