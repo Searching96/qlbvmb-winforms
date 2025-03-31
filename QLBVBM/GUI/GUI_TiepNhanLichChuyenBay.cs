@@ -89,7 +89,9 @@ namespace QLBVBM.GUI
                 HeaderText = "Tên sân bay",
                 DataSource = dsSanBay,
                 DisplayMember = "TenSanBay",
-                ValueMember = "MaSanBay"
+                ValueMember = "MaSanBay",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
+                FlatStyle = FlatStyle.Flat
             };
             colTenSanBay.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             colTenSanBay.HeaderCell.Style.Font = headerFont;
@@ -187,17 +189,15 @@ namespace QLBVBM.GUI
         private void btnTiepNhan_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtThoiGianBay.Text))
-            {
                 errorProvider.SetError(txtThoiGianBay, "Thời gian bay không được để trống");
-            }
             if (string.IsNullOrEmpty(txtSoLuongGheHang1.Text))
-            {
                 errorProvider.SetError(txtSoLuongGheHang1, "Số lượng ghế hạng 1 không được để trống");
-            }
             if (string.IsNullOrEmpty(txtSoLuongGheHang2.Text))
-            {
                 errorProvider.SetError(txtSoLuongGheHang2, "Số lượng ghế hạng 2 không được để trống");
-            }
+            if (cbbSanBayDi.SelectedIndex == 0)
+                errorProvider.SetError(cbbSanBayDi, "Sân bay đi không được để trống");
+            if (cbbSanBayDen.SelectedIndex == 0)
+                errorProvider.SetError(cbbSanBayDen, "Sân bay đến không được để trống");
 
             if (HasErrors())
             {
@@ -398,6 +398,30 @@ namespace QLBVBM.GUI
         private void btnThemHangGhe_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Will implement this later.");
+        }
+
+        private void cbbSanBayDi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbbSanBayDi.SelectedIndex != 0)
+                errorProvider.SetError(cbbSanBayDi, string.Empty);
+        }
+
+        private void cbbSanBayDen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbbSanBayDen.SelectedIndex != 0)
+                errorProvider.SetError(cbbSanBayDen, string.Empty);
+        }
+
+        private void dtpNgayGioBay_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpNgayGioBay.Value <= DateTime.Now)
+            {
+                errorProvider.SetError(dtpNgayGioBay, "Ngày giờ bay phải sau thời điểm hiện tại");
+            }
+            else
+            {
+                errorProvider.SetError(dtpNgayGioBay, string.Empty);
+            }
         }
     }
 }
