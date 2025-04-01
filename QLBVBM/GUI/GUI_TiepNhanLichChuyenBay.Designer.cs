@@ -39,23 +39,21 @@ namespace QLBVBM.GUI
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             txtThoiGianBay = new Guna.UI2.WinForms.Guna2TextBox();
             txtMaChuyenBay = new Guna.UI2.WinForms.Guna2TextBox();
             lblSanBayDi = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -66,16 +64,13 @@ namespace QLBVBM.GUI
             lblNgayGioBay = new Guna.UI2.WinForms.Guna2HtmlLabel();
             dtpNgayGioBay = new Guna.UI2.WinForms.Guna2DateTimePicker();
             lblThoiGianBay = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            lblSoLuongGheHang1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            lblSoLuongGheHang2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            txtSoLuongGheHang1 = new Guna.UI2.WinForms.Guna2TextBox();
-            txtSoLuongGheHang2 = new Guna.UI2.WinForms.Guna2TextBox();
             dgvDSSanBayTG = new Guna.UI2.WinForms.Guna2DataGridView();
             lblSBTGTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
             btnTiepNhan = new Guna.UI2.WinForms.Guna2Button();
             btnThemSanBay = new Guna.UI2.WinForms.Guna2Button();
             btnThemHangGhe = new Guna.UI2.WinForms.Guna2Button();
             btnThoat = new Guna.UI2.WinForms.Guna2Button();
+            btnChonHangGhe = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)dgvDSSanBayTG).BeginInit();
             SuspendLayout();
             // 
@@ -93,7 +88,7 @@ namespace QLBVBM.GUI
             txtThoiGianBay.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtThoiGianBay.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
             txtThoiGianBay.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtThoiGianBay.Location = new Point(477, 208);
+            txtThoiGianBay.Location = new Point(477, 194);
             txtThoiGianBay.Margin = new Padding(3, 5, 3, 5);
             txtThoiGianBay.Name = "txtThoiGianBay";
             txtThoiGianBay.PlaceholderText = "";
@@ -216,7 +211,7 @@ namespace QLBVBM.GUI
             lblNgayGioBay.Anchor = AnchorStyles.None;
             lblNgayGioBay.BackColor = Color.Transparent;
             lblNgayGioBay.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            lblNgayGioBay.Location = new Point(23, 176);
+            lblNgayGioBay.Location = new Point(23, 162);
             lblNgayGioBay.Margin = new Padding(3, 4, 3, 4);
             lblNgayGioBay.Name = "lblNgayGioBay";
             lblNgayGioBay.Size = new Size(128, 24);
@@ -235,7 +230,7 @@ namespace QLBVBM.GUI
             dtpNgayGioBay.FillColor = Color.White;
             dtpNgayGioBay.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
             dtpNgayGioBay.Format = DateTimePickerFormat.Long;
-            dtpNgayGioBay.Location = new Point(23, 208);
+            dtpNgayGioBay.Location = new Point(23, 194);
             dtpNgayGioBay.Margin = new Padding(3, 4, 3, 4);
             dtpNgayGioBay.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             dtpNgayGioBay.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
@@ -251,84 +246,12 @@ namespace QLBVBM.GUI
             lblThoiGianBay.Anchor = AnchorStyles.None;
             lblThoiGianBay.BackColor = Color.Transparent;
             lblThoiGianBay.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            lblThoiGianBay.Location = new Point(477, 176);
+            lblThoiGianBay.Location = new Point(477, 161);
             lblThoiGianBay.Margin = new Padding(3, 4, 3, 4);
             lblThoiGianBay.Name = "lblThoiGianBay";
             lblThoiGianBay.Size = new Size(169, 24);
             lblThoiGianBay.TabIndex = 31;
             lblThoiGianBay.Text = "Thời gian bay (phút)";
-            // 
-            // lblSoLuongGheHang1
-            // 
-            lblSoLuongGheHang1.Anchor = AnchorStyles.None;
-            lblSoLuongGheHang1.BackColor = Color.Transparent;
-            lblSoLuongGheHang1.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            lblSoLuongGheHang1.Location = new Point(23, 316);
-            lblSoLuongGheHang1.Margin = new Padding(3, 4, 3, 4);
-            lblSoLuongGheHang1.Name = "lblSoLuongGheHang1";
-            lblSoLuongGheHang1.Size = new Size(181, 24);
-            lblSoLuongGheHang1.TabIndex = 32;
-            lblSoLuongGheHang1.Text = "Số lượng ghế hạng 1";
-            // 
-            // lblSoLuongGheHang2
-            // 
-            lblSoLuongGheHang2.Anchor = AnchorStyles.None;
-            lblSoLuongGheHang2.BackColor = Color.Transparent;
-            lblSoLuongGheHang2.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            lblSoLuongGheHang2.Location = new Point(477, 316);
-            lblSoLuongGheHang2.Margin = new Padding(3, 4, 3, 4);
-            lblSoLuongGheHang2.Name = "lblSoLuongGheHang2";
-            lblSoLuongGheHang2.Size = new Size(181, 24);
-            lblSoLuongGheHang2.TabIndex = 33;
-            lblSoLuongGheHang2.Text = "Số lượng ghế hạng 2";
-            // 
-            // txtSoLuongGheHang1
-            // 
-            txtSoLuongGheHang1.Anchor = AnchorStyles.None;
-            txtSoLuongGheHang1.BorderColor = Color.Silver;
-            txtSoLuongGheHang1.BorderRadius = 7;
-            txtSoLuongGheHang1.CustomizableEdges = customizableEdges11;
-            txtSoLuongGheHang1.DefaultText = "";
-            txtSoLuongGheHang1.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtSoLuongGheHang1.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtSoLuongGheHang1.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtSoLuongGheHang1.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtSoLuongGheHang1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtSoLuongGheHang1.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            txtSoLuongGheHang1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtSoLuongGheHang1.Location = new Point(23, 349);
-            txtSoLuongGheHang1.Margin = new Padding(3, 5, 3, 5);
-            txtSoLuongGheHang1.Name = "txtSoLuongGheHang1";
-            txtSoLuongGheHang1.PlaceholderText = "";
-            txtSoLuongGheHang1.SelectedText = "";
-            txtSoLuongGheHang1.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            txtSoLuongGheHang1.Size = new Size(366, 51);
-            txtSoLuongGheHang1.TabIndex = 34;
-            txtSoLuongGheHang1.TextChanged += txtSoLuongGheHang1_TextChanged;
-            // 
-            // txtSoLuongGheHang2
-            // 
-            txtSoLuongGheHang2.Anchor = AnchorStyles.None;
-            txtSoLuongGheHang2.BorderColor = Color.Silver;
-            txtSoLuongGheHang2.BorderRadius = 7;
-            txtSoLuongGheHang2.CustomizableEdges = customizableEdges13;
-            txtSoLuongGheHang2.DefaultText = "";
-            txtSoLuongGheHang2.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtSoLuongGheHang2.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtSoLuongGheHang2.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtSoLuongGheHang2.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtSoLuongGheHang2.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtSoLuongGheHang2.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            txtSoLuongGheHang2.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtSoLuongGheHang2.Location = new Point(477, 349);
-            txtSoLuongGheHang2.Margin = new Padding(3, 5, 3, 5);
-            txtSoLuongGheHang2.Name = "txtSoLuongGheHang2";
-            txtSoLuongGheHang2.PlaceholderText = "";
-            txtSoLuongGheHang2.SelectedText = "";
-            txtSoLuongGheHang2.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            txtSoLuongGheHang2.Size = new Size(366, 51);
-            txtSoLuongGheHang2.TabIndex = 35;
-            txtSoLuongGheHang2.TextChanged += txtSoLuongGheHang2_TextChanged;
             // 
             // dgvDSSanBayTG
             // 
@@ -417,7 +340,7 @@ namespace QLBVBM.GUI
             // 
             btnTiepNhan.Anchor = AnchorStyles.None;
             btnTiepNhan.BorderRadius = 10;
-            btnTiepNhan.CustomizableEdges = customizableEdges15;
+            btnTiepNhan.CustomizableEdges = customizableEdges11;
             btnTiepNhan.DisabledState.BorderColor = Color.DarkGray;
             btnTiepNhan.DisabledState.CustomBorderColor = Color.DarkGray;
             btnTiepNhan.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -428,7 +351,7 @@ namespace QLBVBM.GUI
             btnTiepNhan.Location = new Point(23, 719);
             btnTiepNhan.Margin = new Padding(3, 4, 3, 4);
             btnTiepNhan.Name = "btnTiepNhan";
-            btnTiepNhan.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            btnTiepNhan.ShadowDecoration.CustomizableEdges = customizableEdges12;
             btnTiepNhan.Size = new Size(819, 63);
             btnTiepNhan.TabIndex = 38;
             btnTiepNhan.Text = "Tiếp nhận lịch chuyến bay";
@@ -438,7 +361,7 @@ namespace QLBVBM.GUI
             // 
             btnThemSanBay.Anchor = AnchorStyles.None;
             btnThemSanBay.BorderRadius = 10;
-            btnThemSanBay.CustomizableEdges = customizableEdges17;
+            btnThemSanBay.CustomizableEdges = customizableEdges13;
             btnThemSanBay.DisabledState.BorderColor = Color.DarkGray;
             btnThemSanBay.DisabledState.CustomBorderColor = Color.DarkGray;
             btnThemSanBay.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -449,7 +372,7 @@ namespace QLBVBM.GUI
             btnThemSanBay.Location = new Point(23, 817);
             btnThemSanBay.Margin = new Padding(3, 4, 3, 4);
             btnThemSanBay.Name = "btnThemSanBay";
-            btnThemSanBay.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            btnThemSanBay.ShadowDecoration.CustomizableEdges = customizableEdges14;
             btnThemSanBay.Size = new Size(245, 59);
             btnThemSanBay.TabIndex = 39;
             btnThemSanBay.Text = "Thêm sân bay mới";
@@ -459,7 +382,7 @@ namespace QLBVBM.GUI
             // 
             btnThemHangGhe.Anchor = AnchorStyles.None;
             btnThemHangGhe.BorderRadius = 10;
-            btnThemHangGhe.CustomizableEdges = customizableEdges19;
+            btnThemHangGhe.CustomizableEdges = customizableEdges15;
             btnThemHangGhe.DisabledState.BorderColor = Color.DarkGray;
             btnThemHangGhe.DisabledState.CustomBorderColor = Color.DarkGray;
             btnThemHangGhe.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -470,7 +393,7 @@ namespace QLBVBM.GUI
             btnThemHangGhe.Location = new Point(310, 817);
             btnThemHangGhe.Margin = new Padding(3, 4, 3, 4);
             btnThemHangGhe.Name = "btnThemHangGhe";
-            btnThemHangGhe.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            btnThemHangGhe.ShadowDecoration.CustomizableEdges = customizableEdges16;
             btnThemHangGhe.Size = new Size(245, 59);
             btnThemHangGhe.TabIndex = 41;
             btnThemHangGhe.Text = "Thêm hạng ghế mới";
@@ -480,7 +403,7 @@ namespace QLBVBM.GUI
             // 
             btnThoat.Anchor = AnchorStyles.None;
             btnThoat.BorderRadius = 10;
-            btnThoat.CustomizableEdges = customizableEdges21;
+            btnThoat.CustomizableEdges = customizableEdges17;
             btnThoat.DisabledState.BorderColor = Color.DarkGray;
             btnThoat.DisabledState.CustomBorderColor = Color.DarkGray;
             btnThoat.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -491,11 +414,33 @@ namespace QLBVBM.GUI
             btnThoat.Location = new Point(597, 817);
             btnThoat.Margin = new Padding(3, 4, 3, 4);
             btnThoat.Name = "btnThoat";
-            btnThoat.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            btnThoat.ShadowDecoration.CustomizableEdges = customizableEdges18;
             btnThoat.Size = new Size(245, 59);
             btnThoat.TabIndex = 42;
             btnThoat.Text = "Thoát";
             btnThoat.Click += btnThoat_Click;
+            // 
+            // btnChonHangGhe
+            // 
+            btnChonHangGhe.Anchor = AnchorStyles.None;
+            btnChonHangGhe.BackColor = Color.Transparent;
+            btnChonHangGhe.BorderRadius = 10;
+            btnChonHangGhe.CustomizableEdges = customizableEdges19;
+            btnChonHangGhe.DisabledState.BorderColor = Color.DarkGray;
+            btnChonHangGhe.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnChonHangGhe.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnChonHangGhe.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnChonHangGhe.FillColor = Color.White;
+            btnChonHangGhe.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            btnChonHangGhe.ForeColor = Color.Black;
+            btnChonHangGhe.Location = new Point(23, 291);
+            btnChonHangGhe.Margin = new Padding(3, 4, 3, 4);
+            btnChonHangGhe.Name = "btnChonHangGhe";
+            btnChonHangGhe.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            btnChonHangGhe.Size = new Size(189, 37);
+            btnChonHangGhe.TabIndex = 43;
+            btnChonHangGhe.Text = "Chọn hạng ghế";
+            btnChonHangGhe.Click += btnChonHangGhe_Click;
             // 
             // GUI_TiepNhanLichChuyenBay
             // 
@@ -503,16 +448,13 @@ namespace QLBVBM.GUI
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(867, 981);
+            Controls.Add(btnChonHangGhe);
             Controls.Add(btnThoat);
             Controls.Add(btnThemHangGhe);
             Controls.Add(btnThemSanBay);
             Controls.Add(btnTiepNhan);
             Controls.Add(lblSBTGTitle);
             Controls.Add(dgvDSSanBayTG);
-            Controls.Add(txtSoLuongGheHang2);
-            Controls.Add(txtSoLuongGheHang1);
-            Controls.Add(lblSoLuongGheHang2);
-            Controls.Add(lblSoLuongGheHang1);
             Controls.Add(lblThoiGianBay);
             Controls.Add(dtpNgayGioBay);
             Controls.Add(lblNgayGioBay);
@@ -544,15 +486,12 @@ namespace QLBVBM.GUI
         private Guna.UI2.WinForms.Guna2HtmlLabel lblNgayGioBay;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpNgayGioBay;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblThoiGianBay;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lblSoLuongGheHang1;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lblSoLuongGheHang2;
-        private Guna.UI2.WinForms.Guna2TextBox txtSoLuongGheHang1;
-        private Guna.UI2.WinForms.Guna2TextBox txtSoLuongGheHang2;
         private Guna.UI2.WinForms.Guna2DataGridView dgvDSSanBayTG;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblSBTGTitle;
         private Guna.UI2.WinForms.Guna2Button btnTiepNhan;
         private Guna.UI2.WinForms.Guna2Button btnThemSanBay;
         private Guna.UI2.WinForms.Guna2Button btnThemHangGhe;
         private Guna.UI2.WinForms.Guna2Button btnThoat;
+        private Guna.UI2.WinForms.Guna2Button btnChonHangGhe;
     }
 }

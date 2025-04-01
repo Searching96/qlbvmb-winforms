@@ -1,4 +1,5 @@
-﻿using QLBVBM.BUS;
+﻿using Guna.UI2.WinForms;
+using QLBVBM.BUS;
 using QLBVBM.DAL;
 using QLBVBM.DTO;
 using System;
@@ -18,22 +19,37 @@ namespace QLBVBM.GUI
         private BUS_SanBay BUS_SanBay = new BUS_SanBay();
         private BUS_ChuyenBay BUS_ChuyenBay = new BUS_ChuyenBay();
         private BUS_ThamSo BUS_ThamSo = new BUS_ThamSo();
+        private BUS_HangGhe BUS_HangGhe = new BUS_HangGhe();
+
+        private List<Guna2ComboBox> lstComboBoxHangGhe = new List<Guna2ComboBox>();
+        private List<Tuple<DTO_HangGhe, TextBox>> lstTextBoxSoLuongGhe = new List<Tuple<DTO_HangGhe, TextBox>>();
 
         private ErrorProvider errorProvider = new ErrorProvider();
+
+        private int currentComboBoxCount = 0;
+        private const int maxComboBoxPerRow = 2;
+        private const int maxComboBox = 4;
+        private const int verticalSpacing = 70;
 
         public GUI_TiepNhanLichChuyenBay()
         {
             InitializeComponent();
-            SetupDgvColumns(dgvDSSanBayTG, BUS_ThamSo.LaySoLuongSanBayToiDa(), BUS_SanBay.LayDanhSachSanBay());
+            SetupDgvColumns(dgvDSSanBayTG, BUS_ThamSo.LaySoLuongSanBayToiDa(), LayDanhSachSanBay());
             PhatSinhMaChuyenBay();
-            LoadSanBayToComboBox(cbbSanBayDi);
-            LoadSanBayToComboBox(cbbSanBayDen);
+            LoadSanBayToComboBox(cbbSanBayDi, LayDanhSachSanBay());
+            LoadSanBayToComboBox(cbbSanBayDen, LayDanhSachSanBay());
         }
 
-        private void LoadSanBayToComboBox(ComboBox cbb)
+        private List<DTO_SanBay> LayDanhSachSanBay()
         {
-            List<DTO_SanBay> dsSanBay = BUS_SanBay.LayDanhSachSanBay();
-            if (dsSanBay != null && dsSanBay.Count > 0)
+            var dsSanBay = BUS_SanBay.LayDanhSachSanBay();
+            dsSanBay.Insert(0, new DTO_SanBay { MaSanBay = "", TenSanBay = "" });
+            return dsSanBay;
+        }
+
+        private void LoadSanBayToComboBox(ComboBox cbb, List<DTO_SanBay> dsSanBay)
+        {
+            if (dsSanBay != null && dsSanBay.Count > 1) // since we add an empty item at index 0
             {
                 cbb.DataSource = dsSanBay;
                 cbb.DisplayMember = "TenSanBay";
@@ -41,6 +57,23 @@ namespace QLBVBM.GUI
             }
         }
 
+        private List<DTO_HangGhe> LayDanhSachHangGhe()
+        {
+            var dsHangGhe = BUS_HangGhe.LayDanhSachHangGhe();
+            dsHangGhe.Insert(0, new DTO_HangGhe { MaHangGhe = "", TenHangGhe = "" });
+            return dsHangGhe;
+        }
+
+        private void LoadHangGheToComboBox(ComboBox cbb, List<DTO_HangGhe> dsHangGhe)
+        {
+            if (dsHangGhe != null && dsHangGhe.Count > 1) // since we add an empty item at index 0
+            {
+                cbb.DataSource = dsHangGhe;
+                cbb.DisplayMember = "TenHangGhe";
+                cbb.ValueMember = "MaHangGhe";
+            }
+        }
+        
         private void PhatSinhMaChuyenBay()
         {
             txtMaChuyenBay.Text = BUS_ChuyenBay.PhatSinhMaChuyenBay();
@@ -191,14 +224,16 @@ namespace QLBVBM.GUI
         {
             if (string.IsNullOrEmpty(txtThoiGianBay.Text))
                 errorProvider.SetError(txtThoiGianBay, "Thời gian bay không được để trống");
-            if (string.IsNullOrEmpty(txtSoLuongGheHang1.Text))
-                errorProvider.SetError(txtSoLuongGheHang1, "Số lượng ghế hạng 1 không được để trống");
-            if (string.IsNullOrEmpty(txtSoLuongGheHang2.Text))
-                errorProvider.SetError(txtSoLuongGheHang2, "Số lượng ghế hạng 2 không được để trống");
             if (cbbSanBayDi.SelectedIndex == 0)
                 errorProvider.SetError(cbbSanBayDi, "Sân bay đi không được để trống");
             if (cbbSanBayDen.SelectedIndex == 0)
                 errorProvider.SetError(cbbSanBayDen, "Sân bay đến không được để trống");
+
+            foreach (var tuple in lstTextBoxSoLuongGhe)
+            {
+                if (string.IsNullOrEmpty(tuple.Item2.Text))
+                    errorProvider.SetError(tuple.Item2, "Số lượng ghế không được để trống");
+            }
 
             if (HasErrors())
             {
@@ -255,21 +290,20 @@ namespace QLBVBM.GUI
                 dsCTChuyenBay.Add(ctChuyenBay);
             }
 
-            List<DTO_HangVeCB> dsHangVeCB = new List<DTO_HangVeCB>
+            List<DTO_HangVeCB> dsHangVeCB = new List<DTO_HangVeCB>();
+            foreach(var tuple in lstTextBoxSoLuongGhe)
             {
-                new DTO_HangVeCB
+                if (!int.TryParse(tuple.Item2.Text, out int soLuongGhe))
+                    continue;
+                DTO_HangVeCB hangVeCB = new DTO_HangVeCB
                 {
                     MaChuyenBay = chuyenBayMoi.MaChuyenBay,
-                    MaHangGhe = "HG00001",
-                    SoLuongGhe = int.Parse(txtSoLuongGheHang1.Text)
-                },
-                new DTO_HangVeCB
-                {
-                    MaChuyenBay = chuyenBayMoi.MaChuyenBay,
-                    MaHangGhe = "HG00002",
-                    SoLuongGhe = int.Parse(txtSoLuongGheHang2.Text)
-                }
-            };
+                    MaHangGhe = tuple.Item1.MaHangGhe,
+                    SoLuongGhe = soLuongGhe
+                };
+                dsHangVeCB.Add(hangVeCB);
+            }
+
 
             if (BUS_ChuyenBay.ThemChuyenBayVaChiTiet(chuyenBayMoi, dsCTChuyenBay, dsHangVeCB))
             {
@@ -292,30 +326,6 @@ namespace QLBVBM.GUI
             else
             {
                 errorProvider.SetError(txtThoiGianBay, string.Empty);
-            }
-        }
-
-        private void txtSoLuongGheHang1_TextChanged(object sender, EventArgs e)
-        {
-            if (!BUS_ChuyenBay.ValidateSoLuongGhe(txtSoLuongGheHang1.Text))
-            {
-                errorProvider.SetError(txtSoLuongGheHang1, "Số lượng ghế phải là số nguyên không âm");
-            }
-            else
-            {
-                errorProvider.SetError(txtSoLuongGheHang1, string.Empty);
-            }
-        }
-
-        private void txtSoLuongGheHang2_TextChanged(object sender, EventArgs e)
-        {
-            if (!BUS_ChuyenBay.ValidateSoLuongGhe(txtSoLuongGheHang2.Text))
-            {
-                errorProvider.SetError(txtSoLuongGheHang2, "Số lượng ghế phải là số nguyên không âm");
-            }
-            else
-            {
-                errorProvider.SetError(txtSoLuongGheHang2, string.Empty);
             }
         }
 
@@ -379,8 +389,8 @@ namespace QLBVBM.GUI
         {
             GUI_ThemSanBay frmThemSanBay = new GUI_ThemSanBay();
             frmThemSanBay.ShowDialog();
-            LoadSanBayToComboBox(cbbSanBayDi);
-            LoadSanBayToComboBox(cbbSanBayDen);
+            LoadSanBayToComboBox(cbbSanBayDi, LayDanhSachSanBay());
+            LoadSanBayToComboBox(cbbSanBayDen, LayDanhSachSanBay());
             ReloadSanBayComboBoxInDgv();
         }
 
@@ -429,6 +439,78 @@ namespace QLBVBM.GUI
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnChonHangGhe_Click(object sender, EventArgs e)
+        {
+            Guna2ComboBox cbbHangGhe = new Guna2ComboBox
+            {
+                Location = new Point(btnChonHangGhe.Location.X, btnChonHangGhe.Location.Y),
+                Width = 200,
+            };
+
+            currentComboBoxCount++;
+            if (currentComboBoxCount >= maxComboBoxPerRow)
+            {
+                currentComboBoxCount = 0;
+                btnChonHangGhe.Location = new Point(btnChonHangGhe.Location.X - 250, btnChonHangGhe.Location.Y + verticalSpacing);
+            }
+
+            bool isInitialized = false;
+
+            cbbHangGhe.SelectedIndexChanged += (s, ev) =>
+            {
+                if (isInitialized && cbbHangGhe.SelectedIndex != 0)
+                {
+                    string tenHangGhe = ((DTO_HangGhe)cbbHangGhe.SelectedItem).TenHangGhe;
+
+                    Label lblHangGhe = new Label
+                    {
+                        Location = cbbHangGhe.Location,
+                        Text = $"Số lượng ghế {tenHangGhe}",
+                        AutoSize = true
+                    };
+
+                    TextBox txtSoLuongGhe = new TextBox
+                    {
+                        Location = new Point(lblHangGhe.Location.X, 
+                            lblHangGhe.Location.Y + lblHangGhe.Height + 5),
+                        Width = 200
+                    };
+
+                    txtSoLuongGhe.TextChanged += (s, ev) =>
+                    {
+                        if (!BUS_ChuyenBay.ValidateSoLuongGhe(txtSoLuongGhe.Text))
+                        {
+                            errorProvider.SetError(txtSoLuongGhe, "Số lượng ghế phải là số nguyên không âm");
+                        }
+                        else
+                        {
+                            errorProvider.SetError(txtSoLuongGhe, string.Empty);
+                        }
+                    };
+
+                    this.Controls.Add(lblHangGhe);
+                    this.Controls.Add(txtSoLuongGhe);
+
+                    cbbHangGhe.Visible = false;
+
+                    lstTextBoxSoLuongGhe.Add(new Tuple<DTO_HangGhe, 
+                        TextBox>((DTO_HangGhe)cbbHangGhe.SelectedItem, txtSoLuongGhe));
+                }
+            };
+
+            LoadHangGheToComboBox(cbbHangGhe, LayDanhSachHangGhe());
+            isInitialized = true;
+
+            this.Controls.Add(cbbHangGhe);
+            lstComboBoxHangGhe.Add(cbbHangGhe);
+            
+            if (currentComboBoxCount % 2 == 1)
+                btnChonHangGhe.Location = new Point(btnChonHangGhe.Location.X + 250, btnChonHangGhe.Location.Y);
+
+            if (lstComboBoxHangGhe.Count >= maxComboBox)
+                btnChonHangGhe.Visible = false;
         }
     }
 }
