@@ -93,13 +93,13 @@ namespace QLBVBM.GUI
             txtThoiGianBay.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtThoiGianBay.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
             txtThoiGianBay.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtThoiGianBay.Location = new Point(417, 156);
-            txtThoiGianBay.Margin = new Padding(3, 4, 3, 4);
+            txtThoiGianBay.Location = new Point(477, 208);
+            txtThoiGianBay.Margin = new Padding(3, 5, 3, 5);
             txtThoiGianBay.Name = "txtThoiGianBay";
             txtThoiGianBay.PlaceholderText = "";
             txtThoiGianBay.SelectedText = "";
             txtThoiGianBay.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            txtThoiGianBay.Size = new Size(320, 38);
+            txtThoiGianBay.Size = new Size(366, 51);
             txtThoiGianBay.TabIndex = 22;
             txtThoiGianBay.TextChanged += txtThoiGianBay_TextChanged;
             // 
@@ -119,14 +119,14 @@ namespace QLBVBM.GUI
             txtMaChuyenBay.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtMaChuyenBay.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
             txtMaChuyenBay.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtMaChuyenBay.Location = new Point(20, 60);
-            txtMaChuyenBay.Margin = new Padding(3, 4, 3, 4);
+            txtMaChuyenBay.Location = new Point(23, 80);
+            txtMaChuyenBay.Margin = new Padding(3, 5, 3, 5);
             txtMaChuyenBay.Name = "txtMaChuyenBay";
             txtMaChuyenBay.PlaceholderText = "";
             txtMaChuyenBay.ReadOnly = true;
             txtMaChuyenBay.SelectedText = "";
             txtMaChuyenBay.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            txtMaChuyenBay.Size = new Size(216, 50);
+            txtMaChuyenBay.Size = new Size(247, 50);
             txtMaChuyenBay.TabIndex = 23;
             // 
             // lblSanBayDi
@@ -134,9 +134,10 @@ namespace QLBVBM.GUI
             lblSanBayDi.Anchor = AnchorStyles.None;
             lblSanBayDi.BackColor = Color.Transparent;
             lblSanBayDi.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            lblSanBayDi.Location = new Point(270, 36);
+            lblSanBayDi.Location = new Point(309, 48);
+            lblSanBayDi.Margin = new Padding(3, 4, 3, 4);
             lblSanBayDi.Name = "lblSanBayDi";
-            lblSanBayDi.Size = new Size(71, 19);
+            lblSanBayDi.Size = new Size(91, 24);
             lblSanBayDi.TabIndex = 24;
             lblSanBayDi.Text = "Sân bay đi";
             // 
@@ -155,10 +156,11 @@ namespace QLBVBM.GUI
             cbbSanBayDi.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 163);
             cbbSanBayDi.ForeColor = Color.FromArgb(68, 88, 112);
             cbbSanBayDi.ItemHeight = 44;
-            cbbSanBayDi.Location = new Point(270, 60);
+            cbbSanBayDi.Location = new Point(309, 80);
+            cbbSanBayDi.Margin = new Padding(3, 4, 3, 4);
             cbbSanBayDi.Name = "cbbSanBayDi";
             cbbSanBayDi.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            cbbSanBayDi.Size = new Size(217, 50);
+            cbbSanBayDi.Size = new Size(247, 50);
             cbbSanBayDi.TabIndex = 25;
             cbbSanBayDi.SelectedIndexChanged += cbbSanBayDi_SelectedIndexChanged;
             // 
@@ -177,10 +179,11 @@ namespace QLBVBM.GUI
             cbbSanBayDen.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 163);
             cbbSanBayDen.ForeColor = Color.FromArgb(68, 88, 112);
             cbbSanBayDen.ItemHeight = 44;
-            cbbSanBayDen.Location = new Point(520, 60);
+            cbbSanBayDen.Location = new Point(594, 80);
+            cbbSanBayDen.Margin = new Padding(3, 4, 3, 4);
             cbbSanBayDen.Name = "cbbSanBayDen";
             cbbSanBayDen.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            cbbSanBayDen.Size = new Size(217, 50);
+            cbbSanBayDen.Size = new Size(247, 50);
             cbbSanBayDen.TabIndex = 26;
             cbbSanBayDen.SelectedIndexChanged += cbbSanBayDen_SelectedIndexChanged;
             // 
@@ -189,9 +192,10 @@ namespace QLBVBM.GUI
             lblMaChuyenBay.Anchor = AnchorStyles.None;
             lblMaChuyenBay.BackColor = Color.Transparent;
             lblMaChuyenBay.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            lblMaChuyenBay.Location = new Point(20, 36);
+            lblMaChuyenBay.Location = new Point(23, 48);
+            lblMaChuyenBay.Margin = new Padding(3, 4, 3, 4);
             lblMaChuyenBay.Name = "lblMaChuyenBay";
-            lblMaChuyenBay.Size = new Size(100, 19);
+            lblMaChuyenBay.Size = new Size(128, 24);
             lblMaChuyenBay.TabIndex = 27;
             lblMaChuyenBay.Text = "Mã chuyến bay";
             // 
@@ -200,9 +204,10 @@ namespace QLBVBM.GUI
             lblSanBayDen.Anchor = AnchorStyles.None;
             lblSanBayDen.BackColor = Color.Transparent;
             lblSanBayDen.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            lblSanBayDen.Location = new Point(520, 36);
+            lblSanBayDen.Location = new Point(594, 48);
+            lblSanBayDen.Margin = new Padding(3, 4, 3, 4);
             lblSanBayDen.Name = "lblSanBayDen";
-            lblSanBayDen.Size = new Size(84, 19);
+            lblSanBayDen.Size = new Size(108, 24);
             lblSanBayDen.TabIndex = 28;
             lblSanBayDen.Text = "Sân bay đến";
             // 
@@ -211,9 +216,10 @@ namespace QLBVBM.GUI
             lblNgayGioBay.Anchor = AnchorStyles.None;
             lblNgayGioBay.BackColor = Color.Transparent;
             lblNgayGioBay.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            lblNgayGioBay.Location = new Point(20, 132);
+            lblNgayGioBay.Location = new Point(23, 176);
+            lblNgayGioBay.Margin = new Padding(3, 4, 3, 4);
             lblNgayGioBay.Name = "lblNgayGioBay";
-            lblNgayGioBay.Size = new Size(100, 19);
+            lblNgayGioBay.Size = new Size(128, 24);
             lblNgayGioBay.TabIndex = 29;
             lblNgayGioBay.Text = "Ngày - Giờ bay";
             // 
@@ -229,12 +235,13 @@ namespace QLBVBM.GUI
             dtpNgayGioBay.FillColor = Color.White;
             dtpNgayGioBay.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
             dtpNgayGioBay.Format = DateTimePickerFormat.Long;
-            dtpNgayGioBay.Location = new Point(20, 156);
+            dtpNgayGioBay.Location = new Point(23, 208);
+            dtpNgayGioBay.Margin = new Padding(3, 4, 3, 4);
             dtpNgayGioBay.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             dtpNgayGioBay.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             dtpNgayGioBay.Name = "dtpNgayGioBay";
             dtpNgayGioBay.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            dtpNgayGioBay.Size = new Size(320, 38);
+            dtpNgayGioBay.Size = new Size(366, 51);
             dtpNgayGioBay.TabIndex = 30;
             dtpNgayGioBay.Value = new DateTime(2025, 4, 30, 22, 7, 18, 129);
             dtpNgayGioBay.ValueChanged += dtpNgayGioBay_ValueChanged;
@@ -244,9 +251,10 @@ namespace QLBVBM.GUI
             lblThoiGianBay.Anchor = AnchorStyles.None;
             lblThoiGianBay.BackColor = Color.Transparent;
             lblThoiGianBay.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            lblThoiGianBay.Location = new Point(417, 131);
+            lblThoiGianBay.Location = new Point(477, 175);
+            lblThoiGianBay.Margin = new Padding(3, 4, 3, 4);
             lblThoiGianBay.Name = "lblThoiGianBay";
-            lblThoiGianBay.Size = new Size(133, 19);
+            lblThoiGianBay.Size = new Size(169, 24);
             lblThoiGianBay.TabIndex = 31;
             lblThoiGianBay.Text = "Thời gian bay (phút)";
             // 
@@ -255,9 +263,10 @@ namespace QLBVBM.GUI
             lblSoLuongGheHang1.Anchor = AnchorStyles.None;
             lblSoLuongGheHang1.BackColor = Color.Transparent;
             lblSoLuongGheHang1.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            lblSoLuongGheHang1.Location = new Point(20, 237);
+            lblSoLuongGheHang1.Location = new Point(23, 316);
+            lblSoLuongGheHang1.Margin = new Padding(3, 4, 3, 4);
             lblSoLuongGheHang1.Name = "lblSoLuongGheHang1";
-            lblSoLuongGheHang1.Size = new Size(140, 19);
+            lblSoLuongGheHang1.Size = new Size(181, 24);
             lblSoLuongGheHang1.TabIndex = 32;
             lblSoLuongGheHang1.Text = "Số lượng ghế hạng 1";
             // 
@@ -266,9 +275,10 @@ namespace QLBVBM.GUI
             lblSoLuongGheHang2.Anchor = AnchorStyles.None;
             lblSoLuongGheHang2.BackColor = Color.Transparent;
             lblSoLuongGheHang2.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            lblSoLuongGheHang2.Location = new Point(417, 237);
+            lblSoLuongGheHang2.Location = new Point(477, 316);
+            lblSoLuongGheHang2.Margin = new Padding(3, 4, 3, 4);
             lblSoLuongGheHang2.Name = "lblSoLuongGheHang2";
-            lblSoLuongGheHang2.Size = new Size(140, 19);
+            lblSoLuongGheHang2.Size = new Size(181, 24);
             lblSoLuongGheHang2.TabIndex = 33;
             lblSoLuongGheHang2.Text = "Số lượng ghế hạng 2";
             // 
@@ -286,13 +296,13 @@ namespace QLBVBM.GUI
             txtSoLuongGheHang1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtSoLuongGheHang1.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
             txtSoLuongGheHang1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtSoLuongGheHang1.Location = new Point(20, 262);
-            txtSoLuongGheHang1.Margin = new Padding(3, 4, 3, 4);
+            txtSoLuongGheHang1.Location = new Point(23, 349);
+            txtSoLuongGheHang1.Margin = new Padding(3, 5, 3, 5);
             txtSoLuongGheHang1.Name = "txtSoLuongGheHang1";
             txtSoLuongGheHang1.PlaceholderText = "";
             txtSoLuongGheHang1.SelectedText = "";
             txtSoLuongGheHang1.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            txtSoLuongGheHang1.Size = new Size(320, 38);
+            txtSoLuongGheHang1.Size = new Size(366, 51);
             txtSoLuongGheHang1.TabIndex = 34;
             txtSoLuongGheHang1.TextChanged += txtSoLuongGheHang1_TextChanged;
             // 
@@ -310,13 +320,13 @@ namespace QLBVBM.GUI
             txtSoLuongGheHang2.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtSoLuongGheHang2.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 163);
             txtSoLuongGheHang2.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtSoLuongGheHang2.Location = new Point(417, 262);
-            txtSoLuongGheHang2.Margin = new Padding(3, 4, 3, 4);
+            txtSoLuongGheHang2.Location = new Point(477, 349);
+            txtSoLuongGheHang2.Margin = new Padding(3, 5, 3, 5);
             txtSoLuongGheHang2.Name = "txtSoLuongGheHang2";
             txtSoLuongGheHang2.PlaceholderText = "";
             txtSoLuongGheHang2.SelectedText = "";
             txtSoLuongGheHang2.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            txtSoLuongGheHang2.Size = new Size(320, 38);
+            txtSoLuongGheHang2.Size = new Size(366, 51);
             txtSoLuongGheHang2.TabIndex = 35;
             txtSoLuongGheHang2.TextChanged += txtSoLuongGheHang2_TextChanged;
             // 
@@ -347,7 +357,8 @@ namespace QLBVBM.GUI
             dgvDSSanBayTG.DefaultCellStyle = dataGridViewCellStyle3;
             dgvDSSanBayTG.EditMode = DataGridViewEditMode.EditOnEnter;
             dgvDSSanBayTG.GridColor = Color.Gray;
-            dgvDSSanBayTG.Location = new Point(20, 395);
+            dgvDSSanBayTG.Location = new Point(23, 527);
+            dgvDSSanBayTG.Margin = new Padding(3, 4, 3, 4);
             dgvDSSanBayTG.Name = "dgvDSSanBayTG";
             dgvDSSanBayTG.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -364,7 +375,7 @@ namespace QLBVBM.GUI
             dataGridViewCellStyle5.SelectionForeColor = Color.Black;
             dgvDSSanBayTG.RowsDefaultCellStyle = dataGridViewCellStyle5;
             dgvDSSanBayTG.RowTemplate.Height = 38;
-            dgvDSSanBayTG.Size = new Size(717, 122);
+            dgvDSSanBayTG.Size = new Size(819, 163);
             dgvDSSanBayTG.TabIndex = 36;
             dgvDSSanBayTG.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Carrot;
             dgvDSSanBayTG.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(247, 216, 189);
@@ -395,9 +406,10 @@ namespace QLBVBM.GUI
             lblSBTGTitle.Anchor = AnchorStyles.None;
             lblSBTGTitle.BackColor = Color.Transparent;
             lblSBTGTitle.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            lblSBTGTitle.Location = new Point(198, 347);
+            lblSBTGTitle.Location = new Point(226, 463);
+            lblSBTGTitle.Margin = new Padding(3, 4, 3, 4);
             lblSBTGTitle.Name = "lblSBTGTitle";
-            lblSBTGTitle.Size = new Size(346, 31);
+            lblSBTGTitle.Size = new Size(427, 37);
             lblSBTGTitle.TabIndex = 37;
             lblSBTGTitle.Text = "Danh sách sân bay trung gian";
             // 
@@ -413,10 +425,11 @@ namespace QLBVBM.GUI
             btnTiepNhan.FillColor = Color.FromArgb(64, 64, 64);
             btnTiepNhan.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
             btnTiepNhan.ForeColor = Color.White;
-            btnTiepNhan.Location = new Point(23, 539);
+            btnTiepNhan.Location = new Point(26, 719);
+            btnTiepNhan.Margin = new Padding(3, 4, 3, 4);
             btnTiepNhan.Name = "btnTiepNhan";
             btnTiepNhan.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            btnTiepNhan.Size = new Size(714, 47);
+            btnTiepNhan.Size = new Size(816, 63);
             btnTiepNhan.TabIndex = 38;
             btnTiepNhan.Text = "Tiếp nhận lịch chuyến bay";
             btnTiepNhan.Click += btnTiepNhan_Click;
@@ -433,10 +446,11 @@ namespace QLBVBM.GUI
             btnThemSanBay.FillColor = Color.FromArgb(64, 64, 64);
             btnThemSanBay.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 163);
             btnThemSanBay.ForeColor = Color.White;
-            btnThemSanBay.Location = new Point(23, 613);
+            btnThemSanBay.Location = new Point(26, 817);
+            btnThemSanBay.Margin = new Padding(3, 4, 3, 4);
             btnThemSanBay.Name = "btnThemSanBay";
             btnThemSanBay.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            btnThemSanBay.Size = new Size(214, 44);
+            btnThemSanBay.Size = new Size(245, 59);
             btnThemSanBay.TabIndex = 39;
             btnThemSanBay.Text = "Thêm sân bay mới";
             btnThemSanBay.Click += btnThemSanBay_Click;
@@ -453,10 +467,11 @@ namespace QLBVBM.GUI
             btnThemHangGhe.FillColor = Color.FromArgb(64, 64, 64);
             btnThemHangGhe.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 163);
             btnThemHangGhe.ForeColor = Color.White;
-            btnThemHangGhe.Location = new Point(271, 613);
+            btnThemHangGhe.Location = new Point(310, 817);
+            btnThemHangGhe.Margin = new Padding(3, 4, 3, 4);
             btnThemHangGhe.Name = "btnThemHangGhe";
             btnThemHangGhe.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            btnThemHangGhe.Size = new Size(214, 44);
+            btnThemHangGhe.Size = new Size(245, 59);
             btnThemHangGhe.TabIndex = 41;
             btnThemHangGhe.Text = "Thêm hạng ghế mới";
             btnThemHangGhe.Click += btnThemHangGhe_Click;
@@ -473,20 +488,21 @@ namespace QLBVBM.GUI
             btnThoat.FillColor = Color.FromArgb(64, 64, 64);
             btnThoat.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 163);
             btnThoat.ForeColor = Color.White;
-            btnThoat.Location = new Point(522, 613);
+            btnThoat.Location = new Point(597, 817);
+            btnThoat.Margin = new Padding(3, 4, 3, 4);
             btnThoat.Name = "btnThoat";
             btnThoat.ShadowDecoration.CustomizableEdges = customizableEdges22;
-            btnThoat.Size = new Size(214, 44);
+            btnThoat.Size = new Size(245, 59);
             btnThoat.TabIndex = 42;
             btnThoat.Text = "Thoát";
             btnThoat.Click += btnThoat_Click;
             // 
             // GUI_TiepNhanLichChuyenBay
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(759, 736);
+            ClientSize = new Size(867, 981);
             Controls.Add(btnThoat);
             Controls.Add(btnThemHangGhe);
             Controls.Add(btnThemSanBay);
@@ -507,9 +523,8 @@ namespace QLBVBM.GUI
             Controls.Add(lblSanBayDi);
             Controls.Add(txtMaChuyenBay);
             Controls.Add(txtThoiGianBay);
-            Margin = new Padding(3, 2, 3, 2);
-            MaximumSize = new Size(1700, 1200);
-            MinimumSize = new Size(775, 775);
+            MaximumSize = new Size(1940, 1584);
+            MinimumSize = new Size(883, 1018);
             Name = "GUI_TiepNhanLichChuyenBay";
             Text = "Tiếp Nhận Lịch Chuyến Bay";
             ((System.ComponentModel.ISupportInitialize)dgvDSSanBayTG).EndInit();
