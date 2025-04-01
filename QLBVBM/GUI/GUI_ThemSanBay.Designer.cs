@@ -222,6 +222,7 @@
             Name = "GUI_ThemSanBay";
             Text = "GUI_ThemSanBay";
             Load += GUI_ThemSanBay_Load;
+            StartPosition = FormStartPosition.CenterScreen; 
             ((System.ComponentModel.ISupportInitialize)dgvDSSanBay).EndInit();
             ResumeLayout(false);
             PerformLayout();

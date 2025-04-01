@@ -221,6 +221,7 @@
             Name = "GUI_ThemHangGhe";
             Text = "GUI_ThemHangGhe";
             Load += GUI_ThemHangGhe_Load;
+            StartPosition = FormStartPosition.CenterScreen; 
             ((System.ComponentModel.ISupportInitialize)dgvDSHangGhe).EndInit();
             ResumeLayout(false);
             PerformLayout();

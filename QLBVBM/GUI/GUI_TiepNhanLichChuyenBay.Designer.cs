@@ -527,6 +527,7 @@ namespace QLBVBM.GUI
             MinimumSize = new Size(883, 1018);
             Name = "GUI_TiepNhanLichChuyenBay";
             Text = "Tiếp Nhận Lịch Chuyến Bay";
+            StartPosition = FormStartPosition.CenterScreen; 
             ((System.ComponentModel.ISupportInitialize)dgvDSSanBayTG).EndInit();
             ResumeLayout(false);
             PerformLayout();
