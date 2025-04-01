@@ -52,7 +52,7 @@
             lblMaSanBay.Anchor = AnchorStyles.None;
             lblMaSanBay.BackColor = Color.Transparent;
             lblMaSanBay.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            lblMaSanBay.Location = new Point(87, 21);
+            lblMaSanBay.Location = new Point(82, 21);
             lblMaSanBay.Name = "lblMaSanBay";
             lblMaSanBay.Size = new Size(81, 19);
             lblMaSanBay.TabIndex = 8;
@@ -63,7 +63,7 @@
             lblTenSanBay.Anchor = AnchorStyles.None;
             lblTenSanBay.BackColor = Color.Transparent;
             lblTenSanBay.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            lblTenSanBay.Location = new Point(87, 116);
+            lblTenSanBay.Location = new Point(82, 116);
             lblTenSanBay.Name = "lblTenSanBay";
             lblTenSanBay.Size = new Size(87, 19);
             lblTenSanBay.TabIndex = 9;
@@ -84,7 +84,7 @@
             txtMaSanBay.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtMaSanBay.Font = new Font("Segoe UI", 9F);
             txtMaSanBay.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtMaSanBay.Location = new Point(87, 46);
+            txtMaSanBay.Location = new Point(82, 46);
             txtMaSanBay.Margin = new Padding(3, 4, 3, 4);
             txtMaSanBay.Name = "txtMaSanBay";
             txtMaSanBay.PlaceholderText = "";
@@ -107,7 +107,7 @@
             txtTenSanBay.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtTenSanBay.Font = new Font("Segoe UI", 9F);
             txtTenSanBay.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtTenSanBay.Location = new Point(87, 141);
+            txtTenSanBay.Location = new Point(82, 141);
             txtTenSanBay.Margin = new Padding(3, 4, 3, 4);
             txtTenSanBay.Name = "txtTenSanBay";
             txtTenSanBay.PlaceholderText = "";
@@ -130,7 +130,7 @@
             btnThem.FillColor = Color.FromArgb(64, 64, 64);
             btnThem.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 163);
             btnThem.ForeColor = Color.White;
-            btnThem.Location = new Point(163, 204);
+            btnThem.Location = new Point(158, 204);
             btnThem.Name = "btnThem";
             btnThem.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btnThem.Size = new Size(94, 38);
@@ -164,7 +164,7 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dgvDSSanBay.DefaultCellStyle = dataGridViewCellStyle3;
             dgvDSSanBay.GridColor = Color.FromArgb(231, 229, 255);
-            dgvDSSanBay.Location = new Point(30, 268);
+            dgvDSSanBay.Location = new Point(39, 260);
             dgvDSSanBay.Name = "dgvDSSanBay";
             dgvDSSanBay.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -179,7 +179,7 @@
             dgvDSSanBay.RowHeadersWidth = 51;
             dgvDSSanBay.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dgvDSSanBay.RowTemplate.Height = 40;
-            dgvDSSanBay.Size = new Size(359, 203);
+            dgvDSSanBay.Size = new Size(359, 200);
             dgvDSSanBay.TabIndex = 13;
             dgvDSSanBay.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             dgvDSSanBay.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -207,7 +207,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(428, 503);
+            ClientSize = new Size(419, 503);
             Controls.Add(dgvDSSanBay);
             Controls.Add(btnThem);
             Controls.Add(txtTenSanBay);
@@ -215,9 +215,9 @@
             Controls.Add(lblTenSanBay);
             Controls.Add(lblMaSanBay);
             Margin = new Padding(3, 2, 3, 2);
+            MinimumSize = new Size(435, 542);
             Name = "GUI_ThemSanBay";
             Text = "GUI_ThemSanBay";
-            WindowState = FormWindowState.Minimized;
             Load += GUI_ThemSanBay_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDSSanBay).EndInit();
             ResumeLayout(false);

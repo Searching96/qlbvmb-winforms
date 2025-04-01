@@ -510,7 +510,6 @@ namespace QLBVBM.GUI
             MinimumSize = new Size(775, 775);
             Name = "GUI_TiepNhanLichChuyenBay";
             Text = "Tiếp Nhận Lịch Chuyến Bay";
-            WindowState = FormWindowState.Minimized;
             ((System.ComponentModel.ISupportInitialize)dgvDSSanBayTG).EndInit();
             ResumeLayout(false);
             PerformLayout();
