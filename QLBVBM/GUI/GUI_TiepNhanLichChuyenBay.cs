@@ -398,7 +398,8 @@ namespace QLBVBM.GUI
 
         private void btnThemHangGhe_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Will implement this later.");
+            GUI_ThemHangGhe frmThemHangGhe = new GUI_ThemHangGhe();
+            frmThemHangGhe.ShowDialog();
         }
 
         private void cbbSanBayDi_SelectedIndexChanged(object sender, EventArgs e)

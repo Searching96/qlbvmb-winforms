@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QLBVBM.DTO
 {
-    internal class DTO_HangGhe
+    public class DTO_HangGhe
     {
         private string? maHangGhe;
         private string? tenHangGhe;

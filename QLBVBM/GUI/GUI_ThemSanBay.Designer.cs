@@ -52,9 +52,10 @@
             lblMaSanBay.Anchor = AnchorStyles.None;
             lblMaSanBay.BackColor = Color.Transparent;
             lblMaSanBay.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            lblMaSanBay.Location = new Point(82, 21);
+            lblMaSanBay.Location = new Point(96, 29);
+            lblMaSanBay.Margin = new Padding(3, 4, 3, 4);
             lblMaSanBay.Name = "lblMaSanBay";
-            lblMaSanBay.Size = new Size(81, 19);
+            lblMaSanBay.Size = new Size(103, 24);
             lblMaSanBay.TabIndex = 8;
             lblMaSanBay.Text = "Mã Sân Bay";
             // 
@@ -63,9 +64,10 @@
             lblTenSanBay.Anchor = AnchorStyles.None;
             lblTenSanBay.BackColor = Color.Transparent;
             lblTenSanBay.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            lblTenSanBay.Location = new Point(82, 116);
+            lblTenSanBay.Location = new Point(96, 156);
+            lblTenSanBay.Margin = new Padding(3, 4, 3, 4);
             lblTenSanBay.Name = "lblTenSanBay";
-            lblTenSanBay.Size = new Size(87, 19);
+            lblTenSanBay.Size = new Size(111, 24);
             lblTenSanBay.TabIndex = 9;
             lblTenSanBay.Text = "Tên Sân Bay";
             // 
@@ -84,14 +86,14 @@
             txtMaSanBay.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtMaSanBay.Font = new Font("Segoe UI", 9F);
             txtMaSanBay.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtMaSanBay.Location = new Point(82, 46);
-            txtMaSanBay.Margin = new Padding(3, 4, 3, 4);
+            txtMaSanBay.Location = new Point(96, 62);
+            txtMaSanBay.Margin = new Padding(3, 5, 3, 5);
             txtMaSanBay.Name = "txtMaSanBay";
             txtMaSanBay.PlaceholderText = "";
             txtMaSanBay.ReadOnly = true;
             txtMaSanBay.SelectedText = "";
             txtMaSanBay.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            txtMaSanBay.Size = new Size(244, 39);
+            txtMaSanBay.Size = new Size(279, 52);
             txtMaSanBay.TabIndex = 10;
             // 
             // txtTenSanBay
@@ -107,13 +109,13 @@
             txtTenSanBay.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtTenSanBay.Font = new Font("Segoe UI", 9F);
             txtTenSanBay.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtTenSanBay.Location = new Point(82, 141);
-            txtTenSanBay.Margin = new Padding(3, 4, 3, 4);
+            txtTenSanBay.Location = new Point(96, 189);
+            txtTenSanBay.Margin = new Padding(3, 5, 3, 5);
             txtTenSanBay.Name = "txtTenSanBay";
             txtTenSanBay.PlaceholderText = "";
             txtTenSanBay.SelectedText = "";
             txtTenSanBay.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            txtTenSanBay.Size = new Size(244, 39);
+            txtTenSanBay.Size = new Size(279, 52);
             txtTenSanBay.TabIndex = 11;
             txtTenSanBay.TextChanged += txtTenSanBay_TextChanged;
             // 
@@ -130,10 +132,11 @@
             btnThem.FillColor = Color.FromArgb(64, 64, 64);
             btnThem.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 163);
             btnThem.ForeColor = Color.White;
-            btnThem.Location = new Point(158, 204);
+            btnThem.Location = new Point(183, 273);
+            btnThem.Margin = new Padding(3, 4, 3, 4);
             btnThem.Name = "btnThem";
             btnThem.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            btnThem.Size = new Size(94, 38);
+            btnThem.Size = new Size(107, 51);
             btnThem.TabIndex = 12;
             btnThem.Text = "Thêm";
             btnThem.Click += btnThem_Click;
@@ -164,7 +167,8 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dgvDSSanBay.DefaultCellStyle = dataGridViewCellStyle3;
             dgvDSSanBay.GridColor = Color.FromArgb(231, 229, 255);
-            dgvDSSanBay.Location = new Point(39, 260);
+            dgvDSSanBay.Location = new Point(47, 348);
+            dgvDSSanBay.Margin = new Padding(3, 4, 3, 4);
             dgvDSSanBay.Name = "dgvDSSanBay";
             dgvDSSanBay.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -179,7 +183,7 @@
             dgvDSSanBay.RowHeadersWidth = 51;
             dgvDSSanBay.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dgvDSSanBay.RowTemplate.Height = 40;
-            dgvDSSanBay.Size = new Size(359, 200);
+            dgvDSSanBay.Size = new Size(410, 267);
             dgvDSSanBay.TabIndex = 13;
             dgvDSSanBay.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             dgvDSSanBay.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -205,17 +209,16 @@
             // 
             // GUI_ThemSanBay
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(419, 503);
+            ClientSize = new Size(482, 673);
             Controls.Add(dgvDSSanBay);
             Controls.Add(btnThem);
             Controls.Add(txtTenSanBay);
             Controls.Add(txtMaSanBay);
             Controls.Add(lblTenSanBay);
             Controls.Add(lblMaSanBay);
-            Margin = new Padding(3, 2, 3, 2);
-            MinimumSize = new Size(435, 542);
+            MinimumSize = new Size(495, 707);
             Name = "GUI_ThemSanBay";
             Text = "GUI_ThemSanBay";
             Load += GUI_ThemSanBay_Load;
