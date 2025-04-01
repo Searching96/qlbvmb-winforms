@@ -81,7 +81,7 @@ namespace QLBVBM.GUI
             // 
             // txtThoiGianBay
             // 
-            txtThoiGianBay.Anchor = AnchorStyles.Right;
+            txtThoiGianBay.Anchor = AnchorStyles.None;
             txtThoiGianBay.BorderColor = Color.Silver;
             txtThoiGianBay.BorderRadius = 7;
             txtThoiGianBay.CustomizableEdges = customizableEdges1;
@@ -105,6 +105,7 @@ namespace QLBVBM.GUI
             // 
             // txtMaChuyenBay
             // 
+            txtMaChuyenBay.Anchor = AnchorStyles.None;
             txtMaChuyenBay.BackColor = SystemColors.Control;
             txtMaChuyenBay.BorderColor = Color.Silver;
             txtMaChuyenBay.BorderRadius = 7;
@@ -130,7 +131,7 @@ namespace QLBVBM.GUI
             // 
             // lblSanBayDi
             // 
-            lblSanBayDi.Anchor = AnchorStyles.Top;
+            lblSanBayDi.Anchor = AnchorStyles.None;
             lblSanBayDi.BackColor = Color.Transparent;
             lblSanBayDi.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
             lblSanBayDi.Location = new Point(270, 36);
@@ -141,7 +142,7 @@ namespace QLBVBM.GUI
             // 
             // cbbSanBayDi
             // 
-            cbbSanBayDi.Anchor = AnchorStyles.Top;
+            cbbSanBayDi.Anchor = AnchorStyles.None;
             cbbSanBayDi.BackColor = Color.Transparent;
             cbbSanBayDi.BorderColor = Color.Silver;
             cbbSanBayDi.BorderRadius = 7;
@@ -163,7 +164,7 @@ namespace QLBVBM.GUI
             // 
             // cbbSanBayDen
             // 
-            cbbSanBayDen.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            cbbSanBayDen.Anchor = AnchorStyles.None;
             cbbSanBayDen.BackColor = Color.Transparent;
             cbbSanBayDen.BorderColor = Color.Silver;
             cbbSanBayDen.BorderRadius = 7;
@@ -185,6 +186,7 @@ namespace QLBVBM.GUI
             // 
             // lblMaChuyenBay
             // 
+            lblMaChuyenBay.Anchor = AnchorStyles.None;
             lblMaChuyenBay.BackColor = Color.Transparent;
             lblMaChuyenBay.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
             lblMaChuyenBay.Location = new Point(20, 36);
@@ -195,7 +197,7 @@ namespace QLBVBM.GUI
             // 
             // lblSanBayDen
             // 
-            lblSanBayDen.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblSanBayDen.Anchor = AnchorStyles.None;
             lblSanBayDen.BackColor = Color.Transparent;
             lblSanBayDen.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
             lblSanBayDen.Location = new Point(520, 36);
@@ -206,7 +208,7 @@ namespace QLBVBM.GUI
             // 
             // lblNgayGioBay
             // 
-            lblNgayGioBay.Anchor = AnchorStyles.Left;
+            lblNgayGioBay.Anchor = AnchorStyles.None;
             lblNgayGioBay.BackColor = Color.Transparent;
             lblNgayGioBay.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
             lblNgayGioBay.Location = new Point(20, 132);
@@ -217,7 +219,7 @@ namespace QLBVBM.GUI
             // 
             // dtpNgayGioBay
             // 
-            dtpNgayGioBay.Anchor = AnchorStyles.Left;
+            dtpNgayGioBay.Anchor = AnchorStyles.None;
             dtpNgayGioBay.BackColor = Color.White;
             dtpNgayGioBay.BorderColor = Color.Silver;
             dtpNgayGioBay.BorderRadius = 7;
@@ -239,7 +241,7 @@ namespace QLBVBM.GUI
             // 
             // lblThoiGianBay
             // 
-            lblThoiGianBay.Anchor = AnchorStyles.Right;
+            lblThoiGianBay.Anchor = AnchorStyles.None;
             lblThoiGianBay.BackColor = Color.Transparent;
             lblThoiGianBay.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
             lblThoiGianBay.Location = new Point(417, 131);
@@ -250,7 +252,7 @@ namespace QLBVBM.GUI
             // 
             // lblSoLuongGheHang1
             // 
-            lblSoLuongGheHang1.Anchor = AnchorStyles.Left;
+            lblSoLuongGheHang1.Anchor = AnchorStyles.None;
             lblSoLuongGheHang1.BackColor = Color.Transparent;
             lblSoLuongGheHang1.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
             lblSoLuongGheHang1.Location = new Point(20, 237);
@@ -261,7 +263,7 @@ namespace QLBVBM.GUI
             // 
             // lblSoLuongGheHang2
             // 
-            lblSoLuongGheHang2.Anchor = AnchorStyles.Right;
+            lblSoLuongGheHang2.Anchor = AnchorStyles.None;
             lblSoLuongGheHang2.BackColor = Color.Transparent;
             lblSoLuongGheHang2.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
             lblSoLuongGheHang2.Location = new Point(417, 237);
@@ -272,7 +274,7 @@ namespace QLBVBM.GUI
             // 
             // txtSoLuongGheHang1
             // 
-            txtSoLuongGheHang1.Anchor = AnchorStyles.Left;
+            txtSoLuongGheHang1.Anchor = AnchorStyles.None;
             txtSoLuongGheHang1.BorderColor = Color.Silver;
             txtSoLuongGheHang1.BorderRadius = 7;
             txtSoLuongGheHang1.CustomizableEdges = customizableEdges11;
@@ -296,7 +298,7 @@ namespace QLBVBM.GUI
             // 
             // txtSoLuongGheHang2
             // 
-            txtSoLuongGheHang2.Anchor = AnchorStyles.Right;
+            txtSoLuongGheHang2.Anchor = AnchorStyles.None;
             txtSoLuongGheHang2.BorderColor = Color.Silver;
             txtSoLuongGheHang2.BorderRadius = 7;
             txtSoLuongGheHang2.CustomizableEdges = customizableEdges13;
@@ -324,7 +326,7 @@ namespace QLBVBM.GUI
             dgvDSSanBayTG.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(247, 216, 189);
             dgvDSSanBayTG.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dgvDSSanBayTG.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            dgvDSSanBayTG.Anchor = AnchorStyles.None;
             dgvDSSanBayTG.BorderStyle = BorderStyle.Fixed3D;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(230, 126, 34);
@@ -401,7 +403,7 @@ namespace QLBVBM.GUI
             // 
             // btnTiepNhan
             // 
-            btnTiepNhan.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnTiepNhan.Anchor = AnchorStyles.None;
             btnTiepNhan.BorderRadius = 10;
             btnTiepNhan.CustomizableEdges = customizableEdges15;
             btnTiepNhan.DisabledState.BorderColor = Color.DarkGray;
@@ -421,7 +423,7 @@ namespace QLBVBM.GUI
             // 
             // btnThemSanBay
             // 
-            btnThemSanBay.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnThemSanBay.Anchor = AnchorStyles.None;
             btnThemSanBay.BorderRadius = 10;
             btnThemSanBay.CustomizableEdges = customizableEdges17;
             btnThemSanBay.DisabledState.BorderColor = Color.DarkGray;
@@ -441,7 +443,7 @@ namespace QLBVBM.GUI
             // 
             // btnThemHangGhe
             // 
-            btnThemHangGhe.Anchor = AnchorStyles.Bottom;
+            btnThemHangGhe.Anchor = AnchorStyles.None;
             btnThemHangGhe.BorderRadius = 10;
             btnThemHangGhe.CustomizableEdges = customizableEdges19;
             btnThemHangGhe.DisabledState.BorderColor = Color.DarkGray;
@@ -461,7 +463,7 @@ namespace QLBVBM.GUI
             // 
             // btnThoat
             // 
-            btnThoat.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnThoat.Anchor = AnchorStyles.None;
             btnThoat.BorderRadius = 10;
             btnThoat.CustomizableEdges = customizableEdges21;
             btnThoat.DisabledState.BorderColor = Color.DarkGray;
