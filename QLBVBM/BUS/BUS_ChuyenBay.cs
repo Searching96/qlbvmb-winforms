@@ -12,7 +12,7 @@ namespace QLBVBM.BUS
     public class BUS_ChuyenBay
     {
         private DAL_ChuyenBay DAL_ChuyenBay = new DAL_ChuyenBay();
-        private DAL_ThamSo DAL_ThamSo = new DAL_ThamSo();
+        private BUS_ThamSo BUS_ThamSo = new BUS_ThamSo();
         private BUS_CTChuyenBay BUS_CTChuyenBay = new BUS_CTChuyenBay();
         private BUS_HangVeCB BUS_HangVeCB = new BUS_HangVeCB();
 
@@ -69,7 +69,7 @@ namespace QLBVBM.BUS
 
         public bool ValidateThoiGianBay(string textThoiGianBay)
         {
-            int thoiGianBayToiThieu = DAL_ThamSo.LayThoiGianBayToiThieu();
+            int thoiGianBayToiThieu = BUS_ThamSo.LayThoiGianBayToiThieu();
             if (string.IsNullOrWhiteSpace(textThoiGianBay)
                 || !int.TryParse(textThoiGianBay, out int thoiGianBay)
                 || thoiGianBay < thoiGianBayToiThieu)
@@ -92,9 +92,10 @@ namespace QLBVBM.BUS
 
         public bool ValidateThoiGianDung(string textThoiGianDung)
         {
-            int thoiGianDungToiThieu = DAL_ThamSo.LayThoiGianDungToiThieu();
-            int thoiGianDungToiDa = DAL_ThamSo.LayThoiGianDungToiDa();
-            if (!int.TryParse(textThoiGianDung, out int thoiGianDung)
+            int thoiGianDungToiThieu = BUS_ThamSo.LayThoiGianDungToiThieu();
+            int thoiGianDungToiDa = BUS_ThamSo.LayThoiGianDungToiDa();
+            if (string.IsNullOrWhiteSpace(textThoiGianDung)
+                || !int.TryParse(textThoiGianDung, out int thoiGianDung)
                 || thoiGianDung < thoiGianDungToiThieu || thoiGianDung > thoiGianDungToiDa)
             {
                 return false;
