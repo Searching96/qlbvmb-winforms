@@ -22,10 +22,12 @@ namespace QLBVBM.GUI
         private BUS_HangGhe BUS_HangGhe = new BUS_HangGhe();
 
         private List<Guna2ComboBox> lstComboBoxHangGhe = new List<Guna2ComboBox>();
-        private List<Tuple<DTO_HangGhe, TextBox>> lstTextBoxSoLuongGhe = new List<Tuple<DTO_HangGhe, TextBox>>();
+        private List<Tuple<DTO_HangGhe, Guna2TextBox>> lstTextBoxSoLuongGhe = new List<Tuple<DTO_HangGhe, Guna2TextBox>>();
 
         private ErrorProvider errorProvider = new ErrorProvider();
 
+
+        // variables for dynamic HangGhe_ComboBox creation
         private int currentComboBoxCount = 0;
         private const int maxComboBoxPerRow = 2;
         private const int maxComboBox = 4;
@@ -54,6 +56,16 @@ namespace QLBVBM.GUI
                 cbb.DataSource = dsSanBay;
                 cbb.DisplayMember = "TenSanBay";
                 cbb.ValueMember = "MaSanBay";
+
+                // Add tooltip to display MaSanBay
+                ToolTip toolTip = new ToolTip();
+                cbb.SelectedIndexChanged += (s, e) =>
+                {
+                    if (cbb.SelectedItem is DTO_SanBay selectedSanBay)
+                    {
+                        toolTip.SetToolTip(cbb, selectedSanBay.MaSanBay);
+                    }
+                };
             }
         }
 
@@ -154,6 +166,19 @@ namespace QLBVBM.GUI
             {
                 dgv.Rows.Add(i + 1, "", "", "");
             }
+            
+            // Display MaSanBay in TenSanBay ComboBoxCell as tooltip
+            dgv.CellToolTipTextNeeded += (s, e) =>
+            {
+                if (e.ColumnIndex >= 0 && dgv.Columns[e.ColumnIndex].Name == "TenSanBay" && e.RowIndex >= 0)
+                {
+                    var cell = dgv.Rows[e.RowIndex].Cells[e.ColumnIndex] as DataGridViewComboBoxCell;
+                    if (cell?.Value != null)
+                    {
+                        e.ToolTipText = cell.Value.ToString(); 
+                    }
+                }
+            };
         }
 
         private bool HasErrors()
@@ -446,14 +471,17 @@ namespace QLBVBM.GUI
             Guna2ComboBox cbbHangGhe = new Guna2ComboBox
             {
                 Location = new Point(btnChonHangGhe.Location.X, btnChonHangGhe.Location.Y),
-                Width = 200,
+                Width = 320,
+                Height = 38,
+                Anchor = AnchorStyles.None,
+                BorderRadius = 10
             };
 
             currentComboBoxCount++;
             if (currentComboBoxCount >= maxComboBoxPerRow)
             {
                 currentComboBoxCount = 0;
-                btnChonHangGhe.Location = new Point(btnChonHangGhe.Location.X - 250, btnChonHangGhe.Location.Y + verticalSpacing);
+                btnChonHangGhe.Location = new Point(btnChonHangGhe.Location.X - 396, btnChonHangGhe.Location.Y + verticalSpacing);
             }
 
             bool isInitialized = false;
@@ -466,16 +494,22 @@ namespace QLBVBM.GUI
 
                     Label lblHangGhe = new Label
                     {
-                        Location = cbbHangGhe.Location,
+                        Location = new Point(cbbHangGhe.Location.X, cbbHangGhe.Location.Y - 10), // -10 to align with the top of the ComboBox
                         Text = $"Số lượng ghế {tenHangGhe}",
-                        AutoSize = true
+                        AutoSize = true,
+                        Anchor = AnchorStyles.None,
+                        Font = new Font("Arial", 11, FontStyle.Regular)
                     };
 
-                    TextBox txtSoLuongGhe = new TextBox
+                    Guna2TextBox txtSoLuongGhe = new Guna2TextBox
                     {
                         Location = new Point(lblHangGhe.Location.X, 
-                            lblHangGhe.Location.Y + lblHangGhe.Height + 5),
-                        Width = 200
+                            lblHangGhe.Location.Y + lblHangGhe.Height + 5 - 6), // -6 to align with the bottom of the Label
+                        Width = 320,
+                        Height = 38,
+                        Anchor = AnchorStyles.None,
+                        Font = new Font("Arial", 11, FontStyle.Regular),
+                        BorderRadius = 10
                     };
 
                     txtSoLuongGhe.TextChanged += (s, ev) =>
@@ -495,8 +529,7 @@ namespace QLBVBM.GUI
 
                     cbbHangGhe.Visible = false;
 
-                    lstTextBoxSoLuongGhe.Add(new Tuple<DTO_HangGhe, 
-                        TextBox>((DTO_HangGhe)cbbHangGhe.SelectedItem, txtSoLuongGhe));
+                    lstTextBoxSoLuongGhe.Add(new Tuple<DTO_HangGhe, Guna2TextBox>((DTO_HangGhe)cbbHangGhe.SelectedItem, txtSoLuongGhe));
                 }
             };
 
@@ -507,7 +540,7 @@ namespace QLBVBM.GUI
             lstComboBoxHangGhe.Add(cbbHangGhe);
             
             if (currentComboBoxCount % 2 == 1)
-                btnChonHangGhe.Location = new Point(btnChonHangGhe.Location.X + 250, btnChonHangGhe.Location.Y);
+                btnChonHangGhe.Location = new Point(btnChonHangGhe.Location.X + 396, btnChonHangGhe.Location.Y);
 
             if (lstComboBoxHangGhe.Count >= maxComboBox)
                 btnChonHangGhe.Visible = false;
