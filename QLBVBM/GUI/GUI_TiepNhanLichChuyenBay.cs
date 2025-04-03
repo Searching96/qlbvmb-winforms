@@ -166,19 +166,6 @@ namespace QLBVBM.GUI
             {
                 dgv.Rows.Add(i + 1, "", "", "");
             }
-            
-            // Display MaSanBay in TenSanBay ComboBoxCell as tooltip
-            dgv.CellToolTipTextNeeded += (s, e) =>
-            {
-                if (e.ColumnIndex >= 0 && dgv.Columns[e.ColumnIndex].Name == "TenSanBay" && e.RowIndex >= 0)
-                {
-                    var cell = dgv.Rows[e.RowIndex].Cells[e.ColumnIndex] as DataGridViewComboBoxCell;
-                    if (cell?.Value != null)
-                    {
-                        e.ToolTipText = cell.Value.ToString(); 
-                    }
-                }
-            };
         }
 
         private bool HasErrors()
