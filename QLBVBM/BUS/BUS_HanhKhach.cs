@@ -33,7 +33,7 @@ namespace QLBVBM.BUS
             List<DTO_HanhKhach> dsHanhKhach = dalHanhKhach.LayDanhSachHanhKhach();
             foreach (DTO_HanhKhach hanhKhach in dsHanhKhach)
             {
-                if (hanhKhach.SoCMND == CMND)
+                if (hanhKhach.SoCMND == CMND) // also use String.Equals for case-insensitive comparison
                 {
                     return hanhKhach;
                 }
