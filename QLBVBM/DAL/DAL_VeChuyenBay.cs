@@ -22,7 +22,7 @@ namespace QLBVBM.DAL
                 new MySqlParameter("@MaVe", veChuyenBay.MaVe),
                 new MySqlParameter("@MaChuyenBay", veChuyenBay.MaChuyenBay),
                 new MySqlParameter("@MaHangGhe", veChuyenBay.MaHangGhe),
-                new MySqlParameter("@SoGhe", veChuyenBay.MaHanhKhach)
+                new MySqlParameter("@MaHanhKhach", veChuyenBay.MaHanhKhach)
             };
             int result = dataHelper.ExecuteNonQuery(query, parameters);
             return result > 0;
