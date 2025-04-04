@@ -220,6 +220,7 @@ namespace QLBVBM.GUI
             dtpNgayGioBay.BorderRadius = 7;
             dtpNgayGioBay.BorderThickness = 1;
             dtpNgayGioBay.Checked = true;
+            dtpNgayGioBay.CustomFormat = "";
             dtpNgayGioBay.CustomizableEdges = customizableEdges9;
             dtpNgayGioBay.FillColor = Color.White;
             dtpNgayGioBay.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);

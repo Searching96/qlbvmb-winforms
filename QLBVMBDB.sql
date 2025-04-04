@@ -76,6 +76,8 @@ SELECT * FROM SANBAY;
 SELECT * FROM HANGGHE;
 SELECT * FROM HANGVECB;
 
+-- -------------------------------------------------------------------------------------------------------------------------------------------------
+-- -------------------------------------------------------------------------------------------------------------------------------------------------
 -- Script for Sprint 02
 alter table hangvecb 
 add column SLGheDaBan int;
@@ -102,5 +104,8 @@ create table if not exists VECHUYENBAY
 );
 
 select * from hangvecb;
+select * from sanbay;
 select * from vechuyenbay;
+select * from chuyenbay;
+
 SHOW TABLES;

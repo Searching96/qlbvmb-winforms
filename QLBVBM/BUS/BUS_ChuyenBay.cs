@@ -2,6 +2,7 @@
 using QLBVBM.DTO;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -59,8 +60,9 @@ namespace QLBVBM.BUS
                     transaction.Complete();
                     return true;
                 }
-                catch
+                catch (Exception ex)
                 {
+                    //Debug.WriteLine($"Error: {ex.Message}");
                     transaction.Dispose();
                     return false;
                 }
@@ -138,6 +140,11 @@ namespace QLBVBM.BUS
                     return true;
 
             return false;
+        }
+
+        public List<DTO_ChuyenBay> TraCuuChuyenBay(string maSanBayDi, string maSanBayDen, string ngayGioBay)
+        {
+            return DAL_ChuyenBay.TraCuuChuyenBay(maSanBayDi, maSanBayDen, ngayGioBay);
         }
     }
 }
