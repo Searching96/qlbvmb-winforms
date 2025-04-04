@@ -98,9 +98,9 @@ create table if not exists VECHUYENBAY
     MaHanhKhach varchar(7) not null,
     MaHangGhe varchar(7) not null,
     FOREIGN KEY (MaChuyenBay) REFERENCES CHUYENBAY(MaChuyenBay),
-    FOREIGN KEY (MaHangGhe) REFERENCES HANGGHE(MaHangGhe),
-    FOREIGN KEY (MaHanhKhach) REFERENCES HANHKHACH(MaHanhKhach)
+    FOREIGN KEY (MaHangGhe, MaChuyenBay) REFERENCES HANGVECB(MaHangGhe, MaChuyenBay)
 );
 
-
+select * from hangvecb;
+select * from vechuyenbay;
 SHOW TABLES;
