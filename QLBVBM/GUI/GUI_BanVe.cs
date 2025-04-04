@@ -16,9 +16,10 @@ namespace QLBVBM.GUI
 {
     public partial class GUI_BanVe : Form
     {
-        //private BUS_ChuyenBay busChuyenBay = new BUS_ChuyenBay();
         private BUS_SanBay busSanBay = new BUS_SanBay();
         private BUS_ChuyenBay busChuyenBay = new BUS_ChuyenBay();
+        private BUS_HanhKhach busHanhKhach = new BUS_HanhKhach();
+        private ErrorProvider errorProvider = new ErrorProvider();
 
         public GUI_BanVe()
         {
@@ -26,13 +27,71 @@ namespace QLBVBM.GUI
             SetResponsive();
             LoadDanhSachSanBayToComboBox(cbbSanBayDi, LayDanhSachSanBay());
             LoadDanhSachSanBayToComboBox(cbbSanBayDen, LayDanhSachSanBay());
+            SetEventForCMNDTextBox();
         }
 
-        private List<DTO_SanBay> LayDanhSachSanBay()
+        #region non-logic code block
+        public void SetEventForCMNDTextBox()
         {
-            List<DTO_SanBay> dsSanBay = busSanBay.LayDanhSachSanBay();
-            dsSanBay.Insert(0, new DTO_SanBay { MaSanBay = "", TenSanBay = "" });
-            return dsSanBay;
+            txtCMND.IconRightClick += (s, e) =>
+            {
+                if (string.IsNullOrEmpty(txtCMND.Text))
+                {
+                    txtMaHanhKhach.Text = "";
+                    txtTenHanhKhach.Text = "";
+                    txtSDT.Text = "";
+                    MessageBox.Show("Vui lòng nhập CMND để tìm hành khách", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (!busHanhKhach.ValidateCMND(txtCMND.Text))
+                {
+                    txtMaHanhKhach.Text = "";
+                    txtTenHanhKhach.Text = "";
+                    txtSDT.Text = "";
+                    MessageBox.Show("CMND không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+
+                }
+
+                DTO_HanhKhach? hanhKhach = busHanhKhach.TimHanhKhachTheoCMND(txtCMND.Text);
+                if (hanhKhach != null)
+                {
+                    txtMaHanhKhach.Text = hanhKhach.MaHanhKhach;
+                    txtTenHanhKhach.Text = hanhKhach.HoTen;
+                    txtSDT.Text = hanhKhach.SoDT;
+                }
+                else
+                {
+                    txtMaHanhKhach.Text = "";
+                    txtTenHanhKhach.Text = "";
+                    txtSDT.Text = "";
+                    MessageBox.Show("Không tìm thấy hành khách với CMND này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            };
+
+            txtCMND.MouseMove += (s, e) =>
+            {
+                if (IsMouseOverIconRight(txtCMND, e.Location))
+                {
+                    txtCMND.Cursor = Cursors.Hand;
+                }
+                else
+                {
+                    txtCMND.Cursor = Cursors.Default;
+                }
+            };
+        }
+
+        private bool IsMouseOverIconRight(Guna2TextBox textBox, Point mouseLocation)
+        {
+            int iconWidth = textBox.IconRightSize.Width;
+            int iconHeight = textBox.IconRightSize.Height;
+            int iconX = textBox.Width - iconWidth - textBox.Padding.Right;
+            int iconY = (textBox.Height - iconHeight) / 2;
+
+            Rectangle iconRect = new Rectangle(iconX, iconY, iconWidth, iconHeight);
+            return iconRect.Contains(mouseLocation);
         }
 
         public void SetResponsive()
@@ -50,6 +109,14 @@ namespace QLBVBM.GUI
             cbb.Enabled = false;
             cbb.Text = "";
             cbb.SelectedIndex = -1;
+        }
+        #endregion
+
+        private List<DTO_SanBay> LayDanhSachSanBay()
+        {
+            List<DTO_SanBay> dsSanBay = busSanBay.LayDanhSachSanBay();
+            dsSanBay.Insert(0, new DTO_SanBay { MaSanBay = "", TenSanBay = "" });
+            return dsSanBay;
         }
 
         public void LoadDanhSachSanBayToComboBox(Guna2ComboBox cbb, List<DTO_SanBay> dsSanBay)
@@ -126,7 +193,7 @@ namespace QLBVBM.GUI
         {
             if (cbbMaChuyenBay.SelectedIndex == -1)
             {
-                txtGioBay.Text = "";        
+                txtGioBay.Text = "";
             }
             else
             {
@@ -135,6 +202,18 @@ namespace QLBVBM.GUI
                 {
                     txtGioBay.Text = selectedChuyenBay.NgayGioBay?.ToString("HH:mm");
                 }
+            }
+        }
+
+        private void txtCMND_TextChanged(object sender, EventArgs e)
+        {
+            if (!busChuyenBay.ValidateThoiGianBay(txtCMND.Text))
+            {
+                errorProvider.SetError(txtCMND, "CMND không hợp lệ");
+            }
+            else
+            {
+                errorProvider.SetError(txtCMND, string.Empty);
             }
         }
     }

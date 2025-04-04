@@ -64,5 +64,31 @@ namespace QLBVBM.DAL
             }
             return dsHanhKhach;
         }
+
+        public DTO_HanhKhach? TimHanhKhachTheoCMND(string CMND)
+        {
+            DTO_HanhKhach? hanhKhach = null;
+            string query = "SELECT * FROM HANHKHACH WHERE CMND = @CMND"; 
+
+            List<MySqlParameter> parameters = new List<MySqlParameter>
+            {
+                new MySqlParameter("@CMND", CMND)
+            };
+
+            DataTable dt = dataHelper.ExecuteQuery(query, parameters);
+
+            if (dt.Rows.Count > 0)
+            {
+                DataRow dr = dt.Rows[0];
+                hanhKhach = new DTO_HanhKhach
+                {
+                    MaHanhKhach = dr["MaHanhKhach"].ToString(),
+                    HoTen = dr["TenHanhKhach"].ToString(),
+                    SoCMND = dr["CMND"].ToString(),
+                    SoDT = dr["DienThoai"].ToString()
+                };
+            }
+            return hanhKhach;
+        }
     }
 }

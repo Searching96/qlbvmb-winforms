@@ -103,6 +103,19 @@ create table if not exists VECHUYENBAY
     FOREIGN KEY (MaHangGhe, MaChuyenBay) REFERENCES HANGVECB(MaHangGhe, MaChuyenBay)
 );
 
+INSERT INTO HANHKHACH (MaHanhKhach, TenHanhKhach, CMND, DienThoai) VALUES
+('HK00001', 'Nguyen Van A', '0123456789', '0987654321'),
+('HK00002', 'Tran Thi B', '9876543210', '0912345678'),
+('HK00003', 'Le Van C', '1122334455', '0909090909'),
+('HK00004', 'Pham Thi D', '2233445566', '0933333333'),
+('HK00005', 'Hoang Van E', '3344556677', '0944444444'),
+('HK00006', 'Nguyen Thi F', '4455667788', '0955555555'),
+('HK00007', 'Tran Van G', '5566778899', '0966666666'),
+('HK00008', 'Do Thi H', '6677889900', '0977777777'),
+('HK00009', 'Bui Van I', '7788990011', '0988888888'),
+('HK00010', 'Vu Thi J', '8899001122', '0999999999');
+
+
 select * from hangvecb;
 select * from sanbay;
 select * from vechuyenbay;

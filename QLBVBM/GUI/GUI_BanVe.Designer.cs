@@ -333,7 +333,6 @@
             txtSDT.ShadowDecoration.CustomizableEdges = customizableEdges16;
             txtSDT.Size = new Size(287, 52);
             txtSDT.TabIndex = 37;
-            txtSDT.TabStop = false;
             // 
             // txtCMND
             // 
@@ -356,6 +355,7 @@
             txtCMND.ShadowDecoration.CustomizableEdges = customizableEdges18;
             txtCMND.Size = new Size(271, 52);
             txtCMND.TabIndex = 36;
+            txtCMND.TextChanged += txtCMND_TextChanged;
             // 
             // txtTenHanhKhach
             // 
@@ -378,7 +378,6 @@
             txtTenHanhKhach.ShadowDecoration.CustomizableEdges = customizableEdges20;
             txtTenHanhKhach.Size = new Size(295, 52);
             txtTenHanhKhach.TabIndex = 35;
-            txtTenHanhKhach.TabStop = false;
             // 
             // txtMaHanhKhach
             // 
@@ -401,7 +400,6 @@
             txtMaHanhKhach.ShadowDecoration.CustomizableEdges = customizableEdges22;
             txtMaHanhKhach.Size = new Size(271, 52);
             txtMaHanhKhach.TabIndex = 31;
-            txtMaHanhKhach.TabStop = false;
             // 
             // lblTenHanhKhach
             // 

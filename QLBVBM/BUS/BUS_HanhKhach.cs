@@ -30,15 +30,12 @@ namespace QLBVBM.BUS
 
         public DTO_HanhKhach? TimHanhKhachTheoCMND(string CMND)
         {
-            List<DTO_HanhKhach> dsHanhKhach = dalHanhKhach.LayDanhSachHanhKhach();
-            foreach (DTO_HanhKhach hanhKhach in dsHanhKhach)
-            {
-                if (hanhKhach.SoCMND == CMND) // also use String.Equals for case-insensitive comparison
-                {
-                    return hanhKhach;
-                }
-            }
-            return null;
+            return dalHanhKhach.TimHanhKhachTheoCMND(CMND);
+        }
+        
+        public bool ValidateCMND(string CMND)
+        {
+            return CMND.All(char.IsDigit) && CMND.Length <= 20;
         }
     }
 }
