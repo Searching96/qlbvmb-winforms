@@ -22,16 +22,19 @@ namespace QLBVBM.GUI
         private BUS_HangGhe BUS_HangGhe = new BUS_HangGhe();
 
         private List<Guna2ComboBox> lstComboBoxHangGhe = new List<Guna2ComboBox>();
-        private List<Tuple<DTO_HangGhe, Guna2TextBox>> lstTextBoxSoLuongGhe = new List<Tuple<DTO_HangGhe, Guna2TextBox>>();
+        private List<Tuple<DTO_HangGhe, Guna2TextBox, Guna2TextBox>> lstTextBoxSoLuongVaDonGiaGhe = new List<Tuple<DTO_HangGhe, Guna2TextBox, Guna2TextBox>>();
 
         private ErrorProvider errorProvider = new ErrorProvider();
 
+        private List<DTO_HangGhe> dsHangGhe = new List<DTO_HangGhe>();
+        private List<DTO_HangGhe> dsHangGheDaChon = new List<DTO_HangGhe>();
 
         // variables for dynamic HangGhe_ComboBox creation
         private int currentComboBoxCount = 0;
         private const int maxComboBoxPerRow = 2;
         private const int maxComboBox = 4;
         private const int verticalSpacing = 70;
+        private const int horizontalSpacing = 396;
 
         public GUI_TiepNhanLichChuyenBay()
         {
@@ -40,6 +43,7 @@ namespace QLBVBM.GUI
             PhatSinhMaChuyenBay();
             LoadSanBayToComboBox(cbbSanBayDi, LayDanhSachSanBay());
             LoadSanBayToComboBox(cbbSanBayDen, LayDanhSachSanBay());
+            LayDanhSachHangGhe();
         }
 
         private List<DTO_SanBay> LayDanhSachSanBay()
@@ -69,11 +73,10 @@ namespace QLBVBM.GUI
             }
         }
 
-        private List<DTO_HangGhe> LayDanhSachHangGhe()
+        private void LayDanhSachHangGhe()
         {
-            var dsHangGhe = BUS_HangGhe.LayDanhSachHangGhe();
+            dsHangGhe = BUS_HangGhe.LayDanhSachHangGhe();
             dsHangGhe.Insert(0, new DTO_HangGhe { MaHangGhe = "", TenHangGhe = "" });
-            return dsHangGhe;
         }
 
         private void LoadHangGheToComboBox(ComboBox cbb, List<DTO_HangGhe> dsHangGhe)
@@ -85,7 +88,7 @@ namespace QLBVBM.GUI
                 cbb.ValueMember = "MaHangGhe";
             }
         }
-        
+
         private void PhatSinhMaChuyenBay()
         {
             txtMaChuyenBay.Text = BUS_ChuyenBay.PhatSinhMaChuyenBay();
@@ -166,7 +169,7 @@ namespace QLBVBM.GUI
             {
                 dgv.Rows.Add(i + 1, "", "", "");
             }
-            
+
             // Display MaSanBay in TenSanBay ComboBoxCell as tooltip
             dgv.CellToolTipTextNeeded += (s, e) =>
             {
@@ -175,7 +178,7 @@ namespace QLBVBM.GUI
                     var cell = dgv.Rows[e.RowIndex].Cells[e.ColumnIndex] as DataGridViewComboBoxCell;
                     if (cell?.Value != null)
                     {
-                        e.ToolTipText = cell.Value.ToString(); 
+                        e.ToolTipText = cell.Value.ToString();
                     }
                 }
             };
@@ -254,7 +257,7 @@ namespace QLBVBM.GUI
             if (cbbSanBayDen.SelectedIndex == 0)
                 errorProvider.SetError(cbbSanBayDen, "Sân bay đến không được để trống");
 
-            foreach (var tuple in lstTextBoxSoLuongGhe)
+            foreach (var tuple in lstTextBoxSoLuongVaDonGiaGhe)
             {
                 if (string.IsNullOrEmpty(tuple.Item2.Text))
                     errorProvider.SetError(tuple.Item2, "Số lượng ghế không được để trống");
@@ -283,7 +286,8 @@ namespace QLBVBM.GUI
                 MaChuyenBay = txtMaChuyenBay.Text,
                 MaSanBayDi = cbbSanBayDi.SelectedValue.ToString(),
                 MaSanBayDen = cbbSanBayDen.SelectedValue.ToString(),
-                NgayGioBay = dtpNgayGioBay.Value,
+                NgayBay = dtpNgayBay.Value,
+                GioBay = dtpGioBay.Value,
                 ThoiGianBay = int.Parse(txtThoiGianBay.Text)
             };
 
@@ -316,15 +320,18 @@ namespace QLBVBM.GUI
             }
 
             List<DTO_HangVeCB> dsHangVeCB = new List<DTO_HangVeCB>();
-            foreach(var tuple in lstTextBoxSoLuongGhe)
+            foreach (var tuple in lstTextBoxSoLuongVaDonGiaGhe)
             {
                 if (!int.TryParse(tuple.Item2.Text, out int soLuongGhe))
+                    continue;
+                if (!int.TryParse(tuple.Item3.Text, out int donGia))
                     continue;
                 DTO_HangVeCB hangVeCB = new DTO_HangVeCB
                 {
                     MaChuyenBay = chuyenBayMoi.MaChuyenBay,
                     MaHangGhe = tuple.Item1.MaHangGhe,
-                    SoLuongGhe = soLuongGhe
+                    SoLuongGhe = soLuongGhe,
+                    DonGia = donGia                   
                 };
                 dsHangVeCB.Add(hangVeCB);
             }
@@ -451,13 +458,13 @@ namespace QLBVBM.GUI
 
         private void dtpNgayGioBay_ValueChanged(object sender, EventArgs e)
         {
-            if (dtpNgayGioBay.Value <= DateTime.Now)
+            if (dtpNgayBay.Value <= DateTime.Now)
             {
-                errorProvider.SetError(dtpNgayGioBay, "Ngày giờ bay phải sau thời điểm hiện tại");
+                errorProvider.SetError(dtpNgayBay, "Ngày giờ bay phải sau thời điểm hiện tại");
             }
             else
             {
-                errorProvider.SetError(dtpNgayGioBay, string.Empty);
+                errorProvider.SetError(dtpNgayBay, string.Empty);
             }
         }
 
@@ -481,7 +488,7 @@ namespace QLBVBM.GUI
             if (currentComboBoxCount >= maxComboBoxPerRow)
             {
                 currentComboBoxCount = 0;
-                btnChonHangGhe.Location = new Point(btnChonHangGhe.Location.X - 396, btnChonHangGhe.Location.Y + verticalSpacing);
+                btnChonHangGhe.Location = new Point(btnChonHangGhe.Location.X - horizontalSpacing, btnChonHangGhe.Location.Y + verticalSpacing);
             }
 
             bool isInitialized = false;
@@ -490,7 +497,11 @@ namespace QLBVBM.GUI
             {
                 if (isInitialized && cbbHangGhe.SelectedIndex != 0)
                 {
-                    string tenHangGhe = ((DTO_HangGhe)cbbHangGhe.SelectedItem).TenHangGhe;
+                    DTO_HangGhe selectedHangGhe = (DTO_HangGhe)cbbHangGhe.SelectedItem;
+                    dsHangGheDaChon.Add(selectedHangGhe);
+                    UpdateHangGheComboBoxes();
+
+                    string tenHangGhe = selectedHangGhe.TenHangGhe;
 
                     Label lblHangGhe = new Label
                     {
@@ -501,11 +512,20 @@ namespace QLBVBM.GUI
                         Font = new Font("Arial", 11, FontStyle.Regular)
                     };
 
+                    Label lblDonGia = new Label
+                    {
+                        Location = new Point(lblHangGhe.Location.X + 230, lblHangGhe.Location.Y), // +160 to align with the right of lblHangGhe
+                        Text = $"Đơn giá",
+                        AutoSize = true,
+                        Anchor = AnchorStyles.None,
+                        Font = new Font("Arial", 11, FontStyle.Regular)
+                    };
+
                     Guna2TextBox txtSoLuongGhe = new Guna2TextBox
                     {
-                        Location = new Point(lblHangGhe.Location.X, 
+                        Location = new Point(lblHangGhe.Location.X,
                             lblHangGhe.Location.Y + lblHangGhe.Height + 5 - 6), // -6 to align with the bottom of the Label
-                        Width = 320,
+                        Width = 210,
                         Height = 38,
                         Anchor = AnchorStyles.None,
                         Font = new Font("Arial", 11, FontStyle.Regular),
@@ -524,26 +544,59 @@ namespace QLBVBM.GUI
                         }
                     };
 
+                    Guna2TextBox txtDonGia = new Guna2TextBox
+                    {
+                        Location = new Point(lblDonGia.Location.X,
+                            lblDonGia.Location.Y + lblDonGia.Height + 5 - 6), // -6 to align with the bottom of the Label
+                        Width = 150,
+                        Height = 38,
+                        Anchor = AnchorStyles.None,
+                        Font = new Font("Arial", 11, FontStyle.Regular),
+                        BorderRadius = 10
+                    };
+
+                    txtDonGia.TextChanged += (s, ev) =>
+                    {
+                        if (!BUS_ChuyenBay.ValidateSoLuongGhe(txtDonGia.Text)) // Assuming the same validation for simplicity
+                        {
+                            errorProvider.SetError(txtDonGia, "Đơn giá phải là số nguyên không âm");
+                        }
+                        else
+                        {
+                            errorProvider.SetError(txtDonGia, string.Empty);
+                        }
+                    };
+
                     this.Controls.Add(lblHangGhe);
                     this.Controls.Add(txtSoLuongGhe);
+                    this.Controls.Add(lblDonGia);
+                    this.Controls.Add(txtDonGia);
 
                     cbbHangGhe.Visible = false;
 
-                    lstTextBoxSoLuongGhe.Add(new Tuple<DTO_HangGhe, Guna2TextBox>((DTO_HangGhe)cbbHangGhe.SelectedItem, txtSoLuongGhe));
+                    lstTextBoxSoLuongVaDonGiaGhe.Add(new Tuple<DTO_HangGhe, Guna2TextBox, Guna2TextBox>(selectedHangGhe, txtSoLuongGhe, txtDonGia));
                 }
             };
 
-            LoadHangGheToComboBox(cbbHangGhe, LayDanhSachHangGhe());
+            LoadHangGheToComboBox(cbbHangGhe, dsHangGhe.Except(dsHangGheDaChon).ToList());
             isInitialized = true;
 
             this.Controls.Add(cbbHangGhe);
             lstComboBoxHangGhe.Add(cbbHangGhe);
-            
+
             if (currentComboBoxCount % 2 == 1)
-                btnChonHangGhe.Location = new Point(btnChonHangGhe.Location.X + 396, btnChonHangGhe.Location.Y);
+                btnChonHangGhe.Location = new Point(btnChonHangGhe.Location.X + horizontalSpacing, btnChonHangGhe.Location.Y);
 
             if (lstComboBoxHangGhe.Count >= maxComboBox)
                 btnChonHangGhe.Visible = false;
+        }
+
+        private void UpdateHangGheComboBoxes()
+        {
+            foreach (var comboBox in lstComboBoxHangGhe)
+            {
+                LoadHangGheToComboBox(comboBox, dsHangGhe.Except(dsHangGheDaChon).ToList());
+            }
         }
     }
 }

@@ -67,7 +67,7 @@ namespace QLBVBM.GUI
             lblMaChuyenBay = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblSanBayDen = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblNgayGioBay = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            dtpNgayGioBay = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            dtpNgayBay = new Guna.UI2.WinForms.Guna2DateTimePicker();
             lblThoiGianBay = new Guna.UI2.WinForms.Guna2HtmlLabel();
             dgvDSSanBayTG = new Guna.UI2.WinForms.Guna2DataGridView();
             lblSBTGTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -76,7 +76,8 @@ namespace QLBVBM.GUI
             btnThemHangGhe = new Guna.UI2.WinForms.Guna2Button();
             btnThoat = new Guna.UI2.WinForms.Guna2Button();
             btnChonHangGhe = new Guna.UI2.WinForms.Guna2Button();
-            guna2DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            dtpGioBay = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            lblGioBay = new Guna.UI2.WinForms.Guna2HtmlLabel();
             ((System.ComponentModel.ISupportInitialize)dgvDSSanBayTG).BeginInit();
             SuspendLayout();
             // 
@@ -220,32 +221,32 @@ namespace QLBVBM.GUI
             lblNgayGioBay.Location = new Point(23, 163);
             lblNgayGioBay.Margin = new Padding(3, 4, 3, 4);
             lblNgayGioBay.Name = "lblNgayGioBay";
-            lblNgayGioBay.Size = new Size(128, 24);
+            lblNgayGioBay.Size = new Size(81, 24);
             lblNgayGioBay.TabIndex = 29;
-            lblNgayGioBay.Text = "Ngày - Giờ bay";
+            lblNgayGioBay.Text = "Ngày bay";
             // 
-            // dtpNgayGioBay
+            // dtpNgayBay
             // 
-            dtpNgayGioBay.Anchor = AnchorStyles.None;
-            dtpNgayGioBay.BackColor = Color.White;
-            dtpNgayGioBay.BorderColor = Color.Silver;
-            dtpNgayGioBay.BorderRadius = 7;
-            dtpNgayGioBay.BorderThickness = 1;
-            dtpNgayGioBay.Checked = true;
-            dtpNgayGioBay.CustomizableEdges = customizableEdges9;
-            dtpNgayGioBay.FillColor = Color.White;
-            dtpNgayGioBay.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            dtpNgayGioBay.Format = DateTimePickerFormat.Long;
-            dtpNgayGioBay.Location = new Point(23, 195);
-            dtpNgayGioBay.Margin = new Padding(3, 4, 3, 4);
-            dtpNgayGioBay.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
-            dtpNgayGioBay.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
-            dtpNgayGioBay.Name = "dtpNgayGioBay";
-            dtpNgayGioBay.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            dtpNgayGioBay.Size = new Size(366, 51);
-            dtpNgayGioBay.TabIndex = 30;
-            dtpNgayGioBay.Value = new DateTime(2025, 4, 30, 22, 7, 18, 129);
-            dtpNgayGioBay.ValueChanged += dtpNgayGioBay_ValueChanged;
+            dtpNgayBay.Anchor = AnchorStyles.None;
+            dtpNgayBay.BackColor = Color.White;
+            dtpNgayBay.BorderColor = Color.Silver;
+            dtpNgayBay.BorderRadius = 7;
+            dtpNgayBay.BorderThickness = 1;
+            dtpNgayBay.Checked = true;
+            dtpNgayBay.CustomizableEdges = customizableEdges9;
+            dtpNgayBay.FillColor = Color.White;
+            dtpNgayBay.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            dtpNgayBay.Format = DateTimePickerFormat.Short;
+            dtpNgayBay.Location = new Point(23, 195);
+            dtpNgayBay.Margin = new Padding(3, 4, 3, 4);
+            dtpNgayBay.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
+            dtpNgayBay.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
+            dtpNgayBay.Name = "dtpNgayBay";
+            dtpNgayBay.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            dtpNgayBay.Size = new Size(214, 51);
+            dtpNgayBay.TabIndex = 30;
+            dtpNgayBay.Value = new DateTime(2025, 4, 30, 22, 7, 18, 129);
+            dtpNgayBay.ValueChanged += dtpNgayGioBay_ValueChanged;
             // 
             // lblThoiGianBay
             // 
@@ -448,21 +449,37 @@ namespace QLBVBM.GUI
             btnChonHangGhe.Text = "Chọn hạng ghế";
             btnChonHangGhe.Click += btnChonHangGhe_Click;
             // 
-            // guna2DateTimePicker1
+            // dtpGioBay
             // 
-            guna2DateTimePicker1.Checked = true;
-            guna2DateTimePicker1.CustomizableEdges = customizableEdges21;
-            guna2DateTimePicker1.Font = new Font("Segoe UI", 9F);
-            guna2DateTimePicker1.Format = DateTimePickerFormat.Long;
-            guna2DateTimePicker1.Location = new Point(23, 389);
-            guna2DateTimePicker1.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
-            guna2DateTimePicker1.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
-            guna2DateTimePicker1.Name = "guna2DateTimePicker1";
-            guna2DateTimePicker1.ShadowDecoration.CustomizableEdges = customizableEdges22;
-            guna2DateTimePicker1.Size = new Size(250, 45);
-            guna2DateTimePicker1.TabIndex = 44;
-            guna2DateTimePicker1.Format = DateTimePickerFormat.Custom;
-            guna2DateTimePicker1.CustomFormat = "HH:mm";
+            dtpGioBay.BackColor = Color.White;
+            dtpGioBay.BorderColor = Color.Silver;
+            dtpGioBay.BorderRadius = 7;
+            dtpGioBay.Checked = true;
+            dtpGioBay.CustomizableEdges = customizableEdges21;
+            dtpGioBay.FillColor = Color.White;
+            dtpGioBay.Font = new Font("Segoe UI", 9F);
+            dtpGioBay.Format = DateTimePickerFormat.Time;
+            dtpGioBay.Location = new Point(237, 195);
+            dtpGioBay.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
+            dtpGioBay.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
+            dtpGioBay.Name = "dtpGioBay";
+            dtpGioBay.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            dtpGioBay.ShowUpDown = true;
+            dtpGioBay.Size = new Size(152, 51);
+            dtpGioBay.TabIndex = 44;
+            dtpGioBay.Value = new DateTime(2025, 1, 1, 12, 00, 00);
+            // 
+            // lblGioBay
+            // 
+            lblGioBay.Anchor = AnchorStyles.None;
+            lblGioBay.BackColor = Color.Transparent;
+            lblGioBay.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            lblGioBay.Location = new Point(237, 163);
+            lblGioBay.Margin = new Padding(3, 4, 3, 4);
+            lblGioBay.Name = "lblGioBay";
+            lblGioBay.Size = new Size(69, 24);
+            lblGioBay.TabIndex = 45;
+            lblGioBay.Text = "Giờ bay";
             // 
             // GUI_TiepNhanLichChuyenBay
             // 
@@ -470,7 +487,8 @@ namespace QLBVBM.GUI
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(867, 981);
-            Controls.Add(guna2DateTimePicker1);
+            Controls.Add(lblGioBay);
+            Controls.Add(dtpGioBay);
             Controls.Add(btnChonHangGhe);
             Controls.Add(btnThoat);
             Controls.Add(btnThemHangGhe);
@@ -479,7 +497,7 @@ namespace QLBVBM.GUI
             Controls.Add(lblSBTGTitle);
             Controls.Add(dgvDSSanBayTG);
             Controls.Add(lblThoiGianBay);
-            Controls.Add(dtpNgayGioBay);
+            Controls.Add(dtpNgayBay);
             Controls.Add(lblNgayGioBay);
             Controls.Add(lblSanBayDen);
             Controls.Add(lblMaChuyenBay);
@@ -507,7 +525,7 @@ namespace QLBVBM.GUI
         private Guna.UI2.WinForms.Guna2HtmlLabel lblMaChuyenBay;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblSanBayDen;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblNgayGioBay;
-        private Guna.UI2.WinForms.Guna2DateTimePicker dtpNgayGioBay;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtpNgayBay;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblThoiGianBay;
         private Guna.UI2.WinForms.Guna2DataGridView dgvDSSanBayTG;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblSBTGTitle;
@@ -516,6 +534,7 @@ namespace QLBVBM.GUI
         private Guna.UI2.WinForms.Guna2Button btnThemHangGhe;
         private Guna.UI2.WinForms.Guna2Button btnThoat;
         private Guna.UI2.WinForms.Guna2Button btnChonHangGhe;
-        private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker1;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtpGioBay;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblGioBay;
     }
 }
