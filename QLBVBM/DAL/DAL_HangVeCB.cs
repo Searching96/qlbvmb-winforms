@@ -14,14 +14,15 @@ namespace QLBVBM.DAL
 
         public bool ThemHangVe(DTO_HangVeCB hangVeCB)
         {
-            string query = "INSERT INTO HANGVECB (MaChuyenBay, MaHangGhe, SoLuongGhe, DonGia) " +
-                "VALUES (@MaChuyenBay, @MaHangGhe, @SoLuongGhe, @DonGia)";
-            
+            string query = "INSERT INTO HANGVECB (MaChuyenBay, MaHangGhe, SoLuongGhe, SLGheDaBan, DonGia) " +
+                "VALUES (@MaChuyenBay, @MaHangGhe, @SoLuongGhe, @SLGheDaBan, @DonGia)";
+
             List<MySqlParameter> parameters = new List<MySqlParameter>
             {
                 new MySqlParameter("@MaChuyenBay", hangVeCB.MaChuyenBay),
                 new MySqlParameter("@MaHangGhe", hangVeCB.MaHangGhe),
                 new MySqlParameter("@SoLuongGhe", hangVeCB.SoLuongGhe),
+                new MySqlParameter("@SLGheDaBan", 0),
                 new MySqlParameter("@DonGia", hangVeCB.DonGia)
             };
 

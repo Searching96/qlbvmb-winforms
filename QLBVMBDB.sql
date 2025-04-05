@@ -58,6 +58,7 @@ CREATE TABLE IF NOT EXISTS HANGVECB
     FOREIGN KEY (MaChuyenBay) REFERENCES CHUYENBAY(MaChuyenBay)
 );
 
+
 create table if not exists HANHKHACH
 (
 	MaHanhKhach varchar(7) primary key,
@@ -73,8 +74,7 @@ create table if not exists VECHUYENBAY
     MaHanhKhach varchar(7) not null,
     MaHangGhe varchar(7) not null,
     FOREIGN KEY (MaChuyenBay) REFERENCES CHUYENBAY(MaChuyenBay),
-    FOREIGN KEY (MaHangGhe) REFERENCES HANGGHE(MaHangGhe),
-    FOREIGN KEY (MaHanhKhach) REFERENCES HANHKHACH(MaHanhKhach)
+    FOREIGN KEY (MaHangGhe, MaChuyenBay) REFERENCES HANGVECB(MaHangGhe, MaChuyenBay)
 );
 
 INSERT INTO SANBAY VALUES ('SB00001', 'Sân bay California');
@@ -92,6 +92,7 @@ INSERT INTO HANGGHE VALUES ('HG00001', 'Hạng 1');
 INSERT INTO HANGGHE VALUES ('HG00002', 'Hạng 2');
 INSERT INTO HANGGHE VALUES ('HG00003', 'Hạng xoàng');
 INSERT INTO HANGGHE VALUES ('HG00004', 'Hạng sang');
+
 INSERT INTO THAMSO VALUES (2, 30, 10, 20);
 
 INSERT INTO HANHKHACH (MaHanhKhach, TenHanhKhach, CMND, DienThoai) VALUES
@@ -105,6 +106,7 @@ INSERT INTO HANHKHACH (MaHanhKhach, TenHanhKhach, CMND, DienThoai) VALUES
 ('HK00008', 'Do Thi H', '6677889900', '0977777777'),
 ('HK00009', 'Bui Van I', '7788990011', '0988888888'),
 ('HK00010', 'Vu Thi J', '8899001122', '0999999999');
+
 
 SELECT * FROM SANBAY;
 SELECT * FROM HANGGHE;
