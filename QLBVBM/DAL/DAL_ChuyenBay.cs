@@ -15,15 +15,16 @@ namespace QLBVBM.DAL
 
         public bool ThemChuyenBay(DTO_ChuyenBay chuyenBay)
         {
-            string query = "INSERT INTO CHUYENBAY (MaChuyenBay, MaSanBayDi, MaSanBayDen, NgayGioBay, ThoiGianBay) " +
-               "VALUES (@MaChuyenBay, @MaSanBayDi, @MaSanBayDen, @NgayGioBay, @ThoiGianBay)";
+            string query = "INSERT INTO CHUYENBAY (MaChuyenBay, MaSanBayDi, MaSanBayDen, NgayBay, GioBay, ThoiGianBay) " +
+               "VALUES (@MaChuyenBay, @MaSanBayDi, @MaSanBayDen, @NgayBay, @GioBay, @ThoiGianBay)";
 
             List<MySqlParameter> parameters = new List<MySqlParameter>
                     {
                         new MySqlParameter("@MaChuyenBay", chuyenBay.MaChuyenBay),
                         new MySqlParameter("@MaSanBayDi", chuyenBay.MaSanBayDi),
                         new MySqlParameter("@MaSanBayDen", chuyenBay.MaSanBayDen),
-                        new MySqlParameter("@NgayGioBay", chuyenBay.NgayGioBay),
+                        new MySqlParameter("@NgayBay", chuyenBay.NgayBay),
+                        new MySqlParameter("@GioBay", chuyenBay.GioBay),
                         new MySqlParameter("@ThoiGianBay", chuyenBay.ThoiGianBay),
                     };
 
@@ -51,7 +52,7 @@ namespace QLBVBM.DAL
         public List<DTO_ChuyenBay> TraCuuChuyenBay(string maSanBayDi, string maSanBayDen, string ngayBay)
         {
             List<DTO_ChuyenBay> dsChuyenBay = new List<DTO_ChuyenBay>();
-            string query = $"SELECT * FROM CHUYENBAY WHERE MaSanBayDi = '{maSanBayDi}' AND MaSanBayDen = '{maSanBayDen}' AND DATE(NgayGioBay) = '{ngayBay}'";
+            string query = $"SELECT * FROM CHUYENBAY WHERE MaSanBayDi = '{maSanBayDi}' AND MaSanBayDen = '{maSanBayDen}' AND NgayBay = '{ngayBay}'";
             DataTable dt = dataHelper.ExecuteQuery(query);
 
             foreach (DataRow dr in dt.Rows)
@@ -61,7 +62,8 @@ namespace QLBVBM.DAL
                     MaChuyenBay = dr["MaChuyenBay"].ToString(),
                     MaSanBayDi = dr["MaSanBayDi"].ToString(),
                     MaSanBayDen = dr["MaSanBayDen"].ToString(),
-                    NgayGioBay = DateTime.Parse(dr["NgayGioBay"].ToString()),
+                    NgayBay = DateTime.Parse(dr["NgayBay"].ToString()),
+                    GioBay = DateTime.Parse(dr["GioBay"].ToString()),
                     ThoiGianBay = int.Parse(dr["ThoiGianBay"].ToString())
                 };
                 dsChuyenBay.Add(cb);

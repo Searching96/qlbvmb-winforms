@@ -153,7 +153,7 @@ namespace QLBVBM.GUI
                 {
                     if (cbb.SelectedItem is DTO_ChuyenBay selectedChuyenBay)
                     {
-                        toolTip.SetToolTip(cbb, selectedChuyenBay.NgayGioBay.ToString());
+                        toolTip.SetToolTip(cbb, selectedChuyenBay.GioBay.ToString());
                     }
                 };
             }
@@ -200,7 +200,7 @@ namespace QLBVBM.GUI
                 DTO_ChuyenBay selectedChuyenBay = (DTO_ChuyenBay)cbbMaChuyenBay.SelectedItem;
                 if (selectedChuyenBay != null)
                 {
-                    txtGioBay.Text = selectedChuyenBay.NgayGioBay?.ToString("HH:mm");
+                    txtGioBay.Text = selectedChuyenBay.GioBay?.ToString("HH:mm");
                 }
             }
         }
