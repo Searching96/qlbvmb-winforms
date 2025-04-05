@@ -43,7 +43,7 @@
             lblTenHanhKhach = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtMaHanhKhach = new Guna.UI2.WinForms.Guna2TextBox();
             lblMaHanhKhach = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
+            txtCMND = new Guna.UI2.WinForms.Guna2TextBox();
             lblCMND = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtSDT = new Guna.UI2.WinForms.Guna2TextBox();
             lblSDT = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -82,6 +82,7 @@
             txtTenHanhKhach.ShadowDecoration.CustomizableEdges = customizableEdges2;
             txtTenHanhKhach.Size = new Size(295, 52);
             txtTenHanhKhach.TabIndex = 37;
+            txtTenHanhKhach.TextChanged += txtTenHanhKhach_TextChanged;
             // 
             // lblTenHanhKhach
             // 
@@ -129,27 +130,28 @@
             lblMaHanhKhach.TabIndex = 38;
             lblMaHanhKhach.Text = "Mã hành khách";
             // 
-            // guna2TextBox2
+            // txtCMND
             // 
-            guna2TextBox2.Anchor = AnchorStyles.None;
-            guna2TextBox2.BackColor = SystemColors.Control;
-            guna2TextBox2.BorderRadius = 7;
-            guna2TextBox2.CustomizableEdges = customizableEdges5;
-            guna2TextBox2.DefaultText = "";
-            guna2TextBox2.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            guna2TextBox2.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            guna2TextBox2.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            guna2TextBox2.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            guna2TextBox2.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox2.Font = new Font("Segoe UI", 9F);
-            guna2TextBox2.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox2.Location = new Point(37, 311);
-            guna2TextBox2.Name = "guna2TextBox2";
-            guna2TextBox2.PlaceholderText = "";
-            guna2TextBox2.SelectedText = "";
-            guna2TextBox2.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            guna2TextBox2.Size = new Size(295, 52);
-            guna2TextBox2.TabIndex = 41;
+            txtCMND.Anchor = AnchorStyles.None;
+            txtCMND.BackColor = SystemColors.Control;
+            txtCMND.BorderRadius = 7;
+            txtCMND.CustomizableEdges = customizableEdges5;
+            txtCMND.DefaultText = "";
+            txtCMND.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtCMND.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtCMND.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtCMND.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtCMND.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtCMND.Font = new Font("Segoe UI", 9F);
+            txtCMND.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtCMND.Location = new Point(37, 311);
+            txtCMND.Name = "txtCMND";
+            txtCMND.PlaceholderText = "";
+            txtCMND.SelectedText = "";
+            txtCMND.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            txtCMND.Size = new Size(295, 52);
+            txtCMND.TabIndex = 41;
+            txtCMND.TextChanged += txtCMND_TextChanged;
             // 
             // lblCMND
             // 
@@ -183,6 +185,7 @@
             txtSDT.ShadowDecoration.CustomizableEdges = customizableEdges8;
             txtSDT.Size = new Size(295, 52);
             txtSDT.TabIndex = 43;
+            txtSDT.TextChanged += txtSDT_TextChanged;
             // 
             // lblSDT
             // 
@@ -213,6 +216,7 @@
             btnThemHanhKhach.Size = new Size(121, 42);
             btnThemHanhKhach.TabIndex = 44;
             btnThemHanhKhach.Text = "Thêm";
+            btnThemHanhKhach.Click += btnThemHanhKhach_Click;
             // 
             // GUI_ThemHanhKhach
             // 
@@ -223,7 +227,7 @@
             Controls.Add(btnThemHanhKhach);
             Controls.Add(txtSDT);
             Controls.Add(lblSDT);
-            Controls.Add(guna2TextBox2);
+            Controls.Add(txtCMND);
             Controls.Add(lblCMND);
             Controls.Add(txtMaHanhKhach);
             Controls.Add(lblMaHanhKhach);
@@ -231,6 +235,7 @@
             Controls.Add(lblTenHanhKhach);
             Controls.Add(lblThemHanhKhach);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            MinimumSize = new Size(397, 599);
             Name = "GUI_ThemHanhKhach";
             Text = "Thêm Hành khách";
             ResumeLayout(false);
@@ -244,7 +249,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel lblTenHanhKhach;
         private Guna.UI2.WinForms.Guna2TextBox txtMaHanhKhach;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblMaHanhKhach;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
+        private Guna.UI2.WinForms.Guna2TextBox txtCMND;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblCMND;
         private Guna.UI2.WinForms.Guna2TextBox txtSDT;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblSDT;

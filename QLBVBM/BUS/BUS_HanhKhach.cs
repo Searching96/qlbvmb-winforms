@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using QLBVBM.DAL;
 using QLBVBM.DTO;
 using System.Transactions;
+using System.Text.RegularExpressions;
 
 namespace QLBVBM.BUS
 {
@@ -36,6 +37,18 @@ namespace QLBVBM.BUS
         public bool ValidateCMND(string CMND)
         {
             return CMND.All(char.IsDigit) && CMND.Length <= 20;
+        }
+
+        public bool ValidateSDT(string SDT)
+        {
+            return SDT.All(char.IsDigit) && SDT.Length <= 15;
+        }
+
+        public bool ValidateHoTen(string hoTen)
+        {
+            // Only allow letters and spaces
+            string pattern = @"^[A-Za-zÀ-ỹ\s]+$";
+            return Regex.IsMatch(hoTen, pattern);
         }
 
         public string PhatSinhMaHanhKhach()
