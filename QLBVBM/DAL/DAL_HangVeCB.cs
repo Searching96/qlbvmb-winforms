@@ -22,9 +22,8 @@ namespace QLBVBM.DAL
                 new MySqlParameter("@MaChuyenBay", hangVeCB.MaChuyenBay),
                 new MySqlParameter("@MaHangGhe", hangVeCB.MaHangGhe),
                 new MySqlParameter("@SoLuongGhe", hangVeCB.SoLuongGhe),
-                // remove the 2 below lines later
                 new MySqlParameter("@SLGheDaBan", 0),
-                new MySqlParameter("@DonGia", 1000000)
+                new MySqlParameter("@DonGia", hangVeCB.DonGia)
             };
 
             int result = dataHelper.ExecuteNonQuery(query, parameters);
