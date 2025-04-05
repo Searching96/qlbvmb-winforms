@@ -216,5 +216,11 @@ namespace QLBVBM.GUI
                 errorProvider.SetError(txtCMND, string.Empty);
             }
         }
+
+        private void btnThemHanhKhach_Click(object sender, EventArgs e)
+        {
+            GUI_ThemHanhKhach gui_ThemHanhKhach = new GUI_ThemHanhKhach();
+            gui_ThemHanhKhach.ShowDialog();
+        }
     }
 }

@@ -37,5 +37,20 @@ namespace QLBVBM.BUS
         {
             return CMND.All(char.IsDigit) && CMND.Length <= 20;
         }
+
+        public string PhatSinhMaHanhKhach()
+        {
+            DTO_HanhKhach hanhKhachCuoi = LayHanhKhachCuoi();
+            if (hanhKhachCuoi != null)
+            {
+                string maHanhKhachCuoi = hanhKhachCuoi.MaHanhKhach;
+                int lastNumber = int.Parse(maHanhKhachCuoi.Substring(2));
+                return "HK" + (lastNumber + 1).ToString("D5");
+            }
+            else
+            {
+                return "HK00001";
+            }
+        }
     }
 }
