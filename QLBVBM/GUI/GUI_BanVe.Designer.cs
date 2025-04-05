@@ -571,6 +571,7 @@
             Controls.Add(panelThongTinVe);
             Controls.Add(panelThongTinHanhKhach);
             Controls.Add(panelThongTinChuyenBay);
+            MinimumSize = new Size(668, 884);
             Name = "GUI_BanVe";
             Text = "Bán Vé Chuyến bay";
             panelThongTinChuyenBay.ResumeLayout(false);

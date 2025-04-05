@@ -16,15 +16,15 @@ namespace QLBVBM.DAL
         
         public bool ThemHanhKhach(DTO_HanhKhach hanhKhach)
         {
-            string query = "INSERT INTO HANHKHACH (MaHanhKhach, HoTen, CMND, SDT) " +
-                "VALUES (@MaHanhKhach, @HoTen, @CMND, @SDT)";
+            string query = "INSERT INTO HANHKHACH (MaHanhKhach, TenHanhKhach, CMND, DienThoai) " +
+                "VALUES (@MaHanhKhach, @TenHanhKhach, @CMND, @DienThoai)";
 
             List<MySqlParameter> parameters = new List<MySqlParameter>
             {
                 new MySqlParameter("@MaHanhKhach", hanhKhach.MaHanhKhach),
-                new MySqlParameter("@HoTen", hanhKhach.HoTen),
+                new MySqlParameter("@TenHanhKhach", hanhKhach.HoTen),
                 new MySqlParameter("@CMND", hanhKhach.SoCMND),
-                new MySqlParameter("@SDT", hanhKhach.SoDT)
+                new MySqlParameter("@DienThoai", hanhKhach.SoDT)
             };
 
             int result = dataHelper.ExecuteNonQuery(query, parameters);
@@ -56,9 +56,9 @@ namespace QLBVBM.DAL
                 DTO_HanhKhach hanhKhach = new DTO_HanhKhach
                 {
                     MaHanhKhach = dr["MaHanhKhach"].ToString(),
-                    HoTen = dr["HoTen"].ToString(),
+                    HoTen = dr["TenHanhKhach"].ToString(),
                     SoCMND = dr["CMND"].ToString(),
-                    SoDT = dr["SDT"].ToString()
+                    SoDT = dr["DienThoai"].ToString()
                 };
                 dsHanhKhach.Add(hanhKhach);
             }
