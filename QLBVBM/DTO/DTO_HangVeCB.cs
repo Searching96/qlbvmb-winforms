@@ -11,16 +11,19 @@ namespace QLBVBM.DTO
         private string? maHangGhe;
         private string? maChuyenBay;
         private int? soLuongGhe;
+        private int? donGia;
 
-        public DTO_HangVeCB(string? maHangGhe = null, string? maChuyenBay = null, int? soLuongGhe = null)
+        public DTO_HangVeCB(string? maHangGhe = null, string? maChuyenBay = null, int? soLuongGhe = null, int? donGia = null)
         {
             this.maHangGhe = maHangGhe;
             this.maChuyenBay = maChuyenBay;
             this.soLuongGhe = soLuongGhe;
+            this.donGia = donGia;
         }
 
         public string? MaHangGhe { get => maHangGhe; set => maHangGhe = value; }
         public string? MaChuyenBay { get => maChuyenBay; set => maChuyenBay = value; }
         public int? SoLuongGhe { get => soLuongGhe; set => soLuongGhe = value; }
+        public int? DonGia { get => donGia; set => donGia = value; }
     }
 }
