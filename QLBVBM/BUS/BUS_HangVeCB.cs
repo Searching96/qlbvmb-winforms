@@ -16,5 +16,10 @@ namespace QLBVBM.BUS
         {
             return DAL_HangVeCB.ThemHangVe(hangVeCB);
         }
+
+        public List<DTO_HangVeCB> TraCuuHangVe(string maChuyenBay)
+        {
+            return DAL_HangVeCB.TraCuuHangVe(maChuyenBay);
+        }
     }
 }

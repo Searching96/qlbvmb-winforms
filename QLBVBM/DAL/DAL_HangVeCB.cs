@@ -2,6 +2,7 @@
 using QLBVBM.DTO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +29,28 @@ namespace QLBVBM.DAL
 
             int result = dataHelper.ExecuteNonQuery(query, parameters);
             return result > 0;
+        }
+
+        public List<DTO_HangVeCB> TraCuuHangVe(string maChuyenBay)
+        {
+            List<DTO_HangVeCB> dsHangVe = new List<DTO_HangVeCB>();
+
+            string query = $"SELECT * FROM HANGVECB WHERE MaChuyenBay = '{maChuyenBay}'";
+            DataTable dt = dataHelper.ExecuteQuery(query);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                DTO_HangVeCB hangVeCB = new DTO_HangVeCB
+                {
+                    MaChuyenBay = dr["MaChuyenBay"].ToString(),
+                    MaHangGhe = dr["MaHangGhe"].ToString(),
+                    SoLuongGhe = Convert.ToInt32(dr["SoLuongGhe"]),
+                    SoLuongGheDaBan = Convert.ToInt32(dr["SoLuongGheDaBan"]),
+                    DonGia = Convert.ToInt32(dr["DonGia"])
+                };
+                dsHangVe.Add(hangVeCB);
+            }
+            return dsHangVe;
         }
     }
 }

@@ -19,6 +19,7 @@ namespace QLBVBM.GUI
         private BUS_SanBay busSanBay = new BUS_SanBay();
         private BUS_ChuyenBay busChuyenBay = new BUS_ChuyenBay();
         private BUS_HanhKhach busHanhKhach = new BUS_HanhKhach();
+        private BUS_HangVeCB busHangVeCB = new BUS_HangVeCB();
         private ErrorProvider errorProvider = new ErrorProvider();
 
         public GUI_BanVe()
@@ -186,6 +187,7 @@ namespace QLBVBM.GUI
             {
                 MessageBox.Show("Không tìm thấy chuyến bay nào.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ClearCombobox(cbbMaChuyenBay);
+                ClearCombobox(cbbHangVe);
             }
         }
 
@@ -201,6 +203,9 @@ namespace QLBVBM.GUI
                 if (selectedChuyenBay != null)
                 {
                     txtGioBay.Text = selectedChuyenBay.GioBay?.ToString("HH:mm");
+                    // Load danh sách hạng vé
+                    List<DTO_HangVeCB> dsHangVe = busHangVeCB.TraCuuHangVe(selectedChuyenBay?.MaChuyenBay);
+                    LoadDanhSachHangVeCB(dsHangVe);
                 }
             }
         }
@@ -221,6 +226,60 @@ namespace QLBVBM.GUI
         {
             GUI_ThemHanhKhach gui_ThemHanhKhach = new GUI_ThemHanhKhach();
             gui_ThemHanhKhach.ShowDialog();
+        }
+
+        public void LoadDanhSachHangVeCB(List<DTO_HangVeCB> dsHangVeCB)
+        {
+            if (dsHangVeCB != null)
+            {
+                cbbHangVe.Enabled = true; // turn on the combobox
+                cbbHangVe.DataSource = dsHangVeCB;
+                cbbHangVe.DisplayMember = "MaHangGhe";
+                cbbHangVe.ValueMember = "MaHangGhe";
+                // Add tooltip to display MaHangGhe
+                ToolTip toolTip = new ToolTip();
+                cbbHangVe.SelectedIndexChanged += (s, e) =>
+                {
+                    if (cbbHangVe.SelectedItem is DTO_HangVeCB selectedHangVe)
+                    {
+                        toolTip.SetToolTip(cbbHangVe, selectedHangVe.MaChuyenBay);
+                    }
+                };
+            }
+            else
+            {
+                ClearCombobox(cbbHangVe);
+            }
+        }
+
+        private void cbbHangVe_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbbHangVe.SelectedIndex == -1)
+            {
+                txtGiaTien.Text = "";
+            }
+            else
+            {
+                if (cbbHangVe.SelectedItem is DTO_HangVeCB selectedHangVe)
+                {
+                    txtGiaTien.Text = selectedHangVe.DonGia?.ToString() ?? "";
+                }
+            }
+        }
+
+        private void btnLuuVe_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Lưu vé", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnInVe_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("In vé", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
