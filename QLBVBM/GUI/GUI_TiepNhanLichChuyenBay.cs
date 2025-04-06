@@ -39,11 +39,20 @@ namespace QLBVBM.GUI
         public GUI_TiepNhanLichChuyenBay()
         {
             InitializeComponent();
+
             SetupDgvColumns(dgvDSSanBayTG, BUS_ThamSo.LaySoLuongSanBayToiDa(), LayDanhSachSanBay());
             PhatSinhMaChuyenBay();
             LoadSanBayToComboBox(cbbSanBayDi, LayDanhSachSanBay());
             LoadSanBayToComboBox(cbbSanBayDen, LayDanhSachSanBay());
             LayDanhSachHangGhe();
+        }
+
+        public void FixScale()
+        {
+            foreach (Control control in this.Controls)
+            {
+                
+            }
         }
 
         private List<DTO_SanBay> LayDanhSachSanBay()

@@ -205,8 +205,7 @@
             // 
             // GUI_ThemSanBay
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(422, 505);
             Controls.Add(dgvDSSanBay);
             Controls.Add(btnThem);

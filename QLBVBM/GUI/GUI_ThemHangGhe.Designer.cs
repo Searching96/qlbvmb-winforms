@@ -73,8 +73,7 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dgvDSHangGhe.DefaultCellStyle = dataGridViewCellStyle3;
             dgvDSHangGhe.GridColor = Color.FromArgb(231, 229, 255);
-            dgvDSHangGhe.Location = new Point(37, 363);
-            dgvDSHangGhe.Margin = new Padding(3, 4, 3, 4);
+            dgvDSHangGhe.Location = new Point(32, 272);
             dgvDSHangGhe.Name = "dgvDSHangGhe";
             dgvDSHangGhe.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -89,7 +88,7 @@
             dgvDSHangGhe.RowHeadersWidth = 51;
             dgvDSHangGhe.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dgvDSHangGhe.RowTemplate.Height = 40;
-            dgvDSHangGhe.Size = new Size(410, 267);
+            dgvDSHangGhe.Size = new Size(359, 200);
             dgvDSHangGhe.TabIndex = 19;
             dgvDSHangGhe.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             dgvDSHangGhe.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -126,11 +125,10 @@
             btnThem.FillColor = Color.FromArgb(64, 64, 64);
             btnThem.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 163);
             btnThem.ForeColor = Color.White;
-            btnThem.Location = new Point(171, 287);
-            btnThem.Margin = new Padding(3, 4, 3, 4);
+            btnThem.Location = new Point(150, 215);
             btnThem.Name = "btnThem";
             btnThem.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            btnThem.Size = new Size(107, 51);
+            btnThem.Size = new Size(94, 38);
             btnThem.TabIndex = 18;
             btnThem.Text = "Thêm";
             btnThem.Click += btnThem_Click;
@@ -148,13 +146,13 @@
             txtTenHangGhe.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtTenHangGhe.Font = new Font("Segoe UI", 9F);
             txtTenHangGhe.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtTenHangGhe.Location = new Point(85, 205);
-            txtTenHangGhe.Margin = new Padding(3, 5, 3, 5);
+            txtTenHangGhe.Location = new Point(74, 154);
+            txtTenHangGhe.Margin = new Padding(3, 4, 3, 4);
             txtTenHangGhe.Name = "txtTenHangGhe";
             txtTenHangGhe.PlaceholderText = "";
             txtTenHangGhe.SelectedText = "";
             txtTenHangGhe.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            txtTenHangGhe.Size = new Size(279, 52);
+            txtTenHangGhe.Size = new Size(244, 39);
             txtTenHangGhe.TabIndex = 17;
             txtTenHangGhe.TextChanged += txtTenHangGhe_TextChanged;
             // 
@@ -173,14 +171,14 @@
             txtMaHangGhe.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtMaHangGhe.Font = new Font("Segoe UI", 9F);
             txtMaHangGhe.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtMaHangGhe.Location = new Point(85, 77);
-            txtMaHangGhe.Margin = new Padding(3, 5, 3, 5);
+            txtMaHangGhe.Location = new Point(74, 58);
+            txtMaHangGhe.Margin = new Padding(3, 4, 3, 4);
             txtMaHangGhe.Name = "txtMaHangGhe";
             txtMaHangGhe.PlaceholderText = "";
             txtMaHangGhe.ReadOnly = true;
             txtMaHangGhe.SelectedText = "";
             txtMaHangGhe.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            txtMaHangGhe.Size = new Size(279, 52);
+            txtMaHangGhe.Size = new Size(244, 39);
             txtMaHangGhe.TabIndex = 16;
             // 
             // lblTenHangGhe
@@ -188,10 +186,9 @@
             lblTenHangGhe.Anchor = AnchorStyles.None;
             lblTenHangGhe.BackColor = Color.Transparent;
             lblTenHangGhe.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            lblTenHangGhe.Location = new Point(85, 171);
-            lblTenHangGhe.Margin = new Padding(3, 4, 3, 4);
+            lblTenHangGhe.Location = new Point(74, 128);
             lblTenHangGhe.Name = "lblTenHangGhe";
-            lblTenHangGhe.Size = new Size(126, 24);
+            lblTenHangGhe.Size = new Size(97, 19);
             lblTenHangGhe.TabIndex = 15;
             lblTenHangGhe.Text = "Tên Hạng Ghế";
             // 
@@ -200,25 +197,24 @@
             lblMaHangGhe.Anchor = AnchorStyles.None;
             lblMaHangGhe.BackColor = Color.Transparent;
             lblMaHangGhe.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            lblMaHangGhe.Location = new Point(85, 43);
-            lblMaHangGhe.Margin = new Padding(3, 4, 3, 4);
+            lblMaHangGhe.Location = new Point(74, 32);
             lblMaHangGhe.Name = "lblMaHangGhe";
-            lblMaHangGhe.Size = new Size(118, 24);
+            lblMaHangGhe.Size = new Size(91, 19);
             lblMaHangGhe.TabIndex = 14;
             lblMaHangGhe.Text = "Mã Hạng Ghế";
             // 
             // GUI_ThemHangGhe
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(482, 673);
+            AutoScaleMode = AutoScaleMode.None;
+            ClientSize = new Size(422, 505);
             Controls.Add(dgvDSHangGhe);
             Controls.Add(btnThem);
             Controls.Add(txtTenHangGhe);
             Controls.Add(txtMaHangGhe);
             Controls.Add(lblTenHangGhe);
             Controls.Add(lblMaHangGhe);
-            MinimumSize = new Size(495, 704);
+            Margin = new Padding(3, 2, 3, 2);
+            MinimumSize = new Size(435, 538);
             Name = "GUI_ThemHangGhe";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "GUI_ThemHangGhe";
