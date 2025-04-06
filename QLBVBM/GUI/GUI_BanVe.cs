@@ -65,7 +65,8 @@ namespace QLBVBM.GUI
                     txtMaHanhKhach.Text = hanhKhach.MaHanhKhach;
                     txtTenHanhKhach.Text = hanhKhach.HoTen;
                     txtSDT.Text = hanhKhach.SoDT;
-                    txtCMND.ReadOnly = true;
+                    txtCMND.ReadOnly = true; // avoid user to change CMND
+                    // also can set txtSDT to readonly, but the passenger maybe change it before :D, so ReadOnly was still false.
                 }
                 else
                 {
