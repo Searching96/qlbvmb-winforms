@@ -484,7 +484,7 @@ namespace QLBVBM.GUI
             // GUI_TiepNhanLichChuyenBay
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             BackColor = SystemColors.Control;
             ClientSize = new Size(867, 981);
             Controls.Add(lblGioBay);

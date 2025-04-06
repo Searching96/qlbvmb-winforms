@@ -644,6 +644,7 @@
             MinimumSize = new Size(668, 900);
             Name = "GUI_BanVe";
             Text = "Bán Vé Chuyến bay";
+            StartPosition = FormStartPosition.CenterScreen;
             panelThongTinChuyenBay.ResumeLayout(false);
             panelThongTinChuyenBay.PerformLayout();
             panelThongTinHanhKhach.ResumeLayout(false);
