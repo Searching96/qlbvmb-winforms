@@ -31,6 +31,23 @@ namespace QLBVBM.DAL
             return result > 0;
         }
 
+        public bool CapNhatSoLuongVeDaBan(string maChuyenBay, string maHangGhe)
+        {
+            string query = @"UPDATE HANGVECB 
+                            SET SoLuongGheDaBan = SoLuongGheDaBan + 1 
+                            WHERE MaChuyenBay = @MaChuyenBay 
+                            AND MaHangGhe = @MaHangGhe";
+
+            List<MySqlParameter> parameters = new List<MySqlParameter>
+            {
+                new MySqlParameter("@MaChuyenBay", maChuyenBay),
+                new MySqlParameter("@MaHangGhe", maHangGhe)
+            };
+
+            int result = dataHelper.ExecuteNonQuery(query, parameters);
+            return result > 0;
+        }
+
         public List<DTO_HangVeCB> TraCuuHangVe(string maChuyenBay)
         {
             List<DTO_HangVeCB> dsHangVe = new List<DTO_HangVeCB>();

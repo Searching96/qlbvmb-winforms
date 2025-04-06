@@ -19,8 +19,8 @@ namespace QLBVBM.GUI
         private BUS_SanBay busSanBay = new BUS_SanBay();
         private BUS_ChuyenBay busChuyenBay = new BUS_ChuyenBay();
         private BUS_HanhKhach busHanhKhach = new BUS_HanhKhach();
-        private BUS_HangVeCB busHangVeCB = new BUS_HangVeCB();
         private BUS_DonGiaHangGhe busDonGiaHangGhe = new BUS_DonGiaHangGhe();
+        private BUS_VeChuyenBay busVeChuyenBay = new BUS_VeChuyenBay();
         private ErrorProvider errorProvider = new ErrorProvider();
         private ToolTip toolTip = new ToolTip();
 
@@ -145,7 +145,7 @@ namespace QLBVBM.GUI
                 };
             }
         }
-
+        
         public void LoadMaChuyenBay(Guna2ComboBox cbb, List<DTO_ChuyenBay> dsChuyenBay)
         {
             if (dsChuyenBay != null && dsChuyenBay.Count > 0)
@@ -336,9 +336,42 @@ namespace QLBVBM.GUI
                 MessageBox.Show("Vui lòng sửa các lỗi trước khi tiếp tục", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            else
-                MessageBox.Show("Lưu vé", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            DTO_VeChuyenBay veChuyenBay = new DTO_VeChuyenBay
+            {
+                MaVe = busVeChuyenBay.PhatSinhMaVeChuyenBay(),
+                MaChuyenBay = cbbMaChuyenBay.SelectedValue.ToString(),
+                MaHangGhe = cbbHangVe.SelectedValue.ToString(),
+                MaHanhKhach = txtMaHanhKhach.Text
+            };
+
+            DTO_HangVeCB hangVeCB = new DTO_HangVeCB
+            {
+                MaChuyenBay = cbbMaChuyenBay.SelectedValue.ToString(),
+                MaHangGhe = cbbHangVe.SelectedValue.ToString()
+            };
+
+            // look up the passenger by CMND
+            var existingHanhKhach = busHanhKhach.TimHanhKhachTheoCMND(txtCMND.Text);
+
+            // if the passenger is not found, create a new one
+            DTO_HanhKhach? hanhKhach = existingHanhKhach == null ? new DTO_HanhKhach
+            {
+                MaHanhKhach = txtMaHanhKhach.Text,
+                HoTen = txtTenHanhKhach.Text,
+                SoDT = txtSDT.Text,
+                SoCMND = txtCMND.Text
+            } : null;
+
+            // add hanhKhach if the passed object is not null.
+            bool success = busVeChuyenBay.ThemVeChuyenBayVaHangVe(veChuyenBay, hangVeCB, hanhKhach);
+
+            MessageBox.Show(success ? "Thêm vé thành công" : "Lỗi khi thêm vé",
+                            "Thông báo",
+                            MessageBoxButtons.OK,
+                            success ? MessageBoxIcon.Information : MessageBoxIcon.Error);
         }
+
 
         private void btnInVe_Click(object sender, EventArgs e)
         {
