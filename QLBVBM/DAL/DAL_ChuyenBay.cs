@@ -52,7 +52,17 @@ namespace QLBVBM.DAL
         public List<DTO_ChuyenBay> TraCuuChuyenBay(string maSanBayDi, string maSanBayDen, string ngayBay)
         {
             List<DTO_ChuyenBay> dsChuyenBay = new List<DTO_ChuyenBay>();
-            string query = $"SELECT * FROM CHUYENBAY WHERE MaSanBayDi = '{maSanBayDi}' AND MaSanBayDen = '{maSanBayDen}' AND NgayBay = '{ngayBay}'";
+
+            // Only Get Chuyen Bay with available seats
+            string query = @"
+                SELECT *
+                FROM CHUYENBAY
+                WHERE MaChuyenBay IN (
+                    SELECT MaChuyenBay
+                    FROM HANGVECB
+                    GROUP BY MaChuyenBay
+                    HAVING SUM(SoLuongGhe - SoLuongGheDaBan) > 0
+                )";
             DataTable dt = dataHelper.ExecuteQuery(query);
 
             foreach (DataRow dr in dt.Rows)

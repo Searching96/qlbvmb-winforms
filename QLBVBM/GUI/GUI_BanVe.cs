@@ -268,7 +268,7 @@ namespace QLBVBM.GUI
 
         private void txtCMND_TextChanged(object sender, EventArgs e)
         {
-            if (!busChuyenBay.ValidateThoiGianBay(txtCMND.Text))
+            if (!busHanhKhach.ValidateCMND(txtCMND.Text))
             {
                 errorProvider.SetError(txtCMND, "CMND không hợp lệ");
             }
@@ -306,22 +306,34 @@ namespace QLBVBM.GUI
         {
             // Check for errors in form controls
             foreach (Control control in this.Controls)
+            {
                 if (errorProvider.GetError(control) != string.Empty)
                     return true;
+            }
+                
 
             if (string.IsNullOrWhiteSpace(txtTenHanhKhach.Text) ||
                 string.IsNullOrWhiteSpace(txtCMND.Text) ||
-                string.IsNullOrWhiteSpace(txtSDT.Text))
+                string.IsNullOrWhiteSpace(txtSDT.Text) ||
+                cbbMaChuyenBay.SelectedIndex == -1 ||
+                cbbHangVe.SelectedIndex == -1)
             {
                 return true;
             }
+
             return false;
         }
 
 
         private void btnLuuVe_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Lưu vé", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (HasErrors())
+            {
+                MessageBox.Show("Vui lòng sửa các lỗi trước khi tiếp tục", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else
+                MessageBox.Show("Lưu vé", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnInVe_Click(object sender, EventArgs e)
