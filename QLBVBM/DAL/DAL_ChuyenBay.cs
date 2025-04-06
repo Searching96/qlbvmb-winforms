@@ -48,5 +48,28 @@ namespace QLBVBM.DAL
 
             return null;
         }
+
+        public List<DTO_ChuyenBay> TraCuuChuyenBay(string maSanBayDi, string maSanBayDen, string ngayBay)
+        {
+            List<DTO_ChuyenBay> dsChuyenBay = new List<DTO_ChuyenBay>();
+            string query = $"SELECT * FROM CHUYENBAY WHERE MaSanBayDi = '{maSanBayDi}' AND MaSanBayDen = '{maSanBayDen}' AND NgayBay = '{ngayBay}'";
+            DataTable dt = dataHelper.ExecuteQuery(query);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                DTO_ChuyenBay cb = new DTO_ChuyenBay
+                {
+                    MaChuyenBay = dr["MaChuyenBay"].ToString(),
+                    MaSanBayDi = dr["MaSanBayDi"].ToString(),
+                    MaSanBayDen = dr["MaSanBayDen"].ToString(),
+                    NgayBay = DateTime.Parse(dr["NgayBay"].ToString()),
+                    GioBay = DateTime.Parse(dr["GioBay"].ToString()),
+                    ThoiGianBay = int.Parse(dr["ThoiGianBay"].ToString())
+                };
+                dsChuyenBay.Add(cb);
+            }
+
+            return dsChuyenBay;
+        }
     }
 }

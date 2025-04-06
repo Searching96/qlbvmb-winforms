@@ -1,5 +1,4 @@
-﻿
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data;
 
