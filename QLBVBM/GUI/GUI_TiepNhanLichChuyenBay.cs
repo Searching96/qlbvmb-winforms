@@ -523,7 +523,7 @@ namespace QLBVBM.GUI
 
                     Label lblDonGia = new Label
                     {
-                        Location = new Point(lblHangGhe.Location.X + 230, lblHangGhe.Location.Y), // +160 to align with the right of lblHangGhe
+                        Location = new Point(lblHangGhe.Location.X + 190, lblHangGhe.Location.Y), // +160 to align with the right of lblHangGhe
                         Text = $"Đơn giá",
                         AutoSize = true,
                         Anchor = AnchorStyles.None,
@@ -534,7 +534,7 @@ namespace QLBVBM.GUI
                     {
                         Location = new Point(lblHangGhe.Location.X,
                             lblHangGhe.Location.Y + lblHangGhe.Height + 5 - 6), // -6 to align with the bottom of the Label
-                        Width = 210,
+                        Width = 170,
                         Height = 38,
                         Anchor = AnchorStyles.None,
                         Font = new Font("Arial", 11, FontStyle.Regular),
@@ -557,7 +557,7 @@ namespace QLBVBM.GUI
                     {
                         Location = new Point(lblDonGia.Location.X,
                             lblDonGia.Location.Y + lblDonGia.Height + 5 - 6), // -6 to align with the bottom of the Label
-                        Width = 150,
+                        Width = 130,
                         Height = 38,
                         Anchor = AnchorStyles.None,
                         Font = new Font("Arial", 11, FontStyle.Regular),

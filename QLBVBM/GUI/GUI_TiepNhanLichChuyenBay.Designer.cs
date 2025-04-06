@@ -436,6 +436,7 @@ namespace QLBVBM.GUI
             // 
             // dtpGioBay
             // 
+            dtpGioBay.Anchor = AnchorStyles.None;
             dtpGioBay.BackColor = SystemColors.Control;
             dtpGioBay.BorderColor = Color.Silver;
             dtpGioBay.BorderRadius = 7;
