@@ -16,7 +16,7 @@ namespace QLBVBM.DAL
         public bool ThemVeChuyenBay(DTO_VeChuyenBay veChuyenBay)
         {
             string query = "INSERT INTO VECHUYENBAY (MaVe, MaChuyenBay, MaHangGhe, MaHanhKhach) " +
-                "VALUES (@MaVe, @MaChuyenBay, @MaHangGhe, @MaHanhKhach";
+                "VALUES (@MaVe, @MaChuyenBay, @MaHangGhe, @MaHanhKhach)";
             List<MySqlParameter> parameters = new List<MySqlParameter>
             {
                 new MySqlParameter("@MaVe", veChuyenBay.MaVe),

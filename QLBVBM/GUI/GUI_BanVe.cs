@@ -19,7 +19,8 @@ namespace QLBVBM.GUI
         private BUS_SanBay busSanBay = new BUS_SanBay();
         private BUS_ChuyenBay busChuyenBay = new BUS_ChuyenBay();
         private BUS_HanhKhach busHanhKhach = new BUS_HanhKhach();
-        private BUS_HangVeCB busHangVeCB = new BUS_HangVeCB();
+        private BUS_DonGiaHangGhe busDonGiaHangGhe = new BUS_DonGiaHangGhe();
+        private BUS_VeChuyenBay busVeChuyenBay = new BUS_VeChuyenBay();
         private ErrorProvider errorProvider = new ErrorProvider();
         private ToolTip toolTip = new ToolTip();
 
@@ -64,6 +65,8 @@ namespace QLBVBM.GUI
                     txtMaHanhKhach.Text = hanhKhach.MaHanhKhach;
                     txtTenHanhKhach.Text = hanhKhach.HoTen;
                     txtSDT.Text = hanhKhach.SoDT;
+                    txtCMND.ReadOnly = true; // avoid user to change CMND
+                    // also can set txtSDT to readonly, but the passenger maybe change it before :D, so ReadOnly was still false.
                 }
                 else
                 {
@@ -142,7 +145,7 @@ namespace QLBVBM.GUI
                 };
             }
         }
-
+        
         public void LoadMaChuyenBay(Guna2ComboBox cbb, List<DTO_ChuyenBay> dsChuyenBay)
         {
             if (dsChuyenBay != null && dsChuyenBay.Count > 0)
@@ -207,8 +210,9 @@ namespace QLBVBM.GUI
                 {
                     txtGioBay.Text = selectedChuyenBay.GioBay?.ToString("HH:mm");
                     // Load danh sách hạng vé
-                    List<DTO_HangVeCB> dsHangVe = busHangVeCB.TraCuuHangVe(selectedChuyenBay?.MaChuyenBay);
-                    LoadDanhSachHangVeCB(dsHangVe);
+                    //List<DTO_HangVeCB> dsHangVe = busHangVeCB.TraCuuHangVe(selectedChuyenBay?.MaChuyenBay);
+                    List<DTO_DonGiaHangGhe> dsHangGhe = busDonGiaHangGhe.LayDanhSachTenHangGheChuyenBay(selectedChuyenBay?.MaChuyenBay);
+                    LoadDanhSachHangVeCB(dsHangGhe);
                 }
             }
         }
@@ -225,21 +229,21 @@ namespace QLBVBM.GUI
             txtTenHanhKhach.Focus();
         }
 
-        public void LoadDanhSachHangVeCB(List<DTO_HangVeCB> dsHangVeCB)
+        public void LoadDanhSachHangVeCB(List<DTO_DonGiaHangGhe> dsHangVeCB)
         {
             if (dsHangVeCB != null)
             {
                 cbbHangVe.Enabled = true; // turn on the combobox
                 cbbHangVe.DataSource = dsHangVeCB;
-                cbbHangVe.DisplayMember = "MaHangGhe";
+                cbbHangVe.DisplayMember = "TenHangGhe";
                 cbbHangVe.ValueMember = "MaHangGhe";
                 // Add tooltip to display MaHangGhe
                 ToolTip toolTip = new ToolTip();
                 cbbHangVe.SelectedIndexChanged += (s, e) =>
                 {
-                    if (cbbHangVe.SelectedItem is DTO_HangVeCB selectedHangVe)
+                    if (cbbHangVe.SelectedItem is DTO_DonGiaHangGhe selectedHangVe)
                     {
-                        toolTip.SetToolTip(cbbHangVe, selectedHangVe.MaChuyenBay);
+                        toolTip.SetToolTip(cbbHangVe, selectedHangVe.MaHangGhe);
                     }
                 };
             }
@@ -257,16 +261,16 @@ namespace QLBVBM.GUI
             }
             else
             {
-                if (cbbHangVe.SelectedItem is DTO_HangVeCB selectedHangVe)
+                if (cbbHangVe.SelectedItem is DTO_DonGiaHangGhe selectedHangVe)
                 {
-                    txtGiaTien.Text = selectedHangVe.DonGia?.ToString() ?? "";
+                    txtGiaTien.Text = selectedHangVe.DonGia.ToString() ?? "";
                 }
             }
         }
 
         private void txtCMND_TextChanged(object sender, EventArgs e)
         {
-            if (!busChuyenBay.ValidateThoiGianBay(txtCMND.Text))
+            if (!busHanhKhach.ValidateCMND(txtCMND.Text))
             {
                 errorProvider.SetError(txtCMND, "CMND không hợp lệ");
             }
@@ -303,24 +307,71 @@ namespace QLBVBM.GUI
         private bool HasErrors()
         {
             // Check for errors in form controls
-            foreach (Control control in this.Controls)
-                if (errorProvider.GetError(control) != string.Empty)
-                    return true;
-
             if (string.IsNullOrWhiteSpace(txtTenHanhKhach.Text) ||
                 string.IsNullOrWhiteSpace(txtCMND.Text) ||
-                string.IsNullOrWhiteSpace(txtSDT.Text))
+                string.IsNullOrWhiteSpace(txtSDT.Text) ||
+                cbbMaChuyenBay.SelectedIndex == -1 ||
+                cbbHangVe.SelectedIndex == -1 ||
+                !busHanhKhach.ValidateSDT(txtSDT.Text) ||
+                !busHanhKhach.ValidateCMND(txtCMND.Text) ||
+                !busHanhKhach.ValidateHoTen(txtTenHanhKhach.Text))
             {
                 return true;
             }
+
+            foreach (Control control in this.Controls)
+            {
+                if (errorProvider.GetError(control) != string.Empty)
+                    return true;
+            }
+
             return false;
         }
 
 
         private void btnLuuVe_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Lưu vé", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (HasErrors())
+            {
+                MessageBox.Show("Vui lòng sửa các lỗi trước khi tiếp tục", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DTO_VeChuyenBay veChuyenBay = new DTO_VeChuyenBay
+            {
+                MaVe = busVeChuyenBay.PhatSinhMaVeChuyenBay(),
+                MaChuyenBay = cbbMaChuyenBay.SelectedValue.ToString(),
+                MaHangGhe = cbbHangVe.SelectedValue.ToString(),
+                MaHanhKhach = txtMaHanhKhach.Text
+            };
+
+            DTO_HangVeCB hangVeCB = new DTO_HangVeCB
+            {
+                MaChuyenBay = cbbMaChuyenBay.SelectedValue.ToString(),
+                MaHangGhe = cbbHangVe.SelectedValue.ToString()
+            };
+
+            // look up the passenger by CMND
+            var existingHanhKhach = busHanhKhach.TimHanhKhachTheoCMND(txtCMND.Text);
+
+            // if the passenger is not found, create a new one
+            DTO_HanhKhach? hanhKhach = existingHanhKhach == null ? new DTO_HanhKhach
+            {
+                MaHanhKhach = txtMaHanhKhach.Text,
+                HoTen = txtTenHanhKhach.Text,
+                SoDT = txtSDT.Text,
+                SoCMND = txtCMND.Text
+            } : null;
+
+            // add hanhKhach if the passed object is not null.
+            bool success = busVeChuyenBay.ThemVeChuyenBayVaHangVe(veChuyenBay, hangVeCB, hanhKhach);
+
+            MessageBox.Show(success ? "Thêm vé thành công" : "Lỗi khi thêm vé",
+                            "Thông báo",
+                            MessageBoxButtons.OK,
+                            success ? MessageBoxIcon.Information : MessageBoxIcon.Error);
         }
+
 
         private void btnInVe_Click(object sender, EventArgs e)
         {

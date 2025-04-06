@@ -52,9 +52,26 @@ namespace QLBVBM.DAL
         public List<DTO_ChuyenBay> TraCuuChuyenBay(string maSanBayDi, string maSanBayDen, string ngayBay)
         {
             List<DTO_ChuyenBay> dsChuyenBay = new List<DTO_ChuyenBay>();
-            string query = $"SELECT * FROM CHUYENBAY WHERE MaSanBayDi = '{maSanBayDi}' AND MaSanBayDen = '{maSanBayDen}' AND NgayBay = '{ngayBay}'";
-            DataTable dt = dataHelper.ExecuteQuery(query);
 
+            // Only Get Chuyen Bay with available seats
+            string query = @"
+                SELECT cb.*
+                FROM CHUYENBAY cb
+                JOIN HANGVECB hv ON cb.MaChuyenBay = hv.MaChuyenBay
+                WHERE MaSanBayDi = @MaSanBayDi 
+                    AND MaSanBayDen = @MaSanBayDen 
+                    AND NgayBay = @NgayBay
+                GROUP BY cb.MaChuyenBay
+                HAVING SUM(hv.SoLuongGhe - hv.SoLuongGheDaBan) > 0";
+
+            List<MySqlParameter> parameters = new List<MySqlParameter>
+            {
+                new MySqlParameter("@MaSanBayDi", maSanBayDi),
+                new MySqlParameter("@MaSanBayDen", maSanBayDen),
+                new MySqlParameter("@NgayBay", ngayBay)
+            };
+
+            DataTable dt = dataHelper.ExecuteQuery(query, parameters);
             foreach (DataRow dr in dt.Rows)
             {
                 DTO_ChuyenBay cb = new DTO_ChuyenBay
