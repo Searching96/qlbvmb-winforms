@@ -20,6 +20,7 @@ namespace QLBVBM.GUI
         private BUS_ChuyenBay busChuyenBay = new BUS_ChuyenBay();
         private BUS_HanhKhach busHanhKhach = new BUS_HanhKhach();
         private BUS_HangVeCB busHangVeCB = new BUS_HangVeCB();
+        private BUS_DonGiaHangGhe busDonGiaHangGhe = new BUS_DonGiaHangGhe();
         private ErrorProvider errorProvider = new ErrorProvider();
         private ToolTip toolTip = new ToolTip();
 
@@ -207,8 +208,9 @@ namespace QLBVBM.GUI
                 {
                     txtGioBay.Text = selectedChuyenBay.GioBay?.ToString("HH:mm");
                     // Load danh sách hạng vé
-                    List<DTO_HangVeCB> dsHangVe = busHangVeCB.TraCuuHangVe(selectedChuyenBay?.MaChuyenBay);
-                    LoadDanhSachHangVeCB(dsHangVe);
+                    //List<DTO_HangVeCB> dsHangVe = busHangVeCB.TraCuuHangVe(selectedChuyenBay?.MaChuyenBay);
+                    List<DTO_DonGiaHangGhe> dsHangGhe = busDonGiaHangGhe.LayDanhSachTenHangGheChuyenBay(selectedChuyenBay?.MaChuyenBay);
+                    LoadDanhSachHangVeCB(dsHangGhe);
                 }
             }
         }
@@ -225,21 +227,21 @@ namespace QLBVBM.GUI
             txtTenHanhKhach.Focus();
         }
 
-        public void LoadDanhSachHangVeCB(List<DTO_HangVeCB> dsHangVeCB)
+        public void LoadDanhSachHangVeCB(List<DTO_DonGiaHangGhe> dsHangVeCB)
         {
             if (dsHangVeCB != null)
             {
                 cbbHangVe.Enabled = true; // turn on the combobox
                 cbbHangVe.DataSource = dsHangVeCB;
-                cbbHangVe.DisplayMember = "MaHangGhe";
+                cbbHangVe.DisplayMember = "TenHangGhe";
                 cbbHangVe.ValueMember = "MaHangGhe";
                 // Add tooltip to display MaHangGhe
                 ToolTip toolTip = new ToolTip();
                 cbbHangVe.SelectedIndexChanged += (s, e) =>
                 {
-                    if (cbbHangVe.SelectedItem is DTO_HangVeCB selectedHangVe)
+                    if (cbbHangVe.SelectedItem is DTO_DonGiaHangGhe selectedHangVe)
                     {
-                        toolTip.SetToolTip(cbbHangVe, selectedHangVe.MaChuyenBay);
+                        toolTip.SetToolTip(cbbHangVe, selectedHangVe.MaHangGhe);
                     }
                 };
             }
@@ -257,9 +259,9 @@ namespace QLBVBM.GUI
             }
             else
             {
-                if (cbbHangVe.SelectedItem is DTO_HangVeCB selectedHangVe)
+                if (cbbHangVe.SelectedItem is DTO_DonGiaHangGhe selectedHangVe)
                 {
-                    txtGiaTien.Text = selectedHangVe.DonGia?.ToString() ?? "";
+                    txtGiaTien.Text = selectedHangVe.DonGia.ToString() ?? "";
                 }
             }
         }
