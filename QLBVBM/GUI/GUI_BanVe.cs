@@ -21,6 +21,7 @@ namespace QLBVBM.GUI
         private BUS_HanhKhach busHanhKhach = new BUS_HanhKhach();
         private BUS_HangVeCB busHangVeCB = new BUS_HangVeCB();
         private ErrorProvider errorProvider = new ErrorProvider();
+        private ToolTip toolTip = new ToolTip();
 
         public GUI_BanVe()
         {
@@ -29,6 +30,8 @@ namespace QLBVBM.GUI
             LoadDanhSachSanBayToComboBox(cbbSanBayDi, LayDanhSachSanBay());
             LoadDanhSachSanBayToComboBox(cbbSanBayDen, LayDanhSachSanBay());
             SetEventForCMNDTextBox();
+
+            toolTip.SetToolTip(btnThemHanhKhach, "Thêm hành khách");
         }
 
         #region non-logic code block
@@ -210,22 +213,16 @@ namespace QLBVBM.GUI
             }
         }
 
-        private void txtCMND_TextChanged(object sender, EventArgs e)
-        {
-            if (!busChuyenBay.ValidateThoiGianBay(txtCMND.Text))
-            {
-                errorProvider.SetError(txtCMND, "CMND không hợp lệ");
-            }
-            else
-            {
-                errorProvider.SetError(txtCMND, string.Empty);
-            }
-        }
-
         private void btnThemHanhKhach_Click(object sender, EventArgs e)
         {
-            GUI_ThemHanhKhach gui_ThemHanhKhach = new GUI_ThemHanhKhach();
-            gui_ThemHanhKhach.ShowDialog();
+            txtMaHanhKhach.Text = busHanhKhach.PhatSinhMaHanhKhach();
+            txtTenHanhKhach.ReadOnly = false;
+            txtTenHanhKhach.Clear();
+            txtSDT.ReadOnly = false;
+            txtSDT.Clear();
+            txtCMND.ReadOnly = false;
+            txtCMND.Clear();
+            txtTenHanhKhach.Focus();
         }
 
         public void LoadDanhSachHangVeCB(List<DTO_HangVeCB> dsHangVeCB)
@@ -266,6 +263,59 @@ namespace QLBVBM.GUI
                 }
             }
         }
+
+        private void txtCMND_TextChanged(object sender, EventArgs e)
+        {
+            if (!busChuyenBay.ValidateThoiGianBay(txtCMND.Text))
+            {
+                errorProvider.SetError(txtCMND, "CMND không hợp lệ");
+            }
+            else
+            {
+                errorProvider.SetError(txtCMND, string.Empty);
+            }
+        }
+
+        private void txtTenHanhKhach_TextChanged(object sender, EventArgs e)
+        {
+            if (!busHanhKhach.ValidateHoTen(txtTenHanhKhach.Text))
+            {
+                errorProvider.SetError(txtTenHanhKhach, "Tên hành khách không hợp lệ");
+            }
+            else
+            {
+                errorProvider.SetError(txtTenHanhKhach, string.Empty);
+            }
+        }
+
+        private void txtSDT_TextChanged(object sender, EventArgs e)
+        {
+            if (!busHanhKhach.ValidateSDT(txtSDT.Text))
+            {
+                errorProvider.SetError(txtSDT, "Số điện thoại không hợp lệ");
+            }
+            else
+            {
+                errorProvider.SetError(txtSDT, string.Empty);
+            }
+        }
+
+        private bool HasErrors()
+        {
+            // Check for errors in form controls
+            foreach (Control control in this.Controls)
+                if (errorProvider.GetError(control) != string.Empty)
+                    return true;
+
+            if (string.IsNullOrWhiteSpace(txtTenHanhKhach.Text) ||
+                string.IsNullOrWhiteSpace(txtCMND.Text) ||
+                string.IsNullOrWhiteSpace(txtSDT.Text))
+            {
+                return true;
+            }
+            return false;
+        }
+
 
         private void btnLuuVe_Click(object sender, EventArgs e)
         {
