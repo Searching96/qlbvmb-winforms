@@ -515,20 +515,20 @@ namespace QLBVBM.GUI
                     Label lblHangGhe = new Label
                     {
                         Location = new Point(cbbHangGhe.Location.X, cbbHangGhe.Location.Y - 10), // -10 to align with the top of the ComboBox
-                        Text = $"Số lượng ghế {tenHangGhe}",
+                        Text = $"Ghế {tenHangGhe}",
                         AutoSize = true,
                         Anchor = AnchorStyles.None,
                         Font = new Font("Arial", 11, FontStyle.Regular)
                     };
 
-                    Label lblDonGia = new Label
-                    {
-                        Location = new Point(lblHangGhe.Location.X + 190, lblHangGhe.Location.Y), // +160 to align with the right of lblHangGhe
-                        Text = $"Đơn giá",
-                        AutoSize = true,
-                        Anchor = AnchorStyles.None,
-                        Font = new Font("Arial", 11, FontStyle.Regular)
-                    };
+                    //Label lblDonGia = new Label
+                    //{
+                    //    Location = new Point(lblHangGhe.Location.X + 190, lblHangGhe.Location.Y), // +160 to align with the right of lblHangGhe
+                    //    Text = $"Đơn giá",
+                    //    AutoSize = true,
+                    //    Anchor = AnchorStyles.None,
+                    //    Font = new Font("Arial", 11, FontStyle.Regular)
+                    //};
 
                     Guna2TextBox txtSoLuongGhe = new Guna2TextBox
                     {
@@ -538,7 +538,8 @@ namespace QLBVBM.GUI
                         Height = 38,
                         Anchor = AnchorStyles.None,
                         Font = new Font("Arial", 11, FontStyle.Regular),
-                        BorderRadius = 10
+                        BorderRadius = 10,
+                        PlaceholderText = "Số lượng ghế"
                     };
 
                     txtSoLuongGhe.TextChanged += (s, ev) =>
@@ -555,13 +556,14 @@ namespace QLBVBM.GUI
 
                     Guna2TextBox txtDonGia = new Guna2TextBox
                     {
-                        Location = new Point(lblDonGia.Location.X,
-                            lblDonGia.Location.Y + lblDonGia.Height + 5 - 6), // -6 to align with the bottom of the Label
+                        Location = new Point(lblHangGhe.Location.X + 190,
+                            lblHangGhe.Location.Y + lblHangGhe.Height + 5 - 6), // -6 to align with the bottom of the Label
                         Width = 130,
                         Height = 38,
                         Anchor = AnchorStyles.None,
                         Font = new Font("Arial", 11, FontStyle.Regular),
-                        BorderRadius = 10
+                        BorderRadius = 10,
+                        PlaceholderText = "Đơn giá"
                     };
 
                     txtDonGia.TextChanged += (s, ev) =>
@@ -578,7 +580,7 @@ namespace QLBVBM.GUI
 
                     this.Controls.Add(lblHangGhe);
                     this.Controls.Add(txtSoLuongGhe);
-                    this.Controls.Add(lblDonGia);
+                    //this.Controls.Add(lblDonGia);
                     this.Controls.Add(txtDonGia);
 
                     cbbHangGhe.Visible = false;
