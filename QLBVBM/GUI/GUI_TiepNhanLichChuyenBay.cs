@@ -169,6 +169,7 @@ namespace QLBVBM.GUI
             {
                 dgv.Rows.Add(i + 1, "", "", "");
             }
+<<<<<<< HEAD
 
             // Display MaSanBay in TenSanBay ComboBoxCell as tooltip
             dgv.CellToolTipTextNeeded += (s, e) =>
@@ -182,6 +183,8 @@ namespace QLBVBM.GUI
                     }
                 }
             };
+=======
+>>>>>>> 29f39df7d93d8a35cbca0ab0ef85a1a9c13d6be8
         }
 
         private bool HasErrors()

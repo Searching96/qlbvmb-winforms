@@ -79,5 +79,36 @@ INSERT INTO THAMSO VALUES (2, 30, 10, 20);
 SELECT * FROM SANBAY;
 SELECT * FROM HANGGHE;
 SELECT * FROM HANGVECB;
+<<<<<<< HEAD
 SELECT * FROM CHUYENBAY;
+=======
+
+-- Script for Sprint 02
+alter table hangvecb 
+add column SLGheDaBan int;
+
+alter table hangvecb
+add column DonGia bigint;
+
+create table if not exists HANHKHACH
+(
+	MaHanhKhach varchar(7) primary key,
+    TenHanhKhach varchar(50) not null,
+    CMND varchar(20) not null,
+    DienThoai varchar(20) not null
+);
+
+create table if not exists VECHUYENBAY
+(
+	MaVe varchar(7) primary key,
+    MaChuyenBay varchar(7) not null,
+    MaHanhKhach varchar(7) not null,
+    MaHangGhe varchar(7) not null,
+    FOREIGN KEY (MaChuyenBay) REFERENCES CHUYENBAY(MaChuyenBay),
+    FOREIGN KEY (MaHangGhe) REFERENCES HANGGHE(MaHangGhe),
+    FOREIGN KEY (MaHanhKhach) REFERENCES HANHKHACH(MaHanhKhach)
+);
+
+
+>>>>>>> 29f39df7d93d8a35cbca0ab0ef85a1a9c13d6be8
 SHOW TABLES;
