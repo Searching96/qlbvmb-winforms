@@ -6,7 +6,7 @@ namespace QLBVBM.DAL
 {
     public class DataHelper
     {
-        private string connectionString = "server=localhost;database=QLBVMBDB;user=root;password=thinh;port=3306";
+        private string connectionString = "server=localhost;database=QLBVMBDB;user=root;password=user;port=3306";
 
         public MySqlConnection GetConnection()
         {
