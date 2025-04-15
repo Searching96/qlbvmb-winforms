@@ -24,6 +24,7 @@ namespace QLBVBM.DAL
                 new MySqlParameter("@MaHangGhe", hangVeCB.MaHangGhe),
                 new MySqlParameter("@SoLuongGhe", hangVeCB.SoLuongGhe),
                 new MySqlParameter("@SoLuongGheDaBan", hangVeCB.SoLuongGheDaBan ?? 0),
+                new MySqlParameter("@SoLuongGheDaBan", hangVeCB.SoLuongGheDaDat ?? 0),
                 new MySqlParameter("@DonGia", hangVeCB.DonGia)
             };
 
@@ -68,6 +69,23 @@ namespace QLBVBM.DAL
                 dsHangVe.Add(hangVeCB);
             }
             return dsHangVe;
+        }
+
+        public bool CapNhatSoLuongGheDaDat(string maChuyenBay, string maHangGhe)
+        {
+            string query = @"UPDATE HANGVECB 
+                            SET SoLuongGheDaDat = SoLuongGheDaDat + 1 
+                            WHERE MaChuyenBay = @MaChuyenBay 
+                            AND MaHangGhe = @MaHangGhe";
+
+            List<MySqlParameter> parameters = new List<MySqlParameter>
+            {
+                new MySqlParameter("@MaChuyenBay", maChuyenBay),
+                new MySqlParameter("@MaHangGhe", maHangGhe)
+            };
+
+            int result = dataHelper.ExecuteNonQuery(query, parameters);
+            return result > 0;
         }
     }
 }

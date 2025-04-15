@@ -46,5 +46,23 @@ namespace QLBVBM.DAL
             int.TryParse(dt.Rows[0]["TGDungToiDa"].ToString(), out result);
             return result;
         }
+
+        public int LayThoiGianDatVeToiThieu()
+        {
+            string query = "SELECT TGDatVeToiThieu FROM THAMSO";
+            DataTable dt = dataHelper.ExecuteQuery(query);
+            int result;
+            int.TryParse(dt.Rows[0]["TGDatVeToiThieu"].ToString(), out result);
+            return result;
+        }
+
+        public int LayThoiGianHuyDatVeToiThieu()
+        {
+            string query = "SELECT TGHuyDatVeToiThieu FROM THAMSO";
+            DataTable dt = dataHelper.ExecuteQuery(query);
+            int result;
+            int.TryParse(dt.Rows[0]["TGHuyDatVeToiThieu"].ToString(), out result);
+            return result;
+        }
     }
 }
