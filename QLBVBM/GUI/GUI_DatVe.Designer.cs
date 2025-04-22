@@ -515,9 +515,9 @@
             lblLuuYDatVe.ForeColor = SystemColors.ButtonShadow;
             lblLuuYDatVe.Location = new Point(32, 132);
             lblLuuYDatVe.Name = "lblLuuYDatVe";
-            lblLuuYDatVe.Size = new Size(339, 23);
+            lblLuuYDatVe.Size = new Size(316, 23);
             lblLuuYDatVe.TabIndex = 41;
-            lblLuuYDatVe.Text = "Vui lòng đặt vé trước: hh:mm:ss dd/MM/yy";
+            lblLuuYDatVe.Text = "Vui lòng đặt vé trước: hh:mm dd/MM/yy";
             // 
             // btnThoat
             // 

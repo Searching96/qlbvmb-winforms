@@ -15,8 +15,8 @@ namespace QLBVBM.DAL
 
         public bool ThemHangVe(DTO_HangVeCB hangVeCB)
         {
-            string query = "INSERT INTO HANGVECB (MaChuyenBay, MaHangGhe, SoLuongGhe, SoLuongGheDaBan, DonGia) " +
-                "VALUES (@MaChuyenBay, @MaHangGhe, @SoLuongGhe, @SoLuongGheDaBan, @DonGia)";
+            string query = "INSERT INTO HANGVECB (MaChuyenBay, MaHangGhe, SoLuongGhe, SoLuongGheDaBan, SLGheDaDat, DonGia) " +
+                "VALUES (@MaChuyenBay, @MaHangGhe, @SoLuongGhe, @SoLuongGheDaBan, @SLGheDaDat, @DonGia)";
 
             List<MySqlParameter> parameters = new List<MySqlParameter>
             {
@@ -24,7 +24,7 @@ namespace QLBVBM.DAL
                 new MySqlParameter("@MaHangGhe", hangVeCB.MaHangGhe),
                 new MySqlParameter("@SoLuongGhe", hangVeCB.SoLuongGhe),
                 new MySqlParameter("@SoLuongGheDaBan", hangVeCB.SoLuongGheDaBan ?? 0),
-                new MySqlParameter("@SoLuongGheDaBan", hangVeCB.SoLuongGheDaDat ?? 0),
+                new MySqlParameter("@SLGheDaDat", hangVeCB.SoLuongGheDaDat ?? 0),
                 new MySqlParameter("@DonGia", hangVeCB.DonGia)
             };
 
@@ -74,7 +74,7 @@ namespace QLBVBM.DAL
         public bool CapNhatSoLuongGheDaDat(string maChuyenBay, string maHangGhe)
         {
             string query = @"UPDATE HANGVECB 
-                            SET SoLuongGheDaDat = SoLuongGheDaDat + 1 
+                            SET SLGheDaDat = SLGheDaDat + 1 
                             WHERE MaChuyenBay = @MaChuyenBay 
                             AND MaHangGhe = @MaHangGhe";
 

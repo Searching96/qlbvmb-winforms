@@ -23,6 +23,7 @@ namespace QLBVBM.GUI
         private BUS_VeChuyenBay busVeChuyenBay = new BUS_VeChuyenBay();
         private ErrorProvider errorProvider = new ErrorProvider();
         private ToolTip toolTip = new ToolTip();
+        private DateTime hanCuoiDatVe;
 
         public GUI_DatVe()
         {
@@ -212,7 +213,8 @@ namespace QLBVBM.GUI
                     //List<DTO_HangVeCB> dsHangVe = busHangVeCB.TraCuuHangVe(selectedChuyenBay?.MaChuyenBay);
                     List<DTO_DonGiaHangGhe> dsHangGhe = busDonGiaHangGhe.LayDanhSachTenHangGheChuyenBay(selectedChuyenBay?.MaChuyenBay);
                     LoadDanhSachHangVeCB(dsHangGhe);
-                    lblLuuYDatVe.Text = "Vui lòng đặt vé trước " + busChuyenBay.LayHanCuoiDatVe(selectedChuyenBay).ToString("HH:mm dd/MM/yyyy");
+                    hanCuoiDatVe = busChuyenBay.LayHanCuoiDatVe(selectedChuyenBay);
+                    lblLuuYDatVe.Text = "Vui lòng đặt vé trước " + hanCuoiDatVe.ToString("HH:mm dd/MM/yyyy");
                 }
             }
         }
@@ -334,6 +336,12 @@ namespace QLBVBM.GUI
             if (HasErrors())
             {
                 MessageBox.Show("Vui lòng sửa các lỗi trước khi tiếp tục", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (hanCuoiDatVe < DateTime.Now)
+            {
+                MessageBox.Show("Đã quá hạn đặt vé", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 

@@ -49,19 +49,19 @@ namespace QLBVBM.DAL
 
         public int LayThoiGianDatVeToiThieu()
         {
-            string query = "SELECT TGDatVeToiThieu FROM THAMSO";
+            string query = "SELECT TGDatTruocVeToiThieu FROM THAMSO";
             DataTable dt = dataHelper.ExecuteQuery(query);
             int result;
-            int.TryParse(dt.Rows[0]["TGDatVeToiThieu"].ToString(), out result);
+            int.TryParse(dt.Rows[0]["TGDatTruocVeToiThieu"].ToString(), out result);
             return result;
         }
 
         public int LayThoiGianHuyDatVeToiThieu()
         {
-            string query = "SELECT TGHuyDatVeToiThieu FROM THAMSO";
+            string query = "SELECT TGHuyDatTruocVeToiThieu FROM THAMSO";
             DataTable dt = dataHelper.ExecuteQuery(query);
             int result;
-            int.TryParse(dt.Rows[0]["TGHuyDatVeToiThieu"].ToString(), out result);
+            int.TryParse(dt.Rows[0]["TGHuyDatTruocVeToiThieu"].ToString(), out result);
             return result;
         }
     }

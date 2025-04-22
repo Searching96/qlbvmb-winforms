@@ -103,7 +103,7 @@ namespace QLBVBM.BUS
                         return false;
                     }
 
-                    // Update the number of seats sold
+                    // Update the number of seats booked
                     if (!BUS_HangVeCB.CapNhatSoLuongGheDaDat(hangVeCB.MaChuyenBay, hangVeCB.MaHangGhe))
                     {
                         transaction.Dispose();
