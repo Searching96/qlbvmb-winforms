@@ -21,6 +21,11 @@ namespace QLBVBM.BUS
             return DAL_VeChuyenBay.ThemVeChuyenBay(veChuyenBay);
         }
 
+        public bool DatVeChuyenBay(DTO_VeChuyenBay veChuyenBay)
+        {
+            return DAL_VeChuyenBay.DatVeChuyenBay(veChuyenBay);
+        }
+
         public string PhatSinhMaVeChuyenBay()
         {
             DTO_VeChuyenBay veChuyenBayCuoi = DAL_VeChuyenBay.LayVeChuyenBayCuoi();
@@ -52,12 +57,54 @@ namespace QLBVBM.BUS
 
                     if (!ThemVeChuyenBay(veChuyenBay))
                     {
-                        transaction.Dispose();
+                        transaction.Dispose(); 
                         return false;
                     }
 
                     // Update the number of seats sold
                     if (!BUS_HangVeCB.CapNhatSoLuongVeDaBan(hangVeCB.MaChuyenBay, hangVeCB.MaHangGhe))
+                    {
+                        transaction.Dispose();
+                        return false;
+                    }
+
+                    transaction.Complete();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"Error: {ex.Message}");
+                    transaction.Dispose();
+                    return false;
+                }
+            }
+        }
+
+        public bool DatVeChuyenBayVaHangVe(DTO_VeChuyenBay veChuyenBay, DTO_HangVeCB hangVeCB, DTO_HanhKhach hanhKhach)
+        {
+            using (var transaction = new TransactionScope())
+            {
+                try
+                {
+                    // add passenger if not available in the database
+                    // add passenger before booking ticket to avoid foreign key constraint error 
+                    if (hanhKhach != null)
+                    {
+                        if (!BUS_HanhKhach.ThemHanhKhach(hanhKhach))
+                        {
+                            transaction.Dispose();
+                            return false;
+                        }
+                    }
+
+                    if (!DatVeChuyenBay(veChuyenBay))
+                    {
+                        transaction.Dispose();
+                        return false;
+                    }
+
+                    // Update the number of seats booked
+                    if (!BUS_HangVeCB.CapNhatSoLuongGheDaDat(hangVeCB.MaChuyenBay, hangVeCB.MaHangGhe))
                     {
                         transaction.Dispose();
                         return false;
