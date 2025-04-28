@@ -59,23 +59,16 @@ CREATE TABLE IF NOT EXISTS HANGVECB
     FOREIGN KEY (MaChuyenBay) REFERENCES CHUYENBAY(MaChuyenBay)
 );
 
-create table if not exists HANHKHACH
-(
-	MaHanhKhach varchar(7) primary key,
-    TenHanhKhach varchar(50) not null,
-    CMND varchar(20) not null,
-    DienThoai varchar(20) not null
-);
-
 create table if not exists VECHUYENBAY
 (
 	MaVe varchar(7) primary key,
     MaChuyenBay varchar(7) not null,
-    MaHanhKhach varchar(7) not null,
     MaHangGhe varchar(7) not null,
+	TenHanhKhach varchar(100) not null,
+    CMND varchar(20) not null,
+    SoDienThoai varchar(20) not null,
     FOREIGN KEY (MaChuyenBay) REFERENCES CHUYENBAY(MaChuyenBay),
-    FOREIGN KEY (MaHangGhe) REFERENCES HANGGHE(MaHangGhe),
-    FOREIGN KEY (MaHanhKhach) REFERENCES HANHKHACH(MaHanhKhach)
+    FOREIGN KEY (MaHangGhe) REFERENCES HANGGHE(MaHangGhe)
 );
 
 INSERT INTO SANBAY VALUES ('SB00001', 'Sân bay California');
@@ -96,24 +89,23 @@ INSERT INTO HANGGHE VALUES ('HG00004', 'Hạng siêu sang');
 
 INSERT INTO THAMSO VALUES (1, 2, 30, 10, 20);
 
-INSERT INTO HANHKHACH (MaHanhKhach, TenHanhKhach, CMND, DienThoai) VALUES
-('HK00001', 'Nguyen Van An', '0123456789', '0987654321'),
-('HK00002', 'Tran Thi Binh', '9876543210', '0912345678'),
-('HK00003', 'Le Van Chi', '1122334455', '0909090909'),
-('HK00004', 'Pham Thi Dieu', '2233445566', '0933333333'),
-('HK00005', 'Hoang Van Em', '3344556677', '0944444444'),
-('HK00006', 'Nguyen Thi Phuong', '4455667788', '0955555555'),
-('HK00007', 'Tran Van Giang', '5566778899', '0966666666'),
-('HK00008', 'Do Thi Hang', '6677889900', '0977777777'),
-('HK00009', 'Bui Van Yen', '7788990011', '0988888888'),
-('HK00010', 'Vu Thi Minh', '8899001122', '0999999999');
+#INSERT INTO HANHKHACH (MaHanhKhach, TenHanhKhach, CMND, DienThoai) VALUES
+#('HK00001', 'Nguyen Van An', '0123456789', '0987654321'),
+#('HK00002', 'Tran Thi Binh', '9876543210', '0912345678'),
+#('HK00003', 'Le Van Chi', '1122334455', '0909090909'),
+#('HK00004', 'Pham Thi Dieu', '2233445566', '0933333333'),
+#('HK00005', 'Hoang Van Em', '3344556677', '0944444444'),
+#('HK00006', 'Nguyen Thi Phuong', '4455667788', '0955555555'),
+#('HK00007', 'Tran Van Giang', '5566778899', '0966666666'),
+#('HK00008', 'Do Thi Hang', '6677889900', '0977777777'),
+#('HK00009', 'Bui Van Yen', '7788990011', '0988888888'),
+#('HK00010', 'Vu Thi Minh', '8899001122', '0999999999');
 
 SELECT * FROM SANBAY;
 SELECT * FROM HANGGHE;
 SELECT * FROM HANGVECB;
 SELECT * FROM CHUYENBAY;
-SELECT * FROM HANHKHACH;
+SELECT * FROM CTCHUYENBAY;
 SELECT * FROM THAMSO;
-SELECT * FROM HANHKHACH;
 
 SHOW TABLES;
