@@ -14,7 +14,7 @@ using Guna.UI2.WinForms;
 
 namespace QLBVBM.GUI
 {
-    public partial class GUI_BanVe : Form
+    public partial class GUI_DatVe : Form
     {
         private BUS_SanBay busSanBay = new BUS_SanBay();
         private BUS_ChuyenBay busChuyenBay = new BUS_ChuyenBay();
@@ -23,15 +23,15 @@ namespace QLBVBM.GUI
         private BUS_VeChuyenBay busVeChuyenBay = new BUS_VeChuyenBay();
         private ErrorProvider errorProvider = new ErrorProvider();
         private ToolTip toolTip = new ToolTip();
+        private DateTime hanCuoiDatVe;
 
-        public GUI_BanVe()
+        public GUI_DatVe()
         {
             InitializeComponent();
             SetResponsive();
             LoadDanhSachSanBayToComboBox(cbbSanBayDi, LayDanhSachSanBay());
             LoadDanhSachSanBayToComboBox(cbbSanBayDen, LayDanhSachSanBay());
             SetEventForCMNDTextBox();
-
             toolTip.SetToolTip(btnThemHanhKhach, "Thêm hành khách");
         }
 
@@ -145,7 +145,7 @@ namespace QLBVBM.GUI
                 };
             }
         }
-        
+
         public void LoadMaChuyenBay(Guna2ComboBox cbb, List<DTO_ChuyenBay> dsChuyenBay)
         {
             if (dsChuyenBay != null && dsChuyenBay.Count > 0)
@@ -213,6 +213,8 @@ namespace QLBVBM.GUI
                     //List<DTO_HangVeCB> dsHangVe = busHangVeCB.TraCuuHangVe(selectedChuyenBay?.MaChuyenBay);
                     List<DTO_DonGiaHangGhe> dsHangGhe = busDonGiaHangGhe.LayDanhSachTenHangGheChuyenBay(selectedChuyenBay?.MaChuyenBay);
                     LoadDanhSachHangVeCB(dsHangGhe);
+                    hanCuoiDatVe = busChuyenBay.LayHanCuoiDatVe(selectedChuyenBay);
+                    lblLuuYDatVe.Text = "Vui lòng đặt vé trước " + hanCuoiDatVe.ToString("HH:mm dd/MM/yyyy");
                 }
             }
         }
@@ -337,6 +339,12 @@ namespace QLBVBM.GUI
                 return;
             }
 
+            if (hanCuoiDatVe < DateTime.Now)
+            {
+                MessageBox.Show("Đã quá hạn đặt vé", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             DTO_VeChuyenBay veChuyenBay = new DTO_VeChuyenBay
             {
                 MaVe = busVeChuyenBay.PhatSinhMaVeChuyenBay(),
@@ -364,9 +372,9 @@ namespace QLBVBM.GUI
             } : null;
 
             // add hanhKhach if the passed object is not null.
-            bool success = busVeChuyenBay.ThemVeChuyenBayVaHangVe(veChuyenBay, hangVeCB, hanhKhach);
+            bool success = busVeChuyenBay.DatVeChuyenBayVaHangVe(veChuyenBay, hangVeCB, hanhKhach);
 
-            MessageBox.Show(success ? "Thêm vé thành công" : "Lỗi khi thêm vé",
+            MessageBox.Show(success ? "Đặt vé thành công" : "Lỗi khi đặt vé",
                             "Thông báo",
                             MessageBoxButtons.OK,
                             success ? MessageBoxIcon.Information : MessageBoxIcon.Error);
@@ -375,7 +383,7 @@ namespace QLBVBM.GUI
 
         private void btnInVe_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("In vé", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("In phiếu đặt", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnThoat_Click(object sender, EventArgs e)

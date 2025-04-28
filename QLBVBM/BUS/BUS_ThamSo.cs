@@ -47,5 +47,17 @@ namespace QLBVBM.BUS
             return GetCachedValue(nameof(LayThoiGianDungToiDa),
                 () => DAL_ThamSo.LayThoiGianDungToiDa());
         }
+
+        public int LayThoiGianDatVeToiThieu()
+        {
+            return GetCachedValue(nameof(LayThoiGianDatVeToiThieu),
+                () => DAL_ThamSo.LayThoiGianDatVeToiThieu());
+        }
+
+        public int LayThoiGianHuyDatVeToiThieu()
+        {
+            return GetCachedValue(nameof(LayThoiGianHuyDatVeToiThieu),
+                () => DAL_ThamSo.LayThoiGianHuyDatVeToiThieu());
+        }
     }
 }

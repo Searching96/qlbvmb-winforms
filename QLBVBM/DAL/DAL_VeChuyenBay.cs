@@ -16,13 +16,30 @@ namespace QLBVBM.DAL
         public bool ThemVeChuyenBay(DTO_VeChuyenBay veChuyenBay)
         {
             string query = "INSERT INTO VECHUYENBAY (MaVe, MaChuyenBay, MaHangGhe, MaHanhKhach) " +
-                "VALUES (@MaVe, @MaChuyenBay, @MaHangGhe, @MaHanhKhach";
+                "VALUES (@MaVe, @MaChuyenBay, @MaHangGhe, @MaHanhKhach)";
             List<MySqlParameter> parameters = new List<MySqlParameter>
             {
                 new MySqlParameter("@MaVe", veChuyenBay.MaVe),
                 new MySqlParameter("@MaChuyenBay", veChuyenBay.MaChuyenBay),
                 new MySqlParameter("@MaHangGhe", veChuyenBay.MaHangGhe),
-                new MySqlParameter("@MaHanhKhach", veChuyenBay.MaHanhKhach)
+                new MySqlParameter("@MaHanhKhach", veChuyenBay.MaHanhKhach),
+                new MySqlParameter("@TrangThaiVe", 1)
+            };
+            int result = dataHelper.ExecuteNonQuery(query, parameters);
+            return result > 0;
+        }
+
+        public bool DatVeChuyenBay(DTO_VeChuyenBay veChuyenBay)
+        {
+            string query = "INSERT INTO VECHUYENBAY (MaVe, MaChuyenBay, MaHangGhe, MaHanhKhach) " +
+                "VALUES (@MaVe, @MaChuyenBay, @MaHangGhe, @MaHanhKhach)";
+            List<MySqlParameter> parameters = new List<MySqlParameter>
+            {
+                new MySqlParameter("@MaVe", veChuyenBay.MaVe),
+                new MySqlParameter("@MaChuyenBay", veChuyenBay.MaChuyenBay),
+                new MySqlParameter("@MaHangGhe", veChuyenBay.MaHangGhe),
+                new MySqlParameter("@MaHanhKhach", veChuyenBay.MaHanhKhach),
+                new MySqlParameter("@TrangThaiVe", 2)
             };
             int result = dataHelper.ExecuteNonQuery(query, parameters);
             return result > 0;
@@ -55,7 +72,9 @@ namespace QLBVBM.DAL
                     MaVe = dr["MaVe"].ToString(),
                     MaChuyenBay = dr["MaChuyenBay"].ToString(),
                     MaHangGhe = dr["MaHangGhe"].ToString(),
-                    MaHanhKhach = dr["MaHanhKhach"].ToString()
+                    MaHanhKhach = dr["MaHanhKhach"].ToString(),
+                    TrangThaiVe = Convert.ToInt32(dr["TrangThaiVe"]),
+                    ThoiDiemThanhToan = dr["ThoiDiemThanhToan"] != DBNull.Value ? (DateTime?)Convert.ToDateTime(dr["ThoiDiemThanhToan"]) : null
                 };
                 dsVeChuyenBay.Add(veChuyenBay);
             }
