@@ -120,18 +120,18 @@ namespace QLBVBM.BUS
             }
         }
 
-        public bool CheckDuplicateAirports(List<string> selectedAirports)
+        public bool CheckDuplicateAirports(List<string> selectedAirportIds)
         {
             Dictionary<string, int> dictSanBay = new Dictionary<string, int>();
 
-            foreach (string sanBay in selectedAirports)
+            foreach (string maSanBay in selectedAirportIds)
             {
-                if (!string.IsNullOrWhiteSpace(sanBay))
+                if (!string.IsNullOrWhiteSpace(maSanBay))
                 {
-                    if (dictSanBay.ContainsKey(sanBay))
-                        dictSanBay[sanBay]++;
+                    if (dictSanBay.ContainsKey(maSanBay))
+                        dictSanBay[maSanBay]++;
                     else
-                        dictSanBay[sanBay] = 1;
+                        dictSanBay[maSanBay] = 1;
                 }
             }
 
@@ -139,6 +139,25 @@ namespace QLBVBM.BUS
                 if (count > 1)
                     return true;
 
+            return false;
+        }
+
+        public bool CheckDuplicateSeatClasses(List<string> selectedSeatClassIds)
+        {
+            Dictionary<string, int> dictHangGhe = new Dictionary<string, int>();
+            foreach (string maHangGhe in selectedSeatClassIds)
+            {
+                if (!string.IsNullOrWhiteSpace(maHangGhe))
+                {
+                    if (dictHangGhe.ContainsKey(maHangGhe))
+                        dictHangGhe[maHangGhe]++;
+                    else
+                        dictHangGhe[maHangGhe] = 1;
+                }
+            }
+            foreach (var count in dictHangGhe.Values)
+                if (count > 1)
+                    return true;
             return false;
         }
 

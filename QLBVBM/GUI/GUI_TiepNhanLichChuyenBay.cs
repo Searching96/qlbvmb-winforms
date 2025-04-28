@@ -21,13 +21,10 @@ namespace QLBVBM.GUI
         private BUS_ThamSo BUS_ThamSo = new BUS_ThamSo();
         private BUS_HangGhe BUS_HangGhe = new BUS_HangGhe();
 
-        private List<Guna2ComboBox> lstComboBoxHangGhe = new List<Guna2ComboBox>();
-        private List<Tuple<DTO_HangGhe, Guna2TextBox, Guna2TextBox>> lstTextBoxSoLuongVaDonGiaGhe = new List<Tuple<DTO_HangGhe, Guna2TextBox, Guna2TextBox>>();
 
         private ErrorProvider errorProvider = new ErrorProvider();
 
         private List<DTO_HangGhe> dsHangGhe = new List<DTO_HangGhe>();
-        private List<DTO_HangGhe> dsHangGheDaChon = new List<DTO_HangGhe>();
 
         // variables for dynamic HangGhe_ComboBox creation
         private int currentComboBoxCount = 0;
@@ -40,18 +37,18 @@ namespace QLBVBM.GUI
         {
             InitializeComponent();
 
-            SetupDgvColumns(dgvDSSanBayTG, BUS_ThamSo.LaySoLuongSanBayToiDa(), LayDanhSachSanBay());
+            SetupDgvDSSBTGColumns(BUS_ThamSo.LaySoLuongSanBayToiDa(), LayDanhSachSanBay());
+            SetupDgvDSHGColumns(LayDanhSachHangGhe());
             PhatSinhMaChuyenBay();
             LoadSanBayToComboBox(cbbSanBayDi, LayDanhSachSanBay());
             LoadSanBayToComboBox(cbbSanBayDen, LayDanhSachSanBay());
-            LayDanhSachHangGhe();
         }
 
         public void FixScale()
         {
             foreach (Control control in this.Controls)
             {
-                
+
             }
         }
 
@@ -60,6 +57,13 @@ namespace QLBVBM.GUI
             var dsSanBay = BUS_SanBay.LayDanhSachSanBay();
             dsSanBay.Insert(0, new DTO_SanBay { MaSanBay = "", TenSanBay = "" });
             return dsSanBay;
+        }
+
+        private List<DTO_HangGhe> LayDanhSachHangGhe()
+        {
+            var dsHangGhe = BUS_HangGhe.LayDanhSachHangGhe();
+            dsHangGhe.Insert(0, new DTO_HangGhe { MaHangGhe = "", TenHangGhe = "" });
+            return dsHangGhe;
         }
 
         private void LoadSanBayToComboBox(ComboBox cbb, List<DTO_SanBay> dsSanBay)
@@ -82,52 +86,36 @@ namespace QLBVBM.GUI
             }
         }
 
-        private void LayDanhSachHangGhe()
-        {
-            dsHangGhe = BUS_HangGhe.LayDanhSachHangGhe();
-            dsHangGhe.Insert(0, new DTO_HangGhe { MaHangGhe = "", TenHangGhe = "" });
-        }
-
-        private void LoadHangGheToComboBox(ComboBox cbb, List<DTO_HangGhe> dsHangGhe)
-        {
-            if (dsHangGhe != null && dsHangGhe.Count > 1) // since we add an empty item at index 0
-            {
-                cbb.DataSource = dsHangGhe;
-                cbb.DisplayMember = "TenHangGhe";
-                cbb.ValueMember = "MaHangGhe";
-            }
-        }
-
         private void PhatSinhMaChuyenBay()
         {
             txtMaChuyenBay.Text = BUS_ChuyenBay.PhatSinhMaChuyenBay();
         }
 
-        private void SetupDgvColumns(Guna.UI2.WinForms.Guna2DataGridView dgv, int rowCount, List<DTO_SanBay> dsSanBay)
+        private void SetupDgvDSHGColumns(List<DTO_HangGhe> dsHangGhe)
         {
-            dgv.Columns.Clear();
-            dgv.RowHeadersVisible = false;
-            dgv.AllowUserToAddRows = false;
+            dgvDSHangGhe.Columns.Clear();
+            dgvDSHangGhe.RowHeadersVisible = false;
+            dgvDSHangGhe.AllowUserToAddRows = false;
 
             // Set the theme to grey color
-            dgv.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
-            dgv.ThemeStyle.BackColor = Color.White;
-            dgv.ThemeStyle.GridColor = Color.LightGray;
-            dgv.ThemeStyle.HeaderStyle.BackColor = Color.White;
-            dgv.ThemeStyle.HeaderStyle.ForeColor = Color.Black;
-            dgv.ThemeStyle.RowsStyle.BackColor = Color.White;
-            dgv.ThemeStyle.RowsStyle.ForeColor = Color.Black;
-            dgv.ThemeStyle.RowsStyle.SelectionBackColor = Color.LightGray;
-            dgv.ThemeStyle.RowsStyle.SelectionForeColor = Color.Black;
+            dgvDSHangGhe.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
+            dgvDSHangGhe.ThemeStyle.BackColor = Color.White;
+            dgvDSHangGhe.ThemeStyle.GridColor = Color.LightGray;
+            dgvDSHangGhe.ThemeStyle.HeaderStyle.BackColor = Color.White;
+            dgvDSHangGhe.ThemeStyle.HeaderStyle.ForeColor = Color.Black;
+            dgvDSHangGhe.ThemeStyle.RowsStyle.BackColor = Color.White;
+            dgvDSHangGhe.ThemeStyle.RowsStyle.ForeColor = Color.Black;
+            dgvDSHangGhe.ThemeStyle.RowsStyle.SelectionBackColor = Color.LightGray;
+            dgvDSHangGhe.ThemeStyle.RowsStyle.SelectionForeColor = Color.Black;
 
             // Define the font for the header cells
             Font headerFont = new Font("Arial", 11, FontStyle.Regular);
 
             // Set the header row color to grey
-            dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
-            dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            dgv.ColumnHeadersDefaultCellStyle.Font = headerFont;
-            dgv.EnableHeadersVisualStyles = false;
+            dgvDSHangGhe.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
+            dgvDSHangGhe.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvDSHangGhe.ColumnHeadersDefaultCellStyle.Font = headerFont;
+            dgvDSHangGhe.EnableHeadersVisualStyles = false;
 
             DataGridViewTextBoxColumn colSTT = new DataGridViewTextBoxColumn
             {
@@ -139,7 +127,97 @@ namespace QLBVBM.GUI
             };
             colSTT.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             colSTT.HeaderCell.Style.Font = headerFont;
-            dgv.Columns.Add(colSTT);
+            dgvDSHangGhe.Columns.Add(colSTT);
+
+            DataGridViewComboBoxColumn colTenHangGhe = new DataGridViewComboBoxColumn
+            {
+                Name = "TenHangGhe",
+                HeaderText = "Tên hạng ghế",
+                DataSource = dsHangGhe,
+                DisplayMember = "TenHangGhe",
+                ValueMember = "MaHangGhe",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
+                FlatStyle = FlatStyle.Flat
+            };
+            colTenHangGhe.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            colTenHangGhe.HeaderCell.Style.Font = headerFont;
+            dgvDSHangGhe.Columns.Add(colTenHangGhe);
+
+            DataGridViewTextBoxColumn colSoLuongGhe = new DataGridViewTextBoxColumn
+            {
+                Name = "SoLuongGhe",
+                HeaderText = "Số lượng ghế"
+            };
+            colSoLuongGhe.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            colSoLuongGhe.HeaderCell.Style.Font = headerFont;
+            dgvDSHangGhe.Columns.Add(colSoLuongGhe);
+
+            DataGridViewTextBoxColumn colDonGia = new DataGridViewTextBoxColumn
+            {
+                Name = "DonGia",
+                HeaderText = "Đơn giá (VND)"
+            };
+            colDonGia.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            colDonGia.HeaderCell.Style.Font = headerFont;
+            dgvDSHangGhe.Columns.Add(colDonGia);
+
+            dgvDSHangGhe.Rows.Clear();
+            for (int i = 0; i < 2; i++)
+            {
+                dgvDSHangGhe.Rows.Add(i + 1, "", "", "");
+            }
+
+            // Display MaHangGhe in TenHangGhe ComboBoxCell as tooltip
+            dgvDSHangGhe.CellToolTipTextNeeded += (s, e) =>
+            {
+                if (e.ColumnIndex >= 0 && dgvDSSanBayTG.Columns[e.ColumnIndex].Name == "TenHangGhe" && e.RowIndex >= 0)
+                {
+                    var cell = dgvDSHangGhe.Rows[e.RowIndex].Cells[e.ColumnIndex] as DataGridViewComboBoxCell;
+                    if (cell?.Value != null)
+                    {
+                        e.ToolTipText = cell.Value.ToString();
+                    }
+                }
+            };
+        }
+
+        private void SetupDgvDSSBTGColumns(int rowCount, List<DTO_SanBay> dsSanBay)
+        {
+            dgvDSSanBayTG.Columns.Clear();
+            dgvDSSanBayTG.RowHeadersVisible = false;
+            dgvDSSanBayTG.AllowUserToAddRows = false;
+
+            // Set the theme to grey color
+            dgvDSSanBayTG.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
+            dgvDSSanBayTG.ThemeStyle.BackColor = Color.White;
+            dgvDSSanBayTG.ThemeStyle.GridColor = Color.LightGray;
+            dgvDSSanBayTG.ThemeStyle.HeaderStyle.BackColor = Color.White;
+            dgvDSSanBayTG.ThemeStyle.HeaderStyle.ForeColor = Color.Black;
+            dgvDSSanBayTG.ThemeStyle.RowsStyle.BackColor = Color.White;
+            dgvDSSanBayTG.ThemeStyle.RowsStyle.ForeColor = Color.Black;
+            dgvDSSanBayTG.ThemeStyle.RowsStyle.SelectionBackColor = Color.LightGray;
+            dgvDSSanBayTG.ThemeStyle.RowsStyle.SelectionForeColor = Color.Black;
+
+            // Define the font for the header cells
+            Font headerFont = new Font("Arial", 11, FontStyle.Regular);
+
+            // Set the header row color to grey
+            dgvDSSanBayTG.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
+            dgvDSSanBayTG.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvDSSanBayTG.ColumnHeadersDefaultCellStyle.Font = headerFont;
+            dgvDSSanBayTG.EnableHeadersVisualStyles = false;
+
+            DataGridViewTextBoxColumn colSTT = new DataGridViewTextBoxColumn
+            {
+                Name = "STT",
+                HeaderText = "STT",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.None,
+                Width = 50,
+                ReadOnly = true
+            };
+            colSTT.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            colSTT.HeaderCell.Style.Font = headerFont;
+            dgvDSSanBayTG.Columns.Add(colSTT);
 
             DataGridViewComboBoxColumn colTenSanBay = new DataGridViewComboBoxColumn
             {
@@ -153,7 +231,7 @@ namespace QLBVBM.GUI
             };
             colTenSanBay.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             colTenSanBay.HeaderCell.Style.Font = headerFont;
-            dgv.Columns.Add(colTenSanBay);
+            dgvDSSanBayTG.Columns.Add(colTenSanBay);
 
             DataGridViewTextBoxColumn colThoiGianDung = new DataGridViewTextBoxColumn
             {
@@ -162,7 +240,7 @@ namespace QLBVBM.GUI
             };
             colThoiGianDung.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             colThoiGianDung.HeaderCell.Style.Font = headerFont;
-            dgv.Columns.Add(colThoiGianDung);
+            dgvDSSanBayTG.Columns.Add(colThoiGianDung);
 
             DataGridViewTextBoxColumn colGhiChu = new DataGridViewTextBoxColumn
             {
@@ -171,20 +249,20 @@ namespace QLBVBM.GUI
             };
             colGhiChu.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             colGhiChu.HeaderCell.Style.Font = headerFont;
-            dgv.Columns.Add(colGhiChu);
+            dgvDSSanBayTG.Columns.Add(colGhiChu);
 
-            dgv.Rows.Clear();
+            dgvDSSanBayTG.Rows.Clear();
             for (int i = 0; i < rowCount; i++)
             {
-                dgv.Rows.Add(i + 1, "", "", "");
+                dgvDSSanBayTG.Rows.Add(i + 1, "", "", "");
             }
 
             // Display MaSanBay in TenSanBay ComboBoxCell as tooltip
-            dgv.CellToolTipTextNeeded += (s, e) =>
+            dgvDSSanBayTG.CellToolTipTextNeeded += (s, e) =>
             {
-                if (e.ColumnIndex >= 0 && dgv.Columns[e.ColumnIndex].Name == "TenSanBay" && e.RowIndex >= 0)
+                if (e.ColumnIndex >= 0 && dgvDSSanBayTG.Columns[e.ColumnIndex].Name == "TenSanBay" && e.RowIndex >= 0)
                 {
-                    var cell = dgv.Rows[e.RowIndex].Cells[e.ColumnIndex] as DataGridViewComboBoxCell;
+                    var cell = dgvDSSanBayTG.Rows[e.RowIndex].Cells[e.ColumnIndex] as DataGridViewComboBoxCell;
                     if (cell?.Value != null)
                     {
                         e.ToolTipText = cell.Value.ToString();
@@ -257,6 +335,44 @@ namespace QLBVBM.GUI
             return false;
         }
 
+        private bool HasIncompleteHangGheRowInput()
+        {
+            foreach (DataGridViewRow row in dgvDSHangGhe.Rows)
+            {
+                if (row.IsNewRow)
+                    continue;
+
+                bool anyFieldFilled = false;
+                bool anyFieldEmpty = false;
+
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    string colName = dgvDSHangGhe.Columns[cell.ColumnIndex].Name;
+
+                    // Skip non-required columns (for example, "STT")
+                    if (colName == "STT")
+                        continue;
+
+                    // For required fields, consider a cell "empty" if its Value is null or whitespace.
+                    if (cell.Value == null || string.IsNullOrWhiteSpace(cell.Value.ToString()))
+                    {
+                        anyFieldEmpty = true;
+                    }
+                    else
+                    {
+                        anyFieldFilled = true;
+                    }
+                }
+
+                // If at least one required cell is filled but at least one is empty,
+                // then the row has incomplete input.
+                if (anyFieldFilled && anyFieldEmpty)
+                    return true;
+            }
+
+            return false;
+        }
+
         private void btnTiepNhan_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtThoiGianBay.Text))
@@ -265,12 +381,6 @@ namespace QLBVBM.GUI
                 errorProvider.SetError(cbbSanBayDi, "Sân bay đi không được để trống");
             if (cbbSanBayDen.SelectedIndex == 0)
                 errorProvider.SetError(cbbSanBayDen, "Sân bay đến không được để trống");
-
-            foreach (var tuple in lstTextBoxSoLuongVaDonGiaGhe)
-            {
-                if (string.IsNullOrEmpty(tuple.Item2.Text))
-                    errorProvider.SetError(tuple.Item2, "Số lượng ghế không được để trống");
-            }
 
             if (HasErrors())
             {
@@ -284,9 +394,21 @@ namespace QLBVBM.GUI
                 return;
             }
 
+            if (CheckDuplicateSeatClasses())
+            {
+                MessageBox.Show("Có hạng ghế xuất hiện nhiều hơn một lần.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (HasIncompleteSanBayTGRowInput())
             {
                 MessageBox.Show("Có hàng trong danh sách sân bay trung gian chưa được nhập đầy đủ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (HasIncompleteHangGheRowInput())
+            {
+                MessageBox.Show("Có hàng trong danh sách hạng ghế chưa được nhập đầy đủ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -329,22 +451,34 @@ namespace QLBVBM.GUI
             }
 
             List<DTO_HangVeCB> dsHangVeCB = new List<DTO_HangVeCB>();
-            foreach (var tuple in lstTextBoxSoLuongVaDonGiaGhe)
+            foreach (DataGridViewRow row in dgvDSHangGhe.Rows)
             {
-                if (!int.TryParse(tuple.Item2.Text, out int soLuongGhe))
+                if (row.IsNewRow)
                     continue;
-                if (!int.TryParse(tuple.Item3.Text, out int donGia))
+
+                var maHangGhe = row.Cells["TenHangGhe"].Value?.ToString();
+                var textSoLuongGhe = row.Cells["SoLuongGhe"].Value?.ToString();
+                var textDonGia = row.Cells["DonGia"].Value?.ToString();
+
+                if (string.IsNullOrWhiteSpace(maHangGhe)
+                    && string.IsNullOrWhiteSpace(textSoLuongGhe)
+                    && string.IsNullOrWhiteSpace(textDonGia))
                     continue;
+
+                if (!int.TryParse(textSoLuongGhe, out int soLuongGhe)
+                    || !int.TryParse(textDonGia, out int donGia))
+                    continue;
+
                 DTO_HangVeCB hangVeCB = new DTO_HangVeCB
                 {
                     MaChuyenBay = chuyenBayMoi.MaChuyenBay,
-                    MaHangGhe = tuple.Item1.MaHangGhe,
+                    MaHangGhe = maHangGhe,
                     SoLuongGhe = soLuongGhe,
-                    DonGia = donGia                   
+                    DonGia = donGia
                 };
+
                 dsHangVeCB.Add(hangVeCB);
             }
-
 
             if (BUS_ChuyenBay.ThemChuyenBayVaChiTiet(chuyenBayMoi, dsCTChuyenBay, dsHangVeCB))
             {
@@ -397,15 +531,15 @@ namespace QLBVBM.GUI
 
         private bool CheckDuplicateAirports()
         {
-            List<string> selectedAirports = new List<string>();
-            string sanBayDi = cbbSanBayDi.SelectedValue?.ToString();
-            string sanBayDen = cbbSanBayDen.SelectedValue?.ToString();
+            List<string> selectedAirportIds = new List<string>();
+            string maSanBayDi = cbbSanBayDi.SelectedValue?.ToString();
+            string maSanBayDen = cbbSanBayDen.SelectedValue?.ToString();
 
-            if (!string.IsNullOrWhiteSpace(sanBayDi))
-                selectedAirports.Add(sanBayDi);
+            if (!string.IsNullOrWhiteSpace(maSanBayDi))
+                selectedAirportIds.Add(maSanBayDi);
 
-            if (!string.IsNullOrWhiteSpace(sanBayDen))
-                selectedAirports.Add(sanBayDen);
+            if (!string.IsNullOrWhiteSpace(maSanBayDen))
+                selectedAirportIds.Add(maSanBayDen);
 
             foreach (DataGridViewRow row in dgvDSSanBayTG.Rows)
             {
@@ -416,14 +550,14 @@ namespace QLBVBM.GUI
                 if (cellValue == null)
                     continue;
 
-                string sanBayTG = cellValue.ToString();
-                if (string.IsNullOrWhiteSpace(sanBayTG))
+                string maSanBayTG = cellValue.ToString();
+                if (string.IsNullOrWhiteSpace(maSanBayTG))
                     continue;
 
-                selectedAirports.Add(sanBayTG);
+                selectedAirportIds.Add(maSanBayTG);
             }
 
-            return BUS_ChuyenBay.CheckDuplicateAirports(selectedAirports);
+            return BUS_ChuyenBay.CheckDuplicateAirports(selectedAirportIds);
         }
 
         private void btnThemSanBay_Click(object sender, EventArgs e)
@@ -482,132 +616,67 @@ namespace QLBVBM.GUI
             this.Close();
         }
 
-        private void btnChonHangGhe_Click(object sender, EventArgs e)
+        private void dgvDSHangGhe_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
-            Guna2ComboBox cbbHangGhe = new Guna2ComboBox
+            if (dgvDSHangGhe.Columns[e.ColumnIndex].Name == "SoLuongGhe")
             {
-                Location = new Point(btnChonHangGhe.Location.X, btnChonHangGhe.Location.Y),
-                Width = 320,
-                Height = 38,
-                Anchor = AnchorStyles.None,
-                BorderRadius = 10
-            };
-
-            currentComboBoxCount++;
-            if (currentComboBoxCount >= maxComboBoxPerRow)
-            {
-                currentComboBoxCount = 0;
-                btnChonHangGhe.Location = new Point(btnChonHangGhe.Location.X - horizontalSpacing, btnChonHangGhe.Location.Y + verticalSpacing);
-            }
-
-            bool isInitialized = false;
-
-            cbbHangGhe.SelectedIndexChanged += (s, ev) =>
-            {
-                if (isInitialized && cbbHangGhe.SelectedIndex != 0)
+                if (string.IsNullOrWhiteSpace(e.FormattedValue.ToString()))
                 {
-                    DTO_HangGhe selectedHangGhe = (DTO_HangGhe)cbbHangGhe.SelectedItem;
-                    dsHangGheDaChon.Add(selectedHangGhe);
-                    UpdateHangGheComboBoxes();
-
-                    string tenHangGhe = selectedHangGhe.TenHangGhe;
-
-                    Label lblHangGhe = new Label
-                    {
-                        Location = new Point(cbbHangGhe.Location.X, cbbHangGhe.Location.Y - 10), // -10 to align with the top of the ComboBox
-                        Text = $"Ghế {tenHangGhe}",
-                        AutoSize = true,
-                        Anchor = AnchorStyles.None,
-                        Font = new Font("Arial", 11, FontStyle.Regular)
-                    };
-
-                    //Label lblDonGia = new Label
-                    //{
-                    //    Location = new Point(lblHangGhe.Location.X + 190, lblHangGhe.Location.Y), // +160 to align with the right of lblHangGhe
-                    //    Text = $"Đơn giá",
-                    //    AutoSize = true,
-                    //    Anchor = AnchorStyles.None,
-                    //    Font = new Font("Arial", 11, FontStyle.Regular)
-                    //};
-
-                    Guna2TextBox txtSoLuongGhe = new Guna2TextBox
-                    {
-                        Location = new Point(lblHangGhe.Location.X,
-                            lblHangGhe.Location.Y + lblHangGhe.Height + 5 - 6), // -6 to align with the bottom of the Label
-                        Width = 170,
-                        Height = 38,
-                        Anchor = AnchorStyles.None,
-                        Font = new Font("Arial", 11, FontStyle.Regular),
-                        BorderRadius = 10,
-                        PlaceholderText = "Số lượng ghế"
-                    };
-
-                    txtSoLuongGhe.TextChanged += (s, ev) =>
-                    {
-                        if (!BUS_ChuyenBay.ValidateSoLuongGhe(txtSoLuongGhe.Text))
-                        {
-                            errorProvider.SetError(txtSoLuongGhe, "Số lượng ghế phải là số nguyên không âm");
-                        }
-                        else
-                        {
-                            errorProvider.SetError(txtSoLuongGhe, string.Empty);
-                        }
-                    };
-
-                    Guna2TextBox txtDonGia = new Guna2TextBox
-                    {
-                        Location = new Point(lblHangGhe.Location.X + 190,
-                            lblHangGhe.Location.Y + lblHangGhe.Height + 5 - 6), // -6 to align with the bottom of the Label
-                        Width = 130,
-                        Height = 38,
-                        Anchor = AnchorStyles.None,
-                        Font = new Font("Arial", 11, FontStyle.Regular),
-                        BorderRadius = 10,
-                        PlaceholderText = "Đơn giá"
-                    };
-
-                    txtDonGia.TextChanged += (s, ev) =>
-                    {
-                        if (!BUS_ChuyenBay.ValidateSoLuongGhe(txtDonGia.Text)) // Assuming the same validation for simplicity
-                        {
-                            errorProvider.SetError(txtDonGia, "Đơn giá phải là số nguyên không âm");
-                        }
-                        else
-                        {
-                            errorProvider.SetError(txtDonGia, string.Empty);
-                        }
-                    };
-
-                    this.Controls.Add(lblHangGhe);
-                    this.Controls.Add(txtSoLuongGhe);
-                    //this.Controls.Add(lblDonGia);
-                    this.Controls.Add(txtDonGia);
-
-                    cbbHangGhe.Visible = false;
-
-                    lstTextBoxSoLuongVaDonGiaGhe.Add(new Tuple<DTO_HangGhe, Guna2TextBox, Guna2TextBox>(selectedHangGhe, txtSoLuongGhe, txtDonGia));
+                    dgvDSHangGhe.Rows[e.RowIndex].Cells[e.ColumnIndex].ErrorText = string.Empty;
+                    return;
                 }
-            };
 
-            LoadHangGheToComboBox(cbbHangGhe, dsHangGhe.Except(dsHangGheDaChon).ToList());
-            isInitialized = true;
+                if (!int.TryParse(e.FormattedValue.ToString(), out int soLuongGhe) || soLuongGhe <= 0)
+                {
+                    dgvDSSanBayTG.Rows[e.RowIndex].Cells[e.ColumnIndex].ErrorText =
+                        $"Số lượng ghế phải là số nguyên dương";
+                }
+                else
+                {
+                    dgvDSSanBayTG.Rows[e.RowIndex].Cells[e.ColumnIndex].ErrorText = string.Empty;
+                }
+            }
+            else if (dgvDSHangGhe.Columns[e.ColumnIndex].Name == "DonGia")
+            {
+                if (string.IsNullOrWhiteSpace(e.FormattedValue.ToString()))
+                {
+                    dgvDSHangGhe.Rows[e.RowIndex].Cells[e.ColumnIndex].ErrorText = string.Empty;
+                    return;
+                }
 
-            this.Controls.Add(cbbHangGhe);
-            lstComboBoxHangGhe.Add(cbbHangGhe);
-
-            if (currentComboBoxCount % 2 == 1)
-                btnChonHangGhe.Location = new Point(btnChonHangGhe.Location.X + horizontalSpacing, btnChonHangGhe.Location.Y);
-
-            if (lstComboBoxHangGhe.Count >= maxComboBox)
-                btnChonHangGhe.Visible = false;
+                if (!int.TryParse(e.FormattedValue.ToString(), out int donGia) || donGia <= 0)
+                {
+                    dgvDSSanBayTG.Rows[e.RowIndex].Cells[e.ColumnIndex].ErrorText =
+                        $"Đơn giá phải là số nguyên dương";
+                }
+                else
+                {
+                    dgvDSSanBayTG.Rows[e.RowIndex].Cells[e.ColumnIndex].ErrorText = string.Empty;
+                }
+            }
         }
 
-        private void UpdateHangGheComboBoxes()
+        private bool CheckDuplicateSeatClasses()
         {
-            foreach (var comboBox in lstComboBoxHangGhe)
+            List<string> selectedSeatClassIds = new List<string>();
+
+            foreach (DataGridViewRow row in dgvDSHangGhe.Rows)
             {
-                LoadHangGheToComboBox(comboBox, dsHangGhe.Except(dsHangGheDaChon).ToList());
+                if (row.IsNewRow)
+                    continue;
+
+                var cellValue = row.Cells["TenHangGhe"].Value;
+                if (cellValue == null)
+                    continue;
+
+                string maHangGhe = cellValue.ToString();
+                if (string.IsNullOrWhiteSpace(maHangGhe))
+                    continue;
+
+                selectedSeatClassIds.Add(maHangGhe);
             }
+
+            return BUS_ChuyenBay.CheckDuplicateSeatClasses(selectedSeatClassIds);
         }
     }
 }
