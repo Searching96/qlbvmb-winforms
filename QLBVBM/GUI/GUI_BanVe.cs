@@ -18,7 +18,7 @@ namespace QLBVBM.GUI
     {
         private BUS_SanBay busSanBay = new BUS_SanBay();
         private BUS_ChuyenBay busChuyenBay = new BUS_ChuyenBay();
-        private BUS_HanhKhach busHanhKhach = new BUS_HanhKhach();
+        private BUS_ValidateThongTinHanhKhach busValidationTTHK = new BUS_ValidateThongTinHanhKhach();
         private BUS_DonGiaHangGhe busDonGiaHangGhe = new BUS_DonGiaHangGhe();
         private BUS_VeChuyenBay busVeChuyenBay = new BUS_VeChuyenBay();
         private ErrorProvider errorProvider = new ErrorProvider();
@@ -30,76 +30,9 @@ namespace QLBVBM.GUI
             SetResponsive();
             LoadDanhSachSanBayToComboBox(cbbSanBayDi, LayDanhSachSanBay());
             LoadDanhSachSanBayToComboBox(cbbSanBayDen, LayDanhSachSanBay());
-            SetEventForCMNDTextBox();
-
-            toolTip.SetToolTip(btnThemHanhKhach, "Thêm hành khách");
         }
 
         #region non-logic code block
-        public void SetEventForCMNDTextBox()
-        {
-            txtCMND.IconRightClick += (s, e) =>
-            {
-                if (string.IsNullOrEmpty(txtCMND.Text))
-                {
-                    txtMaHanhKhach.Text = "";
-                    txtTenHanhKhach.Text = "";
-                    txtSDT.Text = "";
-                    MessageBox.Show("Vui lòng nhập CMND để tìm hành khách", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                if (!busHanhKhach.ValidateCMND(txtCMND.Text))
-                {
-                    txtMaHanhKhach.Text = "";
-                    txtTenHanhKhach.Text = "";
-                    txtSDT.Text = "";
-                    MessageBox.Show("CMND không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-
-                }
-
-                DTO_HanhKhach? hanhKhach = busHanhKhach.TimHanhKhachTheoCMND(txtCMND.Text);
-                if (hanhKhach != null)
-                {
-                    txtMaHanhKhach.Text = hanhKhach.MaHanhKhach;
-                    txtTenHanhKhach.Text = hanhKhach.HoTen;
-                    txtSDT.Text = hanhKhach.SoDT;
-                    txtCMND.ReadOnly = true; // avoid user to change CMND
-                    // also can set txtSDT to readonly, but the passenger maybe change it before :D, so ReadOnly was still false.
-                }
-                else
-                {
-                    txtMaHanhKhach.Text = "";
-                    txtTenHanhKhach.Text = "";
-                    txtSDT.Text = "";
-                    MessageBox.Show("Không tìm thấy hành khách với CMND này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            };
-
-            txtCMND.MouseMove += (s, e) =>
-            {
-                if (IsMouseOverIconRight(txtCMND, e.Location))
-                {
-                    txtCMND.Cursor = Cursors.Hand;
-                }
-                else
-                {
-                    txtCMND.Cursor = Cursors.Default;
-                }
-            };
-        }
-
-        private bool IsMouseOverIconRight(Guna2TextBox textBox, Point mouseLocation)
-        {
-            int iconWidth = textBox.IconRightSize.Width;
-            int iconHeight = textBox.IconRightSize.Height;
-            int iconX = textBox.Width - iconWidth - textBox.Padding.Right;
-            int iconY = (textBox.Height - iconHeight) / 2;
-
-            Rectangle iconRect = new Rectangle(iconX, iconY, iconWidth, iconHeight);
-            return iconRect.Contains(mouseLocation);
-        }
 
         public void SetResponsive()
         {
@@ -217,18 +150,6 @@ namespace QLBVBM.GUI
             }
         }
 
-        private void btnThemHanhKhach_Click(object sender, EventArgs e)
-        {
-            txtMaHanhKhach.Text = busHanhKhach.PhatSinhMaHanhKhach();
-            txtTenHanhKhach.ReadOnly = false;
-            txtTenHanhKhach.Clear();
-            txtSDT.ReadOnly = false;
-            txtSDT.Clear();
-            txtCMND.ReadOnly = false;
-            txtCMND.Clear();
-            txtTenHanhKhach.Focus();
-        }
-
         public void LoadDanhSachHangVeCB(List<DTO_DonGiaHangGhe> dsHangVeCB)
         {
             if (dsHangVeCB != null)
@@ -270,7 +191,7 @@ namespace QLBVBM.GUI
 
         private void txtCMND_TextChanged(object sender, EventArgs e)
         {
-            if (!busHanhKhach.ValidateCMND(txtCMND.Text))
+            if (!busValidationTTHK.ValidateCMND(txtCMND.Text))
             {
                 errorProvider.SetError(txtCMND, "CMND không hợp lệ");
             }
@@ -282,7 +203,7 @@ namespace QLBVBM.GUI
 
         private void txtTenHanhKhach_TextChanged(object sender, EventArgs e)
         {
-            if (!busHanhKhach.ValidateHoTen(txtTenHanhKhach.Text))
+            if (!busValidationTTHK.ValidateHoTen(txtTenHanhKhach.Text))
             {
                 errorProvider.SetError(txtTenHanhKhach, "Tên hành khách không hợp lệ");
             }
@@ -294,7 +215,7 @@ namespace QLBVBM.GUI
 
         private void txtSDT_TextChanged(object sender, EventArgs e)
         {
-            if (!busHanhKhach.ValidateSDT(txtSDT.Text))
+            if (!busValidationTTHK.ValidateSDT(txtSDT.Text))
             {
                 errorProvider.SetError(txtSDT, "Số điện thoại không hợp lệ");
             }
@@ -312,9 +233,9 @@ namespace QLBVBM.GUI
                 string.IsNullOrWhiteSpace(txtSDT.Text) ||
                 cbbMaChuyenBay.SelectedIndex == -1 ||
                 cbbHangVe.SelectedIndex == -1 ||
-                !busHanhKhach.ValidateSDT(txtSDT.Text) ||
-                !busHanhKhach.ValidateCMND(txtCMND.Text) ||
-                !busHanhKhach.ValidateHoTen(txtTenHanhKhach.Text))
+                !busValidationTTHK.ValidateSDT(txtSDT.Text) ||
+                !busValidationTTHK.ValidateCMND(txtCMND.Text) ||
+                !busValidationTTHK.ValidateHoTen(txtTenHanhKhach.Text))
             {
                 return true;
             }
@@ -342,7 +263,9 @@ namespace QLBVBM.GUI
                 MaVe = busVeChuyenBay.PhatSinhMaVeChuyenBay(),
                 MaChuyenBay = cbbMaChuyenBay.SelectedValue.ToString(),
                 MaHangGhe = cbbHangVe.SelectedValue.ToString(),
-                MaHanhKhach = txtMaHanhKhach.Text
+                TenHanhKhach = txtTenHanhKhach.Text,
+                SoCMND = txtCMND.Text,
+                SoDT = txtSDT.Text,
             };
 
             DTO_HangVeCB hangVeCB = new DTO_HangVeCB
@@ -351,20 +274,8 @@ namespace QLBVBM.GUI
                 MaHangGhe = cbbHangVe.SelectedValue.ToString()
             };
 
-            // look up the passenger by CMND
-            var existingHanhKhach = busHanhKhach.TimHanhKhachTheoCMND(txtCMND.Text);
-
-            // if the passenger is not found, create a new one
-            DTO_HanhKhach? hanhKhach = existingHanhKhach == null ? new DTO_HanhKhach
-            {
-                MaHanhKhach = txtMaHanhKhach.Text,
-                HoTen = txtTenHanhKhach.Text,
-                SoDT = txtSDT.Text,
-                SoCMND = txtCMND.Text
-            } : null;
-
-            // add hanhKhach if the passed object is not null.
-            bool success = busVeChuyenBay.ThemVeChuyenBayVaHangVe(veChuyenBay, hangVeCB, hanhKhach);
+            
+            bool success = busVeChuyenBay.ThemVeChuyenBayVaHangVe(veChuyenBay, hangVeCB);
 
             MessageBox.Show(success ? "Thêm vé thành công" : "Lỗi khi thêm vé",
                             "Thông báo",

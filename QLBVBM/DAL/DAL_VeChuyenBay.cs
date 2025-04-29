@@ -15,14 +15,16 @@ namespace QLBVBM.DAL
 
         public bool ThemVeChuyenBay(DTO_VeChuyenBay veChuyenBay)
         {
-            string query = "INSERT INTO VECHUYENBAY (MaVe, MaChuyenBay, MaHangGhe, MaHanhKhach) " +
-                "VALUES (@MaVe, @MaChuyenBay, @MaHangGhe, @MaHanhKhach)";
+            string query = "INSERT INTO VECHUYENBAY (MaVe, MaChuyenBay, MaHangGhe, TenHanhKhach, CMND, SoDienThoai) " +
+                "VALUES (@MaVe, @MaChuyenBay, @MaHangGhe, @TenHanhKhach, @CMND, @SoDienThoai)";
             List<MySqlParameter> parameters = new List<MySqlParameter>
             {
                 new MySqlParameter("@MaVe", veChuyenBay.MaVe),
                 new MySqlParameter("@MaChuyenBay", veChuyenBay.MaChuyenBay),
                 new MySqlParameter("@MaHangGhe", veChuyenBay.MaHangGhe),
-                new MySqlParameter("@MaHanhKhach", veChuyenBay.MaHanhKhach),
+                new MySqlParameter("@TenHanhKhach", veChuyenBay.TenHanhKhach),
+                new MySqlParameter("@CMND", veChuyenBay.SoCMND),
+                new MySqlParameter("@SoDienThoai", veChuyenBay.SoDT),
                 new MySqlParameter("@TrangThaiVe", 1)
             };
             int result = dataHelper.ExecuteNonQuery(query, parameters);
@@ -31,14 +33,16 @@ namespace QLBVBM.DAL
 
         public bool DatVeChuyenBay(DTO_VeChuyenBay veChuyenBay)
         {
-            string query = "INSERT INTO VECHUYENBAY (MaVe, MaChuyenBay, MaHangGhe, MaHanhKhach) " +
-                "VALUES (@MaVe, @MaChuyenBay, @MaHangGhe, @MaHanhKhach)";
+            string query = "INSERT INTO VECHUYENBAY (MaVe, MaChuyenBay, MaHangGhe, TenHanhKhach, CMND, SoDienThoai) " +
+                "VALUES (@MaVe, @MaChuyenBay, @MaHangGhe, @TenHanhKhach, @CMND, @SoDienThoai)";
             List<MySqlParameter> parameters = new List<MySqlParameter>
             {
                 new MySqlParameter("@MaVe", veChuyenBay.MaVe),
                 new MySqlParameter("@MaChuyenBay", veChuyenBay.MaChuyenBay),
                 new MySqlParameter("@MaHangGhe", veChuyenBay.MaHangGhe),
-                new MySqlParameter("@MaHanhKhach", veChuyenBay.MaHanhKhach),
+                new MySqlParameter("@TenHanhKhach", veChuyenBay.TenHanhKhach),
+                new MySqlParameter("@CMND", veChuyenBay.SoCMND),
+                new MySqlParameter("@SoDienThoai", veChuyenBay.SoDT),
                 new MySqlParameter("@TrangThaiVe", 2)
             };
             int result = dataHelper.ExecuteNonQuery(query, parameters);
@@ -72,7 +76,9 @@ namespace QLBVBM.DAL
                     MaVe = dr["MaVe"].ToString(),
                     MaChuyenBay = dr["MaChuyenBay"].ToString(),
                     MaHangGhe = dr["MaHangGhe"].ToString(),
-                    MaHanhKhach = dr["MaHanhKhach"].ToString(),
+                    TenHanhKhach = dr["TenHanhKhach"].ToString(),
+                    SoCMND = dr["CMND"].ToString(),
+                    SoDT = dr["SoDienThoai"].ToString(),
                     TrangThaiVe = Convert.ToInt32(dr["TrangThaiVe"]),
                     ThoiDiemThanhToan = dr["ThoiDiemThanhToan"] != DBNull.Value ? (DateTime?)Convert.ToDateTime(dr["ThoiDiemThanhToan"]) : null
                 };
