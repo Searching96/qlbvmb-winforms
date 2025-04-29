@@ -27,6 +27,11 @@ namespace QLBVBM.BUS
             return DAL_SanBay.LaySanBayCuoi();
         }
 
+        public string LayTenSanBay(string maSanBay)
+        {
+            return DAL_SanBay.LayTenSanBay(maSanBay);
+        }
+
         public string PhatSinhMaSanBay()
         {
             DTO_SanBay sanBayCuoi = LaySanBayCuoi();

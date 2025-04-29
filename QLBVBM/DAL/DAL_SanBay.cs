@@ -27,6 +27,24 @@ namespace QLBVBM.DAL
             return dsSanBay;
         }
 
+        public string LayTenSanBay(string maSanBay)
+        {
+            string query = "SELECT TenSanBay FROM SANBAY WHERE MaSanBay = @MaSanBay";
+
+            List<MySqlParameter> parameters = new List<MySqlParameter>
+            {
+                new MySqlParameter("@MaSanBay", maSanBay)
+            };
+
+            DataTable dt = dataHelper.ExecuteQuery(query, parameters);
+            if (dt.Rows.Count > 0)
+            {
+                return dt.Rows[0]["TenSanBay"].ToString();
+            }
+
+            return string.Empty;
+        }
+
         public bool ThemSanBay(DTO_SanBay sanBay)
         {
             string query = "INSERT INTO SANBAY (MaSanBay, TenSanBay) VALUES (@MaSanBay, @TenSanBay)";

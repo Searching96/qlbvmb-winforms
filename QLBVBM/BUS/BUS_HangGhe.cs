@@ -27,6 +27,11 @@ namespace QLBVBM.BUS
             return DAL_HangGhe.LayHangGheCuoi();
         }
 
+        public string LayTenHangGhe(string maHangGhe)
+        {
+            return DAL_HangGhe.LayTenHangGhe(maHangGhe);
+        }
+
         public string PhatSinhMaHangGhe()
         {
             DTO_HangGhe hangGheCuoi = LayHangGheCuoi();

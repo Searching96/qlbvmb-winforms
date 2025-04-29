@@ -32,6 +32,24 @@ namespace QLBVBM.DAL
             return dsHangGhe;
         }
 
+        public string LayTenHangGhe(string maHangGhe)
+        {
+            string query = "SELECT TenHangGhe FROM HANGGHE WHERE MaHangGhe = @MaHangGhe";
+
+            List<MySqlParameter> parameters = new List<MySqlParameter>
+            {
+                new MySqlParameter("@MaHangGhe", maHangGhe)
+            };
+
+            DataTable dt = dataHelper.ExecuteQuery(query, parameters);
+            if (dt.Rows.Count > 0)
+            {
+                return dt.Rows[0]["TenHangGhe"].ToString();
+            }
+
+            return string.Empty;
+        }
+
         public bool ThemHangGhe(DTO_HangGhe hangGhe)
         {
             string query = "INSERT INTO HANGGHE (MaHangGhe, TenHangGhe) VALUES (@MaHangGhe, @TenHangGhe)";

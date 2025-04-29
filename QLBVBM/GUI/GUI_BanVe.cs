@@ -11,6 +11,10 @@ using QLBVBM.DAL;
 using QLBVBM.DTO;
 using QLBVBM.BUS;
 using Guna.UI2.WinForms;
+using System.Drawing.Printing;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.Drawing.Imaging;
 
 namespace QLBVBM.GUI
 {
@@ -21,6 +25,7 @@ namespace QLBVBM.GUI
         private BUS_HanhKhach busHanhKhach = new BUS_HanhKhach();
         private BUS_DonGiaHangGhe busDonGiaHangGhe = new BUS_DonGiaHangGhe();
         private BUS_VeChuyenBay busVeChuyenBay = new BUS_VeChuyenBay();
+        //private PrintDocument printDocument = new PrintDocument();
         private ErrorProvider errorProvider = new ErrorProvider();
         private ToolTip toolTip = new ToolTip();
 
@@ -32,6 +37,7 @@ namespace QLBVBM.GUI
             LoadDanhSachSanBayToComboBox(cbbSanBayDen, LayDanhSachSanBay());
             SetEventForCMNDTextBox();
 
+            //printDocument.PrintPage += PrintDocument_PrintPage;
             toolTip.SetToolTip(btnThemHanhKhach, "Thêm hành khách");
         }
 
@@ -97,7 +103,7 @@ namespace QLBVBM.GUI
             int iconX = textBox.Width - iconWidth - textBox.Padding.Right;
             int iconY = (textBox.Height - iconHeight) / 2;
 
-            Rectangle iconRect = new Rectangle(iconX, iconY, iconWidth, iconHeight);
+            System.Drawing.Rectangle iconRect = new System.Drawing.Rectangle(iconX, iconY, iconWidth, iconHeight);
             return iconRect.Contains(mouseLocation);
         }
 
@@ -333,7 +339,7 @@ namespace QLBVBM.GUI
         {
             if (HasErrors())
             {
-                MessageBox.Show("Vui lòng sửa các lỗi trước khi tiếp tục", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng sửa các lỗi trước khi lưu vé", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -370,12 +376,46 @@ namespace QLBVBM.GUI
                             "Thông báo",
                             MessageBoxButtons.OK,
                             success ? MessageBoxIcon.Information : MessageBoxIcon.Error);
-        }
 
+            this.Refresh();
+        }
 
         private void btnInVe_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("In vé", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (HasErrors())
+            {
+                MessageBox.Show("Vui lòng sửa các lỗi trước khi in vé", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DTO_ChuyenBay chuyenBay = new DTO_ChuyenBay
+            {
+                MaChuyenBay = cbbMaChuyenBay?.SelectedValue.ToString(),
+                MaSanBayDi = cbbSanBayDi?.SelectedValue.ToString(),
+                MaSanBayDen = cbbSanBayDen?.SelectedValue.ToString(),
+                NgayBay = dtpNgayBay.Value,
+                GioBay = DateTime.Parse(txtGioBay.Text)
+            };
+
+            DTO_HanhKhach hanhKhach = new DTO_HanhKhach
+            {
+                MaHanhKhach = txtMaHanhKhach.Text,
+                HoTen = txtTenHanhKhach.Text,
+                SoDT = txtSDT.Text,
+                SoCMND = txtCMND.Text
+            };
+
+            DTO_DonGiaHangGhe dTO_DonGiaHangGhe = new DTO_DonGiaHangGhe
+            {
+                MaHangGhe = cbbHangVe?.SelectedValue.ToString(),
+                DonGia = int.Parse(txtGiaTien.Text)
+            };
+
+            GUI_Ve gUI_Ve = new GUI_Ve(chuyenBay, hanhKhach, dTO_DonGiaHangGhe);
+            //gUI_Ve.ShowDialog();
+            //ExportPDF(gUI_Ve);
+
+            //MessageBox.Show("In vé", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
