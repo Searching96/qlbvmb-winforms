@@ -1365,6 +1365,7 @@
             btnThoat.Size = new Size(131, 43);
             btnThoat.TabIndex = 84;
             btnThoat.Text = "Thoát";
+            btnThoat.Click += btnThoat_Click;
             // 
             // dgvDanhSachChuyenBay
             // 
