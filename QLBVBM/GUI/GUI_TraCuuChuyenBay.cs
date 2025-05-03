@@ -43,10 +43,15 @@ namespace QLBVBM.GUI
                     var dsSanBay = LayDanhSachSanBay();
                     this.Invoke((MethodInvoker)delegate
                     {
-                        LoadDanhSachSanBayToComboBox(cbbTenSanBayDi, dsSanBay);
-                        LoadDanhSachSanBayToComboBox(cbbTenSanBayDen, dsSanBay);
-                        LoadDanhSachSanBayToComboBox(cbbTenSanBayTG1, dsSanBay);
-                        LoadDanhSachSanBayToComboBox(cbbTenSanBayTG2, dsSanBay);
+                        var dsSanBayDi = new List<DTO_SanBay>(dsSanBay);
+                        var dsSanBayDen = new List<DTO_SanBay>(dsSanBay);
+                        var dsSanBayTG1 = new List<DTO_SanBay>(dsSanBay);
+                        var dsSanBayTG2 = new List<DTO_SanBay>(dsSanBay);
+
+                        LoadDanhSachSanBayToComboBox(cbbTenSanBayDi, dsSanBayDi);
+                        LoadDanhSachSanBayToComboBox(cbbTenSanBayDen, dsSanBayDen);
+                        LoadDanhSachSanBayToComboBox(cbbTenSanBayTG1, dsSanBayTG1);
+                        LoadDanhSachSanBayToComboBox(cbbTenSanBayTG2, dsSanBayTG2);
 
                         if (cbbTenSanBayDi.Items.Count > 0) cbbTenSanBayDi.SelectedIndex = 0;
                         if (cbbTenSanBayDen.Items.Count > 0) cbbTenSanBayDen.SelectedIndex = 0;
