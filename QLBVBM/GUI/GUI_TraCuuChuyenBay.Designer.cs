@@ -168,9 +168,9 @@
             txtTenHanhKhach = new Guna.UI2.WinForms.Guna2TextBox();
             grbDanhSachSanBayTG = new Guna.UI2.WinForms.Guna2GroupBox();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2ComboBox2 = new Guna.UI2.WinForms.Guna2ComboBox();
+            cbbTenSanBayTG2 = new Guna.UI2.WinForms.Guna2ComboBox();
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
+            cbbTenSanBayTG1 = new Guna.UI2.WinForms.Guna2ComboBox();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblSTTSanBayTG = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblThoiDiemThanhToanVe = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -224,7 +224,7 @@
             // 
             lblTenSanBayDi.BackColor = Color.Transparent;
             lblTenSanBayDi.Font = new Font("Arial", 11F, FontStyle.Bold);
-            lblTenSanBayDi.Location = new Point(231, 12);
+            lblTenSanBayDi.Location = new Point(219, 12);
             lblTenSanBayDi.Name = "lblTenSanBayDi";
             lblTenSanBayDi.Size = new Size(129, 23);
             lblTenSanBayDi.TabIndex = 2;
@@ -234,7 +234,7 @@
             // 
             lblTenSanBayDen.BackColor = Color.Transparent;
             lblTenSanBayDen.Font = new Font("Arial", 11F, FontStyle.Bold);
-            lblTenSanBayDen.Location = new Point(493, 12);
+            lblTenSanBayDen.Location = new Point(555, 12);
             lblTenSanBayDen.Name = "lblTenSanBayDen";
             lblTenSanBayDen.Size = new Size(146, 23);
             lblTenSanBayDen.TabIndex = 3;
@@ -252,10 +252,10 @@
             cbbTenSanBayDi.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
             cbbTenSanBayDi.ForeColor = Color.FromArgb(68, 88, 112);
             cbbTenSanBayDi.ItemHeight = 30;
-            cbbTenSanBayDi.Location = new Point(231, 44);
+            cbbTenSanBayDi.Location = new Point(219, 44);
             cbbTenSanBayDi.Name = "cbbTenSanBayDi";
             cbbTenSanBayDi.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            cbbTenSanBayDi.Size = new Size(222, 36);
+            cbbTenSanBayDi.Size = new Size(300, 36);
             cbbTenSanBayDi.TabIndex = 4;
             // 
             // cbbTenSanBayDen
@@ -270,17 +270,17 @@
             cbbTenSanBayDen.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
             cbbTenSanBayDen.ForeColor = Color.FromArgb(68, 88, 112);
             cbbTenSanBayDen.ItemHeight = 30;
-            cbbTenSanBayDen.Location = new Point(493, 44);
+            cbbTenSanBayDen.Location = new Point(555, 44);
             cbbTenSanBayDen.Name = "cbbTenSanBayDen";
             cbbTenSanBayDen.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            cbbTenSanBayDen.Size = new Size(229, 36);
+            cbbTenSanBayDen.Size = new Size(300, 36);
             cbbTenSanBayDen.TabIndex = 5;
             // 
             // lblNgayBay
             // 
             lblNgayBay.BackColor = Color.Transparent;
             lblNgayBay.Font = new Font("Arial", 11F, FontStyle.Bold);
-            lblNgayBay.Location = new Point(765, 12);
+            lblNgayBay.Location = new Point(892, 12);
             lblNgayBay.Name = "lblNgayBay";
             lblNgayBay.Size = new Size(85, 23);
             lblNgayBay.TabIndex = 6;
@@ -291,7 +291,7 @@
             lblNgayBayTu.BackColor = Color.Transparent;
             lblNgayBayTu.Font = new Font("Arial", 11F, FontStyle.Bold);
             lblNgayBayTu.ForeColor = Color.Red;
-            lblNgayBayTu.Location = new Point(765, 54);
+            lblNgayBayTu.Location = new Point(892, 54);
             lblNgayBayTu.Name = "lblNgayBayTu";
             lblNgayBayTu.Size = new Size(22, 23);
             lblNgayBayTu.TabIndex = 7;
@@ -306,7 +306,7 @@
             dtpNgayBayTu.Font = new Font("Arial", 9F);
             dtpNgayBayTu.ForeColor = SystemColors.ControlText;
             dtpNgayBayTu.Format = DateTimePickerFormat.Long;
-            dtpNgayBayTu.Location = new Point(793, 44);
+            dtpNgayBayTu.Location = new Point(920, 44);
             dtpNgayBayTu.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             dtpNgayBayTu.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             dtpNgayBayTu.Name = "dtpNgayBayTu";
@@ -324,7 +324,7 @@
             dtpNgayBayDen.Font = new Font("Arial", 9F);
             dtpNgayBayDen.ForeColor = SystemColors.ControlText;
             dtpNgayBayDen.Format = DateTimePickerFormat.Long;
-            dtpNgayBayDen.Location = new Point(1049, 44);
+            dtpNgayBayDen.Location = new Point(1176, 44);
             dtpNgayBayDen.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             dtpNgayBayDen.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             dtpNgayBayDen.Name = "dtpNgayBayDen";
@@ -338,7 +338,7 @@
             lblNgayBayDen.BackColor = Color.Transparent;
             lblNgayBayDen.Font = new Font("Arial", 11F, FontStyle.Bold);
             lblNgayBayDen.ForeColor = Color.Red;
-            lblNgayBayDen.Location = new Point(1007, 54);
+            lblNgayBayDen.Location = new Point(1134, 54);
             lblNgayBayDen.Name = "lblNgayBayDen";
             lblNgayBayDen.Size = new Size(36, 23);
             lblNgayBayDen.TabIndex = 9;
@@ -348,17 +348,18 @@
             // 
             dtpGioBayDen.BorderRadius = 7;
             dtpGioBayDen.Checked = true;
+            dtpGioBayDen.CustomFormat = "HH:mm";
             dtpGioBayDen.CustomizableEdges = customizableEdges11;
             dtpGioBayDen.FillColor = Color.White;
             dtpGioBayDen.Font = new Font("Arial", 9F);
             dtpGioBayDen.ForeColor = SystemColors.ControlText;
-            dtpGioBayDen.Format = DateTimePickerFormat.Time;
-            dtpGioBayDen.Location = new Point(1535, 44);
+            dtpGioBayDen.Format = DateTimePickerFormat.Custom;
+            dtpGioBayDen.Location = new Point(1583, 44);
             dtpGioBayDen.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             dtpGioBayDen.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             dtpGioBayDen.Name = "dtpGioBayDen";
             dtpGioBayDen.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            dtpGioBayDen.Size = new Size(143, 36);
+            dtpGioBayDen.Size = new Size(95, 36);
             dtpGioBayDen.TabIndex = 15;
             dtpGioBayDen.Value = new DateTime(2025, 5, 1, 21, 49, 59, 256);
             // 
@@ -367,7 +368,7 @@
             lblGioBayDen.BackColor = Color.Transparent;
             lblGioBayDen.Font = new Font("Arial", 11F, FontStyle.Bold);
             lblGioBayDen.ForeColor = Color.Red;
-            lblGioBayDen.Location = new Point(1493, 54);
+            lblGioBayDen.Location = new Point(1538, 54);
             lblGioBayDen.Name = "lblGioBayDen";
             lblGioBayDen.Size = new Size(36, 23);
             lblGioBayDen.TabIndex = 14;
@@ -377,17 +378,18 @@
             // 
             dtpGioBayTu.BorderRadius = 7;
             dtpGioBayTu.Checked = true;
+            dtpGioBayTu.CustomFormat = "HH:MM";
             dtpGioBayTu.CustomizableEdges = customizableEdges13;
             dtpGioBayTu.FillColor = Color.White;
             dtpGioBayTu.Font = new Font("Arial", 9F);
             dtpGioBayTu.ForeColor = SystemColors.ControlText;
-            dtpGioBayTu.Format = DateTimePickerFormat.Time;
-            dtpGioBayTu.Location = new Point(1346, 44);
+            dtpGioBayTu.Format = DateTimePickerFormat.Custom;
+            dtpGioBayTu.Location = new Point(1433, 44);
             dtpGioBayTu.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             dtpGioBayTu.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             dtpGioBayTu.Name = "dtpGioBayTu";
             dtpGioBayTu.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            dtpGioBayTu.Size = new Size(141, 36);
+            dtpGioBayTu.Size = new Size(99, 36);
             dtpGioBayTu.TabIndex = 13;
             dtpGioBayTu.Value = new DateTime(2025, 5, 1, 21, 49, 59, 256);
             // 
@@ -396,7 +398,7 @@
             lblGioBayTu.BackColor = Color.Transparent;
             lblGioBayTu.Font = new Font("Arial", 11F, FontStyle.Bold);
             lblGioBayTu.ForeColor = Color.Red;
-            lblGioBayTu.Location = new Point(1318, 54);
+            lblGioBayTu.Location = new Point(1403, 54);
             lblGioBayTu.Name = "lblGioBayTu";
             lblGioBayTu.Size = new Size(22, 23);
             lblGioBayTu.TabIndex = 12;
@@ -406,7 +408,7 @@
             // 
             lblGioBay.BackColor = Color.Transparent;
             lblGioBay.Font = new Font("Arial", 11F, FontStyle.Bold);
-            lblGioBay.Location = new Point(1318, 12);
+            lblGioBay.Location = new Point(1403, 12);
             lblGioBay.Name = "lblGioBay";
             lblGioBay.Size = new Size(72, 23);
             lblGioBay.TabIndex = 11;
@@ -1093,9 +1095,9 @@
             grbDanhSachSanBayTG.BorderColor = Color.Black;
             grbDanhSachSanBayTG.BorderRadius = 7;
             grbDanhSachSanBayTG.Controls.Add(guna2HtmlLabel3);
-            grbDanhSachSanBayTG.Controls.Add(guna2ComboBox2);
+            grbDanhSachSanBayTG.Controls.Add(cbbTenSanBayTG2);
             grbDanhSachSanBayTG.Controls.Add(guna2HtmlLabel2);
-            grbDanhSachSanBayTG.Controls.Add(guna2ComboBox1);
+            grbDanhSachSanBayTG.Controls.Add(cbbTenSanBayTG1);
             grbDanhSachSanBayTG.Controls.Add(guna2HtmlLabel1);
             grbDanhSachSanBayTG.Controls.Add(lblSTTSanBayTG);
             grbDanhSachSanBayTG.CustomBorderThickness = new Padding(1);
@@ -1106,7 +1108,7 @@
             grbDanhSachSanBayTG.Location = new Point(20, 144);
             grbDanhSachSanBayTG.Name = "grbDanhSachSanBayTG";
             grbDanhSachSanBayTG.ShadowDecoration.CustomizableEdges = customizableEdges62;
-            grbDanhSachSanBayTG.Size = new Size(286, 123);
+            grbDanhSachSanBayTG.Size = new Size(361, 123);
             grbDanhSachSanBayTG.TabIndex = 64;
             // 
             // guna2HtmlLabel3
@@ -1119,24 +1121,24 @@
             guna2HtmlLabel3.TabIndex = 69;
             guna2HtmlLabel3.Text = "2";
             // 
-            // guna2ComboBox2
+            // cbbTenSanBayTG2
             // 
-            guna2ComboBox2.BackColor = Color.Transparent;
-            guna2ComboBox2.BorderColor = SystemColors.ControlDark;
-            guna2ComboBox2.BorderRadius = 7;
-            guna2ComboBox2.CustomizableEdges = customizableEdges57;
-            guna2ComboBox2.DrawMode = DrawMode.OwnerDrawFixed;
-            guna2ComboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
-            guna2ComboBox2.FocusedColor = Color.FromArgb(94, 148, 255);
-            guna2ComboBox2.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2ComboBox2.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            guna2ComboBox2.ForeColor = Color.FromArgb(68, 88, 112);
-            guna2ComboBox2.ItemHeight = 30;
-            guna2ComboBox2.Location = new Point(52, 78);
-            guna2ComboBox2.Name = "guna2ComboBox2";
-            guna2ComboBox2.ShadowDecoration.CustomizableEdges = customizableEdges58;
-            guna2ComboBox2.Size = new Size(222, 36);
-            guna2ComboBox2.TabIndex = 68;
+            cbbTenSanBayTG2.BackColor = Color.Transparent;
+            cbbTenSanBayTG2.BorderColor = SystemColors.ControlDark;
+            cbbTenSanBayTG2.BorderRadius = 7;
+            cbbTenSanBayTG2.CustomizableEdges = customizableEdges57;
+            cbbTenSanBayTG2.DrawMode = DrawMode.OwnerDrawFixed;
+            cbbTenSanBayTG2.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbbTenSanBayTG2.FocusedColor = Color.FromArgb(94, 148, 255);
+            cbbTenSanBayTG2.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cbbTenSanBayTG2.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            cbbTenSanBayTG2.ForeColor = Color.FromArgb(68, 88, 112);
+            cbbTenSanBayTG2.ItemHeight = 30;
+            cbbTenSanBayTG2.Location = new Point(52, 78);
+            cbbTenSanBayTG2.Name = "cbbTenSanBayTG2";
+            cbbTenSanBayTG2.ShadowDecoration.CustomizableEdges = customizableEdges58;
+            cbbTenSanBayTG2.Size = new Size(300, 36);
+            cbbTenSanBayTG2.TabIndex = 68;
             // 
             // guna2HtmlLabel2
             // 
@@ -1148,24 +1150,24 @@
             guna2HtmlLabel2.TabIndex = 67;
             guna2HtmlLabel2.Text = "1";
             // 
-            // guna2ComboBox1
+            // cbbTenSanBayTG1
             // 
-            guna2ComboBox1.BackColor = Color.Transparent;
-            guna2ComboBox1.BorderColor = SystemColors.ControlDark;
-            guna2ComboBox1.BorderRadius = 7;
-            guna2ComboBox1.CustomizableEdges = customizableEdges59;
-            guna2ComboBox1.DrawMode = DrawMode.OwnerDrawFixed;
-            guna2ComboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            guna2ComboBox1.FocusedColor = Color.FromArgb(94, 148, 255);
-            guna2ComboBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2ComboBox1.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            guna2ComboBox1.ForeColor = Color.FromArgb(68, 88, 112);
-            guna2ComboBox1.ItemHeight = 30;
-            guna2ComboBox1.Location = new Point(52, 33);
-            guna2ComboBox1.Name = "guna2ComboBox1";
-            guna2ComboBox1.ShadowDecoration.CustomizableEdges = customizableEdges60;
-            guna2ComboBox1.Size = new Size(222, 36);
-            guna2ComboBox1.TabIndex = 65;
+            cbbTenSanBayTG1.BackColor = Color.Transparent;
+            cbbTenSanBayTG1.BorderColor = SystemColors.ControlDark;
+            cbbTenSanBayTG1.BorderRadius = 7;
+            cbbTenSanBayTG1.CustomizableEdges = customizableEdges59;
+            cbbTenSanBayTG1.DrawMode = DrawMode.OwnerDrawFixed;
+            cbbTenSanBayTG1.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbbTenSanBayTG1.FocusedColor = Color.FromArgb(94, 148, 255);
+            cbbTenSanBayTG1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cbbTenSanBayTG1.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            cbbTenSanBayTG1.ForeColor = Color.FromArgb(68, 88, 112);
+            cbbTenSanBayTG1.ItemHeight = 30;
+            cbbTenSanBayTG1.Location = new Point(52, 33);
+            cbbTenSanBayTG1.Name = "cbbTenSanBayTG1";
+            cbbTenSanBayTG1.ShadowDecoration.CustomizableEdges = customizableEdges60;
+            cbbTenSanBayTG1.Size = new Size(300, 36);
+            cbbTenSanBayTG1.TabIndex = 65;
             // 
             // guna2HtmlLabel1
             // 
@@ -1567,9 +1569,9 @@
         private Guna.UI2.WinForms.Guna2TextBox txtTenHanhKhach;
         private Guna.UI2.WinForms.Guna2GroupBox grbDanhSachSanBayTG;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox2;
+        private Guna.UI2.WinForms.Guna2ComboBox cbbTenSanBayTG2;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
+        private Guna.UI2.WinForms.Guna2ComboBox cbbTenSanBayTG1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblSTTSanBayTG;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblThoiDiemThanhToanVe;
