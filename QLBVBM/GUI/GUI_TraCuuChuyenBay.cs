@@ -1,16 +1,6 @@
-﻿using QLBVBM.BUS;
+﻿using Guna.UI2.WinForms;
+using QLBVBM.BUS;
 using QLBVBM.DTO;
-using QLBVBM.GUI;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Guna.UI2.WinForms;
 
 namespace QLBVBM.GUI
 {
@@ -18,7 +8,7 @@ namespace QLBVBM.GUI
     {
         private BUS_SanBay busSanBay = new BUS_SanBay();
         private BUS_ChuyenBay busChuyenBay = new BUS_ChuyenBay();
-        private BUS_DonGiaHangGhe busDonGiaHangGhe = new BUS_DonGiaHangGhe();
+        private BUS_HangGhe busHangGhe = new BUS_HangGhe();
         private ToolTip toolTip = new ToolTip();
 
         public GUI_TraCuuChuyenBay()
@@ -29,10 +19,10 @@ namespace QLBVBM.GUI
 
         private async void GUI_TraCuuChuyenBay_Load(object sender, EventArgs e)
         {
-            dtpNgayBayTu.Value = DateTime.Now; 
-            dtpNgayBayDen.Value = DateTime.Now; 
-            dtpGioBayTu.Value = DateTime.Now; 
-            dtpGioBayDen.Value = DateTime.Now; 
+            dtpNgayBayTu.Value = DateTime.Now;
+            dtpNgayBayDen.Value = DateTime.Now;
+            dtpGioBayTu.Value = DateTime.Now;
+            dtpGioBayDen.Value = DateTime.Now;
             dtpThoiDiemThanhToanVeTu.Value = DateTime.Now;
             dtpThoiDiemThanhToanVeDen.Value = DateTime.Now;
 
@@ -40,6 +30,7 @@ namespace QLBVBM.GUI
             {
                 await Task.Run(() =>
                 {
+                    var dsHangGhe = LayDanhSachHangGhe();
                     var dsSanBay = LayDanhSachSanBay();
                     this.Invoke((MethodInvoker)delegate
                     {
@@ -57,6 +48,24 @@ namespace QLBVBM.GUI
                         if (cbbTenSanBayDen.Items.Count > 0) cbbTenSanBayDen.SelectedIndex = 0;
                         if (cbbTenSanBayTG1.Items.Count > 0) cbbTenSanBayTG1.SelectedIndex = 0;
                         if (cbbTenSanBayTG2.Items.Count > 0) cbbTenSanBayTG2.SelectedIndex = 0;
+
+                        var dsHangGhe_Ten = new List<DTO_HangGhe>(dsHangGhe);
+                        var dsHangGhe_DonGia = new List<DTO_HangGhe>(dsHangGhe);
+                        var dsHangGhe_SLGhe = new List<DTO_HangGhe>(dsHangGhe);
+                        var dsHangGhe_SLGheDaBan = new List<DTO_HangGhe>(dsHangGhe);
+                        var dsHangGhe_SLGheDaDat = new List<DTO_HangGhe>(dsHangGhe);
+
+                        LoadDanhSachHangGheToComboBox(cbbTenHangGhe, dsHangGhe_Ten);
+                        LoadDanhSachHangGheToComboBox(cbbHangVe_DonGia, dsHangGhe_DonGia);
+                        LoadDanhSachHangGheToComboBox(cbbHangVe_SLGhe, dsHangGhe_SLGhe);
+                        LoadDanhSachHangGheToComboBox(cbbHangVe_SLGheDaBan, dsHangGhe_SLGheDaBan);
+                        LoadDanhSachHangGheToComboBox(cbbHangVe_SLGheDaDat, dsHangGhe_SLGheDaDat);
+
+                        if (cbbTenHangGhe.Items.Count > 0) cbbTenHangGhe.SelectedIndex = 0;
+                        if (cbbHangVe_DonGia.Items.Count > 0) cbbHangVe_DonGia.SelectedIndex = 0;
+                        if (cbbHangVe_SLGhe.Items.Count > 0) cbbHangVe_SLGhe.SelectedIndex = 0;
+                        if (cbbHangVe_SLGheDaBan.Items.Count > 0) cbbHangVe_SLGheDaBan.SelectedIndex = 0;
+                        if (cbbHangVe_SLGheDaDat.Items.Count > 0) cbbHangVe_SLGheDaDat.SelectedIndex = 0;
                     });
                 });
             }
@@ -91,6 +100,12 @@ namespace QLBVBM.GUI
             dsSanBay.Insert(0, new DTO_SanBay { MaSanBay = "ALL", TenSanBay = "Tất cả" });
             return dsSanBay;
         }
+        private List<DTO_HangGhe> LayDanhSachHangGhe()
+        {
+            List<DTO_HangGhe> dsHangGhe = busHangGhe.LayDanhSachHangGhe();
+            dsHangGhe.Insert(0, new DTO_HangGhe { MaHangGhe = "ALL", TenHangGhe = "Tất cả" });
+            return dsHangGhe;
+        }
 
         public void LoadDanhSachSanBayToComboBox(Guna2ComboBox cbb, List<DTO_SanBay> dsSanBay)
         {
@@ -105,6 +120,23 @@ namespace QLBVBM.GUI
                     if (cbb.SelectedItem is DTO_SanBay selectedSanBay)
                     {
                         toolTip.SetToolTip(cbb, selectedSanBay.MaSanBay);
+                    }
+                };
+            }
+        }
+        public void LoadDanhSachHangGheToComboBox(Guna2ComboBox cbb, List<DTO_HangGhe> dsHangGhe)
+        {
+            if (dsHangGhe != null && dsHangGhe.Count > 0)
+            {
+                cbb.DataSource = dsHangGhe;
+                cbb.DisplayMember = "TenHangGhe";
+                cbb.ValueMember = "MaHangGhe";
+
+                cbb.SelectedIndexChanged += (s, e) =>
+                {
+                    if (cbb.SelectedItem is DTO_HangGhe selectedHangGhe)
+                    {
+                        toolTip.SetToolTip(cbb, selectedHangGhe.MaHangGhe);
                     }
                 };
             }
