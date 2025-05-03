@@ -351,15 +351,16 @@
             dtpGioBayDen.CustomFormat = "HH:mm";
             dtpGioBayDen.CustomizableEdges = customizableEdges11;
             dtpGioBayDen.FillColor = Color.White;
-            dtpGioBayDen.Font = new Font("Arial", 9F);
+            dtpGioBayDen.Font = new Font("Arial", 11F);
             dtpGioBayDen.ForeColor = SystemColors.ControlText;
             dtpGioBayDen.Format = DateTimePickerFormat.Custom;
-            dtpGioBayDen.Location = new Point(1583, 44);
+            dtpGioBayDen.Location = new Point(1580, 44);
             dtpGioBayDen.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             dtpGioBayDen.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             dtpGioBayDen.Name = "dtpGioBayDen";
             dtpGioBayDen.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            dtpGioBayDen.Size = new Size(95, 36);
+            dtpGioBayDen.ShowUpDown = true;
+            dtpGioBayDen.Size = new Size(98, 36);
             dtpGioBayDen.TabIndex = 15;
             dtpGioBayDen.Value = new DateTime(2025, 5, 1, 21, 49, 59, 256);
             // 
@@ -381,7 +382,7 @@
             dtpGioBayTu.CustomFormat = "HH:MM";
             dtpGioBayTu.CustomizableEdges = customizableEdges13;
             dtpGioBayTu.FillColor = Color.White;
-            dtpGioBayTu.Font = new Font("Arial", 9F);
+            dtpGioBayTu.Font = new Font("Arial", 11F);
             dtpGioBayTu.ForeColor = SystemColors.ControlText;
             dtpGioBayTu.Format = DateTimePickerFormat.Custom;
             dtpGioBayTu.Location = new Point(1433, 44);
@@ -389,6 +390,7 @@
             dtpGioBayTu.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             dtpGioBayTu.Name = "dtpGioBayTu";
             dtpGioBayTu.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            dtpGioBayTu.ShowUpDown = true;
             dtpGioBayTu.Size = new Size(99, 36);
             dtpGioBayTu.TabIndex = 13;
             dtpGioBayTu.Value = new DateTime(2025, 5, 1, 21, 49, 59, 256);
@@ -1207,7 +1209,7 @@
             dtpThoiDiemThanhToanVeDen.CustomFormat = "HH:mm dd/MM/yyyy";
             dtpThoiDiemThanhToanVeDen.CustomizableEdges = customizableEdges63;
             dtpThoiDiemThanhToanVeDen.FillColor = Color.White;
-            dtpThoiDiemThanhToanVeDen.Font = new Font("Arial", 9F);
+            dtpThoiDiemThanhToanVeDen.Font = new Font("Arial", 11F);
             dtpThoiDiemThanhToanVeDen.ForeColor = SystemColors.ControlText;
             dtpThoiDiemThanhToanVeDen.Format = DateTimePickerFormat.Custom;
             dtpThoiDiemThanhToanVeDen.Location = new Point(72, 371);
@@ -1215,6 +1217,7 @@
             dtpThoiDiemThanhToanVeDen.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             dtpThoiDiemThanhToanVeDen.Name = "dtpThoiDiemThanhToanVeDen";
             dtpThoiDiemThanhToanVeDen.ShadowDecoration.CustomizableEdges = customizableEdges64;
+            dtpThoiDiemThanhToanVeDen.ShowUpDown = true;
             dtpThoiDiemThanhToanVeDen.Size = new Size(234, 36);
             dtpThoiDiemThanhToanVeDen.TabIndex = 69;
             dtpThoiDiemThanhToanVeDen.Value = new DateTime(2025, 5, 3, 0, 0, 0, 0);
@@ -1237,7 +1240,7 @@
             dtpThoiDiemThanhToanVeTu.CustomFormat = "HH:mm dd/MM/yyyy";
             dtpThoiDiemThanhToanVeTu.CustomizableEdges = customizableEdges65;
             dtpThoiDiemThanhToanVeTu.FillColor = Color.White;
-            dtpThoiDiemThanhToanVeTu.Font = new Font("Arial", 9F);
+            dtpThoiDiemThanhToanVeTu.Font = new Font("Arial", 11F);
             dtpThoiDiemThanhToanVeTu.ForeColor = SystemColors.ControlText;
             dtpThoiDiemThanhToanVeTu.Format = DateTimePickerFormat.Custom;
             dtpThoiDiemThanhToanVeTu.Location = new Point(72, 318);
@@ -1245,6 +1248,7 @@
             dtpThoiDiemThanhToanVeTu.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             dtpThoiDiemThanhToanVeTu.Name = "dtpThoiDiemThanhToanVeTu";
             dtpThoiDiemThanhToanVeTu.ShadowDecoration.CustomizableEdges = customizableEdges66;
+            dtpThoiDiemThanhToanVeTu.ShowUpDown = true;
             dtpThoiDiemThanhToanVeTu.Size = new Size(234, 36);
             dtpThoiDiemThanhToanVeTu.TabIndex = 67;
             dtpThoiDiemThanhToanVeTu.Value = new DateTime(2025, 5, 3, 0, 0, 0, 0);
