@@ -1241,13 +1241,13 @@
             txtSoDienThoaiHanhKhach.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtSoDienThoaiHanhKhach.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
             txtSoDienThoaiHanhKhach.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtSoDienThoaiHanhKhach.Location = new Point(1411, 330);
+            txtSoDienThoaiHanhKhach.Location = new Point(1396, 330);
             txtSoDienThoaiHanhKhach.Margin = new Padding(4);
             txtSoDienThoaiHanhKhach.Name = "txtSoDienThoaiHanhKhach";
             txtSoDienThoaiHanhKhach.PlaceholderText = "<Có chứa>";
             txtSoDienThoaiHanhKhach.SelectedText = "";
             txtSoDienThoaiHanhKhach.ShadowDecoration.CustomizableEdges = customizableEdges64;
-            txtSoDienThoaiHanhKhach.Size = new Size(267, 36);
+            txtSoDienThoaiHanhKhach.Size = new Size(282, 36);
             txtSoDienThoaiHanhKhach.TabIndex = 82;
             // 
             // lblSoDienThoaiHanhKhach
@@ -1255,7 +1255,7 @@
             lblSoDienThoaiHanhKhach.BackColor = Color.Transparent;
             lblSoDienThoaiHanhKhach.Font = new Font("Arial", 11F, FontStyle.Bold);
             lblSoDienThoaiHanhKhach.ForeColor = SystemColors.ControlText;
-            lblSoDienThoaiHanhKhach.Location = new Point(1173, 340);
+            lblSoDienThoaiHanhKhach.Location = new Point(1161, 340);
             lblSoDienThoaiHanhKhach.Name = "lblSoDienThoaiHanhKhach";
             lblSoDienThoaiHanhKhach.Size = new Size(222, 23);
             lblSoDienThoaiHanhKhach.TabIndex = 81;
