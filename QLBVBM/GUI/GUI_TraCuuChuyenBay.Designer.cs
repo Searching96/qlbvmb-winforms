@@ -995,7 +995,7 @@
             txtGhiChuSBTG1.PlaceholderText = "<Có chứa>";
             txtGhiChuSBTG1.SelectedText = "";
             txtGhiChuSBTG1.ShadowDecoration.CustomizableEdges = customizableEdges48;
-            txtGhiChuSBTG1.Size = new Size(186, 36);
+            txtGhiChuSBTG1.Size = new Size(210, 36);
             txtGhiChuSBTG1.TabIndex = 55;
             // 
             // lblTenHangGhe
@@ -1384,7 +1384,7 @@
             grbDanhSachSanBayTG.Location = new Point(20, 342);
             grbDanhSachSanBayTG.Name = "grbDanhSachSanBayTG";
             grbDanhSachSanBayTG.ShadowDecoration.CustomizableEdges = customizableEdges80;
-            grbDanhSachSanBayTG.Size = new Size(876, 148);
+            grbDanhSachSanBayTG.Size = new Size(908, 148);
             grbDanhSachSanBayTG.TabIndex = 87;
             // 
             // txtGhiChuSBTG2
@@ -1406,7 +1406,7 @@
             txtGhiChuSBTG2.PlaceholderText = "<Có chứa>";
             txtGhiChuSBTG2.SelectedText = "";
             txtGhiChuSBTG2.ShadowDecoration.CustomizableEdges = customizableEdges70;
-            txtGhiChuSBTG2.Size = new Size(186, 36);
+            txtGhiChuSBTG2.Size = new Size(210, 36);
             txtGhiChuSBTG2.TabIndex = 74;
             // 
             // txtThoiGianDungSBTG2_Den
