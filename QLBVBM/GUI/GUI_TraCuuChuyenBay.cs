@@ -66,6 +66,8 @@ namespace QLBVBM.GUI
                         if (cbbHangVe_SLGhe.Items.Count > 0) cbbHangVe_SLGhe.SelectedIndex = 0;
                         if (cbbHangVe_SLGheDaBan.Items.Count > 0) cbbHangVe_SLGheDaBan.SelectedIndex = 0;
                         if (cbbHangVe_SLGheDaDat.Items.Count > 0) cbbHangVe_SLGheDaDat.SelectedIndex = 0;
+
+                        LoadTrangThaiOptions();
                     });
                 });
             }
@@ -80,7 +82,7 @@ namespace QLBVBM.GUI
         {
             foreach (Control control in this.Controls)
             {
-                control.Anchor = AnchorStyles.None;
+                control.Anchor = AnchorStyles.Top;
             }
         }
 
@@ -142,9 +144,16 @@ namespace QLBVBM.GUI
             }
         }
 
+        private void LoadTrangThaiOptions()
+        {
+            List<string> trangThaiOptions = new List<string> { "Tất cả", "Đã thanh toán", "Chưa thanh toán", "Đã huỷ" };
+            cbbTrangThaiVe.DataSource = trangThaiOptions;
+        }
+
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
     }
 }
