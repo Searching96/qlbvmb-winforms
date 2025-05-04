@@ -84,27 +84,33 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges54 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges55 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges56 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges61 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges62 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges57 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges58 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges59 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges60 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges61 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges62 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges63 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges64 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges65 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges66 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges67 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges68 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges79 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges80 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges69 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges70 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges71 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges72 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges73 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges74 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges75 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges76 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges77 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges78 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             lblMaChuyenBay = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtMaChuyenBay = new Guna.UI2.WinForms.Guna2TextBox();
             lblTenSanBayDi = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -121,16 +127,15 @@
             dtpGioBayTu = new Guna.UI2.WinForms.Guna2DateTimePicker();
             lblGioBayTu = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblGioBay = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            lblDanhSachSanBayTG = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblThoiGianBay = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblThoiGianBayTu = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtThoiGianBayTu = new Guna.UI2.WinForms.Guna2TextBox();
             lblThoiGianBayDen = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtThoiGianBayDen = new Guna.UI2.WinForms.Guna2TextBox();
-            txtThoiGianDungDen = new Guna.UI2.WinForms.Guna2TextBox();
-            lblThoiGianDungDen = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            txtThoiGianDungTu = new Guna.UI2.WinForms.Guna2TextBox();
-            lblThoiGianDungTu = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            txtThoiGianDungSBTG1_Den = new Guna.UI2.WinForms.Guna2TextBox();
+            lblThoiGianDungSBTG1_Den = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            txtThoiGianDungSBTG1_Tu = new Guna.UI2.WinForms.Guna2TextBox();
+            lblThoiGianDungSBTG1_Tu = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblThoiGianDung = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtSLGheHangVeDen = new Guna.UI2.WinForms.Guna2TextBox();
             lblSLGheDen = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -157,7 +162,7 @@
             cbbHangVe_SLGheDaBan = new Guna.UI2.WinForms.Guna2ComboBox();
             cbbHangVe_SLGheDaDat = new Guna.UI2.WinForms.Guna2ComboBox();
             lblGhiChu = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            txtGhiChu = new Guna.UI2.WinForms.Guna2TextBox();
+            txtGhiChuSBTG1 = new Guna.UI2.WinForms.Guna2TextBox();
             lblTenHangGhe = new Guna.UI2.WinForms.Guna2HtmlLabel();
             cbbTenHangGhe = new Guna.UI2.WinForms.Guna2ComboBox();
             lblMaVeChuyenBay = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -166,13 +171,6 @@
             cbbTrangThaiVe = new Guna.UI2.WinForms.Guna2ComboBox();
             lblTenHanhKhach = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtTenHanhKhach = new Guna.UI2.WinForms.Guna2TextBox();
-            grbDanhSachSanBayTG = new Guna.UI2.WinForms.Guna2GroupBox();
-            guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            cbbTenSanBayTG2 = new Guna.UI2.WinForms.Guna2ComboBox();
-            guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            cbbTenSanBayTG1 = new Guna.UI2.WinForms.Guna2ComboBox();
-            guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            lblSTTSanBayTG = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblThoiDiemThanhToanVe = new Guna.UI2.WinForms.Guna2HtmlLabel();
             dtpThoiDiemThanhToanVeDen = new Guna.UI2.WinForms.Guna2DateTimePicker();
             lblThoiDiemThanhToanVeDen = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -185,8 +183,21 @@
             btnTraCuu = new Guna.UI2.WinForms.Guna2Button();
             btnThoat = new Guna.UI2.WinForms.Guna2Button();
             dgvDanhSachChuyenBay = new Guna.UI2.WinForms.Guna2DataGridView();
-            grbDanhSachSanBayTG.SuspendLayout();
+            grbDanhSachSanBayTG = new Guna.UI2.WinForms.Guna2GroupBox();
+            txtGhiChuSBTG2 = new Guna.UI2.WinForms.Guna2TextBox();
+            txtThoiGianDungSBTG2_Den = new Guna.UI2.WinForms.Guna2TextBox();
+            lblThoiGianDungSBTG2_Tu = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            txtThoiGianDungSBTG2_Tu = new Guna.UI2.WinForms.Guna2TextBox();
+            lblThoiGianDungSBTG2_Den = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            cbbTenSanBayTG2 = new Guna.UI2.WinForms.Guna2ComboBox();
+            guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            cbbTenSanBayTG1 = new Guna.UI2.WinForms.Guna2ComboBox();
+            guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            lblSTTSanBayTG = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            lblDanhSachSanBayTG = new Guna.UI2.WinForms.Guna2HtmlLabel();
             ((System.ComponentModel.ISupportInitialize)dgvDanhSachChuyenBay).BeginInit();
+            grbDanhSachSanBayTG.SuspendLayout();
             SuspendLayout();
             // 
             // lblMaChuyenBay
@@ -423,21 +434,11 @@
             lblGioBay.TabIndex = 11;
             lblGioBay.Text = "Giờ bay";
             // 
-            // lblDanhSachSanBayTG
-            // 
-            lblDanhSachSanBayTG.BackColor = Color.Transparent;
-            lblDanhSachSanBayTG.Font = new Font("Arial", 11F, FontStyle.Bold);
-            lblDanhSachSanBayTG.Location = new Point(21, 128);
-            lblDanhSachSanBayTG.Name = "lblDanhSachSanBayTG";
-            lblDanhSachSanBayTG.Size = new Size(260, 23);
-            lblDanhSachSanBayTG.TabIndex = 16;
-            lblDanhSachSanBayTG.Text = "Danh sách sân bay trung gian";
-            // 
             // lblThoiGianBay
             // 
             lblThoiGianBay.BackColor = Color.Transparent;
             lblThoiGianBay.Font = new Font("Arial", 11F, FontStyle.Bold);
-            lblThoiGianBay.Location = new Point(912, 128);
+            lblThoiGianBay.Location = new Point(21, 128);
             lblThoiGianBay.Name = "lblThoiGianBay";
             lblThoiGianBay.Size = new Size(122, 23);
             lblThoiGianBay.TabIndex = 18;
@@ -448,7 +449,7 @@
             lblThoiGianBayTu.BackColor = Color.Transparent;
             lblThoiGianBayTu.Font = new Font("Arial", 11F, FontStyle.Bold);
             lblThoiGianBayTu.ForeColor = Color.Red;
-            lblThoiGianBayTu.Location = new Point(1041, 128);
+            lblThoiGianBayTu.Location = new Point(150, 128);
             lblThoiGianBayTu.Name = "lblThoiGianBayTu";
             lblThoiGianBayTu.Size = new Size(22, 23);
             lblThoiGianBayTu.TabIndex = 19;
@@ -467,7 +468,7 @@
             txtThoiGianBayTu.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtThoiGianBayTu.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
             txtThoiGianBayTu.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtThoiGianBayTu.Location = new Point(1070, 115);
+            txtThoiGianBayTu.Location = new Point(179, 115);
             txtThoiGianBayTu.Margin = new Padding(4);
             txtThoiGianBayTu.Name = "txtThoiGianBayTu";
             txtThoiGianBayTu.PlaceholderText = "";
@@ -481,7 +482,7 @@
             lblThoiGianBayDen.BackColor = Color.Transparent;
             lblThoiGianBayDen.Font = new Font("Arial", 11F, FontStyle.Bold);
             lblThoiGianBayDen.ForeColor = Color.Red;
-            lblThoiGianBayDen.Location = new Point(1160, 128);
+            lblThoiGianBayDen.Location = new Point(269, 128);
             lblThoiGianBayDen.Name = "lblThoiGianBayDen";
             lblThoiGianBayDen.Size = new Size(36, 23);
             lblThoiGianBayDen.TabIndex = 21;
@@ -500,7 +501,7 @@
             txtThoiGianBayDen.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtThoiGianBayDen.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
             txtThoiGianBayDen.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtThoiGianBayDen.Location = new Point(1207, 115);
+            txtThoiGianBayDen.Location = new Point(316, 115);
             txtThoiGianBayDen.Margin = new Padding(4);
             txtThoiGianBayDen.Name = "txtThoiGianBayDen";
             txtThoiGianBayDen.PlaceholderText = "";
@@ -509,77 +510,77 @@
             txtThoiGianBayDen.Size = new Size(84, 36);
             txtThoiGianBayDen.TabIndex = 22;
             // 
-            // txtThoiGianDungDen
+            // txtThoiGianDungSBTG1_Den
             // 
-            txtThoiGianDungDen.BorderRadius = 7;
-            txtThoiGianDungDen.Cursor = Cursors.IBeam;
-            txtThoiGianDungDen.CustomizableEdges = customizableEdges19;
-            txtThoiGianDungDen.DefaultText = "";
-            txtThoiGianDungDen.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtThoiGianDungDen.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtThoiGianDungDen.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtThoiGianDungDen.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtThoiGianDungDen.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtThoiGianDungDen.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            txtThoiGianDungDen.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtThoiGianDungDen.Location = new Point(762, 115);
-            txtThoiGianDungDen.Margin = new Padding(4);
-            txtThoiGianDungDen.Name = "txtThoiGianDungDen";
-            txtThoiGianDungDen.PlaceholderText = "";
-            txtThoiGianDungDen.SelectedText = "";
-            txtThoiGianDungDen.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            txtThoiGianDungDen.Size = new Size(88, 36);
-            txtThoiGianDungDen.TabIndex = 27;
+            txtThoiGianDungSBTG1_Den.BorderRadius = 7;
+            txtThoiGianDungSBTG1_Den.Cursor = Cursors.IBeam;
+            txtThoiGianDungSBTG1_Den.CustomizableEdges = customizableEdges19;
+            txtThoiGianDungSBTG1_Den.DefaultText = "";
+            txtThoiGianDungSBTG1_Den.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtThoiGianDungSBTG1_Den.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtThoiGianDungSBTG1_Den.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtThoiGianDungSBTG1_Den.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtThoiGianDungSBTG1_Den.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtThoiGianDungSBTG1_Den.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            txtThoiGianDungSBTG1_Den.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtThoiGianDungSBTG1_Den.Location = new Point(561, 42);
+            txtThoiGianDungSBTG1_Den.Margin = new Padding(4);
+            txtThoiGianDungSBTG1_Den.Name = "txtThoiGianDungSBTG1_Den";
+            txtThoiGianDungSBTG1_Den.PlaceholderText = "";
+            txtThoiGianDungSBTG1_Den.SelectedText = "";
+            txtThoiGianDungSBTG1_Den.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            txtThoiGianDungSBTG1_Den.Size = new Size(75, 36);
+            txtThoiGianDungSBTG1_Den.TabIndex = 27;
             // 
-            // lblThoiGianDungDen
+            // lblThoiGianDungSBTG1_Den
             // 
-            lblThoiGianDungDen.BackColor = Color.Transparent;
-            lblThoiGianDungDen.Font = new Font("Arial", 11F, FontStyle.Bold);
-            lblThoiGianDungDen.ForeColor = Color.Red;
-            lblThoiGianDungDen.Location = new Point(716, 128);
-            lblThoiGianDungDen.Name = "lblThoiGianDungDen";
-            lblThoiGianDungDen.Size = new Size(36, 23);
-            lblThoiGianDungDen.TabIndex = 26;
-            lblThoiGianDungDen.Text = "đến";
+            lblThoiGianDungSBTG1_Den.BackColor = Color.Transparent;
+            lblThoiGianDungSBTG1_Den.Font = new Font("Arial", 11F, FontStyle.Bold);
+            lblThoiGianDungSBTG1_Den.ForeColor = Color.Red;
+            lblThoiGianDungSBTG1_Den.Location = new Point(521, 55);
+            lblThoiGianDungSBTG1_Den.Name = "lblThoiGianDungSBTG1_Den";
+            lblThoiGianDungSBTG1_Den.Size = new Size(36, 23);
+            lblThoiGianDungSBTG1_Den.TabIndex = 26;
+            lblThoiGianDungSBTG1_Den.Text = "đến";
             // 
-            // txtThoiGianDungTu
+            // txtThoiGianDungSBTG1_Tu
             // 
-            txtThoiGianDungTu.BorderRadius = 7;
-            txtThoiGianDungTu.Cursor = Cursors.IBeam;
-            txtThoiGianDungTu.CustomizableEdges = customizableEdges21;
-            txtThoiGianDungTu.DefaultText = "";
-            txtThoiGianDungTu.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtThoiGianDungTu.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtThoiGianDungTu.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtThoiGianDungTu.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtThoiGianDungTu.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtThoiGianDungTu.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            txtThoiGianDungTu.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtThoiGianDungTu.Location = new Point(625, 115);
-            txtThoiGianDungTu.Margin = new Padding(4);
-            txtThoiGianDungTu.Name = "txtThoiGianDungTu";
-            txtThoiGianDungTu.PlaceholderText = "";
-            txtThoiGianDungTu.SelectedText = "";
-            txtThoiGianDungTu.ShadowDecoration.CustomizableEdges = customizableEdges22;
-            txtThoiGianDungTu.Size = new Size(81, 36);
-            txtThoiGianDungTu.TabIndex = 25;
+            txtThoiGianDungSBTG1_Tu.BorderRadius = 7;
+            txtThoiGianDungSBTG1_Tu.Cursor = Cursors.IBeam;
+            txtThoiGianDungSBTG1_Tu.CustomizableEdges = customizableEdges21;
+            txtThoiGianDungSBTG1_Tu.DefaultText = "";
+            txtThoiGianDungSBTG1_Tu.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtThoiGianDungSBTG1_Tu.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtThoiGianDungSBTG1_Tu.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtThoiGianDungSBTG1_Tu.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtThoiGianDungSBTG1_Tu.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtThoiGianDungSBTG1_Tu.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            txtThoiGianDungSBTG1_Tu.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtThoiGianDungSBTG1_Tu.Location = new Point(445, 42);
+            txtThoiGianDungSBTG1_Tu.Margin = new Padding(4);
+            txtThoiGianDungSBTG1_Tu.Name = "txtThoiGianDungSBTG1_Tu";
+            txtThoiGianDungSBTG1_Tu.PlaceholderText = "";
+            txtThoiGianDungSBTG1_Tu.SelectedText = "";
+            txtThoiGianDungSBTG1_Tu.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            txtThoiGianDungSBTG1_Tu.Size = new Size(75, 36);
+            txtThoiGianDungSBTG1_Tu.TabIndex = 25;
             // 
-            // lblThoiGianDungTu
+            // lblThoiGianDungSBTG1_Tu
             // 
-            lblThoiGianDungTu.BackColor = Color.Transparent;
-            lblThoiGianDungTu.Font = new Font("Arial", 11F, FontStyle.Bold);
-            lblThoiGianDungTu.ForeColor = Color.Red;
-            lblThoiGianDungTu.Location = new Point(596, 128);
-            lblThoiGianDungTu.Name = "lblThoiGianDungTu";
-            lblThoiGianDungTu.Size = new Size(22, 23);
-            lblThoiGianDungTu.TabIndex = 24;
-            lblThoiGianDungTu.Text = "từ";
+            lblThoiGianDungSBTG1_Tu.BackColor = Color.Transparent;
+            lblThoiGianDungSBTG1_Tu.Font = new Font("Arial", 11F, FontStyle.Bold);
+            lblThoiGianDungSBTG1_Tu.ForeColor = Color.Red;
+            lblThoiGianDungSBTG1_Tu.Location = new Point(418, 55);
+            lblThoiGianDungSBTG1_Tu.Name = "lblThoiGianDungSBTG1_Tu";
+            lblThoiGianDungSBTG1_Tu.Size = new Size(22, 23);
+            lblThoiGianDungSBTG1_Tu.TabIndex = 24;
+            lblThoiGianDungSBTG1_Tu.Text = "từ";
             // 
             // lblThoiGianDung
             // 
             lblThoiGianDung.BackColor = Color.Transparent;
             lblThoiGianDung.Font = new Font("Arial", 11F, FontStyle.Bold);
-            lblThoiGianDung.Location = new Point(454, 128);
+            lblThoiGianDung.Location = new Point(415, 10);
             lblThoiGianDung.Name = "lblThoiGianDung";
             lblThoiGianDung.Size = new Size(136, 23);
             lblThoiGianDung.TabIndex = 23;
@@ -598,7 +599,7 @@
             txtSLGheHangVeDen.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtSLGheHangVeDen.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
             txtSLGheHangVeDen.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtSLGheHangVeDen.Location = new Point(1159, 221);
+            txtSLGheHangVeDen.Location = new Point(1159, 165);
             txtSLGheHangVeDen.Margin = new Padding(4);
             txtSLGheHangVeDen.Name = "txtSLGheHangVeDen";
             txtSLGheHangVeDen.PlaceholderText = "";
@@ -612,7 +613,7 @@
             lblSLGheDen.BackColor = Color.Transparent;
             lblSLGheDen.Font = new Font("Arial", 11F, FontStyle.Bold);
             lblSLGheDen.ForeColor = Color.Red;
-            lblSLGheDen.Location = new Point(1116, 234);
+            lblSLGheDen.Location = new Point(1116, 178);
             lblSLGheDen.Name = "lblSLGheDen";
             lblSLGheDen.Size = new Size(36, 23);
             lblSLGheDen.TabIndex = 34;
@@ -631,7 +632,7 @@
             txtSLGheHangVeTu.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtSLGheHangVeTu.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
             txtSLGheHangVeTu.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtSLGheHangVeTu.Location = new Point(969, 221);
+            txtSLGheHangVeTu.Location = new Point(969, 165);
             txtSLGheHangVeTu.Margin = new Padding(4);
             txtSLGheHangVeTu.Name = "txtSLGheHangVeTu";
             txtSLGheHangVeTu.PlaceholderText = "";
@@ -645,7 +646,7 @@
             lblSLGheTu.BackColor = Color.Transparent;
             lblSLGheTu.Font = new Font("Arial", 11F, FontStyle.Bold);
             lblSLGheTu.ForeColor = Color.Red;
-            lblSLGheTu.Location = new Point(940, 234);
+            lblSLGheTu.Location = new Point(940, 178);
             lblSLGheTu.Name = "lblSLGheTu";
             lblSLGheTu.Size = new Size(22, 23);
             lblSLGheTu.TabIndex = 32;
@@ -664,7 +665,7 @@
             txtDonGiaHangVeDen.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtDonGiaHangVeDen.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
             txtDonGiaHangVeDen.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtDonGiaHangVeDen.Location = new Point(1159, 169);
+            txtDonGiaHangVeDen.Location = new Point(1159, 113);
             txtDonGiaHangVeDen.Margin = new Padding(4);
             txtDonGiaHangVeDen.Name = "txtDonGiaHangVeDen";
             txtDonGiaHangVeDen.PlaceholderText = "";
@@ -678,7 +679,7 @@
             lblDonGiaDen.BackColor = Color.Transparent;
             lblDonGiaDen.Font = new Font("Arial", 11F, FontStyle.Bold);
             lblDonGiaDen.ForeColor = Color.Red;
-            lblDonGiaDen.Location = new Point(1116, 182);
+            lblDonGiaDen.Location = new Point(1116, 126);
             lblDonGiaDen.Name = "lblDonGiaDen";
             lblDonGiaDen.Size = new Size(36, 23);
             lblDonGiaDen.TabIndex = 30;
@@ -697,7 +698,7 @@
             txtDonGiaHangVeTu.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtDonGiaHangVeTu.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
             txtDonGiaHangVeTu.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtDonGiaHangVeTu.Location = new Point(969, 169);
+            txtDonGiaHangVeTu.Location = new Point(969, 113);
             txtDonGiaHangVeTu.Margin = new Padding(4);
             txtDonGiaHangVeTu.Name = "txtDonGiaHangVeTu";
             txtDonGiaHangVeTu.PlaceholderText = "";
@@ -711,7 +712,7 @@
             lblDonGiaTu.BackColor = Color.Transparent;
             lblDonGiaTu.Font = new Font("Arial", 11F, FontStyle.Bold);
             lblDonGiaTu.ForeColor = Color.Red;
-            lblDonGiaTu.Location = new Point(940, 182);
+            lblDonGiaTu.Location = new Point(940, 126);
             lblDonGiaTu.Name = "lblDonGiaTu";
             lblDonGiaTu.Size = new Size(22, 23);
             lblDonGiaTu.TabIndex = 28;
@@ -730,7 +731,7 @@
             txtSLGheDaDatHangVeDen.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtSLGheDaDatHangVeDen.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
             txtSLGheDaDatHangVeDen.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtSLGheDaDatHangVeDen.Location = new Point(1159, 328);
+            txtSLGheDaDatHangVeDen.Location = new Point(1159, 272);
             txtSLGheDaDatHangVeDen.Margin = new Padding(4);
             txtSLGheDaDatHangVeDen.Name = "txtSLGheDaDatHangVeDen";
             txtSLGheDaDatHangVeDen.PlaceholderText = "";
@@ -744,7 +745,7 @@
             lblSLGheDaDatDen.BackColor = Color.Transparent;
             lblSLGheDaDatDen.Font = new Font("Arial", 11F, FontStyle.Bold);
             lblSLGheDaDatDen.ForeColor = Color.Red;
-            lblSLGheDaDatDen.Location = new Point(1116, 341);
+            lblSLGheDaDatDen.Location = new Point(1116, 285);
             lblSLGheDaDatDen.Name = "lblSLGheDaDatDen";
             lblSLGheDaDatDen.Size = new Size(36, 23);
             lblSLGheDaDatDen.TabIndex = 42;
@@ -763,7 +764,7 @@
             txtSLGheDaDatHangVeTu.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtSLGheDaDatHangVeTu.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
             txtSLGheDaDatHangVeTu.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtSLGheDaDatHangVeTu.Location = new Point(969, 328);
+            txtSLGheDaDatHangVeTu.Location = new Point(969, 272);
             txtSLGheDaDatHangVeTu.Margin = new Padding(4);
             txtSLGheDaDatHangVeTu.Name = "txtSLGheDaDatHangVeTu";
             txtSLGheDaDatHangVeTu.PlaceholderText = "";
@@ -777,7 +778,7 @@
             lblSLGheDaDatTu.BackColor = Color.Transparent;
             lblSLGheDaDatTu.Font = new Font("Arial", 11F, FontStyle.Bold);
             lblSLGheDaDatTu.ForeColor = Color.Red;
-            lblSLGheDaDatTu.Location = new Point(940, 341);
+            lblSLGheDaDatTu.Location = new Point(940, 285);
             lblSLGheDaDatTu.Name = "lblSLGheDaDatTu";
             lblSLGheDaDatTu.Size = new Size(22, 23);
             lblSLGheDaDatTu.TabIndex = 40;
@@ -796,7 +797,7 @@
             txtSLGheDaBanHangVeDen.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtSLGheDaBanHangVeDen.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
             txtSLGheDaBanHangVeDen.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtSLGheDaBanHangVeDen.Location = new Point(1159, 276);
+            txtSLGheDaBanHangVeDen.Location = new Point(1159, 220);
             txtSLGheDaBanHangVeDen.Margin = new Padding(4);
             txtSLGheDaBanHangVeDen.Name = "txtSLGheDaBanHangVeDen";
             txtSLGheDaBanHangVeDen.PlaceholderText = "";
@@ -810,7 +811,7 @@
             lblSLGheDaBanDen.BackColor = Color.Transparent;
             lblSLGheDaBanDen.Font = new Font("Arial", 11F, FontStyle.Bold);
             lblSLGheDaBanDen.ForeColor = Color.Red;
-            lblSLGheDaBanDen.Location = new Point(1116, 289);
+            lblSLGheDaBanDen.Location = new Point(1116, 233);
             lblSLGheDaBanDen.Name = "lblSLGheDaBanDen";
             lblSLGheDaBanDen.Size = new Size(36, 23);
             lblSLGheDaBanDen.TabIndex = 38;
@@ -829,7 +830,7 @@
             txtSLGheDaBanHangVeTu.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtSLGheDaBanHangVeTu.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
             txtSLGheDaBanHangVeTu.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtSLGheDaBanHangVeTu.Location = new Point(969, 276);
+            txtSLGheDaBanHangVeTu.Location = new Point(969, 220);
             txtSLGheDaBanHangVeTu.Margin = new Padding(4);
             txtSLGheDaBanHangVeTu.Name = "txtSLGheDaBanHangVeTu";
             txtSLGheDaBanHangVeTu.PlaceholderText = "";
@@ -843,7 +844,7 @@
             lblSLGheDaBanTu.BackColor = Color.Transparent;
             lblSLGheDaBanTu.Font = new Font("Arial", 11F, FontStyle.Bold);
             lblSLGheDaBanTu.ForeColor = Color.Red;
-            lblSLGheDaBanTu.Location = new Point(940, 289);
+            lblSLGheDaBanTu.Location = new Point(940, 233);
             lblSLGheDaBanTu.Name = "lblSLGheDaBanTu";
             lblSLGheDaBanTu.Size = new Size(22, 23);
             lblSLGheDaBanTu.TabIndex = 36;
@@ -853,7 +854,7 @@
             // 
             lblDonGiaHangVe.BackColor = Color.Transparent;
             lblDonGiaHangVe.Font = new Font("Arial", 11F, FontStyle.Bold);
-            lblDonGiaHangVe.Location = new Point(457, 182);
+            lblDonGiaHangVe.Location = new Point(457, 126);
             lblDonGiaHangVe.Name = "lblDonGiaHangVe";
             lblDonGiaHangVe.Size = new Size(181, 23);
             lblDonGiaHangVe.TabIndex = 44;
@@ -863,7 +864,7 @@
             // 
             lblSoLuongGheDaDatHangVe.BackColor = Color.Transparent;
             lblSoLuongGheDaDatHangVe.Font = new Font("Arial", 11F, FontStyle.Bold);
-            lblSoLuongGheDaDatHangVe.Location = new Point(457, 341);
+            lblSoLuongGheDaDatHangVe.Location = new Point(457, 285);
             lblSoLuongGheDaDatHangVe.Name = "lblSoLuongGheDaDatHangVe";
             lblSoLuongGheDaDatHangVe.Size = new Size(290, 23);
             lblSoLuongGheDaDatHangVe.TabIndex = 46;
@@ -873,7 +874,7 @@
             // 
             lblSoLuongGheDaBanHangVe.BackColor = Color.Transparent;
             lblSoLuongGheDaBanHangVe.Font = new Font("Arial", 11F, FontStyle.Bold);
-            lblSoLuongGheDaBanHangVe.Location = new Point(457, 289);
+            lblSoLuongGheDaBanHangVe.Location = new Point(457, 233);
             lblSoLuongGheDaBanHangVe.Name = "lblSoLuongGheDaBanHangVe";
             lblSoLuongGheDaBanHangVe.Size = new Size(295, 23);
             lblSoLuongGheDaBanHangVe.TabIndex = 47;
@@ -883,7 +884,7 @@
             // 
             lblSoLuongGheHangVe.BackColor = Color.Transparent;
             lblSoLuongGheHangVe.Font = new Font("Arial", 11F, FontStyle.Bold);
-            lblSoLuongGheHangVe.Location = new Point(457, 234);
+            lblSoLuongGheHangVe.Location = new Point(457, 178);
             lblSoLuongGheHangVe.Name = "lblSoLuongGheHangVe";
             lblSoLuongGheHangVe.Size = new Size(232, 23);
             lblSoLuongGheHangVe.TabIndex = 48;
@@ -902,7 +903,7 @@
             cbbHangVe_DonGia.Font = new Font("Arial", 10F);
             cbbHangVe_DonGia.ForeColor = Color.FromArgb(68, 88, 112);
             cbbHangVe_DonGia.ItemHeight = 30;
-            cbbHangVe_DonGia.Location = new Point(762, 169);
+            cbbHangVe_DonGia.Location = new Point(762, 113);
             cbbHangVe_DonGia.Name = "cbbHangVe_DonGia";
             cbbHangVe_DonGia.ShadowDecoration.CustomizableEdges = customizableEdges40;
             cbbHangVe_DonGia.Size = new Size(166, 36);
@@ -921,7 +922,7 @@
             cbbHangVe_SLGhe.Font = new Font("Arial", 10F);
             cbbHangVe_SLGhe.ForeColor = Color.FromArgb(68, 88, 112);
             cbbHangVe_SLGhe.ItemHeight = 30;
-            cbbHangVe_SLGhe.Location = new Point(762, 221);
+            cbbHangVe_SLGhe.Location = new Point(762, 165);
             cbbHangVe_SLGhe.Name = "cbbHangVe_SLGhe";
             cbbHangVe_SLGhe.ShadowDecoration.CustomizableEdges = customizableEdges42;
             cbbHangVe_SLGhe.Size = new Size(166, 36);
@@ -940,7 +941,7 @@
             cbbHangVe_SLGheDaBan.Font = new Font("Arial", 10F);
             cbbHangVe_SLGheDaBan.ForeColor = Color.FromArgb(68, 88, 112);
             cbbHangVe_SLGheDaBan.ItemHeight = 30;
-            cbbHangVe_SLGheDaBan.Location = new Point(762, 276);
+            cbbHangVe_SLGheDaBan.Location = new Point(762, 220);
             cbbHangVe_SLGheDaBan.Name = "cbbHangVe_SLGheDaBan";
             cbbHangVe_SLGheDaBan.ShadowDecoration.CustomizableEdges = customizableEdges44;
             cbbHangVe_SLGheDaBan.Size = new Size(166, 36);
@@ -959,7 +960,7 @@
             cbbHangVe_SLGheDaDat.Font = new Font("Arial", 10F);
             cbbHangVe_SLGheDaDat.ForeColor = Color.FromArgb(68, 88, 112);
             cbbHangVe_SLGheDaDat.ItemHeight = 30;
-            cbbHangVe_SLGheDaDat.Location = new Point(762, 328);
+            cbbHangVe_SLGheDaDat.Location = new Point(762, 272);
             cbbHangVe_SLGheDaDat.Name = "cbbHangVe_SLGheDaDat";
             cbbHangVe_SLGheDaDat.ShadowDecoration.CustomizableEdges = customizableEdges46;
             cbbHangVe_SLGheDaDat.Size = new Size(166, 36);
@@ -969,39 +970,39 @@
             // 
             lblGhiChu.BackColor = Color.Transparent;
             lblGhiChu.Font = new Font("Arial", 11F, FontStyle.Bold);
-            lblGhiChu.Location = new Point(1318, 131);
+            lblGhiChu.Location = new Point(672, 10);
             lblGhiChu.Name = "lblGhiChu";
             lblGhiChu.Size = new Size(70, 23);
             lblGhiChu.TabIndex = 54;
             lblGhiChu.Text = "Ghi chú";
             // 
-            // txtGhiChu
+            // txtGhiChuSBTG1
             // 
-            txtGhiChu.BorderRadius = 7;
-            txtGhiChu.Cursor = Cursors.IBeam;
-            txtGhiChu.CustomizableEdges = customizableEdges47;
-            txtGhiChu.DefaultText = "";
-            txtGhiChu.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtGhiChu.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtGhiChu.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtGhiChu.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtGhiChu.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtGhiChu.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            txtGhiChu.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtGhiChu.Location = new Point(1492, 118);
-            txtGhiChu.Margin = new Padding(4);
-            txtGhiChu.Name = "txtGhiChu";
-            txtGhiChu.PlaceholderText = "<Có chứa>";
-            txtGhiChu.SelectedText = "";
-            txtGhiChu.ShadowDecoration.CustomizableEdges = customizableEdges48;
-            txtGhiChu.Size = new Size(186, 36);
-            txtGhiChu.TabIndex = 55;
+            txtGhiChuSBTG1.BorderRadius = 7;
+            txtGhiChuSBTG1.Cursor = Cursors.IBeam;
+            txtGhiChuSBTG1.CustomizableEdges = customizableEdges47;
+            txtGhiChuSBTG1.DefaultText = "";
+            txtGhiChuSBTG1.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtGhiChuSBTG1.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtGhiChuSBTG1.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtGhiChuSBTG1.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtGhiChuSBTG1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtGhiChuSBTG1.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            txtGhiChuSBTG1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtGhiChuSBTG1.Location = new Point(672, 42);
+            txtGhiChuSBTG1.Margin = new Padding(4);
+            txtGhiChuSBTG1.Name = "txtGhiChuSBTG1";
+            txtGhiChuSBTG1.PlaceholderText = "<Có chứa>";
+            txtGhiChuSBTG1.SelectedText = "";
+            txtGhiChuSBTG1.ShadowDecoration.CustomizableEdges = customizableEdges48;
+            txtGhiChuSBTG1.Size = new Size(186, 36);
+            txtGhiChuSBTG1.TabIndex = 55;
             // 
             // lblTenHangGhe
             // 
             lblTenHangGhe.BackColor = Color.Transparent;
             lblTenHangGhe.Font = new Font("Arial", 11F, FontStyle.Bold);
-            lblTenHangGhe.Location = new Point(1318, 183);
+            lblTenHangGhe.Location = new Point(1318, 127);
             lblTenHangGhe.Name = "lblTenHangGhe";
             lblTenHangGhe.Size = new Size(121, 23);
             lblTenHangGhe.TabIndex = 56;
@@ -1020,7 +1021,7 @@
             cbbTenHangGhe.Font = new Font("Arial", 10F);
             cbbTenHangGhe.ForeColor = Color.FromArgb(68, 88, 112);
             cbbTenHangGhe.ItemHeight = 30;
-            cbbTenHangGhe.Location = new Point(1492, 170);
+            cbbTenHangGhe.Location = new Point(1492, 114);
             cbbTenHangGhe.Name = "cbbTenHangGhe";
             cbbTenHangGhe.ShadowDecoration.CustomizableEdges = customizableEdges50;
             cbbTenHangGhe.Size = new Size(186, 36);
@@ -1030,7 +1031,7 @@
             // 
             lblMaVeChuyenBay.BackColor = Color.Transparent;
             lblMaVeChuyenBay.Font = new Font("Arial", 11F, FontStyle.Bold);
-            lblMaVeChuyenBay.Location = new Point(1318, 237);
+            lblMaVeChuyenBay.Location = new Point(1318, 181);
             lblMaVeChuyenBay.Name = "lblMaVeChuyenBay";
             lblMaVeChuyenBay.Size = new Size(161, 23);
             lblMaVeChuyenBay.TabIndex = 58;
@@ -1049,7 +1050,7 @@
             txtMaVeChuyenBay.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtMaVeChuyenBay.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
             txtMaVeChuyenBay.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtMaVeChuyenBay.Location = new Point(1492, 224);
+            txtMaVeChuyenBay.Location = new Point(1492, 168);
             txtMaVeChuyenBay.Margin = new Padding(4);
             txtMaVeChuyenBay.Name = "txtMaVeChuyenBay";
             txtMaVeChuyenBay.PlaceholderText = "<Có chứa>";
@@ -1062,7 +1063,7 @@
             // 
             lblTrangThaiVe.BackColor = Color.Transparent;
             lblTrangThaiVe.Font = new Font("Arial", 11F, FontStyle.Bold);
-            lblTrangThaiVe.Location = new Point(1318, 289);
+            lblTrangThaiVe.Location = new Point(1318, 233);
             lblTrangThaiVe.Name = "lblTrangThaiVe";
             lblTrangThaiVe.Size = new Size(116, 23);
             lblTrangThaiVe.TabIndex = 60;
@@ -1081,7 +1082,7 @@
             cbbTrangThaiVe.Font = new Font("Arial", 10F);
             cbbTrangThaiVe.ForeColor = Color.FromArgb(68, 88, 112);
             cbbTrangThaiVe.ItemHeight = 30;
-            cbbTrangThaiVe.Location = new Point(1492, 276);
+            cbbTrangThaiVe.Location = new Point(1492, 220);
             cbbTrangThaiVe.Name = "cbbTrangThaiVe";
             cbbTrangThaiVe.ShadowDecoration.CustomizableEdges = customizableEdges54;
             cbbTrangThaiVe.Size = new Size(186, 36);
@@ -1091,7 +1092,7 @@
             // 
             lblTenHanhKhach.BackColor = Color.Transparent;
             lblTenHanhKhach.Font = new Font("Arial", 11F, FontStyle.Bold);
-            lblTenHanhKhach.Location = new Point(1318, 344);
+            lblTenHanhKhach.Location = new Point(1318, 288);
             lblTenHanhKhach.Name = "lblTenHanhKhach";
             lblTenHanhKhach.Size = new Size(140, 23);
             lblTenHanhKhach.TabIndex = 62;
@@ -1110,7 +1111,7 @@
             txtTenHanhKhach.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtTenHanhKhach.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
             txtTenHanhKhach.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtTenHanhKhach.Location = new Point(1492, 331);
+            txtTenHanhKhach.Location = new Point(1492, 275);
             txtTenHanhKhach.Margin = new Padding(4);
             txtTenHanhKhach.Name = "txtTenHanhKhach";
             txtTenHanhKhach.PlaceholderText = "<Có chứa>";
@@ -1119,114 +1120,12 @@
             txtTenHanhKhach.Size = new Size(186, 36);
             txtTenHanhKhach.TabIndex = 63;
             // 
-            // grbDanhSachSanBayTG
-            // 
-            grbDanhSachSanBayTG.BackColor = Color.White;
-            grbDanhSachSanBayTG.BorderColor = Color.Black;
-            grbDanhSachSanBayTG.BorderRadius = 7;
-            grbDanhSachSanBayTG.Controls.Add(guna2HtmlLabel3);
-            grbDanhSachSanBayTG.Controls.Add(cbbTenSanBayTG2);
-            grbDanhSachSanBayTG.Controls.Add(guna2HtmlLabel2);
-            grbDanhSachSanBayTG.Controls.Add(cbbTenSanBayTG1);
-            grbDanhSachSanBayTG.Controls.Add(guna2HtmlLabel1);
-            grbDanhSachSanBayTG.Controls.Add(lblSTTSanBayTG);
-            grbDanhSachSanBayTG.CustomBorderThickness = new Padding(1);
-            grbDanhSachSanBayTG.CustomizableEdges = customizableEdges61;
-            grbDanhSachSanBayTG.FillColor = Color.Transparent;
-            grbDanhSachSanBayTG.Font = new Font("Arial", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            grbDanhSachSanBayTG.ForeColor = SystemColors.ControlText;
-            grbDanhSachSanBayTG.Location = new Point(20, 157);
-            grbDanhSachSanBayTG.Name = "grbDanhSachSanBayTG";
-            grbDanhSachSanBayTG.ShadowDecoration.CustomizableEdges = customizableEdges62;
-            grbDanhSachSanBayTG.Size = new Size(365, 138);
-            grbDanhSachSanBayTG.TabIndex = 64;
-            // 
-            // guna2HtmlLabel3
-            // 
-            guna2HtmlLabel3.BackColor = Color.Transparent;
-            guna2HtmlLabel3.Font = new Font("Arial", 11F, FontStyle.Bold);
-            guna2HtmlLabel3.Location = new Point(18, 94);
-            guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            guna2HtmlLabel3.Size = new Size(13, 23);
-            guna2HtmlLabel3.TabIndex = 69;
-            guna2HtmlLabel3.Text = "2";
-            // 
-            // cbbTenSanBayTG2
-            // 
-            cbbTenSanBayTG2.BackColor = Color.Transparent;
-            cbbTenSanBayTG2.BorderColor = SystemColors.ControlDark;
-            cbbTenSanBayTG2.BorderRadius = 7;
-            cbbTenSanBayTG2.Cursor = Cursors.Hand;
-            cbbTenSanBayTG2.CustomizableEdges = customizableEdges57;
-            cbbTenSanBayTG2.DrawMode = DrawMode.OwnerDrawFixed;
-            cbbTenSanBayTG2.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbbTenSanBayTG2.FocusedColor = Color.FromArgb(94, 148, 255);
-            cbbTenSanBayTG2.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            cbbTenSanBayTG2.Font = new Font("Arial", 10F);
-            cbbTenSanBayTG2.ForeColor = Color.FromArgb(68, 88, 112);
-            cbbTenSanBayTG2.ItemHeight = 30;
-            cbbTenSanBayTG2.Location = new Point(52, 89);
-            cbbTenSanBayTG2.Name = "cbbTenSanBayTG2";
-            cbbTenSanBayTG2.ShadowDecoration.CustomizableEdges = customizableEdges58;
-            cbbTenSanBayTG2.Size = new Size(300, 36);
-            cbbTenSanBayTG2.TabIndex = 68;
-            // 
-            // guna2HtmlLabel2
-            // 
-            guna2HtmlLabel2.BackColor = Color.Transparent;
-            guna2HtmlLabel2.Font = new Font("Arial", 11F, FontStyle.Bold);
-            guna2HtmlLabel2.Location = new Point(18, 46);
-            guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(13, 23);
-            guna2HtmlLabel2.TabIndex = 67;
-            guna2HtmlLabel2.Text = "1";
-            // 
-            // cbbTenSanBayTG1
-            // 
-            cbbTenSanBayTG1.BackColor = Color.Transparent;
-            cbbTenSanBayTG1.BorderColor = SystemColors.ControlDark;
-            cbbTenSanBayTG1.BorderRadius = 7;
-            cbbTenSanBayTG1.Cursor = Cursors.Hand;
-            cbbTenSanBayTG1.CustomizableEdges = customizableEdges59;
-            cbbTenSanBayTG1.DrawMode = DrawMode.OwnerDrawFixed;
-            cbbTenSanBayTG1.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbbTenSanBayTG1.FocusedColor = Color.FromArgb(94, 148, 255);
-            cbbTenSanBayTG1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            cbbTenSanBayTG1.Font = new Font("Arial", 10F);
-            cbbTenSanBayTG1.ForeColor = Color.FromArgb(68, 88, 112);
-            cbbTenSanBayTG1.ItemHeight = 30;
-            cbbTenSanBayTG1.Location = new Point(52, 41);
-            cbbTenSanBayTG1.Name = "cbbTenSanBayTG1";
-            cbbTenSanBayTG1.ShadowDecoration.CustomizableEdges = customizableEdges60;
-            cbbTenSanBayTG1.Size = new Size(300, 36);
-            cbbTenSanBayTG1.TabIndex = 65;
-            // 
-            // guna2HtmlLabel1
-            // 
-            guna2HtmlLabel1.BackColor = Color.Transparent;
-            guna2HtmlLabel1.Font = new Font("Arial", 11F, FontStyle.Bold);
-            guna2HtmlLabel1.Location = new Point(52, 10);
-            guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(201, 23);
-            guna2HtmlLabel1.TabIndex = 66;
-            guna2HtmlLabel1.Text = "Tên sân bay trung gian";
-            // 
-            // lblSTTSanBayTG
-            // 
-            lblSTTSanBayTG.BackColor = Color.Transparent;
-            lblSTTSanBayTG.Font = new Font("Arial", 11F, FontStyle.Bold);
-            lblSTTSanBayTG.Location = new Point(4, 10);
-            lblSTTSanBayTG.Name = "lblSTTSanBayTG";
-            lblSTTSanBayTG.Size = new Size(37, 23);
-            lblSTTSanBayTG.TabIndex = 65;
-            lblSTTSanBayTG.Text = "STT";
-            // 
             // lblThoiDiemThanhToanVe
             // 
             lblThoiDiemThanhToanVe.BackColor = Color.Transparent;
             lblThoiDiemThanhToanVe.Font = new Font("Arial", 11F, FontStyle.Bold);
             lblThoiDiemThanhToanVe.ForeColor = SystemColors.ControlText;
-            lblThoiDiemThanhToanVe.Location = new Point(20, 303);
+            lblThoiDiemThanhToanVe.Location = new Point(20, 179);
             lblThoiDiemThanhToanVe.Name = "lblThoiDiemThanhToanVe";
             lblThoiDiemThanhToanVe.Size = new Size(215, 23);
             lblThoiDiemThanhToanVe.TabIndex = 65;
@@ -1238,16 +1137,16 @@
             dtpThoiDiemThanhToanVeDen.Checked = true;
             dtpThoiDiemThanhToanVeDen.Cursor = Cursors.Hand;
             dtpThoiDiemThanhToanVeDen.CustomFormat = "HH:mm dd/MM/yyyy";
-            dtpThoiDiemThanhToanVeDen.CustomizableEdges = customizableEdges63;
+            dtpThoiDiemThanhToanVeDen.CustomizableEdges = customizableEdges57;
             dtpThoiDiemThanhToanVeDen.FillColor = Color.White;
             dtpThoiDiemThanhToanVeDen.Font = new Font("Arial", 10F);
             dtpThoiDiemThanhToanVeDen.ForeColor = SystemColors.ControlText;
             dtpThoiDiemThanhToanVeDen.Format = DateTimePickerFormat.Custom;
-            dtpThoiDiemThanhToanVeDen.Location = new Point(72, 384);
+            dtpThoiDiemThanhToanVeDen.Location = new Point(72, 260);
             dtpThoiDiemThanhToanVeDen.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             dtpThoiDiemThanhToanVeDen.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             dtpThoiDiemThanhToanVeDen.Name = "dtpThoiDiemThanhToanVeDen";
-            dtpThoiDiemThanhToanVeDen.ShadowDecoration.CustomizableEdges = customizableEdges64;
+            dtpThoiDiemThanhToanVeDen.ShadowDecoration.CustomizableEdges = customizableEdges58;
             dtpThoiDiemThanhToanVeDen.ShowUpDown = true;
             dtpThoiDiemThanhToanVeDen.Size = new Size(234, 36);
             dtpThoiDiemThanhToanVeDen.TabIndex = 69;
@@ -1258,7 +1157,7 @@
             lblThoiDiemThanhToanVeDen.BackColor = Color.Transparent;
             lblThoiDiemThanhToanVeDen.Font = new Font("Arial", 11F, FontStyle.Bold);
             lblThoiDiemThanhToanVeDen.ForeColor = Color.Red;
-            lblThoiDiemThanhToanVeDen.Location = new Point(21, 392);
+            lblThoiDiemThanhToanVeDen.Location = new Point(21, 268);
             lblThoiDiemThanhToanVeDen.Name = "lblThoiDiemThanhToanVeDen";
             lblThoiDiemThanhToanVeDen.Size = new Size(36, 23);
             lblThoiDiemThanhToanVeDen.TabIndex = 68;
@@ -1270,16 +1169,16 @@
             dtpThoiDiemThanhToanVeTu.Checked = true;
             dtpThoiDiemThanhToanVeTu.Cursor = Cursors.Hand;
             dtpThoiDiemThanhToanVeTu.CustomFormat = "HH:mm dd/MM/yyyy";
-            dtpThoiDiemThanhToanVeTu.CustomizableEdges = customizableEdges65;
+            dtpThoiDiemThanhToanVeTu.CustomizableEdges = customizableEdges59;
             dtpThoiDiemThanhToanVeTu.FillColor = Color.White;
             dtpThoiDiemThanhToanVeTu.Font = new Font("Arial", 10F);
             dtpThoiDiemThanhToanVeTu.ForeColor = SystemColors.ControlText;
             dtpThoiDiemThanhToanVeTu.Format = DateTimePickerFormat.Custom;
-            dtpThoiDiemThanhToanVeTu.Location = new Point(72, 336);
+            dtpThoiDiemThanhToanVeTu.Location = new Point(72, 212);
             dtpThoiDiemThanhToanVeTu.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             dtpThoiDiemThanhToanVeTu.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             dtpThoiDiemThanhToanVeTu.Name = "dtpThoiDiemThanhToanVeTu";
-            dtpThoiDiemThanhToanVeTu.ShadowDecoration.CustomizableEdges = customizableEdges66;
+            dtpThoiDiemThanhToanVeTu.ShadowDecoration.CustomizableEdges = customizableEdges60;
             dtpThoiDiemThanhToanVeTu.ShowUpDown = true;
             dtpThoiDiemThanhToanVeTu.Size = new Size(234, 36);
             dtpThoiDiemThanhToanVeTu.TabIndex = 67;
@@ -1290,7 +1189,7 @@
             lblThoiDiemThanhToanVeTu.BackColor = Color.Transparent;
             lblThoiDiemThanhToanVeTu.Font = new Font("Arial", 11F, FontStyle.Bold);
             lblThoiDiemThanhToanVeTu.ForeColor = Color.Red;
-            lblThoiDiemThanhToanVeTu.Location = new Point(21, 344);
+            lblThoiDiemThanhToanVeTu.Location = new Point(21, 220);
             lblThoiDiemThanhToanVeTu.Name = "lblThoiDiemThanhToanVeTu";
             lblThoiDiemThanhToanVeTu.Size = new Size(22, 23);
             lblThoiDiemThanhToanVeTu.TabIndex = 66;
@@ -1301,7 +1200,7 @@
             lblSoCMNDHanhKhach.BackColor = Color.Transparent;
             lblSoCMNDHanhKhach.Font = new Font("Arial", 11F, FontStyle.Bold);
             lblSoCMNDHanhKhach.ForeColor = SystemColors.ControlText;
-            lblSoCMNDHanhKhach.Location = new Point(454, 396);
+            lblSoCMNDHanhKhach.Location = new Point(1057, 396);
             lblSoCMNDHanhKhach.Name = "lblSoCMNDHanhKhach";
             lblSoCMNDHanhKhach.Size = new Size(326, 23);
             lblSoCMNDHanhKhach.TabIndex = 79;
@@ -1311,7 +1210,7 @@
             // 
             txtSoCMNDHanhKhach.BorderRadius = 7;
             txtSoCMNDHanhKhach.Cursor = Cursors.IBeam;
-            txtSoCMNDHanhKhach.CustomizableEdges = customizableEdges67;
+            txtSoCMNDHanhKhach.CustomizableEdges = customizableEdges61;
             txtSoCMNDHanhKhach.DefaultText = "";
             txtSoCMNDHanhKhach.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtSoCMNDHanhKhach.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1320,12 +1219,12 @@
             txtSoCMNDHanhKhach.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtSoCMNDHanhKhach.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
             txtSoCMNDHanhKhach.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtSoCMNDHanhKhach.Location = new Point(793, 386);
+            txtSoCMNDHanhKhach.Location = new Point(1396, 386);
             txtSoCMNDHanhKhach.Margin = new Padding(4);
             txtSoCMNDHanhKhach.Name = "txtSoCMNDHanhKhach";
             txtSoCMNDHanhKhach.PlaceholderText = "<Có chứa>";
             txtSoCMNDHanhKhach.SelectedText = "";
-            txtSoCMNDHanhKhach.ShadowDecoration.CustomizableEdges = customizableEdges68;
+            txtSoCMNDHanhKhach.ShadowDecoration.CustomizableEdges = customizableEdges62;
             txtSoCMNDHanhKhach.Size = new Size(282, 36);
             txtSoCMNDHanhKhach.TabIndex = 80;
             // 
@@ -1333,7 +1232,7 @@
             // 
             txtSoDienThoaiHanhKhach.BorderRadius = 7;
             txtSoDienThoaiHanhKhach.Cursor = Cursors.IBeam;
-            txtSoDienThoaiHanhKhach.CustomizableEdges = customizableEdges69;
+            txtSoDienThoaiHanhKhach.CustomizableEdges = customizableEdges63;
             txtSoDienThoaiHanhKhach.DefaultText = "";
             txtSoDienThoaiHanhKhach.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtSoDienThoaiHanhKhach.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1342,12 +1241,12 @@
             txtSoDienThoaiHanhKhach.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtSoDienThoaiHanhKhach.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
             txtSoDienThoaiHanhKhach.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtSoDienThoaiHanhKhach.Location = new Point(1411, 386);
+            txtSoDienThoaiHanhKhach.Location = new Point(1411, 330);
             txtSoDienThoaiHanhKhach.Margin = new Padding(4);
             txtSoDienThoaiHanhKhach.Name = "txtSoDienThoaiHanhKhach";
             txtSoDienThoaiHanhKhach.PlaceholderText = "<Có chứa>";
             txtSoDienThoaiHanhKhach.SelectedText = "";
-            txtSoDienThoaiHanhKhach.ShadowDecoration.CustomizableEdges = customizableEdges70;
+            txtSoDienThoaiHanhKhach.ShadowDecoration.CustomizableEdges = customizableEdges64;
             txtSoDienThoaiHanhKhach.Size = new Size(267, 36);
             txtSoDienThoaiHanhKhach.TabIndex = 82;
             // 
@@ -1356,7 +1255,7 @@
             lblSoDienThoaiHanhKhach.BackColor = Color.Transparent;
             lblSoDienThoaiHanhKhach.Font = new Font("Arial", 11F, FontStyle.Bold);
             lblSoDienThoaiHanhKhach.ForeColor = SystemColors.ControlText;
-            lblSoDienThoaiHanhKhach.Location = new Point(1173, 396);
+            lblSoDienThoaiHanhKhach.Location = new Point(1173, 340);
             lblSoDienThoaiHanhKhach.Name = "lblSoDienThoaiHanhKhach";
             lblSoDienThoaiHanhKhach.Size = new Size(222, 23);
             lblSoDienThoaiHanhKhach.TabIndex = 81;
@@ -1366,7 +1265,7 @@
             // 
             btnTraCuu.BorderRadius = 7;
             btnTraCuu.Cursor = Cursors.Hand;
-            btnTraCuu.CustomizableEdges = customizableEdges71;
+            btnTraCuu.CustomizableEdges = customizableEdges65;
             btnTraCuu.DisabledState.BorderColor = Color.DarkGray;
             btnTraCuu.DisabledState.CustomBorderColor = Color.DarkGray;
             btnTraCuu.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -1375,9 +1274,9 @@
             btnTraCuu.Font = new Font("Arial", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 163);
             btnTraCuu.ForeColor = Color.White;
             btnTraCuu.Image = Properties.Resources.search_13_32_sprint_04;
-            btnTraCuu.Location = new Point(720, 460);
+            btnTraCuu.Location = new Point(724, 518);
             btnTraCuu.Name = "btnTraCuu";
-            btnTraCuu.ShadowDecoration.CustomizableEdges = customizableEdges72;
+            btnTraCuu.ShadowDecoration.CustomizableEdges = customizableEdges66;
             btnTraCuu.Size = new Size(131, 43);
             btnTraCuu.TabIndex = 83;
             btnTraCuu.Text = "Tra cứu";
@@ -1386,7 +1285,7 @@
             // 
             btnThoat.BorderRadius = 7;
             btnThoat.Cursor = Cursors.Hand;
-            btnThoat.CustomizableEdges = customizableEdges73;
+            btnThoat.CustomizableEdges = customizableEdges67;
             btnThoat.DisabledState.BorderColor = Color.DarkGray;
             btnThoat.DisabledState.CustomBorderColor = Color.DarkGray;
             btnThoat.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -1395,9 +1294,9 @@
             btnThoat.Font = new Font("Arial", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 163);
             btnThoat.ForeColor = Color.White;
             btnThoat.Image = Properties.Resources.logout_32_sprint_04;
-            btnThoat.Location = new Point(870, 460);
+            btnThoat.Location = new Point(874, 518);
             btnThoat.Name = "btnThoat";
-            btnThoat.ShadowDecoration.CustomizableEdges = customizableEdges74;
+            btnThoat.ShadowDecoration.CustomizableEdges = customizableEdges68;
             btnThoat.Size = new Size(131, 43);
             btnThoat.TabIndex = 84;
             btnThoat.Text = "Thoát";
@@ -1426,7 +1325,7 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dgvDanhSachChuyenBay.DefaultCellStyle = dataGridViewCellStyle3;
             dgvDanhSachChuyenBay.GridColor = Color.FromArgb(231, 229, 255);
-            dgvDanhSachChuyenBay.Location = new Point(21, 533);
+            dgvDanhSachChuyenBay.Location = new Point(21, 584);
             dgvDanhSachChuyenBay.Name = "dgvDanhSachChuyenBay";
             dgvDanhSachChuyenBay.RowHeadersVisible = false;
             dgvDanhSachChuyenBay.RowHeadersWidth = 51;
@@ -1454,12 +1353,226 @@
             dgvDanhSachChuyenBay.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dgvDanhSachChuyenBay.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             // 
+            // grbDanhSachSanBayTG
+            // 
+            grbDanhSachSanBayTG.BackColor = Color.White;
+            grbDanhSachSanBayTG.BorderColor = Color.Black;
+            grbDanhSachSanBayTG.BorderRadius = 7;
+            grbDanhSachSanBayTG.Controls.Add(txtGhiChuSBTG2);
+            grbDanhSachSanBayTG.Controls.Add(txtThoiGianDungSBTG2_Den);
+            grbDanhSachSanBayTG.Controls.Add(lblThoiGianDungSBTG2_Tu);
+            grbDanhSachSanBayTG.Controls.Add(txtThoiGianDungSBTG2_Tu);
+            grbDanhSachSanBayTG.Controls.Add(lblThoiGianDungSBTG2_Den);
+            grbDanhSachSanBayTG.Controls.Add(guna2HtmlLabel3);
+            grbDanhSachSanBayTG.Controls.Add(cbbTenSanBayTG2);
+            grbDanhSachSanBayTG.Controls.Add(guna2HtmlLabel2);
+            grbDanhSachSanBayTG.Controls.Add(cbbTenSanBayTG1);
+            grbDanhSachSanBayTG.Controls.Add(guna2HtmlLabel1);
+            grbDanhSachSanBayTG.Controls.Add(lblSTTSanBayTG);
+            grbDanhSachSanBayTG.Controls.Add(lblThoiGianDung);
+            grbDanhSachSanBayTG.Controls.Add(txtThoiGianDungSBTG1_Den);
+            grbDanhSachSanBayTG.Controls.Add(lblThoiGianDungSBTG1_Tu);
+            grbDanhSachSanBayTG.Controls.Add(txtThoiGianDungSBTG1_Tu);
+            grbDanhSachSanBayTG.Controls.Add(lblThoiGianDungSBTG1_Den);
+            grbDanhSachSanBayTG.Controls.Add(lblGhiChu);
+            grbDanhSachSanBayTG.Controls.Add(txtGhiChuSBTG1);
+            grbDanhSachSanBayTG.CustomBorderThickness = new Padding(1);
+            grbDanhSachSanBayTG.CustomizableEdges = customizableEdges79;
+            grbDanhSachSanBayTG.FillColor = Color.Transparent;
+            grbDanhSachSanBayTG.Font = new Font("Arial", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            grbDanhSachSanBayTG.ForeColor = SystemColors.ControlText;
+            grbDanhSachSanBayTG.Location = new Point(20, 342);
+            grbDanhSachSanBayTG.Name = "grbDanhSachSanBayTG";
+            grbDanhSachSanBayTG.ShadowDecoration.CustomizableEdges = customizableEdges80;
+            grbDanhSachSanBayTG.Size = new Size(876, 148);
+            grbDanhSachSanBayTG.TabIndex = 87;
+            // 
+            // txtGhiChuSBTG2
+            // 
+            txtGhiChuSBTG2.BorderRadius = 7;
+            txtGhiChuSBTG2.Cursor = Cursors.IBeam;
+            txtGhiChuSBTG2.CustomizableEdges = customizableEdges69;
+            txtGhiChuSBTG2.DefaultText = "";
+            txtGhiChuSBTG2.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtGhiChuSBTG2.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtGhiChuSBTG2.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtGhiChuSBTG2.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtGhiChuSBTG2.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtGhiChuSBTG2.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            txtGhiChuSBTG2.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtGhiChuSBTG2.Location = new Point(672, 96);
+            txtGhiChuSBTG2.Margin = new Padding(4);
+            txtGhiChuSBTG2.Name = "txtGhiChuSBTG2";
+            txtGhiChuSBTG2.PlaceholderText = "<Có chứa>";
+            txtGhiChuSBTG2.SelectedText = "";
+            txtGhiChuSBTG2.ShadowDecoration.CustomizableEdges = customizableEdges70;
+            txtGhiChuSBTG2.Size = new Size(186, 36);
+            txtGhiChuSBTG2.TabIndex = 74;
+            // 
+            // txtThoiGianDungSBTG2_Den
+            // 
+            txtThoiGianDungSBTG2_Den.BorderRadius = 7;
+            txtThoiGianDungSBTG2_Den.Cursor = Cursors.IBeam;
+            txtThoiGianDungSBTG2_Den.CustomizableEdges = customizableEdges71;
+            txtThoiGianDungSBTG2_Den.DefaultText = "";
+            txtThoiGianDungSBTG2_Den.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtThoiGianDungSBTG2_Den.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtThoiGianDungSBTG2_Den.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtThoiGianDungSBTG2_Den.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtThoiGianDungSBTG2_Den.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtThoiGianDungSBTG2_Den.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            txtThoiGianDungSBTG2_Den.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtThoiGianDungSBTG2_Den.Location = new Point(561, 96);
+            txtThoiGianDungSBTG2_Den.Margin = new Padding(4);
+            txtThoiGianDungSBTG2_Den.Name = "txtThoiGianDungSBTG2_Den";
+            txtThoiGianDungSBTG2_Den.PlaceholderText = "";
+            txtThoiGianDungSBTG2_Den.SelectedText = "";
+            txtThoiGianDungSBTG2_Den.ShadowDecoration.CustomizableEdges = customizableEdges72;
+            txtThoiGianDungSBTG2_Den.Size = new Size(75, 36);
+            txtThoiGianDungSBTG2_Den.TabIndex = 73;
+            // 
+            // lblThoiGianDungSBTG2_Tu
+            // 
+            lblThoiGianDungSBTG2_Tu.BackColor = Color.Transparent;
+            lblThoiGianDungSBTG2_Tu.Font = new Font("Arial", 11F, FontStyle.Bold);
+            lblThoiGianDungSBTG2_Tu.ForeColor = Color.Red;
+            lblThoiGianDungSBTG2_Tu.Location = new Point(418, 109);
+            lblThoiGianDungSBTG2_Tu.Name = "lblThoiGianDungSBTG2_Tu";
+            lblThoiGianDungSBTG2_Tu.Size = new Size(22, 23);
+            lblThoiGianDungSBTG2_Tu.TabIndex = 70;
+            lblThoiGianDungSBTG2_Tu.Text = "từ";
+            // 
+            // txtThoiGianDungSBTG2_Tu
+            // 
+            txtThoiGianDungSBTG2_Tu.BorderRadius = 7;
+            txtThoiGianDungSBTG2_Tu.Cursor = Cursors.IBeam;
+            txtThoiGianDungSBTG2_Tu.CustomizableEdges = customizableEdges73;
+            txtThoiGianDungSBTG2_Tu.DefaultText = "";
+            txtThoiGianDungSBTG2_Tu.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtThoiGianDungSBTG2_Tu.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtThoiGianDungSBTG2_Tu.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtThoiGianDungSBTG2_Tu.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtThoiGianDungSBTG2_Tu.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtThoiGianDungSBTG2_Tu.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            txtThoiGianDungSBTG2_Tu.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtThoiGianDungSBTG2_Tu.Location = new Point(445, 96);
+            txtThoiGianDungSBTG2_Tu.Margin = new Padding(4);
+            txtThoiGianDungSBTG2_Tu.Name = "txtThoiGianDungSBTG2_Tu";
+            txtThoiGianDungSBTG2_Tu.PlaceholderText = "";
+            txtThoiGianDungSBTG2_Tu.SelectedText = "";
+            txtThoiGianDungSBTG2_Tu.ShadowDecoration.CustomizableEdges = customizableEdges74;
+            txtThoiGianDungSBTG2_Tu.Size = new Size(75, 36);
+            txtThoiGianDungSBTG2_Tu.TabIndex = 71;
+            // 
+            // lblThoiGianDungSBTG2_Den
+            // 
+            lblThoiGianDungSBTG2_Den.BackColor = Color.Transparent;
+            lblThoiGianDungSBTG2_Den.Font = new Font("Arial", 11F, FontStyle.Bold);
+            lblThoiGianDungSBTG2_Den.ForeColor = Color.Red;
+            lblThoiGianDungSBTG2_Den.Location = new Point(521, 109);
+            lblThoiGianDungSBTG2_Den.Name = "lblThoiGianDungSBTG2_Den";
+            lblThoiGianDungSBTG2_Den.Size = new Size(36, 23);
+            lblThoiGianDungSBTG2_Den.TabIndex = 72;
+            lblThoiGianDungSBTG2_Den.Text = "đến";
+            // 
+            // guna2HtmlLabel3
+            // 
+            guna2HtmlLabel3.BackColor = Color.Transparent;
+            guna2HtmlLabel3.Font = new Font("Arial", 11F, FontStyle.Bold);
+            guna2HtmlLabel3.Location = new Point(18, 101);
+            guna2HtmlLabel3.Name = "guna2HtmlLabel3";
+            guna2HtmlLabel3.Size = new Size(13, 23);
+            guna2HtmlLabel3.TabIndex = 69;
+            guna2HtmlLabel3.Text = "2";
+            // 
+            // cbbTenSanBayTG2
+            // 
+            cbbTenSanBayTG2.BackColor = Color.Transparent;
+            cbbTenSanBayTG2.BorderColor = SystemColors.ControlDark;
+            cbbTenSanBayTG2.BorderRadius = 7;
+            cbbTenSanBayTG2.Cursor = Cursors.Hand;
+            cbbTenSanBayTG2.CustomizableEdges = customizableEdges75;
+            cbbTenSanBayTG2.DrawMode = DrawMode.OwnerDrawFixed;
+            cbbTenSanBayTG2.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbbTenSanBayTG2.FocusedColor = Color.FromArgb(94, 148, 255);
+            cbbTenSanBayTG2.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cbbTenSanBayTG2.Font = new Font("Arial", 10F);
+            cbbTenSanBayTG2.ForeColor = Color.FromArgb(68, 88, 112);
+            cbbTenSanBayTG2.ItemHeight = 30;
+            cbbTenSanBayTG2.Location = new Point(56, 96);
+            cbbTenSanBayTG2.Name = "cbbTenSanBayTG2";
+            cbbTenSanBayTG2.ShadowDecoration.CustomizableEdges = customizableEdges76;
+            cbbTenSanBayTG2.Size = new Size(327, 36);
+            cbbTenSanBayTG2.TabIndex = 68;
+            // 
+            // guna2HtmlLabel2
+            // 
+            guna2HtmlLabel2.BackColor = Color.Transparent;
+            guna2HtmlLabel2.Font = new Font("Arial", 11F, FontStyle.Bold);
+            guna2HtmlLabel2.Location = new Point(18, 47);
+            guna2HtmlLabel2.Name = "guna2HtmlLabel2";
+            guna2HtmlLabel2.Size = new Size(13, 23);
+            guna2HtmlLabel2.TabIndex = 67;
+            guna2HtmlLabel2.Text = "1";
+            // 
+            // cbbTenSanBayTG1
+            // 
+            cbbTenSanBayTG1.BackColor = Color.Transparent;
+            cbbTenSanBayTG1.BorderColor = SystemColors.ControlDark;
+            cbbTenSanBayTG1.BorderRadius = 7;
+            cbbTenSanBayTG1.Cursor = Cursors.Hand;
+            cbbTenSanBayTG1.CustomizableEdges = customizableEdges77;
+            cbbTenSanBayTG1.DrawMode = DrawMode.OwnerDrawFixed;
+            cbbTenSanBayTG1.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbbTenSanBayTG1.FocusedColor = Color.FromArgb(94, 148, 255);
+            cbbTenSanBayTG1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cbbTenSanBayTG1.Font = new Font("Arial", 10F);
+            cbbTenSanBayTG1.ForeColor = Color.FromArgb(68, 88, 112);
+            cbbTenSanBayTG1.ItemHeight = 30;
+            cbbTenSanBayTG1.Location = new Point(56, 42);
+            cbbTenSanBayTG1.Name = "cbbTenSanBayTG1";
+            cbbTenSanBayTG1.ShadowDecoration.CustomizableEdges = customizableEdges78;
+            cbbTenSanBayTG1.Size = new Size(327, 36);
+            cbbTenSanBayTG1.TabIndex = 65;
+            // 
+            // guna2HtmlLabel1
+            // 
+            guna2HtmlLabel1.BackColor = Color.Transparent;
+            guna2HtmlLabel1.Font = new Font("Arial", 11F, FontStyle.Bold);
+            guna2HtmlLabel1.Location = new Point(56, 10);
+            guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            guna2HtmlLabel1.Size = new Size(201, 23);
+            guna2HtmlLabel1.TabIndex = 66;
+            guna2HtmlLabel1.Text = "Tên sân bay trung gian";
+            // 
+            // lblSTTSanBayTG
+            // 
+            lblSTTSanBayTG.BackColor = Color.Transparent;
+            lblSTTSanBayTG.Font = new Font("Arial", 11F, FontStyle.Bold);
+            lblSTTSanBayTG.Location = new Point(4, 10);
+            lblSTTSanBayTG.Name = "lblSTTSanBayTG";
+            lblSTTSanBayTG.Size = new Size(37, 23);
+            lblSTTSanBayTG.TabIndex = 65;
+            lblSTTSanBayTG.Text = "STT";
+            // 
+            // lblDanhSachSanBayTG
+            // 
+            lblDanhSachSanBayTG.BackColor = Color.Transparent;
+            lblDanhSachSanBayTG.Font = new Font("Arial", 11F, FontStyle.Bold);
+            lblDanhSachSanBayTG.Location = new Point(21, 312);
+            lblDanhSachSanBayTG.Name = "lblDanhSachSanBayTG";
+            lblDanhSachSanBayTG.Size = new Size(260, 23);
+            lblDanhSachSanBayTG.TabIndex = 86;
+            lblDanhSachSanBayTG.Text = "Danh sách sân bay trung gian";
+            // 
             // GUI_TraCuuChuyenBay
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(236, 244, 255);
-            ClientSize = new Size(1707, 771);
+            ClientSize = new Size(1707, 831);
+            Controls.Add(grbDanhSachSanBayTG);
+            Controls.Add(lblDanhSachSanBayTG);
             Controls.Add(dgvDanhSachChuyenBay);
             Controls.Add(btnThoat);
             Controls.Add(btnTraCuu);
@@ -1472,7 +1585,6 @@
             Controls.Add(dtpThoiDiemThanhToanVeTu);
             Controls.Add(lblThoiDiemThanhToanVeTu);
             Controls.Add(lblThoiDiemThanhToanVe);
-            Controls.Add(grbDanhSachSanBayTG);
             Controls.Add(txtTenHanhKhach);
             Controls.Add(lblTenHanhKhach);
             Controls.Add(cbbTrangThaiVe);
@@ -1481,8 +1593,6 @@
             Controls.Add(lblMaVeChuyenBay);
             Controls.Add(cbbTenHangGhe);
             Controls.Add(lblTenHangGhe);
-            Controls.Add(txtGhiChu);
-            Controls.Add(lblGhiChu);
             Controls.Add(cbbHangVe_SLGheDaDat);
             Controls.Add(cbbHangVe_SLGheDaBan);
             Controls.Add(cbbHangVe_SLGhe);
@@ -1507,17 +1617,11 @@
             Controls.Add(lblDonGiaDen);
             Controls.Add(txtDonGiaHangVeTu);
             Controls.Add(lblDonGiaTu);
-            Controls.Add(txtThoiGianDungDen);
-            Controls.Add(lblThoiGianDungDen);
-            Controls.Add(txtThoiGianDungTu);
-            Controls.Add(lblThoiGianDungTu);
-            Controls.Add(lblThoiGianDung);
             Controls.Add(txtThoiGianBayDen);
             Controls.Add(lblThoiGianBayDen);
             Controls.Add(txtThoiGianBayTu);
             Controls.Add(lblThoiGianBayTu);
             Controls.Add(lblThoiGianBay);
-            Controls.Add(lblDanhSachSanBayTG);
             Controls.Add(dtpGioBayDen);
             Controls.Add(lblGioBayDen);
             Controls.Add(dtpGioBayTu);
@@ -1538,9 +1642,9 @@
             Name = "GUI_TraCuuChuyenBay";
             Text = "Tra Cứu Chuyến Bay";
             Load += GUI_TraCuuChuyenBay_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvDanhSachChuyenBay).EndInit();
             grbDanhSachSanBayTG.ResumeLayout(false);
             grbDanhSachSanBayTG.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvDanhSachChuyenBay).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -1563,16 +1667,15 @@
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpGioBayTu;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblGioBayTu;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblGioBay;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lblDanhSachSanBayTG;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblThoiGianBay;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblThoiGianBayTu;
         private Guna.UI2.WinForms.Guna2TextBox txtThoiGianBayTu;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblThoiGianBayDen;
         private Guna.UI2.WinForms.Guna2TextBox txtThoiGianBayDen;
-        private Guna.UI2.WinForms.Guna2TextBox txtThoiGianDungDen;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lblThoiGianDungDen;
-        private Guna.UI2.WinForms.Guna2TextBox txtThoiGianDungTu;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lblThoiGianDungTu;
+        private Guna.UI2.WinForms.Guna2TextBox txtThoiGianDungSBTG1_Den;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblThoiGianDungSBTG1_Den;
+        private Guna.UI2.WinForms.Guna2TextBox txtThoiGianDungSBTG1_Tu;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblThoiGianDungSBTG1_Tu;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblThoiGianDung;
         private Guna.UI2.WinForms.Guna2TextBox txtSLGheHangVeDen;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblSLGheDen;
@@ -1599,7 +1702,7 @@
         private Guna.UI2.WinForms.Guna2ComboBox cbbHangVe_SLGheDaBan;
         private Guna.UI2.WinForms.Guna2ComboBox cbbHangVe_SLGheDaDat;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblGhiChu;
-        private Guna.UI2.WinForms.Guna2TextBox txtGhiChu;
+        private Guna.UI2.WinForms.Guna2TextBox txtGhiChuSBTG1;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblTenHangGhe;
         private Guna.UI2.WinForms.Guna2ComboBox cbbTenHangGhe;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblMaVeChuyenBay;
@@ -1608,13 +1711,6 @@
         private Guna.UI2.WinForms.Guna2ComboBox cbbTrangThaiVe;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblTenHanhKhach;
         private Guna.UI2.WinForms.Guna2TextBox txtTenHanhKhach;
-        private Guna.UI2.WinForms.Guna2GroupBox grbDanhSachSanBayTG;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
-        private Guna.UI2.WinForms.Guna2ComboBox cbbTenSanBayTG2;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
-        private Guna.UI2.WinForms.Guna2ComboBox cbbTenSanBayTG1;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lblSTTSanBayTG;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblThoiDiemThanhToanVe;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpThoiDiemThanhToanVeDen;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblThoiDiemThanhToanVeDen;
@@ -1627,5 +1723,18 @@
         private Guna.UI2.WinForms.Guna2Button btnTraCuu;
         private Guna.UI2.WinForms.Guna2Button btnThoat;
         private Guna.UI2.WinForms.Guna2DataGridView dgvDanhSachChuyenBay;
+        private Guna.UI2.WinForms.Guna2GroupBox grbDanhSachSanBayTG;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
+        private Guna.UI2.WinForms.Guna2ComboBox cbbTenSanBayTG2;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
+        private Guna.UI2.WinForms.Guna2ComboBox cbbTenSanBayTG1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblSTTSanBayTG;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblDanhSachSanBayTG;
+        private Guna.UI2.WinForms.Guna2TextBox txtGhiChuSBTG2;
+        private Guna.UI2.WinForms.Guna2TextBox txtThoiGianDungSBTG2_Den;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblThoiGianDungSBTG2_Tu;
+        private Guna.UI2.WinForms.Guna2TextBox txtThoiGianDungSBTG2_Tu;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblThoiGianDungSBTG2_Den;
     }
 }
