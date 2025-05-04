@@ -202,6 +202,7 @@
             // txtMaChuyenBay
             // 
             txtMaChuyenBay.BorderRadius = 7;
+            txtMaChuyenBay.Cursor = Cursors.IBeam;
             txtMaChuyenBay.CustomizableEdges = customizableEdges1;
             txtMaChuyenBay.DefaultText = "";
             txtMaChuyenBay.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -244,6 +245,7 @@
             // 
             cbbTenSanBayDi.BackColor = Color.Transparent;
             cbbTenSanBayDi.BorderRadius = 7;
+            cbbTenSanBayDi.Cursor = Cursors.Hand;
             cbbTenSanBayDi.CustomizableEdges = customizableEdges3;
             cbbTenSanBayDi.DrawMode = DrawMode.OwnerDrawFixed;
             cbbTenSanBayDi.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -262,6 +264,7 @@
             // 
             cbbTenSanBayDen.BackColor = Color.Transparent;
             cbbTenSanBayDen.BorderRadius = 7;
+            cbbTenSanBayDen.Cursor = Cursors.Hand;
             cbbTenSanBayDen.CustomizableEdges = customizableEdges5;
             cbbTenSanBayDen.DrawMode = DrawMode.OwnerDrawFixed;
             cbbTenSanBayDen.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -301,6 +304,7 @@
             // 
             dtpNgayBayTu.BorderRadius = 7;
             dtpNgayBayTu.Checked = true;
+            dtpNgayBayTu.Cursor = Cursors.Hand;
             dtpNgayBayTu.CustomizableEdges = customizableEdges7;
             dtpNgayBayTu.FillColor = Color.White;
             dtpNgayBayTu.Font = new Font("Arial", 9F);
@@ -319,6 +323,7 @@
             // 
             dtpNgayBayDen.BorderRadius = 7;
             dtpNgayBayDen.Checked = true;
+            dtpNgayBayDen.Cursor = Cursors.Hand;
             dtpNgayBayDen.CustomizableEdges = customizableEdges9;
             dtpNgayBayDen.FillColor = Color.White;
             dtpNgayBayDen.Font = new Font("Arial", 9F);
@@ -348,6 +353,7 @@
             // 
             dtpGioBayDen.BorderRadius = 7;
             dtpGioBayDen.Checked = true;
+            dtpGioBayDen.Cursor = Cursors.Hand;
             dtpGioBayDen.CustomFormat = "HH:mm";
             dtpGioBayDen.CustomizableEdges = customizableEdges11;
             dtpGioBayDen.FillColor = Color.White;
@@ -379,6 +385,7 @@
             // 
             dtpGioBayTu.BorderRadius = 7;
             dtpGioBayTu.Checked = true;
+            dtpGioBayTu.Cursor = Cursors.Hand;
             dtpGioBayTu.CustomFormat = "HH:MM";
             dtpGioBayTu.CustomizableEdges = customizableEdges13;
             dtpGioBayTu.FillColor = Color.White;
@@ -450,6 +457,7 @@
             // txtThoiGianBayTu
             // 
             txtThoiGianBayTu.BorderRadius = 7;
+            txtThoiGianBayTu.Cursor = Cursors.IBeam;
             txtThoiGianBayTu.CustomizableEdges = customizableEdges15;
             txtThoiGianBayTu.DefaultText = "";
             txtThoiGianBayTu.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -482,6 +490,7 @@
             // txtThoiGianBayDen
             // 
             txtThoiGianBayDen.BorderRadius = 7;
+            txtThoiGianBayDen.Cursor = Cursors.IBeam;
             txtThoiGianBayDen.CustomizableEdges = customizableEdges17;
             txtThoiGianBayDen.DefaultText = "";
             txtThoiGianBayDen.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -503,6 +512,7 @@
             // txtThoiGianDungDen
             // 
             txtThoiGianDungDen.BorderRadius = 7;
+            txtThoiGianDungDen.Cursor = Cursors.IBeam;
             txtThoiGianDungDen.CustomizableEdges = customizableEdges19;
             txtThoiGianDungDen.DefaultText = "";
             txtThoiGianDungDen.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -535,6 +545,7 @@
             // txtThoiGianDungTu
             // 
             txtThoiGianDungTu.BorderRadius = 7;
+            txtThoiGianDungTu.Cursor = Cursors.IBeam;
             txtThoiGianDungTu.CustomizableEdges = customizableEdges21;
             txtThoiGianDungTu.DefaultText = "";
             txtThoiGianDungTu.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -577,6 +588,7 @@
             // txtSLGheHangVeDen
             // 
             txtSLGheHangVeDen.BorderRadius = 7;
+            txtSLGheHangVeDen.Cursor = Cursors.IBeam;
             txtSLGheHangVeDen.CustomizableEdges = customizableEdges23;
             txtSLGheHangVeDen.DefaultText = "";
             txtSLGheHangVeDen.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -609,6 +621,7 @@
             // txtSLGheHangVeTu
             // 
             txtSLGheHangVeTu.BorderRadius = 7;
+            txtSLGheHangVeTu.Cursor = Cursors.IBeam;
             txtSLGheHangVeTu.CustomizableEdges = customizableEdges25;
             txtSLGheHangVeTu.DefaultText = "";
             txtSLGheHangVeTu.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -641,6 +654,7 @@
             // txtDonGiaHangVeDen
             // 
             txtDonGiaHangVeDen.BorderRadius = 7;
+            txtDonGiaHangVeDen.Cursor = Cursors.IBeam;
             txtDonGiaHangVeDen.CustomizableEdges = customizableEdges27;
             txtDonGiaHangVeDen.DefaultText = "";
             txtDonGiaHangVeDen.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -673,6 +687,7 @@
             // txtDonGiaHangVeTu
             // 
             txtDonGiaHangVeTu.BorderRadius = 7;
+            txtDonGiaHangVeTu.Cursor = Cursors.IBeam;
             txtDonGiaHangVeTu.CustomizableEdges = customizableEdges29;
             txtDonGiaHangVeTu.DefaultText = "";
             txtDonGiaHangVeTu.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -705,6 +720,7 @@
             // txtSLGheDaDatHangVeDen
             // 
             txtSLGheDaDatHangVeDen.BorderRadius = 7;
+            txtSLGheDaDatHangVeDen.Cursor = Cursors.IBeam;
             txtSLGheDaDatHangVeDen.CustomizableEdges = customizableEdges31;
             txtSLGheDaDatHangVeDen.DefaultText = "";
             txtSLGheDaDatHangVeDen.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -737,6 +753,7 @@
             // txtSLGheDaDatHangVeTu
             // 
             txtSLGheDaDatHangVeTu.BorderRadius = 7;
+            txtSLGheDaDatHangVeTu.Cursor = Cursors.IBeam;
             txtSLGheDaDatHangVeTu.CustomizableEdges = customizableEdges33;
             txtSLGheDaDatHangVeTu.DefaultText = "";
             txtSLGheDaDatHangVeTu.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -769,6 +786,7 @@
             // txtSLGheDaBanHangVeDen
             // 
             txtSLGheDaBanHangVeDen.BorderRadius = 7;
+            txtSLGheDaBanHangVeDen.Cursor = Cursors.IBeam;
             txtSLGheDaBanHangVeDen.CustomizableEdges = customizableEdges35;
             txtSLGheDaBanHangVeDen.DefaultText = "";
             txtSLGheDaBanHangVeDen.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -801,6 +819,7 @@
             // txtSLGheDaBanHangVeTu
             // 
             txtSLGheDaBanHangVeTu.BorderRadius = 7;
+            txtSLGheDaBanHangVeTu.Cursor = Cursors.IBeam;
             txtSLGheDaBanHangVeTu.CustomizableEdges = customizableEdges37;
             txtSLGheDaBanHangVeTu.DefaultText = "";
             txtSLGheDaBanHangVeTu.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -874,6 +893,7 @@
             // 
             cbbHangVe_DonGia.BackColor = Color.Transparent;
             cbbHangVe_DonGia.BorderRadius = 7;
+            cbbHangVe_DonGia.Cursor = Cursors.Hand;
             cbbHangVe_DonGia.CustomizableEdges = customizableEdges39;
             cbbHangVe_DonGia.DrawMode = DrawMode.OwnerDrawFixed;
             cbbHangVe_DonGia.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -892,6 +912,7 @@
             // 
             cbbHangVe_SLGhe.BackColor = Color.Transparent;
             cbbHangVe_SLGhe.BorderRadius = 7;
+            cbbHangVe_SLGhe.Cursor = Cursors.Hand;
             cbbHangVe_SLGhe.CustomizableEdges = customizableEdges41;
             cbbHangVe_SLGhe.DrawMode = DrawMode.OwnerDrawFixed;
             cbbHangVe_SLGhe.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -910,6 +931,7 @@
             // 
             cbbHangVe_SLGheDaBan.BackColor = Color.Transparent;
             cbbHangVe_SLGheDaBan.BorderRadius = 7;
+            cbbHangVe_SLGheDaBan.Cursor = Cursors.Hand;
             cbbHangVe_SLGheDaBan.CustomizableEdges = customizableEdges43;
             cbbHangVe_SLGheDaBan.DrawMode = DrawMode.OwnerDrawFixed;
             cbbHangVe_SLGheDaBan.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -928,6 +950,7 @@
             // 
             cbbHangVe_SLGheDaDat.BackColor = Color.Transparent;
             cbbHangVe_SLGheDaDat.BorderRadius = 7;
+            cbbHangVe_SLGheDaDat.Cursor = Cursors.Hand;
             cbbHangVe_SLGheDaDat.CustomizableEdges = customizableEdges45;
             cbbHangVe_SLGheDaDat.DrawMode = DrawMode.OwnerDrawFixed;
             cbbHangVe_SLGheDaDat.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -955,6 +978,7 @@
             // txtGhiChu
             // 
             txtGhiChu.BorderRadius = 7;
+            txtGhiChu.Cursor = Cursors.IBeam;
             txtGhiChu.CustomizableEdges = customizableEdges47;
             txtGhiChu.DefaultText = "";
             txtGhiChu.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -987,6 +1011,7 @@
             // 
             cbbTenHangGhe.BackColor = Color.Transparent;
             cbbTenHangGhe.BorderRadius = 7;
+            cbbTenHangGhe.Cursor = Cursors.Hand;
             cbbTenHangGhe.CustomizableEdges = customizableEdges49;
             cbbTenHangGhe.DrawMode = DrawMode.OwnerDrawFixed;
             cbbTenHangGhe.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -1014,6 +1039,7 @@
             // txtMaVeChuyenBay
             // 
             txtMaVeChuyenBay.BorderRadius = 7;
+            txtMaVeChuyenBay.Cursor = Cursors.IBeam;
             txtMaVeChuyenBay.CustomizableEdges = customizableEdges51;
             txtMaVeChuyenBay.DefaultText = "";
             txtMaVeChuyenBay.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -1046,6 +1072,7 @@
             // 
             cbbTrangThaiVe.BackColor = Color.Transparent;
             cbbTrangThaiVe.BorderRadius = 7;
+            cbbTrangThaiVe.Cursor = Cursors.Hand;
             cbbTrangThaiVe.CustomizableEdges = customizableEdges53;
             cbbTrangThaiVe.DrawMode = DrawMode.OwnerDrawFixed;
             cbbTrangThaiVe.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -1073,6 +1100,7 @@
             // txtTenHanhKhach
             // 
             txtTenHanhKhach.BorderRadius = 7;
+            txtTenHanhKhach.Cursor = Cursors.IBeam;
             txtTenHanhKhach.CustomizableEdges = customizableEdges55;
             txtTenHanhKhach.DefaultText = "";
             txtTenHanhKhach.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -1128,6 +1156,7 @@
             cbbTenSanBayTG2.BackColor = Color.Transparent;
             cbbTenSanBayTG2.BorderColor = SystemColors.ControlDark;
             cbbTenSanBayTG2.BorderRadius = 7;
+            cbbTenSanBayTG2.Cursor = Cursors.Hand;
             cbbTenSanBayTG2.CustomizableEdges = customizableEdges57;
             cbbTenSanBayTG2.DrawMode = DrawMode.OwnerDrawFixed;
             cbbTenSanBayTG2.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -1157,6 +1186,7 @@
             cbbTenSanBayTG1.BackColor = Color.Transparent;
             cbbTenSanBayTG1.BorderColor = SystemColors.ControlDark;
             cbbTenSanBayTG1.BorderRadius = 7;
+            cbbTenSanBayTG1.Cursor = Cursors.Hand;
             cbbTenSanBayTG1.CustomizableEdges = customizableEdges59;
             cbbTenSanBayTG1.DrawMode = DrawMode.OwnerDrawFixed;
             cbbTenSanBayTG1.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -1206,6 +1236,7 @@
             // 
             dtpThoiDiemThanhToanVeDen.BorderRadius = 7;
             dtpThoiDiemThanhToanVeDen.Checked = true;
+            dtpThoiDiemThanhToanVeDen.Cursor = Cursors.Hand;
             dtpThoiDiemThanhToanVeDen.CustomFormat = "HH:mm dd/MM/yyyy";
             dtpThoiDiemThanhToanVeDen.CustomizableEdges = customizableEdges63;
             dtpThoiDiemThanhToanVeDen.FillColor = Color.White;
@@ -1237,6 +1268,7 @@
             // 
             dtpThoiDiemThanhToanVeTu.BorderRadius = 7;
             dtpThoiDiemThanhToanVeTu.Checked = true;
+            dtpThoiDiemThanhToanVeTu.Cursor = Cursors.Hand;
             dtpThoiDiemThanhToanVeTu.CustomFormat = "HH:mm dd/MM/yyyy";
             dtpThoiDiemThanhToanVeTu.CustomizableEdges = customizableEdges65;
             dtpThoiDiemThanhToanVeTu.FillColor = Color.White;
@@ -1278,6 +1310,7 @@
             // txtSoCMNDHanhKhach
             // 
             txtSoCMNDHanhKhach.BorderRadius = 7;
+            txtSoCMNDHanhKhach.Cursor = Cursors.IBeam;
             txtSoCMNDHanhKhach.CustomizableEdges = customizableEdges67;
             txtSoCMNDHanhKhach.DefaultText = "";
             txtSoCMNDHanhKhach.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -1299,6 +1332,7 @@
             // txtSoDienThoaiHanhKhach
             // 
             txtSoDienThoaiHanhKhach.BorderRadius = 7;
+            txtSoDienThoaiHanhKhach.Cursor = Cursors.IBeam;
             txtSoDienThoaiHanhKhach.CustomizableEdges = customizableEdges69;
             txtSoDienThoaiHanhKhach.DefaultText = "";
             txtSoDienThoaiHanhKhach.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -1331,6 +1365,7 @@
             // btnTraCuu
             // 
             btnTraCuu.BorderRadius = 7;
+            btnTraCuu.Cursor = Cursors.Hand;
             btnTraCuu.CustomizableEdges = customizableEdges71;
             btnTraCuu.DisabledState.BorderColor = Color.DarkGray;
             btnTraCuu.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -1350,6 +1385,7 @@
             // btnThoat
             // 
             btnThoat.BorderRadius = 7;
+            btnThoat.Cursor = Cursors.Hand;
             btnThoat.CustomizableEdges = customizableEdges73;
             btnThoat.DisabledState.BorderColor = Color.DarkGray;
             btnThoat.DisabledState.CustomBorderColor = Color.DarkGray;
