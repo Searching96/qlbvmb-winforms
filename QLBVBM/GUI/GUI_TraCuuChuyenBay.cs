@@ -146,8 +146,17 @@ namespace QLBVBM.GUI
 
         private void LoadTrangThaiOptions()
         {
-            List<string> trangThaiOptions = new List<string> { "Tất cả", "Đã thanh toán", "Chưa thanh toán", "Đã huỷ" };
-            cbbTrangThaiVe.DataSource = trangThaiOptions;
+            var dict = new Dictionary<int, string>
+            {
+                { -1, "Tất cả" },
+                { 1, "Đã thanh toán" },
+                { 2, "Chưa thanh toán" },
+                { 0, "Đã huỷ" }
+            };
+
+            cbbTrangThaiVe.DataSource = new BindingSource(dict, null);
+            cbbTrangThaiVe.DisplayMember = "Value";
+            cbbTrangThaiVe.ValueMember = "Key";
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
