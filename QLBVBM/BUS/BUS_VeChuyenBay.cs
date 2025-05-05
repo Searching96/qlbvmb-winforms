@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Transactions;
-using QLBVBM.DAL;
+﻿using QLBVBM.DAL;
 using QLBVBM.DTO;
 using System.Diagnostics;
+using System.Transactions;
 
 namespace QLBVBM.BUS
 {
@@ -46,7 +41,7 @@ namespace QLBVBM.BUS
                 {
                     if (!ThemVeChuyenBay(veChuyenBay))
                     {
-                        transaction.Dispose(); 
+                        transaction.Dispose();
                         return false;
                     }
 
@@ -98,6 +93,17 @@ namespace QLBVBM.BUS
                     return false;
                 }
             }
+        }
+
+        public Dictionary<int, string> GetTrangThaiOptions()
+        {
+            return new Dictionary<int, string>
+            {
+                { (int)DTO.TrangThaiVe.TatCa, "Tất cả" },
+                { (int)DTO.TrangThaiVe.DaHuy, "Đã huỷ" },
+                { (int)DTO.TrangThaiVe.DaThanhToan, "Đã thanh toán" },
+                { (int)DTO.TrangThaiVe.ChuaThanhToan, "Chưa thanh toán" }
+            };
         }
     }
 }

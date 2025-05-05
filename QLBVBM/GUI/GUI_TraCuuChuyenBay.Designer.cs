@@ -1200,7 +1200,7 @@
             lblSoCMNDHanhKhach.BackColor = Color.Transparent;
             lblSoCMNDHanhKhach.Font = new Font("Arial", 11F, FontStyle.Bold);
             lblSoCMNDHanhKhach.ForeColor = SystemColors.ControlText;
-            lblSoCMNDHanhKhach.Location = new Point(1057, 396);
+            lblSoCMNDHanhKhach.Location = new Point(1057, 394);
             lblSoCMNDHanhKhach.Name = "lblSoCMNDHanhKhach";
             lblSoCMNDHanhKhach.Size = new Size(326, 23);
             lblSoCMNDHanhKhach.TabIndex = 79;
@@ -1219,7 +1219,7 @@
             txtSoCMNDHanhKhach.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtSoCMNDHanhKhach.Font = new Font("Arial", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
             txtSoCMNDHanhKhach.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtSoCMNDHanhKhach.Location = new Point(1396, 386);
+            txtSoCMNDHanhKhach.Location = new Point(1396, 384);
             txtSoCMNDHanhKhach.Margin = new Padding(4);
             txtSoCMNDHanhKhach.Name = "txtSoCMNDHanhKhach";
             txtSoCMNDHanhKhach.PlaceholderText = "<Có chứa>";
@@ -1381,7 +1381,7 @@
             grbDanhSachSanBayTG.FillColor = Color.Transparent;
             grbDanhSachSanBayTG.Font = new Font("Arial", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 163);
             grbDanhSachSanBayTG.ForeColor = SystemColors.ControlText;
-            grbDanhSachSanBayTG.Location = new Point(20, 342);
+            grbDanhSachSanBayTG.Location = new Point(20, 345);
             grbDanhSachSanBayTG.Name = "grbDanhSachSanBayTG";
             grbDanhSachSanBayTG.ShadowDecoration.CustomizableEdges = customizableEdges80;
             grbDanhSachSanBayTG.Size = new Size(908, 148);
@@ -1559,7 +1559,7 @@
             // 
             lblDanhSachSanBayTG.BackColor = Color.Transparent;
             lblDanhSachSanBayTG.Font = new Font("Arial", 11F, FontStyle.Bold);
-            lblDanhSachSanBayTG.Location = new Point(21, 312);
+            lblDanhSachSanBayTG.Location = new Point(21, 315);
             lblDanhSachSanBayTG.Name = "lblDanhSachSanBayTG";
             lblDanhSachSanBayTG.Size = new Size(260, 23);
             lblDanhSachSanBayTG.TabIndex = 86;

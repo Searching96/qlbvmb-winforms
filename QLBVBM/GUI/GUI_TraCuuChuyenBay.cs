@@ -146,15 +146,8 @@ namespace QLBVBM.GUI
 
         private void LoadTrangThaiOptions()
         {
-            var dict = new Dictionary<int, string>
-            {
-                { -1, "Tất cả" },
-                { 1, "Đã thanh toán" },
-                { 2, "Chưa thanh toán" },
-                { 0, "Đã huỷ" }
-            };
-
-            cbbTrangThaiVe.DataSource = new BindingSource(dict, null);
+            var bus_VeChuyenBay = new BUS_VeChuyenBay();
+            cbbTrangThaiVe.DataSource = new BindingSource(bus_VeChuyenBay.GetTrangThaiOptions(), null);
             cbbTrangThaiVe.DisplayMember = "Value";
             cbbTrangThaiVe.ValueMember = "Key";
         }
