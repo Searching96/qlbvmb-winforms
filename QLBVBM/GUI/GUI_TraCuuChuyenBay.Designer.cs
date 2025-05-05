@@ -1280,6 +1280,7 @@
             btnTraCuu.Size = new Size(131, 43);
             btnTraCuu.TabIndex = 83;
             btnTraCuu.Text = "Tra cứu";
+            btnTraCuu.Click += btnTraCuu_Click;
             // 
             // btnThoat
             // 
@@ -1306,6 +1307,7 @@
             // 
             dataGridViewCellStyle1.BackColor = Color.White;
             dgvDanhSachChuyenBay.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dgvDanhSachChuyenBay.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
@@ -1314,12 +1316,12 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dgvDanhSachChuyenBay.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dgvDanhSachChuyenBay.ColumnHeadersHeight = 4;
+            dgvDanhSachChuyenBay.ColumnHeadersHeight = 30;
             dgvDanhSachChuyenBay.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = Color.Red;
+            dataGridViewCellStyle3.Font = new Font("Arial", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ActiveCaptionText;
             dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
@@ -1327,6 +1329,7 @@
             dgvDanhSachChuyenBay.GridColor = Color.FromArgb(231, 229, 255);
             dgvDanhSachChuyenBay.Location = new Point(21, 584);
             dgvDanhSachChuyenBay.Name = "dgvDanhSachChuyenBay";
+            dgvDanhSachChuyenBay.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dgvDanhSachChuyenBay.RowHeadersVisible = false;
             dgvDanhSachChuyenBay.RowHeadersWidth = 51;
             dgvDanhSachChuyenBay.Size = new Size(1657, 223);
@@ -1339,11 +1342,11 @@
             dgvDanhSachChuyenBay.ThemeStyle.BackColor = Color.White;
             dgvDanhSachChuyenBay.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
             dgvDanhSachChuyenBay.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
-            dgvDanhSachChuyenBay.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvDanhSachChuyenBay.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.Sunken;
             dgvDanhSachChuyenBay.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
             dgvDanhSachChuyenBay.ThemeStyle.HeaderStyle.ForeColor = Color.White;
             dgvDanhSachChuyenBay.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dgvDanhSachChuyenBay.ThemeStyle.HeaderStyle.Height = 4;
+            dgvDanhSachChuyenBay.ThemeStyle.HeaderStyle.Height = 30;
             dgvDanhSachChuyenBay.ThemeStyle.ReadOnly = false;
             dgvDanhSachChuyenBay.ThemeStyle.RowsStyle.BackColor = Color.White;
             dgvDanhSachChuyenBay.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
