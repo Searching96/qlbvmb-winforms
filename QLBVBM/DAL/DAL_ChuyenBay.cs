@@ -85,22 +85,22 @@ namespace QLBVBM.DAL
         }
 
         public List<DTO_ChuyenBay> TraCuuChuyenBayNangCao(
-           string maChuyenBay = null, string maSanBayDi = null, string maSanBayDen = null,
-           DateTime? ngayBayTu = null, DateTime? ngayBayDen = null,
-           DateTime? gioBayTu = null, DateTime? gioBayDen = null,
-           int? thoiGianBayTu = null, int? thoiGianBayDen = null,
-           string maSanBayTG1 = null, string ghiChuSanBayTG1 = null,
-           int? thoiGianDungSBTG1_Tu = null, int? thoiGianDungSBTG1_Den = null,
-           string maSanBayTG2 = null, string ghiChuSanBayTG2 = null,
-           int? thoiGianDungSBTG2_Tu = null, int? thoiGianDungSBTG2_Den = null,
-           string maHangGhe_Ten = null,
-           string maHangGhe_DonGia = null, int? donGiaHangVeTu = null, int? donGiaHangVeDen = null,
-           string maHangGhe_SLGhe = null, int? soLuongGheHangVeTu = null, int? soLuongGheHangVeDen = null,
-           string maHangGhe_SLGheDaBan = null, int? soLuongGheHangVeDaBanTu = null, int? soLuongGheHangVeDaBanDen = null,
-           string maHangGhe_SLGheDaDat = null, int? soLuongGheHangVeDaDatTu = null, int? soLuongGheHangVeDaDatDen = null,
-           string maVeChuyenBay = null, int? trangThaiVe = null,
-           string tenHanhKhach = null, string soCMND = null, string soDT = null,
-           DateTime? thoiDiemThanhToanTu = null, DateTime? thoiDiemThanhToanDen = null)
+            string maChuyenBay = null, string maSanBayDi = null, string maSanBayDen = null,
+            DateTime? ngayBayTu = null, DateTime? ngayBayDen = null,
+            DateTime? gioBayTu = null, DateTime? gioBayDen = null,
+            int? thoiGianBayTu = null, int? thoiGianBayDen = null,
+            string maSanBayTG1 = null, string ghiChuSanBayTG1 = null,
+            int? thoiGianDungSBTG1_Tu = null, int? thoiGianDungSBTG1_Den = null,
+            string maSanBayTG2 = null, string ghiChuSanBayTG2 = null,
+            int? thoiGianDungSBTG2_Tu = null, int? thoiGianDungSBTG2_Den = null,
+            string maHangGhe_Ten = null,
+            string maHangGhe_DonGia = null, int? donGiaHangVeTu = null, int? donGiaHangVeDen = null,
+            string maHangGhe_SLGhe = null, int? soLuongGheHangVeTu = null, int? soLuongGheHangVeDen = null,
+            string maHangGhe_SLGheDaBan = null, int? soLuongGheHangVeDaBanTu = null, int? soLuongGheHangVeDaBanDen = null,
+            string maHangGhe_SLGheDaDat = null, int? soLuongGheHangVeDaDatTu = null, int? soLuongGheHangVeDaDatDen = null,
+            string maVeChuyenBay = null, int? trangThaiVe = null,
+            string tenHanhKhach = null, string soCMND = null, string soDT = null,
+            DateTime? thoiDiemThanhToanTu = null, DateTime? thoiDiemThanhToanDen = null)
         {
             List<DTO_ChuyenBay> dsChuyenBay = new List<DTO_ChuyenBay>();
             string query = @"
@@ -112,8 +112,8 @@ namespace QLBVBM.DAL
                     cb.GioBay,
                     cb.ThoiGianBay,
                     COALESCE(SUM(hvcb.SoLuongGhe), 0) AS TongSoGhe,
-                    COALESCE(SUM(hvcb.SoLuongGheDaBan), 0) +COALESCE(SUM(hvcb.SLGheDaDat), 0) AS SoGheDat,
-                    COALESCE(SUM(hvcb.SoLuongGhe), 0) -(COALESCE(SUM(hvcb.SoLuongGheDaBan), 0) + COALESCE(SUM(hvcb.SLGheDaDat), 0)) AS SoGheTrong
+                    COALESCE(SUM(hvcb.SoLuongGheDaBan), 0) + COALESCE(SUM(hvcb.SLGheDaDat), 0) AS SoGheDat,
+                    COALESCE(SUM(hvcb.SoLuongGhe), 0) - (COALESCE(SUM(hvcb.SoLuongGheDaBan), 0) + COALESCE(SUM(hvcb.SLGheDaDat), 0)) AS SoGheTrong
                 FROM CHUYENBAY cb
                 JOIN SANBAY sbDi ON cb.MaSanBayDi = sbDi.MaSanBay
                 JOIN SANBAY sbDen ON cb.MaSanBayDen = sbDen.MaSanBay
@@ -123,196 +123,277 @@ namespace QLBVBM.DAL
                 LEFT JOIN HANGGHE hg ON hvcb.MaHangGhe = hg.MaHangGhe
                 LEFT JOIN VECHUYENBAY vcb ON cb.MaChuyenBay = vcb.MaChuyenBay
                                             AND vcb.MaHangGhe = hg.MaHangGhe
-                WHERE 1 = 1";
+                WHERE 1 = 0";
 
             List<MySqlParameter> parameters = new List<MySqlParameter>();
 
             if (!string.IsNullOrEmpty(maChuyenBay))
             {
-                query += " AND cb.MaChuyenBay LIKE @MaChuyenBay";
+                query += " OR cb.MaChuyenBay LIKE @MaChuyenBay";
                 parameters.Add(new MySqlParameter("@MaChuyenBay", $"%{maChuyenBay}%"));
             }
-            if (!maSanBayDi.Equals("ALL"))
+            if (!string.IsNullOrEmpty(maSanBayDi) && !maSanBayDi.Equals("ALL"))
             {
-                query += " AND cb.MaSanBayDi = @MaSanBayDi";
+                query += " OR cb.MaSanBayDi = @MaSanBayDi";
                 parameters.Add(new MySqlParameter("@MaSanBayDi", maSanBayDi));
             }
-            if (!maSanBayDen.Equals("ALL"))
+            if (!string.IsNullOrEmpty(maSanBayDen) && !maSanBayDen.Equals("ALL"))
             {
-                query += " AND cb.MaSanBayDen = @MaSanBayDen";
+                query += " OR cb.MaSanBayDen = @MaSanBayDen";
                 parameters.Add(new MySqlParameter("@MaSanBayDen", maSanBayDen));
             }
-            if (ngayBayTu.HasValue)
+            if (ngayBayTu.HasValue || ngayBayDen.HasValue)
             {
-                query += " AND cb.NgayBay >= @NgayBayTu";
-                parameters.Add(new MySqlParameter("@NgayBayTu", ngayBayTu.Value));
+                List<string> ngayBayConditions = new List<string>();
+                if (ngayBayTu.HasValue)
+                {
+                    ngayBayConditions.Add("cb.NgayBay >= @NgayBayTu");
+                    parameters.Add(new MySqlParameter("@NgayBayTu", ngayBayTu.Value));
+                }
+                if (ngayBayDen.HasValue)
+                {
+                    ngayBayConditions.Add("cb.NgayBay <= @NgayBayDen");
+                    parameters.Add(new MySqlParameter("@NgayBayDen", ngayBayDen.Value));
+                }
+                if (ngayBayConditions.Count > 0)
+                {
+                    query += " OR " + (ngayBayConditions.Count > 1 ? "(" + string.Join(" AND ", ngayBayConditions) + ")" : ngayBayConditions[0]);
+                }
             }
-            if (ngayBayDen.HasValue)
+            if (gioBayTu.HasValue || gioBayDen.HasValue)
             {
-                query += " AND cb.NgayBay <= @NgayBayDen";
-                parameters.Add(new MySqlParameter("@NgayBayDen", ngayBayDen.Value));
+                List<string> gioBayConditions = new List<string>();
+                if (gioBayTu.HasValue)
+                {
+                    gioBayConditions.Add("cb.GioBay >= @GioBayTu");
+                    parameters.Add(new MySqlParameter("@GioBayTu", gioBayTu.Value));
+                }
+                if (gioBayDen.HasValue)
+                {
+                    gioBayConditions.Add("cb.GioBay <= @GioBayDen");
+                    parameters.Add(new MySqlParameter("@GioBayDen", gioBayDen.Value));
+                }
+                if (gioBayConditions.Count > 0)
+                {
+                    query += " OR " + (gioBayConditions.Count > 1 ? "(" + string.Join(" AND ", gioBayConditions) + ")" : gioBayConditions[0]);
+                }
             }
-            if (gioBayTu.HasValue)
+            if (thoiGianBayTu.HasValue || thoiGianBayDen.HasValue)
             {
-                query += " AND cb.GioBay >= @GioBayTu";
-                parameters.Add(new MySqlParameter("@GioBayTu", gioBayTu.Value));
+                List<string> thoiGianBayConditions = new List<string>();
+                if (thoiGianBayTu.HasValue)
+                {
+                    thoiGianBayConditions.Add("cb.ThoiGianBay >= @ThoiGianBayTu");
+                    parameters.Add(new MySqlParameter("@ThoiGianBayTu", thoiGianBayTu.Value));
+                }
+                if (thoiGianBayDen.HasValue)
+                {
+                    thoiGianBayConditions.Add("cb.ThoiGianBay <= @ThoiGianBayDen");
+                    parameters.Add(new MySqlParameter("@ThoiGianBayDen", thoiGianBayDen.Value));
+                }
+                if (thoiGianBayConditions.Count > 0)
+                {
+                    query += " OR " + (thoiGianBayConditions.Count > 1 ? "(" + string.Join(" AND ", thoiGianBayConditions) + ")" : thoiGianBayConditions[0]);
+                }
             }
-            if (gioBayDen.HasValue)
+            if (!string.IsNullOrEmpty(maSanBayTG1) && !maSanBayTG1.Equals("ALL"))
             {
-                query += " AND cb.GioBay <= @GioBayDen";
-                parameters.Add(new MySqlParameter("@GioBayDen", gioBayDen.Value));
-            }
-            if (!maSanBayTG1.Equals("ALL"))
-            {
-                query += " AND ct1.MaSanBayTG = @MaSanBayTG1";
+                query += " OR ct1.MaSanBayTG = @MaSanBayTG1";
                 parameters.Add(new MySqlParameter("@MaSanBayTG1", maSanBayTG1));
-            }
-            if (thoiGianDungSBTG1_Tu.HasValue)
-            {
-                query += " AND ct1.ThoiGianDung >= @ThoiGianDungSBTG1_Tu";
-                parameters.Add(new MySqlParameter("@ThoiGianDungSBTG1_Tu", thoiGianDungSBTG1_Tu.Value));
-            }
-            if (thoiGianDungSBTG1_Den.HasValue)
-            {
-                query += " AND ct1.ThoiGianDung <= @ThoiGianDungSBTG1_Den";
-                parameters.Add(new MySqlParameter("@ThoiGianDungSBTG1_Den", thoiGianDungSBTG1_Den.Value));
             }
             if (!string.IsNullOrEmpty(ghiChuSanBayTG1))
             {
-                query += " AND ct1.GhiChu LIKE @GhiChuSanBayTG1";
+                query += " OR ct1.GhiChu LIKE @GhiChuSanBayTG1";
                 parameters.Add(new MySqlParameter("@GhiChuSanBayTG1", $"%{ghiChuSanBayTG1}%"));
             }
-            if (!maSanBayTG2.Equals("ALL"))
+            if (thoiGianDungSBTG1_Tu.HasValue || thoiGianDungSBTG1_Den.HasValue)
             {
-                query += " AND ct2.MaSanBayTG = @MaSanBayTG2";
+                List<string> thoiGianDungSBTG1Conditions = new List<string>();
+                if (thoiGianDungSBTG1_Tu.HasValue)
+                {
+                    thoiGianDungSBTG1Conditions.Add("ct1.ThoiGianDung >= @ThoiGianDungSBTG1_Tu");
+                    parameters.Add(new MySqlParameter("@ThoiGianDungSBTG1_Tu", thoiGianDungSBTG1_Tu.Value));
+                }
+                if (thoiGianDungSBTG1_Den.HasValue)
+                {
+                    thoiGianDungSBTG1Conditions.Add("ct1.ThoiGianDung <= @ThoiGianDungSBTG1_Den");
+                    parameters.Add(new MySqlParameter("@ThoiGianDungSBTG1_Den", thoiGianDungSBTG1_Den.Value));
+                }
+                if (thoiGianDungSBTG1Conditions.Count > 0)
+                {
+                    query += " OR " + (thoiGianDungSBTG1Conditions.Count > 1 ? "(" + string.Join(" AND ", thoiGianDungSBTG1Conditions) + ")" : thoiGianDungSBTG1Conditions[0]);
+                }
+            }
+            if (!string.IsNullOrEmpty(maSanBayTG2) && !maSanBayTG2.Equals("ALL"))
+            {
+                query += " OR ct2.MaSanBayTG = @MaSanBayTG2";
                 parameters.Add(new MySqlParameter("@MaSanBayTG2", maSanBayTG2));
-            }
-            if (thoiGianDungSBTG2_Tu.HasValue)
-            {
-                query += " AND ct2.ThoiGianDung >= @ThoiGianDungSBTG2_Tu";
-                parameters.Add(new MySqlParameter("@ThoiGianDungSBTG2_Tu", thoiGianDungSBTG2_Tu.Value));
-            }
-            if (thoiGianDungSBTG2_Den.HasValue)
-            {
-                query += " AND ct2.ThoiGianDung <= @ThoiGianDungSBTG2_Den";
-                parameters.Add(new MySqlParameter("@ThoiGianDungSBTG2_Den", thoiGianDungSBTG2_Den.Value));
             }
             if (!string.IsNullOrEmpty(ghiChuSanBayTG2))
             {
-                query += " AND ct2.GhiChu LIKE @GhiChuSanBayTG2";
+                query += " OR ct2.GhiChu LIKE @GhiChuSanBayTG2";
                 parameters.Add(new MySqlParameter("@GhiChuSanBayTG2", $"%{ghiChuSanBayTG2}%"));
             }
-            if (thoiGianBayTu.HasValue)
+            if (thoiGianDungSBTG2_Tu.HasValue || thoiGianDungSBTG2_Den.HasValue)
             {
-                query += " AND cb.ThoiGianBay >= @ThoiGianBayTu";
-                parameters.Add(new MySqlParameter("@ThoiGianBayTu", thoiGianBayTu.Value));
+                List<string> thoiGianDungSBTG2Conditions = new List<string>();
+                if (thoiGianDungSBTG2_Tu.HasValue)
+                {
+                    thoiGianDungSBTG2Conditions.Add("ct2.ThoiGianDung >= @ThoiGianDungSBTG2_Tu");
+                    parameters.Add(new MySqlParameter("@ThoiGianDungSBTG2_Tu", thoiGianDungSBTG2_Tu.Value));
+                }
+                if (thoiGianDungSBTG2_Den.HasValue)
+                {
+                    thoiGianDungSBTG2Conditions.Add("ct2.ThoiGianDung <= @ThoiGianDungSBTG2_Den");
+                    parameters.Add(new MySqlParameter("@ThoiGianDungSBTG2_Den", thoiGianDungSBTG2_Den.Value));
+                }
+                if (thoiGianDungSBTG2Conditions.Count > 0)
+                {
+                    query += " OR " + (thoiGianDungSBTG2Conditions.Count > 1 ? "(" + string.Join(" AND ", thoiGianDungSBTG2Conditions) + ")" : thoiGianDungSBTG2Conditions[0]);
+                }
             }
-            if (thoiGianBayDen.HasValue)
+            if (!string.IsNullOrEmpty(maHangGhe_Ten) && !maHangGhe_Ten.Equals("ALL"))
             {
-                query += " AND cb.ThoiGianBay <= @ThoiGianBayDen";
-                parameters.Add(new MySqlParameter("@ThoiGianBayDen", thoiGianBayDen.Value));
-            }
-            if (!maHangGhe_Ten.Equals("ALL"))
-            {
-                query += " AND hg.TenHangGhe = @TenHangGhe";
+                query += " OR hg.TenHangGhe = @TenHangGhe";
                 parameters.Add(new MySqlParameter("@TenHangGhe", maHangGhe_Ten));
             }
-            if (!maHangGhe_DonGia.Equals("ALL"))
+            if (donGiaHangVeTu.HasValue || donGiaHangVeDen.HasValue)
             {
-                query += " AND hg.DonGia = @DonGiaHangVe";
+                List<string> donGiaHangVeConditions = new List<string>();
+                if (donGiaHangVeTu.HasValue)
+                {
+                    donGiaHangVeConditions.Add("hvcb.DonGia >= @DonGiaHangVeTu");
+                    parameters.Add(new MySqlParameter("@DonGiaHangVeTu", donGiaHangVeTu.Value));
+                }
+                if (donGiaHangVeDen.HasValue)
+                {
+                    donGiaHangVeConditions.Add("hvcb.DonGia <= @DonGiaHangVeDen");
+                    parameters.Add(new MySqlParameter("@DonGiaHangVeDen", donGiaHangVeDen.Value));
+                }
+                if (donGiaHangVeConditions.Count > 0)
+                {
+                    query += " OR " + (donGiaHangVeConditions.Count > 1 ? "(" + string.Join(" AND ", donGiaHangVeConditions) + ")" : donGiaHangVeConditions[0]);
+                }
+            }
+            if (!string.IsNullOrEmpty(maHangGhe_DonGia) && !maHangGhe_DonGia.Equals("ALL"))
+            {
+                query += " OR hvcb.DonGia = @DonGiaHangVe";
                 parameters.Add(new MySqlParameter("@DonGiaHangVe", maHangGhe_DonGia));
             }
-            if (donGiaHangVeTu.HasValue)
+            if (soLuongGheHangVeTu.HasValue || soLuongGheHangVeDen.HasValue)
             {
-                query += " AND hg.DonGia >= @DonGiaHangVeTu";
-                parameters.Add(new MySqlParameter("@DonGiaHangVeTu", donGiaHangVeTu.Value));
+                List<string> soLuongGheHangVeConditions = new List<string>();
+                if (soLuongGheHangVeTu.HasValue)
+                {
+                    soLuongGheHangVeConditions.Add("hvcb.SoLuongGhe >= @SoLuongGheHangVeTu");
+                    parameters.Add(new MySqlParameter("@SoLuongGheHangVeTu", soLuongGheHangVeTu.Value));
+                }
+                if (soLuongGheHangVeDen.HasValue)
+                {
+                    soLuongGheHangVeConditions.Add("hvcb.SoLuongGhe <= @SoLuongGheHangVeDen");
+                    parameters.Add(new MySqlParameter("@SoLuongGheHangVeDen", soLuongGheHangVeDen.Value));
+                }
+                if (soLuongGheHangVeConditions.Count > 0)
+                {
+                    query += " OR " + (soLuongGheHangVeConditions.Count > 1 ? "(" + string.Join(" AND ", soLuongGheHangVeConditions) + ")" : soLuongGheHangVeConditions[0]);
+                }
             }
-            if (donGiaHangVeDen.HasValue)
+            if (!string.IsNullOrEmpty(maHangGhe_SLGhe) && !maHangGhe_SLGhe.Equals("ALL"))
             {
-                query += " AND hg.DonGia <= @DonGiaHangVeDen";
-                parameters.Add(new MySqlParameter("@DonGiaHangVeDen", donGiaHangVeDen.Value));
-            }
-            if (!maHangGhe_SLGhe.Equals("ALL"))
-            {
-                query += " AND hg.SoLuongGhe = @SLGheHangVe";
+                query += " OR hvcb.SoLuongGhe = @SLGheHangVe";
                 parameters.Add(new MySqlParameter("@SLGheHangVe", maHangGhe_SLGhe));
             }
-            if (soLuongGheHangVeTu.HasValue)
+            if (soLuongGheHangVeDaBanTu.HasValue || soLuongGheHangVeDaBanDen.HasValue)
             {
-                query += " AND hg.SoLuongGhe >= @SoLuongGheHangVeTu";
-                parameters.Add(new MySqlParameter("@SoLuongGheHangVeTu", soLuongGheHangVeTu.Value));
+                List<string> soLuongGheDaBanConditions = new List<string>();
+                if (soLuongGheHangVeDaBanTu.HasValue)
+                {
+                    soLuongGheDaBanConditions.Add("hvcb.SoLuongGheDaBan >= @SoLuongGheHangVeDaBanTu");
+                    parameters.Add(new MySqlParameter("@SoLuongGheHangVeDaBanTu", soLuongGheHangVeDaBanTu.Value));
+                }
+                if (soLuongGheHangVeDaBanDen.HasValue)
+                {
+                    soLuongGheDaBanConditions.Add("hvcb.SoLuongGheDaBan <= @SoLuongGheHangVeDaBanDen");
+                    parameters.Add(new MySqlParameter("@SoLuongGheHangVeDaBanDen", soLuongGheHangVeDaBanDen.Value));
+                }
+                if (soLuongGheDaBanConditions.Count > 0)
+                {
+                    query += " OR " + (soLuongGheDaBanConditions.Count > 1 ? "(" + string.Join(" AND ", soLuongGheDaBanConditions) + ")" : soLuongGheDaBanConditions[0]);
+                }
             }
-            if (soLuongGheHangVeDen.HasValue)
+            if (!string.IsNullOrEmpty(maHangGhe_SLGheDaBan) && !maHangGhe_SLGheDaBan.Equals("ALL"))
             {
-                query += " AND hg.SoLuongGhe <= @SoLuongGheHangVeDen";
-                parameters.Add(new MySqlParameter("@SoLuongGheHangVeDen", soLuongGheHangVeDen.Value));
-            }
-            if (!maHangGhe_SLGheDaBan.Equals("ALL"))
-            {
-                query += " AND hg.SoLuongGheDaBan = @SLGheDaBanHangVe";
+                query += " OR hvcb.SoLuongGheDaBan = @SLGheDaBanHangVe";
                 parameters.Add(new MySqlParameter("@SLGheDaBanHangVe", maHangGhe_SLGheDaBan));
             }
-            if (soLuongGheHangVeDaBanTu.HasValue)
+            if (soLuongGheHangVeDaDatTu.HasValue || soLuongGheHangVeDaDatDen.HasValue)
             {
-                query += " AND hg.SoLuongGheDaBan >= @SoLuongGheHangVeDaBanTu";
-                parameters.Add(new MySqlParameter("@SoLuongGheHangVeDaBanTu", soLuongGheHangVeDaBanTu.Value));
+                List<string> soLuongGheDaDatConditions = new List<string>();
+                if (soLuongGheHangVeDaDatTu.HasValue)
+                {
+                    soLuongGheDaDatConditions.Add("hvcb.SLGheDaDat >= @SoLuongGheHangVeDaDatTu");
+                    parameters.Add(new MySqlParameter("@SoLuongGheHangVeDaDatTu", soLuongGheHangVeDaDatTu.Value));
+                }
+                if (soLuongGheHangVeDaDatDen.HasValue)
+                {
+                    soLuongGheDaDatConditions.Add("hvcb.SLGheDaDat <= @SoLuongGheHangVeDaDatDen");
+                    parameters.Add(new MySqlParameter("@SoLuongGheHangVeDaDatDen", soLuongGheHangVeDaDatDen.Value));
+                }
+                if (soLuongGheDaDatConditions.Count > 0)
+                {
+                    query += " OR " + (soLuongGheDaDatConditions.Count > 1 ? "(" + string.Join(" AND ", soLuongGheDaDatConditions) + ")" : soLuongGheDaDatConditions[0]);
+                }
             }
-            if (soLuongGheHangVeDaBanDen.HasValue)
+            if (!string.IsNullOrEmpty(maHangGhe_SLGheDaDat) && !maHangGhe_SLGheDaDat.Equals("ALL"))
             {
-                query += " AND hg.SoLuongGheDaBan <= @SoLuongGheHangVeDaBanDen";
-                parameters.Add(new MySqlParameter("@SoLuongGheHangVeDaBanDen", soLuongGheHangVeDaBanDen.Value));
-            }
-            if (!maHangGhe_SLGheDaDat.Equals("ALL"))
-            {
-                query += " AND hg.SoLuongGheDaDat = @SLGheDaDatHangVe";
+                query += " OR hvcb.SLGheDaDat = @SLGheDaDatHangVe";
                 parameters.Add(new MySqlParameter("@SLGheDaDatHangVe", maHangGhe_SLGheDaDat));
-            }
-            if (soLuongGheHangVeDaDatTu.HasValue)
-            {
-                query += " AND hg.SoLuongGheDaDat >= @SoLuongGheHangVeDaDatTu";
-                parameters.Add(new MySqlParameter("@SoLuongGheHangVeDaDatTu", soLuongGheHangVeDaDatTu.Value));
-            }
-            if (soLuongGheHangVeDaDatDen.HasValue)
-            {
-                query += " AND hg.SoLuongGheDaDat <= @SoLuongGheHangVeDaDatDen";
-                parameters.Add(new MySqlParameter("@SoLuongGheHangVeDaDatDen", soLuongGheHangVeDaDatDen.Value));
             }
             if (!string.IsNullOrEmpty(maVeChuyenBay))
             {
-                query += " AND vcb.MaVeChuyenBay LIKE @MaVeChuyenBay";
+                query += " OR vcb.MaVeChuyenBay LIKE @MaVeChuyenBay";
                 parameters.Add(new MySqlParameter("@MaVeChuyenBay", $"%{maVeChuyenBay}%"));
             }
-            if (trangThaiVe != -1)
+            if (trangThaiVe.HasValue && trangThaiVe != -1)
             {
-                query += " AND vcb.TrangThaiVe = @TrangThaiVe";
+                query += " OR vcb.TrangThaiVe = @TrangThaiVe";
                 parameters.Add(new MySqlParameter("@TrangThaiVe", trangThaiVe.Value));
             }
             if (!string.IsNullOrEmpty(tenHanhKhach))
             {
-                query += " AND vcb.TenHanhKhach LIKE @TenHanhKhach";
+                query += " OR vcb.TenHanhKhach LIKE @TenHanhKhach";
                 parameters.Add(new MySqlParameter("@TenHanhKhach", $"%{tenHanhKhach}%"));
             }
             if (!string.IsNullOrEmpty(soCMND))
             {
-                query += " AND vcb.SoCMND LIKE @SoCMND";
+                query += " OR vcb.CMND LIKE @SoCMND";
                 parameters.Add(new MySqlParameter("@SoCMND", $"%{soCMND}%"));
             }
             if (!string.IsNullOrEmpty(soDT))
             {
-                query += " AND vcb.SoDT LIKE @SoDT";
+                query += " OR vcb.SoDienThoai LIKE @SoDT";
                 parameters.Add(new MySqlParameter("@SoDT", $"%{soDT}%"));
             }
-            if (thoiDiemThanhToanTu.HasValue)
+            if (thoiDiemThanhToanTu.HasValue || thoiDiemThanhToanDen.HasValue)
             {
-                query += " AND vcb.ThoiDiemThanhToan >= @ThoiDiemThanhToanTu";
-                parameters.Add(new MySqlParameter("@ThoiDiemThanhToanTu", thoiDiemThanhToanTu.Value));
+                List<string> thoiDiemThanhToanConditions = new List<string>();
+                if (thoiDiemThanhToanTu.HasValue)
+                {
+                    thoiDiemThanhToanConditions.Add("vcb.ThoiDiemThanhToan >= @ThoiDiemThanhToanTu");
+                    parameters.Add(new MySqlParameter("@ThoiDiemThanhToanTu", thoiDiemThanhToanTu.Value));
+                }
+                if (thoiDiemThanhToanDen.HasValue)
+                {
+                    thoiDiemThanhToanConditions.Add("vcb.ThoiDiemThanhToan <= @ThoiDiemThanhToanDen");
+                    parameters.Add(new MySqlParameter("@ThoiDiemThanhToanDen", thoiDiemThanhToanDen.Value));
+                }
+                if (thoiDiemThanhToanConditions.Count > 0)
+                {
+                    query += " OR " + (thoiDiemThanhToanConditions.Count > 1 ? "(" + string.Join(" AND ", thoiDiemThanhToanConditions) + ")" : thoiDiemThanhToanConditions[0]);
+                }
             }
-            if (thoiDiemThanhToanDen.HasValue)
-            {
-                query += " AND vcb.ThoiDiemThanhToan <= @ThoiDiemThanhToanDen";
-                parameters.Add(new MySqlParameter("@ThoiDiemThanhToanDen", thoiDiemThanhToanDen.Value));
-            }
-            query += " GROUP BY cb.MaChuyenBay";
+
+            query += " GROUP BY cb.MaChuyenBay, cb.MaSanBayDi, cb.MaSanBayDen, cb.NgayBay, cb.GioBay, cb.ThoiGianBay";
             query += " ORDER BY cb.NgayBay, cb.GioBay";
 
             DataTable dt = dataHelper.ExecuteQuery(query, parameters);
