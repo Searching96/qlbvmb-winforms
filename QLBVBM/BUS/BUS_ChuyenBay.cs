@@ -1,11 +1,5 @@
 ﻿using QLBVBM.DAL;
 using QLBVBM.DTO;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Transactions;
 
 namespace QLBVBM.BUS
@@ -178,6 +172,36 @@ namespace QLBVBM.BUS
             DateTime thoiGianBay = chuyenBay.NgayBay.Value.Date + chuyenBay.GioBay.Value.TimeOfDay;
             DateTime hanCuoiDatVe = thoiGianBay.AddDays(-BUS_ThamSo.LayThoiGianHuyDatVeToiThieu());
             return hanCuoiDatVe;
+        }
+
+        public List<DTO_ChuyenBay> TraCuuChuyenBayNangCao(
+           string maChuyenBay = null, string maSanBayDi = null, string maSanBayDen = null,
+           DateTime? ngayBayTu = null, DateTime? ngayBayDen = null,
+           DateTime? gioBayTu = null, DateTime? gioBayDen = null,
+           int? thoiGianBayTu = null, int? thoiGianBayDen = null,
+           string maSanBayTG1 = null, string ghiChuSanBayTG1 = null,
+           int? thoiGianDungSBTG1_Tu = null, int? thoiGianDungSBTG1_Den = null,
+           string maSanBayTG2 = null, string ghiChuSanBayTG2 = null,
+           int? thoiGianDungSBTG2_Tu = null, int? thoiGianDungSBTG2_Den = null,
+           string maHangGhe_Ten = null,
+           string maHangGhe_DonGia = null, int? donGiaHangVeTu = null, int? donGiaHangVeDen = null,
+           string maHangGhe_SLGhe = null, int? soLuongGheHangVeTu = null, int? soLuongGheHangVeDen = null,
+           string maHangGhe_SLGheDaBan = null, int? soLuongGheHangVeDaBanTu = null, int? soLuongGheHangVeDaBanDen = null,
+           string maHangGhe_SLGheDaDat = null, int? soLuongGheHangVeDaDatTu = null, int? soLuongGheHangVeDaDatDen = null,
+           string maVeChuyenBay = null, int? trangThaiVe = null,
+           string tenHanhKhach = null, string soCMND = null, string soDT = null,
+           DateTime? thoiDiemThanhToanTu = null, DateTime? thoiDiemThanhToanDen = null)
+        {
+            return DAL_ChuyenBay.TraCuuChuyenBayNangCao(maChuyenBay, maSanBayDi, maSanBayDen, ngayBayTu, ngayBayDen,
+                    gioBayTu, gioBayDen, thoiGianBayTu, thoiGianBayDen,
+                    maSanBayTG1, ghiChuSanBayTG1, thoiGianDungSBTG1_Tu, thoiGianDungSBTG1_Den,
+                    maSanBayTG2, ghiChuSanBayTG2, thoiGianDungSBTG2_Tu, thoiGianDungSBTG2_Den,
+                    maHangGhe_Ten, maHangGhe_DonGia, donGiaHangVeTu, donGiaHangVeDen,
+                    maHangGhe_SLGhe, soLuongGheHangVeTu, soLuongGheHangVeDen,
+                    maHangGhe_SLGheDaBan, soLuongGheHangVeDaBanTu, soLuongGheHangVeDaBanDen,
+                    maHangGhe_SLGheDaDat, soLuongGheHangVeDaDatTu, soLuongGheHangVeDaDatDen,
+                    maVeChuyenBay, trangThaiVe, tenHanhKhach, soCMND, soDT,
+                    thoiDiemThanhToanTu, thoiDiemThanhToanDen);
         }
     }
 }
