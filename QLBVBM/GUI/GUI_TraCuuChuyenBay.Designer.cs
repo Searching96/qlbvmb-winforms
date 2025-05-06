@@ -236,7 +236,7 @@
             // 
             lblTenSanBayDi.BackColor = Color.Transparent;
             lblTenSanBayDi.Font = new Font("Arial", 11F, FontStyle.Bold);
-            lblTenSanBayDi.Location = new Point(219, 25);
+            lblTenSanBayDi.Location = new Point(215, 25);
             lblTenSanBayDi.Name = "lblTenSanBayDi";
             lblTenSanBayDi.Size = new Size(129, 23);
             lblTenSanBayDi.TabIndex = 2;
@@ -246,7 +246,7 @@
             // 
             lblTenSanBayDen.BackColor = Color.Transparent;
             lblTenSanBayDen.Font = new Font("Arial", 11F, FontStyle.Bold);
-            lblTenSanBayDen.Location = new Point(555, 25);
+            lblTenSanBayDen.Location = new Point(544, 25);
             lblTenSanBayDen.Name = "lblTenSanBayDen";
             lblTenSanBayDen.Size = new Size(146, 23);
             lblTenSanBayDen.TabIndex = 3;
@@ -265,7 +265,7 @@
             cbbTenSanBayDi.Font = new Font("Arial", 10F);
             cbbTenSanBayDi.ForeColor = Color.FromArgb(68, 88, 112);
             cbbTenSanBayDi.ItemHeight = 30;
-            cbbTenSanBayDi.Location = new Point(219, 57);
+            cbbTenSanBayDi.Location = new Point(215, 57);
             cbbTenSanBayDi.Name = "cbbTenSanBayDi";
             cbbTenSanBayDi.ShadowDecoration.CustomizableEdges = customizableEdges4;
             cbbTenSanBayDi.Size = new Size(300, 36);
@@ -284,7 +284,7 @@
             cbbTenSanBayDen.Font = new Font("Arial", 10F);
             cbbTenSanBayDen.ForeColor = Color.FromArgb(68, 88, 112);
             cbbTenSanBayDen.ItemHeight = 30;
-            cbbTenSanBayDen.Location = new Point(555, 57);
+            cbbTenSanBayDen.Location = new Point(544, 57);
             cbbTenSanBayDen.Name = "cbbTenSanBayDen";
             cbbTenSanBayDen.ShadowDecoration.CustomizableEdges = customizableEdges6;
             cbbTenSanBayDen.Size = new Size(300, 36);
@@ -294,7 +294,7 @@
             // 
             lblNgayBay.BackColor = Color.Transparent;
             lblNgayBay.Font = new Font("Arial", 11F, FontStyle.Bold);
-            lblNgayBay.Location = new Point(892, 25);
+            lblNgayBay.Location = new Point(871, 25);
             lblNgayBay.Name = "lblNgayBay";
             lblNgayBay.Size = new Size(85, 23);
             lblNgayBay.TabIndex = 6;
@@ -305,7 +305,7 @@
             lblNgayBayTu.BackColor = Color.Transparent;
             lblNgayBayTu.Font = new Font("Arial", 11F, FontStyle.Bold);
             lblNgayBayTu.ForeColor = Color.Red;
-            lblNgayBayTu.Location = new Point(892, 67);
+            lblNgayBayTu.Location = new Point(871, 67);
             lblNgayBayTu.Name = "lblNgayBayTu";
             lblNgayBayTu.Size = new Size(22, 23);
             lblNgayBayTu.TabIndex = 7;
@@ -321,12 +321,12 @@
             dtpNgayBayTu.Font = new Font("Arial", 9F);
             dtpNgayBayTu.ForeColor = SystemColors.ControlText;
             dtpNgayBayTu.Format = DateTimePickerFormat.Long;
-            dtpNgayBayTu.Location = new Point(920, 57);
+            dtpNgayBayTu.Location = new Point(899, 57);
             dtpNgayBayTu.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             dtpNgayBayTu.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             dtpNgayBayTu.Name = "dtpNgayBayTu";
             dtpNgayBayTu.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            dtpNgayBayTu.Size = new Size(208, 36);
+            dtpNgayBayTu.Size = new Size(220, 36);
             dtpNgayBayTu.TabIndex = 8;
             dtpNgayBayTu.Value = new DateTime(2025, 5, 1, 21, 49, 59, 256);
             // 
@@ -340,12 +340,12 @@
             dtpNgayBayDen.Font = new Font("Arial", 9F);
             dtpNgayBayDen.ForeColor = SystemColors.ControlText;
             dtpNgayBayDen.Format = DateTimePickerFormat.Long;
-            dtpNgayBayDen.Location = new Point(1176, 57);
+            dtpNgayBayDen.Location = new Point(1165, 57);
             dtpNgayBayDen.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             dtpNgayBayDen.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             dtpNgayBayDen.Name = "dtpNgayBayDen";
             dtpNgayBayDen.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            dtpNgayBayDen.Size = new Size(208, 36);
+            dtpNgayBayDen.Size = new Size(220, 36);
             dtpNgayBayDen.TabIndex = 10;
             dtpNgayBayDen.Value = new DateTime(2025, 5, 1, 21, 49, 59, 256);
             // 
@@ -354,7 +354,7 @@
             lblNgayBayDen.BackColor = Color.Transparent;
             lblNgayBayDen.Font = new Font("Arial", 11F, FontStyle.Bold);
             lblNgayBayDen.ForeColor = Color.Red;
-            lblNgayBayDen.Location = new Point(1134, 67);
+            lblNgayBayDen.Location = new Point(1123, 67);
             lblNgayBayDen.Name = "lblNgayBayDen";
             lblNgayBayDen.Size = new Size(36, 23);
             lblNgayBayDen.TabIndex = 9;
@@ -418,7 +418,7 @@
             lblGioBayTu.BackColor = Color.Transparent;
             lblGioBayTu.Font = new Font("Arial", 11F, FontStyle.Bold);
             lblGioBayTu.ForeColor = Color.Red;
-            lblGioBayTu.Location = new Point(1403, 67);
+            lblGioBayTu.Location = new Point(1405, 67);
             lblGioBayTu.Name = "lblGioBayTu";
             lblGioBayTu.Size = new Size(22, 23);
             lblGioBayTu.TabIndex = 12;
@@ -428,7 +428,7 @@
             // 
             lblGioBay.BackColor = Color.Transparent;
             lblGioBay.Font = new Font("Arial", 11F, FontStyle.Bold);
-            lblGioBay.Location = new Point(1403, 25);
+            lblGioBay.Location = new Point(1405, 25);
             lblGioBay.Name = "lblGioBay";
             lblGioBay.Size = new Size(72, 23);
             lblGioBay.TabIndex = 11;
@@ -1305,11 +1305,13 @@
             // 
             // dgvDanhSachChuyenBay
             // 
-            dataGridViewCellStyle1.BackColor = Color.White;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(194, 224, 244);
             dgvDanhSachChuyenBay.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dgvDanhSachChuyenBay.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken;
+            dgvDanhSachChuyenBay.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            dgvDanhSachChuyenBay.BorderStyle = BorderStyle.FixedSingle;
+            dgvDanhSachChuyenBay.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(52, 152, 219);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
             dataGridViewCellStyle2.ForeColor = Color.White;
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
@@ -1318,43 +1320,45 @@
             dgvDanhSachChuyenBay.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvDanhSachChuyenBay.ColumnHeadersHeight = 30;
             dgvDanhSachChuyenBay.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dgvDanhSachChuyenBay.Cursor = Cursors.Hand;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(214, 234, 247);
             dataGridViewCellStyle3.Font = new Font("Arial", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            dataGridViewCellStyle3.ForeColor = SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(119, 186, 231);
+            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dgvDanhSachChuyenBay.DefaultCellStyle = dataGridViewCellStyle3;
-            dgvDanhSachChuyenBay.GridColor = Color.FromArgb(231, 229, 255);
+            dgvDanhSachChuyenBay.GridColor = Color.FromArgb(187, 220, 242);
             dgvDanhSachChuyenBay.Location = new Point(21, 584);
             dgvDanhSachChuyenBay.Name = "dgvDanhSachChuyenBay";
             dgvDanhSachChuyenBay.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dgvDanhSachChuyenBay.RowHeadersVisible = false;
             dgvDanhSachChuyenBay.RowHeadersWidth = 51;
-            dgvDanhSachChuyenBay.Size = new Size(1657, 223);
+            dgvDanhSachChuyenBay.Size = new Size(1657, 237);
             dgvDanhSachChuyenBay.TabIndex = 85;
-            dgvDanhSachChuyenBay.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
+            dgvDanhSachChuyenBay.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.FeterRiver;
+            dgvDanhSachChuyenBay.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(194, 224, 244);
             dgvDanhSachChuyenBay.ThemeStyle.AlternatingRowsStyle.Font = null;
             dgvDanhSachChuyenBay.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
             dgvDanhSachChuyenBay.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
             dgvDanhSachChuyenBay.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
             dgvDanhSachChuyenBay.ThemeStyle.BackColor = Color.White;
-            dgvDanhSachChuyenBay.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
-            dgvDanhSachChuyenBay.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
-            dgvDanhSachChuyenBay.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.Sunken;
+            dgvDanhSachChuyenBay.ThemeStyle.GridColor = Color.FromArgb(187, 220, 242);
+            dgvDanhSachChuyenBay.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(52, 152, 219);
+            dgvDanhSachChuyenBay.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.Single;
             dgvDanhSachChuyenBay.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
             dgvDanhSachChuyenBay.ThemeStyle.HeaderStyle.ForeColor = Color.White;
             dgvDanhSachChuyenBay.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dgvDanhSachChuyenBay.ThemeStyle.HeaderStyle.Height = 30;
             dgvDanhSachChuyenBay.ThemeStyle.ReadOnly = false;
-            dgvDanhSachChuyenBay.ThemeStyle.RowsStyle.BackColor = Color.White;
+            dgvDanhSachChuyenBay.ThemeStyle.RowsStyle.BackColor = Color.FromArgb(214, 234, 247);
             dgvDanhSachChuyenBay.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgvDanhSachChuyenBay.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F);
-            dgvDanhSachChuyenBay.ThemeStyle.RowsStyle.ForeColor = Color.Red;
+            dgvDanhSachChuyenBay.ThemeStyle.RowsStyle.Font = new Font("Arial", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            dgvDanhSachChuyenBay.ThemeStyle.RowsStyle.ForeColor = Color.Black;
             dgvDanhSachChuyenBay.ThemeStyle.RowsStyle.Height = 29;
-            dgvDanhSachChuyenBay.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            dgvDanhSachChuyenBay.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dgvDanhSachChuyenBay.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(119, 186, 231);
+            dgvDanhSachChuyenBay.ThemeStyle.RowsStyle.SelectionForeColor = Color.Black;
             // 
             // grbDanhSachSanBayTG
             // 

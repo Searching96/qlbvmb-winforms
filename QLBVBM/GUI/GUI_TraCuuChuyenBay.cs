@@ -25,6 +25,7 @@ namespace QLBVBM.GUI
             dtpGioBayDen.Value = DateTime.Now;
             dtpThoiDiemThanhToanVeTu.Value = DateTime.Now;
             dtpThoiDiemThanhToanVeDen.Value = DateTime.Now;
+            ConfigureDataGridView();
 
             try
             {
@@ -161,7 +162,6 @@ namespace QLBVBM.GUI
         {
             try
             {
-                // Collect input from form controls  
                 string maChuyenBay = string.IsNullOrWhiteSpace(txtMaChuyenBay.Text) ? null : txtMaChuyenBay.Text.Trim();
                 string maSanBayDi = cbbTenSanBayDi.SelectedValue?.ToString() ?? "ALL";
                 string maSanBayDen = cbbTenSanBayDen.SelectedValue?.ToString() ?? "ALL";
@@ -200,7 +200,6 @@ namespace QLBVBM.GUI
                 DateTime? thoiDiemThanhToanTu = dtpThoiDiemThanhToanVeTu.Checked ? dtpThoiDiemThanhToanVeTu.Value : null;
                 DateTime? thoiDiemThanhToanDen = dtpThoiDiemThanhToanVeDen.Checked ? dtpThoiDiemThanhToanVeDen.Value : null;
 
-                // Call the search method  
                 var dsChuyenBay = busChuyenBay.TraCuuChuyenBayNangCao(
                     maChuyenBay, maSanBayDi, maSanBayDen, ngayBayTu, ngayBayDen,
                     gioBayTu, gioBayDen, thoiGianBayTu, thoiGianBayDen,
@@ -213,7 +212,6 @@ namespace QLBVBM.GUI
                     maVeChuyenBay, trangThaiVe, tenHanhKhach, soCMND, soDT,
                     thoiDiemThanhToanTu, thoiDiemThanhToanDen);
 
-                // Bind data to DataGridView  
                 if (dsChuyenBay != null && dsChuyenBay.Count > 0)
                 {
                     dgvDanhSachChuyenBay.DataSource = dsChuyenBay;
@@ -221,8 +219,9 @@ namespace QLBVBM.GUI
                 }
                 else
                 {
-                    dgvDanhSachChuyenBay.DataSource = null;
                     MessageBox.Show("Không tìm thấy chuyến bay nào phù hợp với tiêu chí.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dgvDanhSachChuyenBay.DataSource = null;
+                    ConfigureDataGridView();
                 }
             }
             catch (Exception ex)
@@ -233,132 +232,124 @@ namespace QLBVBM.GUI
 
         private void ConfigureDataGridView()
         {
+            dgvDanhSachChuyenBay.ReadOnly = true;
             dgvDanhSachChuyenBay.Columns.Clear();
-            Font headerFont = new Font("Arial", 11, FontStyle.Bold);
+            Font headerFont = new Font("Arial", 10, FontStyle.Bold);
 
-            // Set the header row color to grey
-            dgvDanhSachChuyenBay.ColumnHeadersDefaultCellStyle.BackColor = Color.LightCyan;
             dgvDanhSachChuyenBay.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
+            dgvDanhSachChuyenBay.GridColor = Color.Gray;
             dgvDanhSachChuyenBay.ColumnHeadersDefaultCellStyle.Font = headerFont;
             dgvDanhSachChuyenBay.EnableHeadersVisualStyles = false;
             dgvDanhSachChuyenBay.ColumnHeadersHeight = 32;
             dgvDanhSachChuyenBay.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 
-            // Add MaSanBay column
+            DataGridViewTextBoxColumn colSTT = new DataGridViewTextBoxColumn
+            {
+                Name = "colSTT",
+                HeaderText = "STT",
+                DataPropertyName = "STT",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells
+            };
             DataGridViewTextBoxColumn colMaChuyenBay = new DataGridViewTextBoxColumn
             {
                 Name = "MaChuyenBay",
-                HeaderText = "Mã chuyến bay",
+                HeaderText = "MÃ CHUYẾN BAY",
                 DataPropertyName = "MaChuyenBay",
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
             };
-            colMaChuyenBay.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            colMaChuyenBay.HeaderCell.Style.Font = headerFont;
-            dgvDanhSachChuyenBay.Columns.Add(colMaChuyenBay);
-
-            // Add other columns
             DataGridViewTextBoxColumn colMaSanBayDi = new DataGridViewTextBoxColumn
             {
                 Name = "MaSanBayDi",
-                HeaderText = "Sân bay đi",
+                HeaderText = "MÃ SÂN BAY ĐI",
                 DataPropertyName = "MaSanBayDi",
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
             };
-            colMaSanBayDi.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            colMaSanBayDi.HeaderCell.Style.Font = headerFont;
-            dgvDanhSachChuyenBay.Columns.Add(colMaSanBayDi);
-
             DataGridViewTextBoxColumn colMaSanBayDen = new DataGridViewTextBoxColumn
             {
                 Name = "MaSanBayDen",
-                HeaderText = "Sân bay đến",
+                HeaderText = "MÃ SÂN BAY ĐẾN",
                 DataPropertyName = "MaSanBayDen",
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
             };
-            colMaSanBayDen.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            colMaSanBayDen.HeaderCell.Style.Font = headerFont;
-            dgvDanhSachChuyenBay.Columns.Add(colMaSanBayDen);
-
             DataGridViewTextBoxColumn colNgayBay = new DataGridViewTextBoxColumn
             {
                 Name = "NgayBay",
-                HeaderText = "Ngày bay",
+                HeaderText = "NGÀY BAY",
                 DataPropertyName = "NgayBay",
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
             };
-            colNgayBay.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            colNgayBay.HeaderCell.Style.Font = headerFont;
-            dgvDanhSachChuyenBay.Columns.Add(colNgayBay);
-
+            colNgayBay.DefaultCellStyle.Format = "dd/MM/yyyy";
             DataGridViewTextBoxColumn colGioBay = new DataGridViewTextBoxColumn
             {
                 Name = "GioBay",
-                HeaderText = "Giờ bay",
+                HeaderText = "GIỜ BAY",
                 DataPropertyName = "GioBay",
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
             };
-            colGioBay.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            colGioBay.HeaderCell.Style.Font = headerFont;
-            dgvDanhSachChuyenBay.Columns.Add(colGioBay);
-
+            colGioBay.DefaultCellStyle.Format = "HH:mm";
             DataGridViewTextBoxColumn colThoiGianBay = new DataGridViewTextBoxColumn
             {
                 Name = "ThoiGianBay",
-                HeaderText = "Thời gian bay (phút)",
+                HeaderText = "THỜI GIAN BAY",
                 DataPropertyName = "ThoiGianBay",
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
             };
-            colThoiGianBay.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            colThoiGianBay.HeaderCell.Style.Font = headerFont;
-            dgvDanhSachChuyenBay.Columns.Add(colThoiGianBay);
-
             DataGridViewTextBoxColumn colSoGheDat = new DataGridViewTextBoxColumn
             {
                 Name = "SoGheDat",
-                HeaderText = "Số ghế đặt",
+                HeaderText = "SỐ GHẾ ĐẶT",
                 DataPropertyName = "SoGheDat",
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
             };
-            colSoGheDat.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            colSoGheDat.HeaderCell.Style.Font = headerFont;
-            dgvDanhSachChuyenBay.Columns.Add(colSoGheDat);
-
             DataGridViewTextBoxColumn colSoGheTrong = new DataGridViewTextBoxColumn
             {
                 Name = "SoGheTrong",
-                HeaderText = "Số ghế trống",
+                HeaderText = "SỐ GHẾ TRỐNG",
                 DataPropertyName = "SoGheTrong",
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
             };
-            colSoGheTrong.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            colSoGheTrong.HeaderCell.Style.Font = headerFont;
+
+            dgvDanhSachChuyenBay.Columns.Add(colSTT);
+            dgvDanhSachChuyenBay.Columns.Add(colMaChuyenBay);
+            dgvDanhSachChuyenBay.Columns.Add(colMaSanBayDi);
+            dgvDanhSachChuyenBay.Columns.Add(colMaSanBayDen);
+            dgvDanhSachChuyenBay.Columns.Add(colNgayBay);
+            dgvDanhSachChuyenBay.Columns.Add(colGioBay);
+            dgvDanhSachChuyenBay.Columns.Add(colThoiGianBay);
+            dgvDanhSachChuyenBay.Columns.Add(colSoGheDat);
             dgvDanhSachChuyenBay.Columns.Add(colSoGheTrong);
-
-
-            //dgvDanhSachChuyenBay.Columns["MaChuyenBay"].HeaderText = "Mã Chuyến Bay";
-            //dgvDanhSachChuyenBay.Columns["MaSanBayDi"].HeaderText = "Sân Bay Đi";
-            //dgvDanhSachChuyenBay.Columns["MaSanBayDen"].HeaderText = "Sân Bay Đến";
-            //dgvDanhSachChuyenBay.Columns["NgayBay"].HeaderText = "Ngày Bay";
-            //dgvDanhSachChuyenBay.Columns["GioBay"].HeaderText = "Giờ Bay";
-            //dgvDanhSachChuyenBay.Columns["ThoiGianBay"].HeaderText = "Thời Gian Bay (phút)";
-            //dgvDanhSachChuyenBay.Columns["SoGheDat"].HeaderText = "Số Ghế Đặt";
-            //dgvDanhSachChuyenBay.Columns["SoGheTrong"].HeaderText = "Số Ghế Trống";
             dgvDanhSachChuyenBay.ColumnHeadersVisible = true;
-            dgvDanhSachChuyenBay.ReadOnly = true;
+            dgvDanhSachChuyenBay.CellBorderStyle = DataGridViewCellBorderStyle.Single;
 
-            // Adjust column widths
             foreach (DataGridViewColumn column in dgvDanhSachChuyenBay.Columns)
             {
-                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                if (column.Name != "colSTT")
+                {
+                    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                }
                 column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                column.HeaderCell.Style.Font = headerFont;
+                column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                column.SortMode = DataGridViewColumnSortMode.Automatic;
+                column.Resizable = DataGridViewTriState.False;
             }
-            // Set the default cell style
-            dgvDanhSachChuyenBay.DefaultCellStyle.BackColor = Color.White;
             foreach (DataGridViewRow row in dgvDanhSachChuyenBay.Rows)
             {
                 row.DefaultCellStyle.BackColor = Color.White;
                 row.DefaultCellStyle.ForeColor = Color.Black;
                 row.DefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Regular);
+                row.Resizable = DataGridViewTriState.False;
+            }
+
+            if (dgvDanhSachChuyenBay.Columns.Contains("colSTT"))
+            {
+                for (int i = 0; i < dgvDanhSachChuyenBay.Rows.Count; i++)
+                {
+                    if (!dgvDanhSachChuyenBay.Rows[i].IsNewRow)
+                    {
+                        dgvDanhSachChuyenBay.Rows[i].Cells["colSTT"].Value = (i + 1).ToString();
+                    }
+                }
             }
         }
     }
