@@ -212,43 +212,71 @@ namespace QLBVBM.DAL
                 bool hasGhiChu = !string.IsNullOrEmpty(ghiChu);
                 bool hasThoiGianDung = tu.HasValue || den.HasValue;
 
-                List<string> subConditions = new List<string>();
-
                 if (hasMaSB)
                 {
+                    List<string> subConditions = new List<string>();
                     subConditions.Add($"{alias}.MaSanBayTG = @{prefix}_MaSB");
                     parameters.Add(new MySqlParameter($"@{prefix}_MaSB", maSB));
-                }
 
-                if (hasGhiChu)
-                {
-                    subConditions.Add($"{alias}.GhiChu LIKE @{prefix}_GhiChu");
-                    parameters.Add(new MySqlParameter($"@{prefix}_GhiChu", $"%{ghiChu}%"));
-                }
 
-                if (tu.HasValue)
-                {
-                    subConditions.Add($"{alias}.ThoiGianDung >= @{prefix}_Tu");
-                    parameters.Add(new MySqlParameter($"@{prefix}_Tu", tu.Value));
-                }
+                    if (hasGhiChu)
+                    {
+                        subConditions.Add($"{alias}.GhiChu LIKE @{prefix}_GhiChu");
+                        parameters.Add(new MySqlParameter($"@{prefix}_GhiChu", $"%{ghiChu}%"));
+                    }
 
-                if (den.HasValue)
-                {
-                    subConditions.Add($"{alias}.ThoiGianDung <= @{prefix}_Den");
-                    parameters.Add(new MySqlParameter($"@{prefix}_Den", den.Value));
-                }
+                    if (tu.HasValue)
+                    {
+                        subConditions.Add($"{alias}.ThoiGianDung >= @{prefix}_Tu");
+                        parameters.Add(new MySqlParameter($"@{prefix}_Tu", tu.Value));
+                    }
 
-                // Áp logic: nếu có MaSB => buộc phải có AND giữa các điều kiện đi kèm nó
-                if (hasMaSB)
-                {
+                    if (den.HasValue)
+                    {
+                        subConditions.Add($"{alias}.ThoiGianDung <= @{prefix}_Den");
+                        parameters.Add(new MySqlParameter($"@{prefix}_Den", den.Value));
+                    }
+
                     if (subConditions.Count > 0)
+                    {
                         sbtgConditions.Add("(" + string.Join(" AND ", subConditions) + ")");
+                    }
                 }
                 else
                 {
-                    // Nếu không có MaSB => chỉ cần OR giữa các điều kiện còn lại (nếu có)
-                    if (subConditions.Count > 0)
-                        sbtgConditions.Add("(" + string.Join(" OR ", subConditions) + ")");
+                    List<string> orGroup = new List<string>();
+
+                    if (hasGhiChu)
+                    {
+                        orGroup.Add($"{alias}.GhiChu LIKE @{prefix}_GhiChu");
+                        parameters.Add(new MySqlParameter($"@{prefix}_GhiChu", $"%{ghiChu}%"));
+                    }
+
+                    if (tu.HasValue || den.HasValue)
+                    {
+                        List<string> timeConditions = new List<string>();
+                        if (tu.HasValue)
+                        {
+                            timeConditions.Add($"{alias}.ThoiGianDung >= @{prefix}_Tu");
+                            parameters.Add(new MySqlParameter($"@{prefix}_Tu", tu.Value));
+                        }
+                        if (den.HasValue)
+                        {
+                            timeConditions.Add($"{alias}.ThoiGianDung <= @{prefix}_Den");
+                            parameters.Add(new MySqlParameter($"@{prefix}_Den", den.Value));
+                        }
+
+                        // Nếu có điều kiện thời gian thì gộp bằng AND
+                        if (timeConditions.Count > 0)
+                        {
+                            orGroup.Add("(" + string.Join(" AND ", timeConditions) + ")");
+                        }
+                    }
+
+                    if (orGroup.Count > 0)
+                    {
+                        sbtgConditions.Add("(" + string.Join(" OR ", orGroup) + ")");
+                    }
                 }
             }
 
@@ -256,7 +284,6 @@ namespace QLBVBM.DAL
             {
                 query += " OR (" + string.Join(" OR ", sbtgConditions) + ")";
             }
-
 
             if (!string.IsNullOrEmpty(maHangGhe_Ten) && !maHangGhe_Ten.Equals("ALL"))
             {
