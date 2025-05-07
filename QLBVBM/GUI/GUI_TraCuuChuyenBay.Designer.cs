@@ -1663,6 +1663,7 @@
             Controls.Add(lblMaChuyenBay);
             ForeColor = Color.Red;
             Name = "GUI_TraCuuChuyenBay";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Tra Cứu Chuyến Bay";
             Load += GUI_TraCuuChuyenBay_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDanhSachChuyenBay).EndInit();
