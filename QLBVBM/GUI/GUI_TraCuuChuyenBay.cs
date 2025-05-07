@@ -19,6 +19,29 @@ namespace QLBVBM.GUI
 
         private async void GUI_TraCuuChuyenBay_Load(object sender, EventArgs e)
         {
+            txtThoiGianBayTu.Tag = "Thời gian bay";
+            txtThoiGianBayDen.Tag = "Thời gian bay";
+
+            txtThoiGianDungSBTG1_Tu.Tag = "Thời gian dừng ở sân bay trung gian";
+            txtThoiGianDungSBTG1_Den.Tag = "Thời gian dừng ở sân bay trung gian";
+            txtThoiGianDungSBTG2_Tu.Tag = "Thời gian dừng sân bay trung gian";
+            txtThoiGianDungSBTG2_Den.Tag = "Thời gian dừng sân bay trung gian";
+
+            txtDonGiaHangVeTu.Tag = "Đơn giá của hạng vé";
+            txtDonGiaHangVeDen.Tag = "Đơn giá của hạng vé";
+
+            txtSLGheHangVeTu.Tag = "Số lượng ghế của hạng vé";
+            txtSLGheHangVeDen.Tag = "Số lượng ghế của hạng vé";
+
+            txtSLGheDaBanHangVeTu.Tag = "Số lượng ghế đã bán của hạng vé";
+            txtSLGheDaBanHangVeDen.Tag = "Số lượng ghế đã bán của hạng vé";
+
+            txtSLGheDaDatHangVeTu.Tag = "Số lượng ghế đã đặt của hạng vé";
+            txtSLGheDaDatHangVeDen.Tag = "Số lượng ghế đã đặt của hạng vé";
+
+            txtSoCMNDHanhKhach.Tag = "Số chứng minh nhân dân của hành khách";
+            txtSoDienThoaiHanhKhach.Tag = "Số điện thoại của hành khách";
+
             dtpNgayBayTu.Value = DateTime.Now;
             dtpNgayBayDen.Value = DateTime.Now;
             dtpGioBayTu.Value = DateTime.Now;
@@ -162,6 +185,30 @@ namespace QLBVBM.GUI
         {
             try
             {
+                Guna2TextBox[] numericTextBoxes = new Guna2TextBox[]
+                {
+                     txtThoiGianBayTu, txtThoiGianBayDen,
+                     txtThoiGianDungSBTG1_Tu, txtThoiGianDungSBTG1_Den,
+                     txtThoiGianDungSBTG2_Tu, txtThoiGianDungSBTG2_Den,
+                     txtDonGiaHangVeTu, txtDonGiaHangVeDen,
+                     txtSLGheHangVeTu, txtSLGheHangVeDen,
+                     txtSLGheDaBanHangVeTu, txtSLGheDaBanHangVeDen,
+                     txtSLGheDaDatHangVeTu, txtSLGheDaDatHangVeDen,
+                     txtSoCMNDHanhKhach, txtSoDienThoaiHanhKhach
+                };
+
+                foreach (var textBox in numericTextBoxes)
+                {
+                    if (!string.IsNullOrWhiteSpace(textBox.Text) && !int.TryParse(textBox.Text.Trim(), out _))
+                    {
+                        string fieldName = textBox.Tag?.ToString() ?? "Trường";
+                        MessageBox.Show($"Vui lòng chỉ nhập số nguyên cho mục \"{fieldName}\".", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        textBox.Clear();
+                        textBox.Focus();
+                        return;
+                    }
+                }
+
                 string maChuyenBay = string.IsNullOrWhiteSpace(txtMaChuyenBay.Text) ? null : txtMaChuyenBay.Text.Trim();
                 string maSanBayDi = cbbTenSanBayDi.SelectedValue?.ToString() ?? "ALL";
                 string maSanBayDen = cbbTenSanBayDen.SelectedValue?.ToString() ?? "ALL";
@@ -350,6 +397,134 @@ namespace QLBVBM.GUI
                         dgvDanhSachChuyenBay.Rows[i].Cells["colSTT"].Value = (i + 1).ToString();
                     }
                 }
+            }
+        }
+
+        private void txtSoDienThoaiHanhKhach_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtSoCMNDHanhKhach_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtThoiGianBayTu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtThoiGianBayDen_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtThoiGianDungSBTG1_Tu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtThoiGianDungSBTG1_Den_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtThoiGianDungSBTG2_Tu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtThoiGianDungSBTG2_Den_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtDonGiaHangVeTu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtDonGiaHangVeDen_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtSLGheHangVeTu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtSLGheHangVeDen_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtSLGheDaBanHangVeTu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtSLGheDaBanHangVeDen_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtSLGheDaDatHangVeTu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtSLGheDaDatHangVeDen_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

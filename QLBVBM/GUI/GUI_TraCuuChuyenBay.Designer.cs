@@ -189,11 +189,11 @@
             lblThoiGianDungSBTG2_Tu = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtThoiGianDungSBTG2_Tu = new Guna.UI2.WinForms.Guna2TextBox();
             lblThoiGianDungSBTG2_Den = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            lblSTT2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             cbbTenSanBayTG2 = new Guna.UI2.WinForms.Guna2ComboBox();
-            guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            lblSTT1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             cbbTenSanBayTG1 = new Guna.UI2.WinForms.Guna2ComboBox();
-            guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            lblTenSanBayTG = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblSTTSanBayTG = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblDanhSachSanBayTG = new Guna.UI2.WinForms.Guna2HtmlLabel();
             ((System.ComponentModel.ISupportInitialize)dgvDanhSachChuyenBay).BeginInit();
@@ -476,6 +476,7 @@
             txtThoiGianBayTu.ShadowDecoration.CustomizableEdges = customizableEdges16;
             txtThoiGianBayTu.Size = new Size(82, 36);
             txtThoiGianBayTu.TabIndex = 20;
+            txtThoiGianBayTu.KeyPress += txtThoiGianBayTu_KeyPress;
             // 
             // lblThoiGianBayDen
             // 
@@ -509,6 +510,7 @@
             txtThoiGianBayDen.ShadowDecoration.CustomizableEdges = customizableEdges18;
             txtThoiGianBayDen.Size = new Size(84, 36);
             txtThoiGianBayDen.TabIndex = 22;
+            txtThoiGianBayDen.KeyPress += txtThoiGianBayDen_KeyPress;
             // 
             // txtThoiGianDungSBTG1_Den
             // 
@@ -531,6 +533,7 @@
             txtThoiGianDungSBTG1_Den.ShadowDecoration.CustomizableEdges = customizableEdges20;
             txtThoiGianDungSBTG1_Den.Size = new Size(75, 36);
             txtThoiGianDungSBTG1_Den.TabIndex = 27;
+            txtThoiGianDungSBTG1_Den.KeyPress += txtThoiGianDungSBTG1_Den_KeyPress;
             // 
             // lblThoiGianDungSBTG1_Den
             // 
@@ -564,6 +567,7 @@
             txtThoiGianDungSBTG1_Tu.ShadowDecoration.CustomizableEdges = customizableEdges22;
             txtThoiGianDungSBTG1_Tu.Size = new Size(75, 36);
             txtThoiGianDungSBTG1_Tu.TabIndex = 25;
+            txtThoiGianDungSBTG1_Tu.KeyPress += txtThoiGianDungSBTG1_Tu_KeyPress;
             // 
             // lblThoiGianDungSBTG1_Tu
             // 
@@ -607,6 +611,7 @@
             txtSLGheHangVeDen.ShadowDecoration.CustomizableEdges = customizableEdges24;
             txtSLGheHangVeDen.Size = new Size(132, 36);
             txtSLGheHangVeDen.TabIndex = 35;
+            txtSLGheHangVeDen.KeyPress += txtSLGheHangVeDen_KeyPress;
             // 
             // lblSLGheDen
             // 
@@ -640,6 +645,7 @@
             txtSLGheHangVeTu.ShadowDecoration.CustomizableEdges = customizableEdges26;
             txtSLGheHangVeTu.Size = new Size(140, 36);
             txtSLGheHangVeTu.TabIndex = 33;
+            txtSLGheHangVeTu.KeyPress += txtSLGheHangVeTu_KeyPress;
             // 
             // lblSLGheTu
             // 
@@ -673,6 +679,7 @@
             txtDonGiaHangVeDen.ShadowDecoration.CustomizableEdges = customizableEdges28;
             txtDonGiaHangVeDen.Size = new Size(132, 36);
             txtDonGiaHangVeDen.TabIndex = 31;
+            txtDonGiaHangVeDen.KeyPress += txtDonGiaHangVeDen_KeyPress;
             // 
             // lblDonGiaDen
             // 
@@ -706,6 +713,7 @@
             txtDonGiaHangVeTu.ShadowDecoration.CustomizableEdges = customizableEdges30;
             txtDonGiaHangVeTu.Size = new Size(140, 36);
             txtDonGiaHangVeTu.TabIndex = 29;
+            txtDonGiaHangVeTu.KeyPress += txtDonGiaHangVeTu_KeyPress;
             // 
             // lblDonGiaTu
             // 
@@ -739,6 +747,7 @@
             txtSLGheDaDatHangVeDen.ShadowDecoration.CustomizableEdges = customizableEdges32;
             txtSLGheDaDatHangVeDen.Size = new Size(132, 36);
             txtSLGheDaDatHangVeDen.TabIndex = 43;
+            txtSLGheDaDatHangVeDen.KeyPress += txtSLGheDaDatHangVeDen_KeyPress;
             // 
             // lblSLGheDaDatDen
             // 
@@ -772,6 +781,7 @@
             txtSLGheDaDatHangVeTu.ShadowDecoration.CustomizableEdges = customizableEdges34;
             txtSLGheDaDatHangVeTu.Size = new Size(140, 36);
             txtSLGheDaDatHangVeTu.TabIndex = 41;
+            txtSLGheDaDatHangVeTu.KeyPress += txtSLGheDaDatHangVeTu_KeyPress;
             // 
             // lblSLGheDaDatTu
             // 
@@ -805,6 +815,7 @@
             txtSLGheDaBanHangVeDen.ShadowDecoration.CustomizableEdges = customizableEdges36;
             txtSLGheDaBanHangVeDen.Size = new Size(132, 36);
             txtSLGheDaBanHangVeDen.TabIndex = 39;
+            txtSLGheDaBanHangVeDen.KeyPress += txtSLGheDaBanHangVeDen_KeyPress;
             // 
             // lblSLGheDaBanDen
             // 
@@ -838,6 +849,7 @@
             txtSLGheDaBanHangVeTu.ShadowDecoration.CustomizableEdges = customizableEdges38;
             txtSLGheDaBanHangVeTu.Size = new Size(140, 36);
             txtSLGheDaBanHangVeTu.TabIndex = 37;
+            txtSLGheDaBanHangVeTu.KeyPress += txtSLGheDaBanHangVeTu_KeyPress;
             // 
             // lblSLGheDaBanTu
             // 
@@ -1227,6 +1239,7 @@
             txtSoCMNDHanhKhach.ShadowDecoration.CustomizableEdges = customizableEdges62;
             txtSoCMNDHanhKhach.Size = new Size(282, 36);
             txtSoCMNDHanhKhach.TabIndex = 80;
+            txtSoCMNDHanhKhach.KeyPress += txtSoCMNDHanhKhach_KeyPress;
             // 
             // txtSoDienThoaiHanhKhach
             // 
@@ -1249,6 +1262,7 @@
             txtSoDienThoaiHanhKhach.ShadowDecoration.CustomizableEdges = customizableEdges64;
             txtSoDienThoaiHanhKhach.Size = new Size(282, 36);
             txtSoDienThoaiHanhKhach.TabIndex = 82;
+            txtSoDienThoaiHanhKhach.KeyPress += txtSoDienThoaiHanhKhach_KeyPress;
             // 
             // lblSoDienThoaiHanhKhach
             // 
@@ -1370,11 +1384,11 @@
             grbDanhSachSanBayTG.Controls.Add(lblThoiGianDungSBTG2_Tu);
             grbDanhSachSanBayTG.Controls.Add(txtThoiGianDungSBTG2_Tu);
             grbDanhSachSanBayTG.Controls.Add(lblThoiGianDungSBTG2_Den);
-            grbDanhSachSanBayTG.Controls.Add(guna2HtmlLabel3);
+            grbDanhSachSanBayTG.Controls.Add(lblSTT2);
             grbDanhSachSanBayTG.Controls.Add(cbbTenSanBayTG2);
-            grbDanhSachSanBayTG.Controls.Add(guna2HtmlLabel2);
+            grbDanhSachSanBayTG.Controls.Add(lblSTT1);
             grbDanhSachSanBayTG.Controls.Add(cbbTenSanBayTG1);
-            grbDanhSachSanBayTG.Controls.Add(guna2HtmlLabel1);
+            grbDanhSachSanBayTG.Controls.Add(lblTenSanBayTG);
             grbDanhSachSanBayTG.Controls.Add(lblSTTSanBayTG);
             grbDanhSachSanBayTG.Controls.Add(lblThoiGianDung);
             grbDanhSachSanBayTG.Controls.Add(txtThoiGianDungSBTG1_Den);
@@ -1437,6 +1451,7 @@
             txtThoiGianDungSBTG2_Den.ShadowDecoration.CustomizableEdges = customizableEdges72;
             txtThoiGianDungSBTG2_Den.Size = new Size(75, 36);
             txtThoiGianDungSBTG2_Den.TabIndex = 73;
+            txtThoiGianDungSBTG2_Den.KeyPress += txtThoiGianDungSBTG2_Den_KeyPress;
             // 
             // lblThoiGianDungSBTG2_Tu
             // 
@@ -1470,6 +1485,7 @@
             txtThoiGianDungSBTG2_Tu.ShadowDecoration.CustomizableEdges = customizableEdges74;
             txtThoiGianDungSBTG2_Tu.Size = new Size(75, 36);
             txtThoiGianDungSBTG2_Tu.TabIndex = 71;
+            txtThoiGianDungSBTG2_Tu.KeyPress += txtThoiGianDungSBTG2_Tu_KeyPress;
             // 
             // lblThoiGianDungSBTG2_Den
             // 
@@ -1482,15 +1498,15 @@
             lblThoiGianDungSBTG2_Den.TabIndex = 72;
             lblThoiGianDungSBTG2_Den.Text = "đến";
             // 
-            // guna2HtmlLabel3
+            // lblSTT2
             // 
-            guna2HtmlLabel3.BackColor = Color.Transparent;
-            guna2HtmlLabel3.Font = new Font("Arial", 11F, FontStyle.Bold);
-            guna2HtmlLabel3.Location = new Point(18, 101);
-            guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            guna2HtmlLabel3.Size = new Size(13, 23);
-            guna2HtmlLabel3.TabIndex = 69;
-            guna2HtmlLabel3.Text = "2";
+            lblSTT2.BackColor = Color.Transparent;
+            lblSTT2.Font = new Font("Arial", 11F, FontStyle.Bold);
+            lblSTT2.Location = new Point(18, 101);
+            lblSTT2.Name = "lblSTT2";
+            lblSTT2.Size = new Size(13, 23);
+            lblSTT2.TabIndex = 69;
+            lblSTT2.Text = "2";
             // 
             // cbbTenSanBayTG2
             // 
@@ -1512,15 +1528,15 @@
             cbbTenSanBayTG2.Size = new Size(327, 36);
             cbbTenSanBayTG2.TabIndex = 68;
             // 
-            // guna2HtmlLabel2
+            // lblSTT1
             // 
-            guna2HtmlLabel2.BackColor = Color.Transparent;
-            guna2HtmlLabel2.Font = new Font("Arial", 11F, FontStyle.Bold);
-            guna2HtmlLabel2.Location = new Point(18, 47);
-            guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(13, 23);
-            guna2HtmlLabel2.TabIndex = 67;
-            guna2HtmlLabel2.Text = "1";
+            lblSTT1.BackColor = Color.Transparent;
+            lblSTT1.Font = new Font("Arial", 11F, FontStyle.Bold);
+            lblSTT1.Location = new Point(18, 47);
+            lblSTT1.Name = "lblSTT1";
+            lblSTT1.Size = new Size(13, 23);
+            lblSTT1.TabIndex = 67;
+            lblSTT1.Text = "1";
             // 
             // cbbTenSanBayTG1
             // 
@@ -1542,15 +1558,15 @@
             cbbTenSanBayTG1.Size = new Size(327, 36);
             cbbTenSanBayTG1.TabIndex = 65;
             // 
-            // guna2HtmlLabel1
+            // lblTenSanBayTG
             // 
-            guna2HtmlLabel1.BackColor = Color.Transparent;
-            guna2HtmlLabel1.Font = new Font("Arial", 11F, FontStyle.Bold);
-            guna2HtmlLabel1.Location = new Point(56, 10);
-            guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(201, 23);
-            guna2HtmlLabel1.TabIndex = 66;
-            guna2HtmlLabel1.Text = "Tên sân bay trung gian";
+            lblTenSanBayTG.BackColor = Color.Transparent;
+            lblTenSanBayTG.Font = new Font("Arial", 11F, FontStyle.Bold);
+            lblTenSanBayTG.Location = new Point(56, 10);
+            lblTenSanBayTG.Name = "lblTenSanBayTG";
+            lblTenSanBayTG.Size = new Size(201, 23);
+            lblTenSanBayTG.TabIndex = 66;
+            lblTenSanBayTG.Text = "Tên sân bay trung gian";
             // 
             // lblSTTSanBayTG
             // 
@@ -1731,11 +1747,11 @@
         private Guna.UI2.WinForms.Guna2Button btnThoat;
         private Guna.UI2.WinForms.Guna2DataGridView dgvDanhSachChuyenBay;
         private Guna.UI2.WinForms.Guna2GroupBox grbDanhSachSanBayTG;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblSTT2;
         private Guna.UI2.WinForms.Guna2ComboBox cbbTenSanBayTG2;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblSTT1;
         private Guna.UI2.WinForms.Guna2ComboBox cbbTenSanBayTG1;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblTenSanBayTG;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblSTTSanBayTG;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblDanhSachSanBayTG;
         private Guna.UI2.WinForms.Guna2TextBox txtGhiChuSBTG2;
