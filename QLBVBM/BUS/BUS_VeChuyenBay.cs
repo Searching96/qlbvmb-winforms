@@ -99,5 +99,10 @@ namespace QLBVBM.BUS
                 }
             }
         }
+
+        public List<DTO_VeChuyenBay> LayVeThanhToanTheoThangNam(int thang, int nam)
+        {
+            return DAL_VeChuyenBay.LayDanhSachVeDaThanhToan(thang, nam);
+        }
     }
 }

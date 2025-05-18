@@ -46,7 +46,6 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             btnLapBaoCaoDoanhThu = new Guna.UI2.WinForms.Guna2Button();
             btnThoat = new Guna.UI2.WinForms.Guna2Button();
-            lblLapBaoCaoDoanhThu = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblThangLapBaoCao = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblNamLapBaoCao = new Guna.UI2.WinForms.Guna2HtmlLabel();
             pnlLine = new Guna.UI2.WinForms.Guna2Panel();
@@ -76,12 +75,13 @@
             btnLapBaoCaoDoanhThu.FillColor = Color.FromArgb(64, 64, 64);
             btnLapBaoCaoDoanhThu.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 163);
             btnLapBaoCaoDoanhThu.ForeColor = Color.White;
-            btnLapBaoCaoDoanhThu.Location = new Point(496, 95);
+            btnLapBaoCaoDoanhThu.Location = new Point(580, 55);
             btnLapBaoCaoDoanhThu.Name = "btnLapBaoCaoDoanhThu";
             btnLapBaoCaoDoanhThu.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnLapBaoCaoDoanhThu.Size = new Size(214, 44);
             btnLapBaoCaoDoanhThu.TabIndex = 49;
             btnLapBaoCaoDoanhThu.Text = "Lập báo cáo doanh thu";
+            btnLapBaoCaoDoanhThu.Click += btnLapBaoCaoDoanhThu_Click;
             // 
             // btnThoat
             // 
@@ -95,28 +95,19 @@
             btnThoat.FillColor = Color.FromArgb(64, 64, 64);
             btnThoat.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 163);
             btnThoat.ForeColor = Color.White;
-            btnThoat.Location = new Point(716, 95);
+            btnThoat.Location = new Point(800, 55);
             btnThoat.Name = "btnThoat";
             btnThoat.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btnThoat.Size = new Size(73, 44);
             btnThoat.TabIndex = 50;
             btnThoat.Text = "Thoát";
-            // 
-            // lblLapBaoCaoDoanhThu
-            // 
-            lblLapBaoCaoDoanhThu.BackColor = Color.Transparent;
-            lblLapBaoCaoDoanhThu.Font = new Font("Arial", 18.75F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            lblLapBaoCaoDoanhThu.Location = new Point(12, 12);
-            lblLapBaoCaoDoanhThu.Name = "lblLapBaoCaoDoanhThu";
-            lblLapBaoCaoDoanhThu.Size = new Size(613, 38);
-            lblLapBaoCaoDoanhThu.TabIndex = 44;
-            lblLapBaoCaoDoanhThu.Text = "Lập báo cáo doanh thu bán vé theo tháng";
+            btnThoat.Click += btnThoat_Click;
             // 
             // lblThangLapBaoCao
             // 
             lblThangLapBaoCao.BackColor = Color.Transparent;
             lblThangLapBaoCao.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            lblThangLapBaoCao.Location = new Point(12, 68);
+            lblThangLapBaoCao.Location = new Point(27, 22);
             lblThangLapBaoCao.Name = "lblThangLapBaoCao";
             lblThangLapBaoCao.Size = new Size(159, 24);
             lblThangLapBaoCao.TabIndex = 45;
@@ -126,7 +117,7 @@
             // 
             lblNamLapBaoCao.BackColor = Color.Transparent;
             lblNamLapBaoCao.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            lblNamLapBaoCao.Location = new Point(249, 68);
+            lblNamLapBaoCao.Location = new Point(264, 22);
             lblNamLapBaoCao.Name = "lblNamLapBaoCao";
             lblNamLapBaoCao.Size = new Size(145, 24);
             lblNamLapBaoCao.TabIndex = 47;
@@ -136,7 +127,7 @@
             // 
             pnlLine.BackColor = SystemColors.WindowText;
             pnlLine.CustomizableEdges = customizableEdges5;
-            pnlLine.Location = new Point(-20, 167);
+            pnlLine.Location = new Point(-40, 124);
             pnlLine.Name = "pnlLine";
             pnlLine.ShadowDecoration.CustomizableEdges = customizableEdges6;
             pnlLine.Size = new Size(1000, 1);
@@ -148,8 +139,8 @@
             dataGridViewCellStyle1.BackColor = Color.White;
             dgvBaoCaoDoanhThu.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle2.Font = new Font("Arial", 11F);
             dataGridViewCellStyle2.ForeColor = Color.White;
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
@@ -160,18 +151,18 @@
             dgvBaoCaoDoanhThu.Columns.AddRange(new DataGridViewColumn[] { STT, ChuyenBay, SoVe, TyLe, DoanhThu });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Arial Narrow", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle3.ForeColor = Color.FromArgb(71, 69, 94);
             dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dgvBaoCaoDoanhThu.DefaultCellStyle = dataGridViewCellStyle3;
             dgvBaoCaoDoanhThu.GridColor = Color.Gray;
-            dgvBaoCaoDoanhThu.Location = new Point(0, 226);
+            dgvBaoCaoDoanhThu.Location = new Point(0, 194);
             dgvBaoCaoDoanhThu.Name = "dgvBaoCaoDoanhThu";
             dgvBaoCaoDoanhThu.RowHeadersVisible = false;
             dgvBaoCaoDoanhThu.RowHeadersWidth = 51;
-            dgvBaoCaoDoanhThu.Size = new Size(800, 227);
+            dgvBaoCaoDoanhThu.Size = new Size(900, 308);
             dgvBaoCaoDoanhThu.TabIndex = 52;
             dgvBaoCaoDoanhThu.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             dgvBaoCaoDoanhThu.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -180,16 +171,16 @@
             dgvBaoCaoDoanhThu.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
             dgvBaoCaoDoanhThu.ThemeStyle.BackColor = Color.White;
             dgvBaoCaoDoanhThu.ThemeStyle.GridColor = Color.Gray;
-            dgvBaoCaoDoanhThu.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
+            dgvBaoCaoDoanhThu.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(64, 64, 64);
             dgvBaoCaoDoanhThu.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
-            dgvBaoCaoDoanhThu.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
+            dgvBaoCaoDoanhThu.ThemeStyle.HeaderStyle.Font = new Font("Arial", 11F);
             dgvBaoCaoDoanhThu.ThemeStyle.HeaderStyle.ForeColor = Color.White;
             dgvBaoCaoDoanhThu.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dgvBaoCaoDoanhThu.ThemeStyle.HeaderStyle.Height = 22;
+            dgvBaoCaoDoanhThu.ThemeStyle.HeaderStyle.Height = 32;
             dgvBaoCaoDoanhThu.ThemeStyle.ReadOnly = false;
             dgvBaoCaoDoanhThu.ThemeStyle.RowsStyle.BackColor = Color.White;
             dgvBaoCaoDoanhThu.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgvBaoCaoDoanhThu.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F);
+            dgvBaoCaoDoanhThu.ThemeStyle.RowsStyle.Font = new Font("Arial", 11F);
             dgvBaoCaoDoanhThu.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
             dgvBaoCaoDoanhThu.ThemeStyle.RowsStyle.Height = 29;
             dgvBaoCaoDoanhThu.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
@@ -229,12 +220,11 @@
             // 
             lblTongDoanhThu.BackColor = Color.Transparent;
             lblTongDoanhThu.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            lblTongDoanhThu.Location = new Point(83, 184);
+            lblTongDoanhThu.Location = new Point(132, 148);
             lblTongDoanhThu.Name = "lblTongDoanhThu";
             lblTongDoanhThu.Size = new Size(373, 24);
             lblTongDoanhThu.TabIndex = 53;
             lblTongDoanhThu.Text = "Tổng doanh thu các chuyến bay trong tháng: ";
-            lblTongDoanhThu.Click += this.lblTenHanhKhach_Click;
             // 
             // txtTongDoanhThu
             // 
@@ -247,12 +237,14 @@
             txtTongDoanhThu.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             txtTongDoanhThu.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtTongDoanhThu.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtTongDoanhThu.Font = new Font("Segoe UI", 9F);
+            txtTongDoanhThu.Font = new Font("Arial", 11F);
+            txtTongDoanhThu.ForeColor = Color.Black;
             txtTongDoanhThu.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtTongDoanhThu.Location = new Point(457, 177);
+            txtTongDoanhThu.Location = new Point(506, 141);
             txtTongDoanhThu.Margin = new Padding(3, 4, 3, 4);
             txtTongDoanhThu.Name = "txtTongDoanhThu";
             txtTongDoanhThu.PlaceholderText = "";
+            txtTongDoanhThu.ReadOnly = true;
             txtTongDoanhThu.SelectedText = "";
             txtTongDoanhThu.ShadowDecoration.CustomizableEdges = customizableEdges8;
             txtTongDoanhThu.Size = new Size(244, 39);
@@ -266,15 +258,17 @@
             dtpThangBaoCao.BorderRadius = 7;
             dtpThangBaoCao.BorderThickness = 1;
             dtpThangBaoCao.Checked = true;
+            dtpThangBaoCao.CustomFormat = "MM";
             dtpThangBaoCao.CustomizableEdges = customizableEdges9;
             dtpThangBaoCao.FillColor = Color.White;
             dtpThangBaoCao.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            dtpThangBaoCao.Format = DateTimePickerFormat.Short;
-            dtpThangBaoCao.Location = new Point(12, 101);
+            dtpThangBaoCao.Format = DateTimePickerFormat.Custom;
+            dtpThangBaoCao.Location = new Point(27, 55);
             dtpThangBaoCao.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             dtpThangBaoCao.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             dtpThangBaoCao.Name = "dtpThangBaoCao";
             dtpThangBaoCao.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            dtpThangBaoCao.ShowUpDown = true;
             dtpThangBaoCao.Size = new Size(187, 38);
             dtpThangBaoCao.TabIndex = 56;
             dtpThangBaoCao.Value = new DateTime(2025, 5, 18, 0, 0, 0, 0);
@@ -287,24 +281,26 @@
             dtpNamBaoCao.BorderRadius = 7;
             dtpNamBaoCao.BorderThickness = 1;
             dtpNamBaoCao.Checked = true;
+            dtpNamBaoCao.CustomFormat = "yyyy";
             dtpNamBaoCao.CustomizableEdges = customizableEdges11;
             dtpNamBaoCao.FillColor = Color.White;
             dtpNamBaoCao.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            dtpNamBaoCao.Format = DateTimePickerFormat.Short;
-            dtpNamBaoCao.Location = new Point(249, 101);
+            dtpNamBaoCao.Format = DateTimePickerFormat.Custom;
+            dtpNamBaoCao.Location = new Point(264, 55);
             dtpNamBaoCao.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             dtpNamBaoCao.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             dtpNamBaoCao.Name = "dtpNamBaoCao";
             dtpNamBaoCao.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            dtpNamBaoCao.ShowUpDown = true;
             dtpNamBaoCao.Size = new Size(187, 38);
             dtpNamBaoCao.TabIndex = 57;
-            dtpNamBaoCao.Value = new DateTime(2025, 4, 18, 0, 0, 0, 0);
+            dtpNamBaoCao.Value = new DateTime(2025, 5, 18, 20, 7, 41, 566);
             // 
             // GUI_LapBaoCao
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(900, 503);
             Controls.Add(dtpNamBaoCao);
             Controls.Add(dtpThangBaoCao);
             Controls.Add(txtTongDoanhThu);
@@ -313,12 +309,11 @@
             Controls.Add(pnlLine);
             Controls.Add(btnLapBaoCaoDoanhThu);
             Controls.Add(btnThoat);
-            Controls.Add(lblLapBaoCaoDoanhThu);
             Controls.Add(lblThangLapBaoCao);
             Controls.Add(lblNamLapBaoCao);
+            MinimumSize = new Size(915, 550);
             Name = "GUI_LapBaoCao";
             Text = "GUI_LapBaoCao";
-            Load += GUI_LapBaoCao_Load;
             ((System.ComponentModel.ISupportInitialize)dgvBaoCaoDoanhThu).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -328,7 +323,6 @@
 
         private Guna.UI2.WinForms.Guna2Button btnLapBaoCaoDoanhThu;
         private Guna.UI2.WinForms.Guna2Button btnThoat;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lblLapBaoCaoDoanhThu;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblThangLapBaoCao;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblNamLapBaoCao;
         private Guna.UI2.WinForms.Guna2Panel pnlLine;

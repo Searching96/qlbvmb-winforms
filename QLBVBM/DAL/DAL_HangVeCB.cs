@@ -87,5 +87,40 @@ namespace QLBVBM.DAL
             int result = dataHelper.ExecuteNonQuery(query, parameters);
             return result > 0;
         }
+
+        public DTO_HangVeCB LayHangVeTheoVeChuyenBay(string maChuyenBay, string maHangGhe)
+        {
+            string query = @"
+                SELECT *
+                FROM HANGVECB
+                WHERE MaChuyenBay = @MaChuyenBay
+                AND MaHangGhe = @MaHangGhe
+                LIMIT 1";
+
+            var parameters = new List<MySqlParameter>
+            {
+                new MySqlParameter("@MaChuyenBay", maChuyenBay),
+                new MySqlParameter("@MaHangGhe", maHangGhe)
+            };
+
+            DataTable dt = dataHelper.ExecuteQuery(query, parameters);
+            if (dt.Rows.Count == 0) return null;
+
+            DataRow dr = dt.Rows[0];
+            return new DTO_HangVeCB
+            {
+                MaChuyenBay = dr["MaChuyenBay"].ToString(),
+                MaHangGhe = dr["MaHangGhe"].ToString(),
+                SoLuongGhe = Convert.ToInt32(dr["SoLuongGhe"]),
+                SoLuongGheDaBan = dr["SoLuongGheDaBan"] != DBNull.Value
+                                    ? Convert.ToInt32(dr["SoLuongGheDaBan"])
+                                    : 0,
+                SoLuongGheDaDat = dr.Table.Columns.Contains("SLGheDaDat") && dr["SLGheDaDat"] != DBNull.Value
+                                    ? Convert.ToInt32(dr["SLGheDaDat"])
+                                    : 0,
+                DonGia = Convert.ToInt32(dr["DonGia"])
+            };
+        }
+
     }
 }

@@ -86,5 +86,46 @@ namespace QLBVBM.DAL
             }
             return dsVeChuyenBay;
         }
+
+        public List<DTO_VeChuyenBay> LayDanhSachVeDaThanhToan(int thang, int nam)
+        {
+            List<DTO_VeChuyenBay> dsVeThanhToan = new List<DTO_VeChuyenBay>();
+
+            string query = @"
+            SELECT *
+            FROM VECHUYENBAY
+            WHERE ThoiDiemThanhToan IS NOT NULL
+            AND MONTH(ThoiDiemThanhToan) = @Thang
+            AND YEAR(ThoiDiemThanhToan) = @Nam
+            ";
+
+            var parameters = new List<MySqlParameter>
+            {
+                new MySqlParameter("@Thang", thang),
+                new MySqlParameter("@Nam", nam)
+            };
+
+            DataTable dt = dataHelper.ExecuteQuery(query, parameters);
+            foreach (DataRow dr in dt.Rows)
+            {
+                DTO_VeChuyenBay ve = new DTO_VeChuyenBay
+                {
+                    MaVe = dr["MaVe"].ToString(),
+                    MaChuyenBay = dr["MaChuyenBay"].ToString(),
+                    MaHangGhe = dr["MaHangGhe"].ToString(),
+                    TenHanhKhach = dr["TenHanhKhach"].ToString(),
+                    SoCMND = dr["SoCMND"].ToString(),
+                    SoDT = dr["SoDT"].ToString(),
+                    TrangThaiVe = Convert.ToInt32(dr["TrangThaiVe"]),
+                    ThoiDiemThanhToan = dr["ThoiDiemThanhToan"] != DBNull.Value
+                                         ? (DateTime?)Convert.ToDateTime(dr["ThoiDiemThanhToan"])
+                                         : null
+                };
+                dsVeThanhToan.Add(ve);
+            }
+
+            return dsVeThanhToan;
+        }
+
     }
 }
