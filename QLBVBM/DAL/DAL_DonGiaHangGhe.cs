@@ -16,18 +16,20 @@ namespace QLBVBM.DAL
         public List<DTO_DonGiaHangGhe> LayDanhSachTenHangGheChuyenBay(string maChuyenBay)
         {
             List<DTO_DonGiaHangGhe> dsTenHangGhe = new List<DTO_DonGiaHangGhe>();
-            // get available HangGhe (not sold out: SoLuong > DaBan) for the flight
+            // get available HangGhe (not sold out: ConLai > 0) for the flight
             string query = @"
-                SELECT hg.MaHangGhe, hg.TenHangGhe, hvcb.DonGia
+                SELECT hg.MaHangGhe, hg.TenHangGhe
                 FROM HANGGHE hg
                 JOIN HANGVECB hvcb ON hg.MaHangGhe = hvcb.MaHangGhe
                 WHERE hvcb.MaChuyenBay = @maChuyenBay
-                AND hvcb.SoLuongGhe > hvcb.SoLuongGheDaBan";
+                AND hvcb.SLGheConLai > 0";
 
             List<MySqlParameter> parameters = new List<MySqlParameter>
             {
                 new MySqlParameter("@maChuyenBay", maChuyenBay)
             };
+
+            
 
             DataTable dt = dataHelper.ExecuteQuery(query, parameters);
 

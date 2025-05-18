@@ -166,18 +166,18 @@ namespace QLBVBM.BUS
             return DAL_ChuyenBay.TraCuuChuyenBay(maSanBayDi, maSanBayDen, ngayGioBay);
         }
 
-        public bool KiemTraHanDatVe(DTO_ChuyenBay chuyenBay)
-        {
-            DateTime thoiGianBay = chuyenBay.NgayBay.Value.Date + chuyenBay.GioBay.Value.TimeOfDay;
-            DateTime hanCuoiDatVe = thoiGianBay.AddDays(-BUS_ThamSo.LayThoiGianHuyDatVeToiThieu());
-            return DateTime.Now <= hanCuoiDatVe;
-        }
+        //public bool KiemTraHanDatVe(DTO_ChuyenBay chuyenBay)
+        //{
+        //    DateTime thoiGianBay = chuyenBay.NgayBay.Value.Date + chuyenBay.GioBay.Value.TimeOfDay;
+        //    DateTime hanCuoiDatVe = thoiGianBay.AddDays(-BUS_ThamSo.LayThoiGianHuyDatVeToiThieu());
+        //    return DateTime.Now <= hanCuoiDatVe;
+        //}
 
-        public DateTime LayHanCuoiDatVe(DTO_ChuyenBay chuyenBay)
-        {
-            DateTime thoiGianBay = chuyenBay.NgayBay.Value.Date + chuyenBay.GioBay.Value.TimeOfDay;
-            DateTime hanCuoiDatVe = thoiGianBay.AddDays(-BUS_ThamSo.LayThoiGianHuyDatVeToiThieu());
-            return hanCuoiDatVe;
-        }
+        //public DateTime LayHanCuoiDatVe(DTO_ChuyenBay chuyenBay)
+        //{
+        //    DateTime thoiGianBay = chuyenBay.NgayBay.Value.Date + chuyenBay.GioBay.Value.TimeOfDay;
+        //    DateTime hanCuoiDatVe = thoiGianBay.AddDays(-BUS_ThamSo.LayThoiGianHuyDatVeToiThieu());
+        //    return hanCuoiDatVe;
+        //}
     }
 }

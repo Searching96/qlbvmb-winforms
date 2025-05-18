@@ -22,7 +22,7 @@ namespace QLBVBM.GUI
         private BUS_DonGiaHangGhe busDonGiaHangGhe = new BUS_DonGiaHangGhe();
         private BUS_VeChuyenBay busVeChuyenBay = new BUS_VeChuyenBay();
         private ErrorProvider errorProvider = new ErrorProvider();
-        private ToolTip toolTip = new ToolTip();
+        //private ToolTip toolTip = new ToolTip();
 
         public GUI_BanVe()
         {

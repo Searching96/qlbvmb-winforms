@@ -13,19 +13,17 @@ namespace QLBVBM.DAL
     {
         private DataHelper dataHelper = new DataHelper();
 
-        public bool ThemHangVe(DTO_HangVeCB hangVeCB)
+        public bool ThemHangVeCB(DTO_HangVeCB hangVeCB)
         {
-            string query = "INSERT INTO HANGVECB (MaChuyenBay, MaHangGhe, SoLuongGhe, SoLuongGheDaBan, SLGheDaDat, DonGia) " +
-                "VALUES (@MaChuyenBay, @MaHangGhe, @SoLuongGhe, @SoLuongGheDaBan, @SLGheDaDat, @DonGia)";
+            string query = "INSERT INTO HANGVECB (MaChuyenBay, MaHangGhe, SoLuongGhe, SLGheConLai) " +
+                "VALUES (@MaChuyenBay, @MaHangGhe, @SoLuongGhe, @SoLuongGheConLai)";
 
             List<MySqlParameter> parameters = new List<MySqlParameter>
             {
                 new MySqlParameter("@MaChuyenBay", hangVeCB.MaChuyenBay),
                 new MySqlParameter("@MaHangGhe", hangVeCB.MaHangGhe),
                 new MySqlParameter("@SoLuongGhe", hangVeCB.SoLuongGhe),
-                new MySqlParameter("@SoLuongGheDaBan", hangVeCB.SoLuongGheDaBan ?? 0),
-                new MySqlParameter("@SLGheDaDat", hangVeCB.SoLuongGheDaDat ?? 0),
-                new MySqlParameter("@DonGia", hangVeCB.DonGia)
+                new MySqlParameter("@SoLuongGheConLai", hangVeCB.SoLuongGheConLai ?? 0),
             };
 
             int result = dataHelper.ExecuteNonQuery(query, parameters);
@@ -35,7 +33,7 @@ namespace QLBVBM.DAL
         public bool CapNhatSoLuongVeDaBan(string maChuyenBay, string maHangGhe)
         {
             string query = @"UPDATE HANGVECB 
-                            SET SoLuongGheDaBan = SoLuongGheDaBan + 1 
+                            SET SoLuongGheConLai = SoLuongGheConLai - 1 
                             WHERE MaChuyenBay = @MaChuyenBay 
                             AND MaHangGhe = @MaHangGhe";
 
@@ -63,29 +61,28 @@ namespace QLBVBM.DAL
                     MaChuyenBay = dr["MaChuyenBay"].ToString(),
                     MaHangGhe = dr["MaHangGhe"].ToString(),
                     SoLuongGhe = Convert.ToInt32(dr["SoLuongGhe"]),
-                    SoLuongGheDaBan = Convert.ToInt32(dr["SoLuongGheDaBan"]),
-                    DonGia = Convert.ToInt32(dr["DonGia"])
+                    SoLuongGheConLai = Convert.ToInt32(dr["SoLuongGheConLai"]),
                 };
                 dsHangVe.Add(hangVeCB);
             }
             return dsHangVe;
         }
 
-        public bool CapNhatSoLuongGheDaDat(string maChuyenBay, string maHangGhe)
-        {
-            string query = @"UPDATE HANGVECB 
-                            SET SLGheDaDat = SLGheDaDat + 1 
-                            WHERE MaChuyenBay = @MaChuyenBay 
-                            AND MaHangGhe = @MaHangGhe";
+        //public bool CapNhatSoLuongGheDaDat(string maChuyenBay, string maHangGhe)
+        //{
+        //    string query = @"UPDATE HANGVECB 
+        //                    SET SLGheDaDat = SLGheDaDat + 1 
+        //                    WHERE MaChuyenBay = @MaChuyenBay 
+        //                    AND MaHangGhe = @MaHangGhe";
 
-            List<MySqlParameter> parameters = new List<MySqlParameter>
-            {
-                new MySqlParameter("@MaChuyenBay", maChuyenBay),
-                new MySqlParameter("@MaHangGhe", maHangGhe)
-            };
+        //    List<MySqlParameter> parameters = new List<MySqlParameter>
+        //    {
+        //        new MySqlParameter("@MaChuyenBay", maChuyenBay),
+        //        new MySqlParameter("@MaHangGhe", maHangGhe)
+        //    };
 
-            int result = dataHelper.ExecuteNonQuery(query, parameters);
-            return result > 0;
-        }
+        //    int result = dataHelper.ExecuteNonQuery(query, parameters);
+        //    return result > 0;
+        //}
     }
 }

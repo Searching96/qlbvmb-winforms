@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Math.Field;
 using QLBVBM.DTO;
 using System;
 using System.Collections.Generic;
@@ -62,7 +63,7 @@ namespace QLBVBM.DAL
                     AND MaSanBayDen = @MaSanBayDen 
                     AND NgayBay = @NgayBay
                 GROUP BY cb.MaChuyenBay
-                HAVING SUM(hv.SoLuongGhe - hv.SoLuongGheDaBan) > 0";
+                HAVING hv.SLGheConLai > 0";
 
             List<MySqlParameter> parameters = new List<MySqlParameter>
             {
@@ -87,6 +88,29 @@ namespace QLBVBM.DAL
             }
 
             return dsChuyenBay;
+        }
+
+        public Tuple<string, string> LayMaSanBayDiDen(string maChuyenBay)
+        {
+            Tuple<string, string> maSanBayDiDen = new Tuple<string, string>("", "");
+            string query = "SELECT MaSanBayDi, MaSanBayDen FROM CHUYENBAY WHERE MaChuyenBay = @MaChuyenBay";
+
+            List<MySqlParameter> parameters = new List<MySqlParameter>
+            {
+                new MySqlParameter("@MaChuyenBay", maChuyenBay)
+            };
+
+            DataTable dt = dataHelper.ExecuteQuery(query, parameters);
+            
+            if (dt.Rows.Count == 0)
+            {
+                return maSanBayDiDen;
+            }
+
+            DataRow dr = dt.Rows[0];
+            maSanBayDiDen = new Tuple<string, string>(dr["MaSanBayDi"].ToString(), dr["MaSanBayDen"].ToString());
+
+            return maSanBayDiDen;
         }
     }
 }

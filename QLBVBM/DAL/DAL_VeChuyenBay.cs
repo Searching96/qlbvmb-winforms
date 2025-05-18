@@ -31,23 +31,23 @@ namespace QLBVBM.DAL
             return result > 0;
         }
 
-        public bool DatVeChuyenBay(DTO_VeChuyenBay veChuyenBay)
-        {
-            string query = "INSERT INTO VECHUYENBAY (MaVe, MaChuyenBay, MaHangGhe, TenHanhKhach, CMND, SoDienThoai) " +
-                "VALUES (@MaVe, @MaChuyenBay, @MaHangGhe, @TenHanhKhach, @CMND, @SoDienThoai)";
-            List<MySqlParameter> parameters = new List<MySqlParameter>
-            {
-                new MySqlParameter("@MaVe", veChuyenBay.MaVe),
-                new MySqlParameter("@MaChuyenBay", veChuyenBay.MaChuyenBay),
-                new MySqlParameter("@MaHangGhe", veChuyenBay.MaHangGhe),
-                new MySqlParameter("@TenHanhKhach", veChuyenBay.TenHanhKhach),
-                new MySqlParameter("@CMND", veChuyenBay.SoCMND),
-                new MySqlParameter("@SoDienThoai", veChuyenBay.SoDT),
-                new MySqlParameter("@TrangThaiVe", 2)
-            };
-            int result = dataHelper.ExecuteNonQuery(query, parameters);
-            return result > 0;
-        }
+        //public bool DatVeChuyenBay(DTO_VeChuyenBay veChuyenBay)
+        //{
+        //    string query = "INSERT INTO VECHUYENBAY (MaVe, MaChuyenBay, MaHangGhe, TenHanhKhach, CMND, SoDienThoai) " +
+        //        "VALUES (@MaVe, @MaChuyenBay, @MaHangGhe, @TenHanhKhach, @CMND, @SoDienThoai)";
+        //    List<MySqlParameter> parameters = new List<MySqlParameter>
+        //    {
+        //        new MySqlParameter("@MaVe", veChuyenBay.MaVe),
+        //        new MySqlParameter("@MaChuyenBay", veChuyenBay.MaChuyenBay),
+        //        new MySqlParameter("@MaHangGhe", veChuyenBay.MaHangGhe),
+        //        new MySqlParameter("@TenHanhKhach", veChuyenBay.TenHanhKhach),
+        //        new MySqlParameter("@CMND", veChuyenBay.SoCMND),
+        //        new MySqlParameter("@SoDienThoai", veChuyenBay.SoDT),
+        //        new MySqlParameter("@TrangThaiVe", 2)
+        //    };
+        //    int result = dataHelper.ExecuteNonQuery(query, parameters);
+        //    return result > 0;
+        //}
 
         public DTO_VeChuyenBay? LayVeChuyenBayCuoi()
         {
@@ -79,8 +79,8 @@ namespace QLBVBM.DAL
                     TenHanhKhach = dr["TenHanhKhach"].ToString(),
                     SoCMND = dr["CMND"].ToString(),
                     SoDT = dr["SoDienThoai"].ToString(),
-                    TrangThaiVe = Convert.ToInt32(dr["TrangThaiVe"]),
-                    ThoiDiemThanhToan = dr["ThoiDiemThanhToan"] != DBNull.Value ? (DateTime?)Convert.ToDateTime(dr["ThoiDiemThanhToan"]) : null
+                    //TrangThaiVe = Convert.ToInt32(dr["TrangThaiVe"]),
+                    //ThoiDiemThanhToan = dr["ThoiDiemThanhToan"] != DBNull.Value ? (DateTime?)Convert.ToDateTime(dr["ThoiDiemThanhToan"]) : null
                 };
                 dsVeChuyenBay.Add(veChuyenBay);
             }
