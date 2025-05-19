@@ -253,7 +253,7 @@ namespace QLBVBM.GUI
             DTO_VeChuyenBay veChuyenBay = new DTO_VeChuyenBay
             {
                 MaVe = busVeChuyenBay.PhatSinhMaVeChuyenBay(),
-                MaChuyenBay = cbbMaChuyenBay.SelectedValue.ToString(),
+                MaChuyenBay = cbbMaChuyenBay.SelectedValue.ToString(), // change to txtBox
                 MaHangGhe = cbbHangVe.SelectedValue.ToString(),
                 TenHanhKhach = txtTenHanhKhach.Text,
                 SoCMND = txtCMND.Text,

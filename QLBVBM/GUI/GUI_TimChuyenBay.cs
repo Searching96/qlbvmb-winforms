@@ -18,6 +18,8 @@ namespace QLBVBM.GUI
         private BUS_SanBay busSanBay = new BUS_SanBay();
         private BUS_ChuyenBay busChuyenBay = new BUS_ChuyenBay();
 
+        public DTO_ChuyenBay? thongTinChuyenBay { get; private set; }
+
         public GUI_TimChuyenBay()
         {
             InitializeComponent();
@@ -98,7 +100,7 @@ namespace QLBVBM.GUI
                 }
 
                 List<DTO_ChuyenBay> dsChuyenBay = busChuyenBay.TraCuuChuyenBay(maSanBayDi, maSanBayDen, ngayBay);
-                
+
                 List<string> dsChuyenBayVaGioBay = new List<string>();
                 foreach (var chuyenBay in dsChuyenBay)
                 {
@@ -128,7 +130,7 @@ namespace QLBVBM.GUI
             {
                 cbb.Enabled = true; // turn on the combobox
                 cbb.DataSource = dsChuyenBayVaGioBay;
-        
+
                 // Add tooltip to display MaChuyenBay
                 ToolTip toolTip = new ToolTip();
                 cbb.SelectedIndexChanged += (s, e) =>
@@ -138,6 +140,37 @@ namespace QLBVBM.GUI
                         toolTip.SetToolTip(cbb, selectedChuyenBay.GioBay.ToString());
                     }
                 };
+            }
+        }
+
+        public bool HasErrors()
+        {
+            if (cbbSanBayDi.SelectedIndex == -1
+                || cbbSanBayDen.SelectedIndex == -1
+                || cbbDSChuyenBay.SelectedIndex == -1)
+            {
+                MessageBox.Show("Vui lòng chọn đầy đủ thông tin.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return true;
+            }
+            return false;
+        }
+
+        private void btnTiepNhanChuyenBay_Click(object sender, EventArgs e)
+        {
+            if (HasErrors())
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin trước khi tiếp tục", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Get first 7 characters (ex: CB00001)
+            string maChuyenBay = cbbDSChuyenBay.SelectedItem.ToString().Substring(0, 7);
+            thongTinChuyenBay = busChuyenBay.TimChuyenBayTheoMa(maChuyenBay);
+
+            if (thongTinChuyenBay != null)
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
         }
     }

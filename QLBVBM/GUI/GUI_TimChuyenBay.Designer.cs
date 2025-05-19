@@ -197,6 +197,7 @@
             btnTiepNhanChuyenBay.Size = new Size(183, 42);
             btnTiepNhanChuyenBay.TabIndex = 43;
             btnTiepNhanChuyenBay.Text = "Tiếp nhận chuyến bay";
+            btnTiepNhanChuyenBay.Click += btnTiepNhanChuyenBay_Click;
             // 
             // GUI_TimChuyenBay
             // 

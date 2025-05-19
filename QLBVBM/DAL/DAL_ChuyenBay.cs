@@ -15,6 +15,37 @@ namespace QLBVBM.DAL
     {
         private DataHelper dataHelper = new DataHelper();
 
+        public DTO_ChuyenBay? TimChuyenBayTheoMa(string maChuyenBay)
+        {
+            try
+            {
+                string query = "SELECT * FROM CHUYENBAY WHERE MaChuyenBay = @MaChuyenBay";
+                List<MySqlParameter> parameters = new List<MySqlParameter>
+                {
+                    new MySqlParameter("@MaChuyenBay", maChuyenBay)
+                };
+                DataTable dt = dataHelper.ExecuteQuery(query, parameters);
+                if (dt.Rows.Count > 0)
+                {
+                    DataRow dr = dt.Rows[0];
+                    return new DTO_ChuyenBay
+                    {
+                        MaChuyenBay = dr["MaChuyenBay"].ToString(),
+                        MaSanBayDi = dr["MaSanBayDi"].ToString(),
+                        MaSanBayDen = dr["MaSanBayDen"].ToString(),
+                        NgayBay = DateTime.Parse(dr["NgayBay"].ToString()),
+                        GioBay = DateTime.Parse(dr["GioBay"].ToString()),
+                        ThoiGianBay = int.Parse(dr["ThoiGianBay"].ToString())
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error in TimChuyenBayTheoMa (DAL_ChuyenBay.cs): {ex.Message}");
+            }
+            return null;    
+        }
+
         public bool ThemChuyenBay(DTO_ChuyenBay chuyenBay)
         {
             try
