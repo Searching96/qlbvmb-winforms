@@ -47,7 +47,7 @@ namespace QLBVBM.GUI
             cbb.Text = "";
             cbb.SelectedIndex = -1;
         }
-       
+
         private List<DTO_SanBay> LayDanhSachSanBay()
         {
             List<DTO_SanBay> dsSanBay = busSanBay.LayDanhSachSanBay();
@@ -74,7 +74,7 @@ namespace QLBVBM.GUI
                 };
             }
         }
-        
+
         public void LoadMaChuyenBay(Guna2ComboBox cbb, List<DTO_ChuyenBay> dsChuyenBay)
         {
             if (dsChuyenBay != null && dsChuyenBay.Count > 0)
@@ -229,7 +229,7 @@ namespace QLBVBM.GUI
                 cbbHangVe.SelectedIndex == -1 ||
                 !busValidationTTHK.ValidateSDT(txtSDT.Text) ||
                 !busValidationTTHK.ValidateCMND(txtCMND.Text) ||
-                !busValidationTTHK.ValidateHoTen(txtTenHanhKhach.Text)) 
+                !busValidationTTHK.ValidateHoTen(txtTenHanhKhach.Text))
                 return true;
 
             foreach (Control control in this.Controls)
@@ -267,7 +267,7 @@ namespace QLBVBM.GUI
                 MaHangGhe = cbbHangVe.SelectedValue.ToString()
             };
 
-            
+
             bool success = busVeChuyenBay.ThemVeChuyenBayVaHangVe(veChuyenBay, hangVeCB);
 
             MessageBox.Show(success ? "Thêm vé thành công" : "Lỗi khi thêm vé",
