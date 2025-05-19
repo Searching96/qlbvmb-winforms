@@ -12,6 +12,8 @@ namespace QLBVBM.DAL
     public class DAL_DonGiaHangGhe
     {
         private DataHelper dataHelper = new DataHelper();
+        private DAL_ChuyenBay dalChuyenBay = new DAL_ChuyenBay();   
+        private DAL_HangVeTuyenBay dalHangVeTuyenBay = new DAL_HangVeTuyenBay();
 
         public List<DTO_DonGiaHangGhe> LayDanhSachTenHangGheChuyenBay(string maChuyenBay)
         {
@@ -29,7 +31,10 @@ namespace QLBVBM.DAL
                 new MySqlParameter("@maChuyenBay", maChuyenBay)
             };
 
-
+            // Get the departure and arrival airports for the flight
+            Tuple<string, string> maSanBayDiDen = dalChuyenBay.LayMaSanBayDiDen(maChuyenBay);
+            string maSanBayDi = maSanBayDiDen.Item1;
+            string maSanBayDen = maSanBayDiDen.Item2;
 
             DataTable dt = dataHelper.ExecuteQuery(query, parameters);
 
@@ -40,7 +45,7 @@ namespace QLBVBM.DAL
                     MaHangGhe = dr["MaHangGhe"].ToString(),
                     TenHangGhe = dr["TenHangGhe"].ToString(),
                     MaChuyenBay = maChuyenBay,
-                    DonGia = Convert.ToInt32(dr["DonGia"])
+                    DonGia = dalHangVeTuyenBay.LayDonGiaQuyDinh(maSanBayDi, maSanBayDen, dr["MaHangGhe"].ToString())
                 };
                 dsTenHangGhe.Add(donGiaHangGhe);
             }
