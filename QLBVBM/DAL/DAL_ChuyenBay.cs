@@ -63,7 +63,7 @@ namespace QLBVBM.DAL
                     AND MaSanBayDen = @MaSanBayDen 
                     AND NgayBay = @NgayBay
                 GROUP BY cb.MaChuyenBay
-                HAVING hv.SLGheConLai > 0";
+                HAVING SUM(hv.SLGheConLai) > 0";
 
             List<MySqlParameter> parameters = new List<MySqlParameter>
             {

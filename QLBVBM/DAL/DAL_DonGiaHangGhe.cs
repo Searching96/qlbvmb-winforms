@@ -29,7 +29,7 @@ namespace QLBVBM.DAL
                 new MySqlParameter("@maChuyenBay", maChuyenBay)
             };
 
-            
+
 
             DataTable dt = dataHelper.ExecuteQuery(query, parameters);
 
