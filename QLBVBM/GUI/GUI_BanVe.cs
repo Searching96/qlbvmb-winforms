@@ -22,7 +22,6 @@ namespace QLBVBM.GUI
         private BUS_DonGiaHangGhe busDonGiaHangGhe = new BUS_DonGiaHangGhe();
         private BUS_VeChuyenBay busVeChuyenBay = new BUS_VeChuyenBay();
         private ErrorProvider errorProvider = new ErrorProvider();
-        //private ToolTip toolTip = new ToolTip();
 
         public GUI_BanVe()
         {
@@ -31,8 +30,6 @@ namespace QLBVBM.GUI
             LoadDanhSachSanBayToComboBox(cbbSanBayDi, LayDanhSachSanBay());
             LoadDanhSachSanBayToComboBox(cbbSanBayDen, LayDanhSachSanBay());
         }
-
-        #region non-logic code block
 
         public void SetResponsive()
         {
@@ -50,8 +47,7 @@ namespace QLBVBM.GUI
             cbb.Text = "";
             cbb.SelectedIndex = -1;
         }
-        #endregion
-
+       
         private List<DTO_SanBay> LayDanhSachSanBay()
         {
             List<DTO_SanBay> dsSanBay = busSanBay.LayDanhSachSanBay();
@@ -142,8 +138,6 @@ namespace QLBVBM.GUI
                 if (selectedChuyenBay != null)
                 {
                     txtGioBay.Text = selectedChuyenBay.GioBay?.ToString("HH:mm");
-                    // Load danh sách hạng vé
-                    //List<DTO_HangVeCB> dsHangVe = busHangVeCB.TraCuuHangVe(selectedChuyenBay?.MaChuyenBay);
                     List<DTO_DonGiaHangGhe> dsHangGhe = busDonGiaHangGhe.LayDanhSachTenHangGheChuyenBay(selectedChuyenBay?.MaChuyenBay);
                     LoadDanhSachHangVeCB(dsHangGhe);
                 }
@@ -235,10 +229,8 @@ namespace QLBVBM.GUI
                 cbbHangVe.SelectedIndex == -1 ||
                 !busValidationTTHK.ValidateSDT(txtSDT.Text) ||
                 !busValidationTTHK.ValidateCMND(txtCMND.Text) ||
-                !busValidationTTHK.ValidateHoTen(txtTenHanhKhach.Text))
-            {
+                !busValidationTTHK.ValidateHoTen(txtTenHanhKhach.Text)) 
                 return true;
-            }
 
             foreach (Control control in this.Controls)
             {

@@ -37,7 +37,6 @@ namespace QLBVBM.DAL
                 Debug.WriteLine($"Error in ThemHangVeCB (DAL_HangVeCB.cs): {ex.Message}");
                 return false;
             }
-
         }
 
         public bool CapNhatSoLuongVeDaBan(string maChuyenBay, string maHangGhe)
