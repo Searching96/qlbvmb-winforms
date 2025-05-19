@@ -222,14 +222,14 @@ namespace QLBVBM.GUI
         private bool HasErrors()
         {
             // Check for errors in form controls
-            if (string.IsNullOrWhiteSpace(txtTenHanhKhach.Text) ||
-                string.IsNullOrWhiteSpace(txtCMND.Text) ||
-                string.IsNullOrWhiteSpace(txtSDT.Text) ||
-                cbbMaChuyenBay.SelectedIndex == -1 ||
-                cbbHangVe.SelectedIndex == -1 ||
-                !busValidationTTHK.ValidateSDT(txtSDT.Text) ||
-                !busValidationTTHK.ValidateCMND(txtCMND.Text) ||
-                !busValidationTTHK.ValidateHoTen(txtTenHanhKhach.Text))
+            if (string.IsNullOrWhiteSpace(txtTenHanhKhach.Text) 
+                || string.IsNullOrWhiteSpace(txtCMND.Text) 
+                || string.IsNullOrWhiteSpace(txtSDT.Text) 
+                || cbbMaChuyenBay.SelectedIndex == -1
+                || cbbHangVe.SelectedIndex == -1 
+                || !busValidationTTHK.ValidateSDT(txtSDT.Text)
+                || !busValidationTTHK.ValidateCMND(txtCMND.Text)
+                || !busValidationTTHK.ValidateHoTen(txtTenHanhKhach.Text))
                 return true;
 
             foreach (Control control in this.Controls)
