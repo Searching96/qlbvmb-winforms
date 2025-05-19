@@ -18,8 +18,8 @@ namespace QLBVBM.DAL
         {
             try
             {
-                string query = "INSERT INTO VECHUYENBAY (MaVe, MaChuyenBay, MaHangGhe, TenHanhKhach, CMND, SoDienThoai) " +
-                "VALUES (@MaVe, @MaChuyenBay, @MaHangGhe, @TenHanhKhach, @CMND, @SoDienThoai)";
+                string query = "INSERT INTO VECHUYENBAY (MaVe, MaChuyenBay, MaHangGhe, TenHanhKhach, CMND, SoDienThoai, DonGia) " +
+                "VALUES (@MaVe, @MaChuyenBay, @MaHangGhe, @TenHanhKhach, @CMND, @SoDienThoai, @DonGia)";
                 List<MySqlParameter> parameters = new List<MySqlParameter>
                 {
                     new MySqlParameter("@MaVe", veChuyenBay.MaVe),
@@ -28,7 +28,8 @@ namespace QLBVBM.DAL
                     new MySqlParameter("@TenHanhKhach", veChuyenBay.TenHanhKhach),
                     new MySqlParameter("@CMND", veChuyenBay.SoCMND),
                     new MySqlParameter("@SoDienThoai", veChuyenBay.SoDT),
-                    new MySqlParameter("@TrangThaiVe", 1)
+                    new MySqlParameter("@DonGia", veChuyenBay.DonGia),
+                    //new MySqlParameter("@TrangThaiVe", 1)
                 };
                 int result = dataHelper.ExecuteNonQuery(query, parameters);
                 return result > 0;
@@ -99,6 +100,7 @@ namespace QLBVBM.DAL
                         TenHanhKhach = dr["TenHanhKhach"].ToString(),
                         SoCMND = dr["CMND"].ToString(),
                         SoDT = dr["SoDienThoai"].ToString(),
+                        DonGia = Convert.ToInt32(dr["DonGia"]),
                         //TrangThaiVe = Convert.ToInt32(dr["TrangThaiVe"]),
                         //ThoiDiemThanhToan = dr["ThoiDiemThanhToan"] != DBNull.Value ? (DateTime?)Convert.ToDateTime(dr["ThoiDiemThanhToan"]) : null
                     };
