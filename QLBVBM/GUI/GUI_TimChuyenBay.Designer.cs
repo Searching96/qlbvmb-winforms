@@ -196,7 +196,7 @@
             btnTiepNhanChuyenBay.ShadowDecoration.CustomizableEdges = customizableEdges10;
             btnTiepNhanChuyenBay.Size = new Size(183, 42);
             btnTiepNhanChuyenBay.TabIndex = 43;
-            btnTiepNhanChuyenBay.Text = "Tiếp nhận chuyến bay";
+            btnTiepNhanChuyenBay.Text = "Chọn chuyến bay";
             btnTiepNhanChuyenBay.Click += btnTiepNhanChuyenBay_Click;
             // 
             // GUI_TimChuyenBay
@@ -215,6 +215,7 @@
             Controls.Add(lblSanBayDen);
             Controls.Add(lblTraCuuChuyenBay);
             Name = "GUI_TimChuyenBay";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "GUI_TimChuyenBay";
             ResumeLayout(false);
             PerformLayout();

@@ -135,6 +135,7 @@
             txtSanBayDen.Location = new Point(358, 179);
             txtSanBayDen.Name = "txtSanBayDen";
             txtSanBayDen.PlaceholderText = "";
+            txtSanBayDen.ReadOnly = true;
             txtSanBayDen.SelectedText = "";
             txtSanBayDen.ShadowDecoration.CustomizableEdges = customizableEdges2;
             txtSanBayDen.Size = new Size(271, 52);
@@ -156,6 +157,7 @@
             txtSanBayDi.Location = new Point(32, 179);
             txtSanBayDi.Name = "txtSanBayDi";
             txtSanBayDi.PlaceholderText = "";
+            txtSanBayDi.ReadOnly = true;
             txtSanBayDi.SelectedText = "";
             txtSanBayDi.ShadowDecoration.CustomizableEdges = customizableEdges4;
             txtSanBayDi.Size = new Size(271, 52);
@@ -177,6 +179,7 @@
             txtMaChuyenBay.Location = new Point(32, 82);
             txtMaChuyenBay.Name = "txtMaChuyenBay";
             txtMaChuyenBay.PlaceholderText = "";
+            txtMaChuyenBay.ReadOnly = true;
             txtMaChuyenBay.SelectedText = "";
             txtMaChuyenBay.ShadowDecoration.CustomizableEdges = customizableEdges6;
             txtMaChuyenBay.Size = new Size(249, 52);
@@ -498,7 +501,7 @@
             btnLuuVe.ShadowDecoration.CustomizableEdges = customizableEdges28;
             btnLuuVe.Size = new Size(150, 42);
             btnLuuVe.TabIndex = 38;
-            btnLuuVe.Text = "Lưu vé";
+            btnLuuVe.Text = "Bán vé";
             btnLuuVe.Click += btnLuuVe_Click;
             // 
             // txtGiaTien
