@@ -17,7 +17,6 @@ namespace QLBVBM.GUI
     {
         private BUS_SanBay busSanBay = new BUS_SanBay();
         private BUS_ChuyenBay busChuyenBay = new BUS_ChuyenBay();
-
         public DTO_ChuyenBay? thongTinChuyenBay { get; private set; }
 
         public GUI_TimChuyenBay()
@@ -104,7 +103,7 @@ namespace QLBVBM.GUI
                 List<string> dsChuyenBayVaGioBay = new List<string>();
                 foreach (var chuyenBay in dsChuyenBay)
                 {
-                    dsChuyenBayVaGioBay.Add(chuyenBay.MaChuyenBay + "                    -                    " + chuyenBay.GioBay?.ToString("HH:mm"));
+                    dsChuyenBayVaGioBay.Add(chuyenBay.MaChuyenBay + "                    -         Khởi hành: " + chuyenBay.GioBay?.ToString("HH:mm"));
                 }
 
                 if (dsChuyenBayVaGioBay != null && dsChuyenBayVaGioBay.Count > 0)
