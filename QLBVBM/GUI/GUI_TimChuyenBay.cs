@@ -99,9 +99,15 @@ namespace QLBVBM.GUI
 
                 List<DTO_ChuyenBay> dsChuyenBay = busChuyenBay.TraCuuChuyenBay(maSanBayDi, maSanBayDen, ngayBay);
                 
-                if (dsChuyenBay != null && dsChuyenBay.Count > 0)
+                List<string> dsChuyenBayVaGioBay = new List<string>();
+                foreach (var chuyenBay in dsChuyenBay)
                 {
-                    LoadMaChuyenBay(cbbDSChuyenBay, dsChuyenBay);
+                    dsChuyenBayVaGioBay.Add(chuyenBay.MaChuyenBay + "                    -                    " + chuyenBay.GioBay?.ToString("HH:mm"));
+                }
+
+                if (dsChuyenBayVaGioBay != null && dsChuyenBayVaGioBay.Count > 0)
+                {
+                    LoadMaChuyenBay(cbbDSChuyenBay, dsChuyenBayVaGioBay);
                 }
                 else
                 {
@@ -116,14 +122,13 @@ namespace QLBVBM.GUI
             }
         }
 
-        public void LoadMaChuyenBay(Guna2ComboBox cbb, List<DTO_ChuyenBay> dsChuyenBay)
+        public void LoadMaChuyenBay(Guna2ComboBox cbb, List<string> dsChuyenBayVaGioBay)
         {
-            if (dsChuyenBay != null && dsChuyenBay.Count > 0)
+            if (dsChuyenBayVaGioBay != null && dsChuyenBayVaGioBay.Count > 0)
             {
                 cbb.Enabled = true; // turn on the combobox
-                cbb.DataSource = dsChuyenBay;
-                cbb.DisplayMember = "MaChuyenBay";
-                cbb.ValueMember = "MaChuyenBay";
+                cbb.DataSource = dsChuyenBayVaGioBay;
+        
                 // Add tooltip to display MaChuyenBay
                 ToolTip toolTip = new ToolTip();
                 cbb.SelectedIndexChanged += (s, e) =>
