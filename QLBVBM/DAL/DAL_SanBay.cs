@@ -9,6 +9,28 @@ namespace QLBVBM.DAL
     {
         private DataHelper dataHelper = new DataHelper();
 
+        public string LayTenSanBay(string maSanBay)
+        {
+            try
+            {
+                string query = "SELECT TenSanBay FROM SANBAY WHERE MaSanBay = @MaSanBay";
+                List<MySqlParameter> parameters = new List<MySqlParameter>()
+                {
+                    new MySqlParameter("@MaSanBay", maSanBay)
+                };
+                DataTable dt = dataHelper.ExecuteQuery(query, parameters);
+                if (dt.Rows.Count > 0)
+                {
+                    return dt.Rows[0]["TenSanBay"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error in LayTenSanBay (DAL_SanBay.cs): {ex.Message}");
+            }
+            return string.Empty;
+        }
+
         public List<DTO_SanBay> LayDanhSachSanBay()
         {
             List<DTO_SanBay> dsSanBay = new List<DTO_SanBay>();

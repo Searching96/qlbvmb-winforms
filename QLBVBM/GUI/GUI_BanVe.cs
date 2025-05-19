@@ -23,7 +23,6 @@ namespace QLBVBM.GUI
         private BUS_VeChuyenBay busVeChuyenBay = new BUS_VeChuyenBay();
         private ErrorProvider errorProvider = new ErrorProvider();
         
-
         public GUI_BanVe()
         {
             InitializeComponent();
@@ -58,8 +57,8 @@ namespace QLBVBM.GUI
                 if (chuyenBay != null)
                 {
                     txtMaChuyenBay.Text = chuyenBay.MaChuyenBay;
-                    txtSanBayDi.Text = chuyenBay.MaSanBayDi;
-                    txtSanBayDen.Text = chuyenBay.MaSanBayDen;
+                    txtSanBayDi.Text = busSanBay.LayTenSanBay(chuyenBay.MaSanBayDi);
+                    txtSanBayDen.Text = busSanBay.LayTenSanBay(chuyenBay.MaSanBayDen);
                     dtpNgayBay.Value = chuyenBay.NgayBay.Value;
                     txtGioBay.Text = chuyenBay.GioBay?.ToString("HH:mm");
                 }
@@ -193,7 +192,6 @@ namespace QLBVBM.GUI
             return false;
         }
 
-
         private void btnLuuVe_Click(object sender, EventArgs e)
         {
             if (HasErrors())
@@ -227,7 +225,6 @@ namespace QLBVBM.GUI
                             MessageBoxButtons.OK,
                             success ? MessageBoxIcon.Information : MessageBoxIcon.Error);
         }
-
 
         private void btnInVe_Click(object sender, EventArgs e)
         {
