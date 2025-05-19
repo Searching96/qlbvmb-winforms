@@ -62,7 +62,7 @@ namespace QLBVBM.BUS
                 }
                 catch (Exception ex)
                 {
-                    //Debug.WriteLine($"Error: {ex.Message}");
+                    Debug.WriteLine($"Error: {ex.Message}");
                     transaction.Dispose();
                     return false;
                 }
