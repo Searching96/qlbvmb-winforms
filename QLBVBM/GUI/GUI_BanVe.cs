@@ -266,6 +266,7 @@ namespace QLBVBM.GUI
                 TenHanhKhach = txtTenHanhKhach.Text,
                 SoCMND = txtCMND.Text,
                 SoDT = txtSDT.Text,
+                DonGia = int.Parse(txtGiaTien.Text)
             };
 
             DTO_HangVeCB hangVeCB = new DTO_HangVeCB

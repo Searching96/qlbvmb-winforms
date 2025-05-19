@@ -45,7 +45,7 @@ namespace QLBVBM.DAL
             try
             {
                 string query = @"UPDATE HANGVECB 
-                            SET SoLuongGheConLai = SoLuongGheConLai - 1 
+                            SET SLGheConLai = SLGheConLai - 1 
                             WHERE MaChuyenBay = @MaChuyenBay 
                             AND MaHangGhe = @MaHangGhe";
 
@@ -81,7 +81,7 @@ namespace QLBVBM.DAL
                         MaChuyenBay = dr["MaChuyenBay"].ToString(),
                         MaHangGhe = dr["MaHangGhe"].ToString(),
                         SoLuongGhe = Convert.ToInt32(dr["SoLuongGhe"]),
-                        SoLuongGheConLai = Convert.ToInt32(dr["SoLuongGheConLai"]),
+                        SoLuongGheConLai = Convert.ToInt32(dr["SLGheConLai"]),
                     };
                     dsHangVe.Add(hangVeCB);
                 }
