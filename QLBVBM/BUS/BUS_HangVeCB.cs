@@ -14,7 +14,7 @@ namespace QLBVBM.BUS
 
         public bool ThemHangVeCB(DTO_HangVeCB hangVeCB)
         {
-            return DAL_HangVeCB.ThemHangVe(hangVeCB);
+            return DAL_HangVeCB.ThemHangVeCB(hangVeCB);
         }
 
         public bool CapNhatSoLuongVeDaBan(string maChuyenBay, string maHangGhe)
@@ -22,10 +22,10 @@ namespace QLBVBM.BUS
             return DAL_HangVeCB.CapNhatSoLuongVeDaBan(maChuyenBay, maHangGhe);
         }
 
-        public bool CapNhatSoLuongGheDaDat(string maChuyenBay, string maHangGhe)
-        {
-            return DAL_HangVeCB.CapNhatSoLuongGheDaDat(maChuyenBay, maHangGhe);
-        }
+        //public bool CapNhatSoLuongGheDaDat(string maChuyenBay, string maHangGhe)
+        //{
+        //    return DAL_HangVeCB.CapNhatSoLuongGheDaDat(maChuyenBay, maHangGhe);
+        //}
 
         public List<DTO_HangVeCB> TraCuuHangVe(string maChuyenBay)
         {

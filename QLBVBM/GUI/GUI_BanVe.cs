@@ -22,17 +22,12 @@ namespace QLBVBM.GUI
         private BUS_DonGiaHangGhe busDonGiaHangGhe = new BUS_DonGiaHangGhe();
         private BUS_VeChuyenBay busVeChuyenBay = new BUS_VeChuyenBay();
         private ErrorProvider errorProvider = new ErrorProvider();
-        private ToolTip toolTip = new ToolTip();
-
+        
         public GUI_BanVe()
         {
             InitializeComponent();
             SetResponsive();
-            LoadDanhSachSanBayToComboBox(cbbSanBayDi, LayDanhSachSanBay());
-            LoadDanhSachSanBayToComboBox(cbbSanBayDen, LayDanhSachSanBay());
         }
-
-        #region non-logic code block
 
         public void SetResponsive()
         {
@@ -50,102 +45,48 @@ namespace QLBVBM.GUI
             cbb.Text = "";
             cbb.SelectedIndex = -1;
         }
-        #endregion
-
-        private List<DTO_SanBay> LayDanhSachSanBay()
-        {
-            List<DTO_SanBay> dsSanBay = busSanBay.LayDanhSachSanBay();
-            dsSanBay.Insert(0, new DTO_SanBay { MaSanBay = "", TenSanBay = "" });
-            return dsSanBay;
-        }
-
-        public void LoadDanhSachSanBayToComboBox(Guna2ComboBox cbb, List<DTO_SanBay> dsSanBay)
-        {
-            if (dsSanBay != null && dsSanBay.Count > 1) // since we add an empty item at index 0
-            {
-                cbb.DataSource = dsSanBay;
-                cbb.DisplayMember = "TenSanBay";
-                cbb.ValueMember = "MaSanBay";
-
-                // Add tooltip to display MaSanBay
-                ToolTip toolTip = new ToolTip();
-                cbb.SelectedIndexChanged += (s, e) =>
-                {
-                    if (cbb.SelectedItem is DTO_SanBay selectedSanBay)
-                    {
-                        toolTip.SetToolTip(cbb, selectedSanBay.MaSanBay);
-                    }
-                };
-            }
-        }
-        
-        public void LoadMaChuyenBay(Guna2ComboBox cbb, List<DTO_ChuyenBay> dsChuyenBay)
-        {
-            if (dsChuyenBay != null && dsChuyenBay.Count > 0)
-            {
-                cbb.Enabled = true; // turn on the combobox
-                cbb.DataSource = dsChuyenBay;
-                cbb.DisplayMember = "MaChuyenBay";
-                cbb.ValueMember = "MaChuyenBay";
-                // Add tooltip to display MaChuyenBay
-                ToolTip toolTip = new ToolTip();
-                cbb.SelectedIndexChanged += (s, e) =>
-                {
-                    if (cbb.SelectedItem is DTO_ChuyenBay selectedChuyenBay)
-                    {
-                        toolTip.SetToolTip(cbb, selectedChuyenBay.GioBay.ToString());
-                    }
-                };
-            }
-        }
 
         private void btnTimChuyenBay_Click(object sender, EventArgs e)
         {
-            string maSanBayDi = cbbSanBayDi.SelectedValue.ToString();
-            string maSanBayDen = cbbSanBayDen.SelectedValue.ToString();
-            string ngayBay = dtpNgayBay.Value.ToString("yyyy-MM-dd");
+            GUI_TimChuyenBay guiTimChuyenBay = new GUI_TimChuyenBay();
 
-            if (string.IsNullOrWhiteSpace(maSanBayDi) || string.IsNullOrWhiteSpace(maSanBayDen))
+            if (guiTimChuyenBay.ShowDialog() == DialogResult.OK)
             {
-                MessageBox.Show("Vui lòng chọn sân bay đi và sân bay đến.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (maSanBayDi == maSanBayDen)
-            {
-                MessageBox.Show("Sân bay đi và sân bay đến không được giống nhau.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            List<DTO_ChuyenBay> dsChuyenBay = busChuyenBay.TraCuuChuyenBay(maSanBayDi, maSanBayDen, ngayBay);
-            if (dsChuyenBay != null && dsChuyenBay.Count > 0)
-            {
-                LoadMaChuyenBay(cbbMaChuyenBay, dsChuyenBay);
-            }
-            else
-            {
-                MessageBox.Show("Không tìm thấy chuyến bay nào.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ClearCombobox(cbbMaChuyenBay);
-                ClearCombobox(cbbHangVe);
+                DTO_ChuyenBay? chuyenBay = new DTO_ChuyenBay();
+                chuyenBay = guiTimChuyenBay.thongTinChuyenBay;
+                if (chuyenBay != null)
+                {
+                    txtMaChuyenBay.Text = chuyenBay.MaChuyenBay;
+                    txtSanBayDi.Text = busSanBay.LayTenSanBay(chuyenBay.MaSanBayDi);
+                    txtSanBayDen.Text = busSanBay.LayTenSanBay(chuyenBay.MaSanBayDen);
+                    dtpNgayBay.Value = chuyenBay.NgayBay.Value;
+                    txtGioBay.Text = chuyenBay.GioBay?.ToString("HH:mm");
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy chuyến bay nào.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearCombobox(cbbHangVe);
+                }
             }
         }
 
-        private void cbbMaChuyenBay_SelectedIndexChanged(object sender, EventArgs e)
+        private void txtMaChuyenBay_TextChanged(object sender, EventArgs e)
         {
-            if (cbbMaChuyenBay.SelectedIndex == -1)
+            if (string.IsNullOrEmpty(txtMaChuyenBay.Text))
             {
-                txtGioBay.Text = "";
+                ClearCombobox(cbbHangVe);
             }
             else
             {
-                DTO_ChuyenBay selectedChuyenBay = (DTO_ChuyenBay)cbbMaChuyenBay.SelectedItem;
-                if (selectedChuyenBay != null)
+                DTO_ChuyenBay chuyenBay = busChuyenBay.TimChuyenBayTheoMa(txtMaChuyenBay.Text);
+                if (chuyenBay != null)
                 {
-                    txtGioBay.Text = selectedChuyenBay.GioBay?.ToString("HH:mm");
-                    // Load danh sách hạng vé
-                    //List<DTO_HangVeCB> dsHangVe = busHangVeCB.TraCuuHangVe(selectedChuyenBay?.MaChuyenBay);
-                    List<DTO_DonGiaHangGhe> dsHangGhe = busDonGiaHangGhe.LayDanhSachTenHangGheChuyenBay(selectedChuyenBay?.MaChuyenBay);
+                    List<DTO_DonGiaHangGhe> dsHangGhe = busDonGiaHangGhe.LayDanhSachTenHangGheChuyenBay(chuyenBay?.MaChuyenBay);
                     LoadDanhSachHangVeCB(dsHangGhe);
+                }
+                else
+                {
+                    ClearCombobox(cbbHangVe);
                 }
             }
         }
@@ -228,17 +169,19 @@ namespace QLBVBM.GUI
         private bool HasErrors()
         {
             // Check for errors in form controls
-            if (string.IsNullOrWhiteSpace(txtTenHanhKhach.Text) ||
-                string.IsNullOrWhiteSpace(txtCMND.Text) ||
-                string.IsNullOrWhiteSpace(txtSDT.Text) ||
-                cbbMaChuyenBay.SelectedIndex == -1 ||
-                cbbHangVe.SelectedIndex == -1 ||
-                !busValidationTTHK.ValidateSDT(txtSDT.Text) ||
-                !busValidationTTHK.ValidateCMND(txtCMND.Text) ||
-                !busValidationTTHK.ValidateHoTen(txtTenHanhKhach.Text))
-            {
+            if (string.IsNullOrWhiteSpace(txtMaChuyenBay.Text)
+                || string.IsNullOrWhiteSpace(txtSanBayDi.Text)
+                || string.IsNullOrWhiteSpace(txtSanBayDen.Text)
+                || string.IsNullOrWhiteSpace(txtGioBay.Text)
+                || string.IsNullOrWhiteSpace(txtGiaTien.Text)
+                || string.IsNullOrWhiteSpace(txtTenHanhKhach.Text)
+                || string.IsNullOrWhiteSpace(txtCMND.Text)
+                || string.IsNullOrWhiteSpace(txtSDT.Text)
+                || cbbHangVe.SelectedIndex == -1
+                || !busValidationTTHK.ValidateSDT(txtSDT.Text)
+                || !busValidationTTHK.ValidateCMND(txtCMND.Text)
+                || !busValidationTTHK.ValidateHoTen(txtTenHanhKhach.Text))
                 return true;
-            }
 
             foreach (Control control in this.Controls)
             {
@@ -248,7 +191,6 @@ namespace QLBVBM.GUI
 
             return false;
         }
-
 
         private void btnLuuVe_Click(object sender, EventArgs e)
         {
@@ -261,20 +203,21 @@ namespace QLBVBM.GUI
             DTO_VeChuyenBay veChuyenBay = new DTO_VeChuyenBay
             {
                 MaVe = busVeChuyenBay.PhatSinhMaVeChuyenBay(),
-                MaChuyenBay = cbbMaChuyenBay.SelectedValue.ToString(),
+                MaChuyenBay = txtMaChuyenBay.Text, // change to txtBox
                 MaHangGhe = cbbHangVe.SelectedValue.ToString(),
                 TenHanhKhach = txtTenHanhKhach.Text,
                 SoCMND = txtCMND.Text,
                 SoDT = txtSDT.Text,
+                DonGia = int.Parse(txtGiaTien.Text)
             };
 
             DTO_HangVeCB hangVeCB = new DTO_HangVeCB
             {
-                MaChuyenBay = cbbMaChuyenBay.SelectedValue.ToString(),
+                MaChuyenBay = txtMaChuyenBay.Text,
                 MaHangGhe = cbbHangVe.SelectedValue.ToString()
             };
 
-            
+
             bool success = busVeChuyenBay.ThemVeChuyenBayVaHangVe(veChuyenBay, hangVeCB);
 
             MessageBox.Show(success ? "Thêm vé thành công" : "Lỗi khi thêm vé",
@@ -282,7 +225,6 @@ namespace QLBVBM.GUI
                             MessageBoxButtons.OK,
                             success ? MessageBoxIcon.Information : MessageBoxIcon.Error);
         }
-
 
         private void btnInVe_Click(object sender, EventArgs e)
         {
