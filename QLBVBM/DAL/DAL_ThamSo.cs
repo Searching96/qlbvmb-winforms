@@ -47,14 +47,14 @@ namespace QLBVBM.DAL
             return result;
         }
 
-        //public int LayThoiGianDatVeToiThieu()
-        //{
-        //    string query = "SELECT TGDatTruocVeToiThieu FROM THAMSO";
-        //    DataTable dt = dataHelper.ExecuteQuery(query);
-        //    int result;
-        //    int.TryParse(dt.Rows[0]["TGDatTruocVeToiThieu"].ToString(), out result);
-        //    return result;
-        //}
+        public int LayThoiGianDatVeToiThieu()
+        {
+            string query = "SELECT TGDatTruocVeToiThieu FROM THAMSO";
+            DataTable dt = dataHelper.ExecuteQuery(query);
+            int result;
+            int.TryParse(dt.Rows[0]["TGDatTruocVeToiThieu"].ToString(), out result);
+            return result;
+        }
 
         //public int LayThoiGianHuyDatVeToiThieu()
         //{

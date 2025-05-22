@@ -21,10 +21,10 @@ namespace QLBVBM.BUS
             return DAL_VeChuyenBay.ThemVeChuyenBay(veChuyenBay);
         }
 
-        //public bool DatVeChuyenBay(DTO_VeChuyenBay veChuyenBay)
-        //{
-        //    return DAL_VeChuyenBay.DatVeChuyenBay(veChuyenBay);
-        //}
+        public bool DatVeChuyenBay(DTO_VeChuyenBay veChuyenBay)
+        {
+            return DAL_VeChuyenBay.DatVeChuyenBay(veChuyenBay);
+        }
 
         public string PhatSinhMaVeChuyenBay()
         {
