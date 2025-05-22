@@ -94,21 +94,29 @@ namespace QLBVBM.DAL
             return dsHangVe;
         }
 
-        //public bool CapNhatSoLuongGheDaDat(string maChuyenBay, string maHangGhe)
-        //{
-        //    string query = @"UPDATE HANGVECB 
-        //                    SET SLGheDaDat = SLGheDaDat + 1 
-        //                    WHERE MaChuyenBay = @MaChuyenBay 
-        //                    AND MaHangGhe = @MaHangGhe";
+        public bool CapNhatSoLuongVeDaDat(string maChuyenBay, string maHangGhe)
+        {
+            try
+            {
+                string query = @"UPDATE HANGVECB 
+                            SET SLGheConLai = SLGheConLai - 1 
+                            WHERE MaChuyenBay = @MaChuyenBay 
+                            AND MaHangGhe = @MaHangGhe";
 
-        //    List<MySqlParameter> parameters = new List<MySqlParameter>
-        //    {
-        //        new MySqlParameter("@MaChuyenBay", maChuyenBay),
-        //        new MySqlParameter("@MaHangGhe", maHangGhe)
-        //    };
+                List<MySqlParameter> parameters = new List<MySqlParameter>
+                {
+                    new MySqlParameter("@MaChuyenBay", maChuyenBay),
+                    new MySqlParameter("@MaHangGhe", maHangGhe)
+                };
 
-        //    int result = dataHelper.ExecuteNonQuery(query, parameters);
-        //    return result > 0;
-        //}
+                int result = dataHelper.ExecuteNonQuery(query, parameters);
+                return result > 0;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error in CapNhatSoLuongVeDaBan (DAL_HangVeCB.cs): {ex.Message}");
+                return false;
+            }
+        }
     }
 }
