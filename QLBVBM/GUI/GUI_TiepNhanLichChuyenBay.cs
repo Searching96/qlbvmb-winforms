@@ -21,17 +21,7 @@ namespace QLBVBM.GUI
         private BUS_ThamSo BUS_ThamSo = new BUS_ThamSo();
         private BUS_HangGhe BUS_HangGhe = new BUS_HangGhe();
 
-
         private ErrorProvider errorProvider = new ErrorProvider();
-
-        private List<DTO_HangGhe> dsHangGhe = new List<DTO_HangGhe>();
-
-        // variables for dynamic HangGhe_ComboBox creation
-        private int currentComboBoxCount = 0;
-        private const int maxComboBoxPerRow = 2;
-        private const int maxComboBox = 4;
-        private const int verticalSpacing = 70;
-        private const int horizontalSpacing = 396;
 
         public GUI_TiepNhanLichChuyenBay()
         {
@@ -42,14 +32,6 @@ namespace QLBVBM.GUI
             PhatSinhMaChuyenBay();
             LoadSanBayToComboBox(cbbSanBayDi, LayDanhSachSanBay());
             LoadSanBayToComboBox(cbbSanBayDen, LayDanhSachSanBay());
-        }
-
-        public void FixScale()
-        {
-            foreach (Control control in this.Controls)
-            {
-
-            }
         }
 
         private List<DTO_SanBay> LayDanhSachSanBay()
@@ -151,15 +133,6 @@ namespace QLBVBM.GUI
             colSoLuongGhe.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             colSoLuongGhe.HeaderCell.Style.Font = headerFont;
             dgvDSHangGhe.Columns.Add(colSoLuongGhe);
-
-            DataGridViewTextBoxColumn colDonGia = new DataGridViewTextBoxColumn
-            {
-                Name = "DonGia",
-                HeaderText = "Đơn giá (VND)"
-            };
-            colDonGia.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            colDonGia.HeaderCell.Style.Font = headerFont;
-            dgvDSHangGhe.Columns.Add(colDonGia);
 
             dgvDSHangGhe.Rows.Clear();
             for (int i = 0; i < 2; i++)
@@ -458,15 +431,12 @@ namespace QLBVBM.GUI
 
                 var maHangGhe = row.Cells["TenHangGhe"].Value?.ToString();
                 var textSoLuongGhe = row.Cells["SoLuongGhe"].Value?.ToString();
-                var textDonGia = row.Cells["DonGia"].Value?.ToString();
 
                 if (string.IsNullOrWhiteSpace(maHangGhe)
-                    && string.IsNullOrWhiteSpace(textSoLuongGhe)
-                    && string.IsNullOrWhiteSpace(textDonGia))
+                    && string.IsNullOrWhiteSpace(textSoLuongGhe))
                     continue;
 
-                if (!int.TryParse(textSoLuongGhe, out int soLuongGhe)
-                    || !int.TryParse(textDonGia, out int donGia))
+                if (!int.TryParse(textSoLuongGhe, out int soLuongGhe))
                     continue;
 
                 DTO_HangVeCB hangVeCB = new DTO_HangVeCB
@@ -474,7 +444,7 @@ namespace QLBVBM.GUI
                     MaChuyenBay = chuyenBayMoi.MaChuyenBay,
                     MaHangGhe = maHangGhe,
                     SoLuongGhe = soLuongGhe,
-                    DonGia = donGia
+                    SoLuongGheConLai = soLuongGhe
                 };
 
                 dsHangVeCB.Add(hangVeCB);
@@ -630,24 +600,6 @@ namespace QLBVBM.GUI
                 {
                     dgvDSSanBayTG.Rows[e.RowIndex].Cells[e.ColumnIndex].ErrorText =
                         $"Số lượng ghế phải là số nguyên dương";
-                }
-                else
-                {
-                    dgvDSSanBayTG.Rows[e.RowIndex].Cells[e.ColumnIndex].ErrorText = string.Empty;
-                }
-            }
-            else if (dgvDSHangGhe.Columns[e.ColumnIndex].Name == "DonGia")
-            {
-                if (string.IsNullOrWhiteSpace(e.FormattedValue.ToString()))
-                {
-                    dgvDSHangGhe.Rows[e.RowIndex].Cells[e.ColumnIndex].ErrorText = string.Empty;
-                    return;
-                }
-
-                if (!int.TryParse(e.FormattedValue.ToString(), out int donGia) || donGia <= 0)
-                {
-                    dgvDSSanBayTG.Rows[e.RowIndex].Cells[e.ColumnIndex].ErrorText =
-                        $"Đơn giá phải là số nguyên dương";
                 }
                 else
                 {

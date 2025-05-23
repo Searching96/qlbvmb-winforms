@@ -12,6 +12,11 @@ namespace QLBVBM.BUS
     {
         private DAL_SanBay DAL_SanBay = new DAL_SanBay();
 
+        public string LayTenSanBay(string maSanBay)
+        {
+            return DAL_SanBay.LayTenSanBay(maSanBay);
+        }
+
         public List<DTO_SanBay> LayDanhSachSanBay()
         {
             return DAL_SanBay.LayDanhSachSanBay();

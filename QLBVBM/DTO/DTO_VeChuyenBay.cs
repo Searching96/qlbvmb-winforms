@@ -15,13 +15,13 @@
         private string? tenHanhKhach;
         private string? CMND;
         private string? SDT;
-        private int? trangThaiVe;
-        private DateTime? thoiDiemThanhToan;
+        private int? donGia;
+        //private int? trangThaiVe;
+        //private DateTime? thoiDiemThanhToan;
 
         public DTO_VeChuyenBay(string? maVe = null, string? maChuyenBay = null,
                             string? maHangGhe = null, string? tenHanhKhach = null,
-                            string? CMND = null, string? SDT = null, int? trangThaiVe = null,
-                            DateTime? thoiDiemThanhToan = null)
+                            string? CMND = null, string? SDT = null, int? donGia = null)
         {
             this.maVe = maVe;
             this.maChuyenBay = maChuyenBay;
@@ -29,8 +29,9 @@
             this.tenHanhKhach = tenHanhKhach;
             this.CMND = CMND;
             this.SDT = SDT;
-            this.trangThaiVe = trangThaiVe;
-            this.thoiDiemThanhToan = thoiDiemThanhToan;
+            this.donGia = donGia;
+            //this.trangThaiVe = trangThaiVe;
+            //this.thoiDiemThanhToan = thoiDiemThanhToan;
         }
 
         public string? MaVe { get => maVe; set => maVe = value; }
@@ -39,7 +40,8 @@
         public string? TenHanhKhach { get => tenHanhKhach; set => tenHanhKhach = value; }
         public string? SoCMND { get => CMND; set => CMND = value; }
         public string? SoDT { get => SDT; set => SDT = value; }
-        public int? TrangThaiVe { get => trangThaiVe; set => trangThaiVe = value; }
-        public DateTime? ThoiDiemThanhToan { get => thoiDiemThanhToan; set => thoiDiemThanhToan = value; }
+        public int? DonGia { get => donGia; set => donGia = value; }
+        //public int? TrangThaiVe { get => trangThaiVe; set => trangThaiVe = value; }
+        //public DateTime? ThoiDiemThanhToan { get => thoiDiemThanhToan; set => thoiDiemThanhToan = value; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using QLBVBM.DAL;
 using QLBVBM.DTO;
+using System.Diagnostics;
 using System.Transactions;
 
 namespace QLBVBM.BUS
@@ -10,6 +11,31 @@ namespace QLBVBM.BUS
         private BUS_ThamSo BUS_ThamSo = new BUS_ThamSo();
         private BUS_CTChuyenBay BUS_CTChuyenBay = new BUS_CTChuyenBay();
         private BUS_HangVeCB BUS_HangVeCB = new BUS_HangVeCB();
+
+        public List<DTO_ChuyenBay>? LayTatCaChuyenBayConTrongDuaVaoSanBayDi(string maSanBayDi)
+        {
+            return DAL_ChuyenBay.LayTatCaChuyenBayConTrongDuaVaoSanBayDi(maSanBayDi);
+        }
+
+        public List<DTO_ChuyenBay>? LayTatCaChuyenBayConTrongDuaVaoSanBayDen(string maSanBayDen)
+        {
+            return DAL_ChuyenBay.LayTatCaChuyenBayConTrongDuaVaoSanBayDen(maSanBayDen);
+        }
+
+        public List<DTO_ChuyenBay>? LayTatCaChuyenBayConTrongDuaVaoNgayBay(DateTime ngayBay)
+        {
+            return DAL_ChuyenBay.LayTatCaChuyenBayConTrongDuaVaoNgayBay(ngayBay);
+        }
+
+        public List<DTO_ChuyenBay> LayTatCaChuyenBayConGheTrong()
+        {
+            return DAL_ChuyenBay.LayTatCaChuyenBayConGheTrong();
+        }
+
+        public DTO_ChuyenBay? TimChuyenBayTheoMa(string maChuyenBay)
+        {
+            return DAL_ChuyenBay.TimChuyenBayTheoMa(maChuyenBay);
+        }
 
         public DTO_ChuyenBay? LayChuyenBayCuoi()
         {
@@ -56,7 +82,7 @@ namespace QLBVBM.BUS
                 }
                 catch (Exception ex)
                 {
-                    //Debug.WriteLine($"Error: {ex.Message}");
+                    Debug.WriteLine($"Error: {ex.Message}");
                     transaction.Dispose();
                     return false;
                 }
@@ -160,19 +186,14 @@ namespace QLBVBM.BUS
             return DAL_ChuyenBay.TraCuuChuyenBay(maSanBayDi, maSanBayDen, ngayGioBay);
         }
 
-        public bool KiemTraHanDatVe(DTO_ChuyenBay chuyenBay)
-        {
-            DateTime thoiGianBay = chuyenBay.NgayBay.Value.Date + chuyenBay.GioBay.Value.TimeOfDay;
-            DateTime hanCuoiDatVe = thoiGianBay.AddDays(-BUS_ThamSo.LayThoiGianHuyDatVeToiThieu());
-            return DateTime.Now <= hanCuoiDatVe;
-        }
+        //public bool KiemTraHanDatVe(DTO_ChuyenBay chuyenBay)
+        //{
+        //    DateTime thoiGianBay = chuyenBay.NgayBay.Value.Date + chuyenBay.GioBay.Value.TimeOfDay;
+        //    DateTime hanCuoiDatVe = thoiGianBay.AddDays(-BUS_ThamSo.LayThoiGianHuyDatVeToiThieu());
+        //    return DateTime.Now <= hanCuoiDatVe;
+        //}
 
-        public DateTime LayHanCuoiDatVe(DTO_ChuyenBay chuyenBay)
-        {
-            DateTime thoiGianBay = chuyenBay.NgayBay.Value.Date + chuyenBay.GioBay.Value.TimeOfDay;
-            DateTime hanCuoiDatVe = thoiGianBay.AddDays(-BUS_ThamSo.LayThoiGianHuyDatVeToiThieu());
-            return hanCuoiDatVe;
-        }
+
 
         public List<DTO_ChuyenBay> TraCuuChuyenBayNangCao(
            string maChuyenBay = null, string maSanBayDi = null, string maSanBayDen = null,
@@ -203,5 +224,11 @@ namespace QLBVBM.BUS
                     maVeChuyenBay, trangThaiVe, tenHanhKhach, soCMND, soDT,
                     thoiDiemThanhToanTu, thoiDiemThanhToanDen);
         }
+        //public DateTime LayHanCuoiDatVe(DTO_ChuyenBay chuyenBay)
+        //{
+        //    DateTime thoiGianBay = chuyenBay.NgayBay.Value.Date + chuyenBay.GioBay.Value.TimeOfDay;
+        //    DateTime hanCuoiDatVe = thoiGianBay.AddDays(-BUS_ThamSo.LayThoiGianHuyDatVeToiThieu());
+        //    return hanCuoiDatVe;
+        //}
     }
 }
