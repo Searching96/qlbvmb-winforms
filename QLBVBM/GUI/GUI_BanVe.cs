@@ -32,7 +32,7 @@ namespace QLBVBM.GUI
 
         private List<DTO_ChuyenBay> LayDanhSachChuyenBay()
         {
-            List<DTO_ChuyenBay> dsChuyenBay = busChuyenBay.LayTatCaChuyenBay();
+            List<DTO_ChuyenBay> dsChuyenBay = busChuyenBay.LayTatCaChuyenBayConGheTrong();
             return dsChuyenBay;
         }
 

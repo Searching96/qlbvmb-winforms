@@ -15,12 +15,17 @@ namespace QLBVBM.DAL
     {
         private DataHelper dataHelper = new DataHelper();
 
-        public List<DTO_ChuyenBay> LayTatCaChuyenBay()
+        public List<DTO_ChuyenBay> LayTatCaChuyenBayConGheTrong()
         {
             List<DTO_ChuyenBay> dsChuyenBay = new List<DTO_ChuyenBay>();
             try
             {
-                string query = "SELECT * FROM CHUYENBAY";
+                string query = @"
+                    SELECT cb.*
+                    FROM CHUYENBAY cb
+                    JOIN HANGVECB hv ON cb.MaChuyenBay = hv.MaChuyenBay
+                    GROUP BY cb.MaChuyenBay
+                    HAVING SUM(hv.SLGheConLai) > 0";
                 DataTable dt = dataHelper.ExecuteQuery(query);
                 foreach (DataRow dr in dt.Rows)
                 {
@@ -38,7 +43,7 @@ namespace QLBVBM.DAL
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"Error in LayTatCaChuyenBay (DAL_ChuyenBay.cs): {ex.Message}");
+                Debug.WriteLine($"Error in LayTatCaChuyenBayConGheTrong (DAL_ChuyenBay.cs): {ex.Message}");
             }
             return dsChuyenBay;
         }
