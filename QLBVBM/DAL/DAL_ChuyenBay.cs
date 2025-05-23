@@ -15,6 +15,34 @@ namespace QLBVBM.DAL
     {
         private DataHelper dataHelper = new DataHelper();
 
+        public List<DTO_ChuyenBay> LayTatCaChuyenBay()
+        {
+            List<DTO_ChuyenBay> dsChuyenBay = new List<DTO_ChuyenBay>();
+            try
+            {
+                string query = "SELECT * FROM CHUYENBAY";
+                DataTable dt = dataHelper.ExecuteQuery(query);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    DTO_ChuyenBay cb = new DTO_ChuyenBay
+                    {
+                        MaChuyenBay = dr["MaChuyenBay"].ToString(),
+                        MaSanBayDi = dr["MaSanBayDi"].ToString(),
+                        MaSanBayDen = dr["MaSanBayDen"].ToString(),
+                        NgayBay = DateTime.Parse(dr["NgayBay"].ToString()),
+                        GioBay = DateTime.Parse(dr["GioBay"].ToString()),
+                        ThoiGianBay = int.Parse(dr["ThoiGianBay"].ToString())
+                    };
+                    dsChuyenBay.Add(cb);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error in LayTatCaChuyenBay (DAL_ChuyenBay.cs): {ex.Message}");
+            }
+            return dsChuyenBay;
+        }
+
         public DTO_ChuyenBay? TimChuyenBayTheoMa(string maChuyenBay)
         {
             try

@@ -64,9 +64,9 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges31 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panelThongTinChuyenBay = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            cbbMaChuyenBay = new Guna.UI2.WinForms.Guna2ComboBox();
             txtSanBayDen = new Guna.UI2.WinForms.Guna2TextBox();
             txtSanBayDi = new Guna.UI2.WinForms.Guna2TextBox();
-            txtMaChuyenBay = new Guna.UI2.WinForms.Guna2TextBox();
             txtGioBay = new Guna.UI2.WinForms.Guna2TextBox();
             dtpNgayBay = new Guna.UI2.WinForms.Guna2DateTimePicker();
             lblNgayGioBay = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -101,9 +101,9 @@
             // 
             panelThongTinChuyenBay.BorderColor = Color.Black;
             panelThongTinChuyenBay.BorderThickness = 1;
+            panelThongTinChuyenBay.Controls.Add(cbbMaChuyenBay);
             panelThongTinChuyenBay.Controls.Add(txtSanBayDen);
             panelThongTinChuyenBay.Controls.Add(txtSanBayDi);
-            panelThongTinChuyenBay.Controls.Add(txtMaChuyenBay);
             panelThongTinChuyenBay.Controls.Add(txtGioBay);
             panelThongTinChuyenBay.Controls.Add(dtpNgayBay);
             panelThongTinChuyenBay.Controls.Add(lblNgayGioBay);
@@ -119,11 +119,32 @@
             panelThongTinChuyenBay.Size = new Size(663, 313);
             panelThongTinChuyenBay.TabIndex = 0;
             // 
+            // cbbMaChuyenBay
+            // 
+            cbbMaChuyenBay.Anchor = AnchorStyles.None;
+            cbbMaChuyenBay.BackColor = Color.Transparent;
+            cbbMaChuyenBay.BorderColor = Color.Silver;
+            cbbMaChuyenBay.BorderRadius = 7;
+            cbbMaChuyenBay.CustomizableEdges = customizableEdges1;
+            cbbMaChuyenBay.DrawMode = DrawMode.OwnerDrawFixed;
+            cbbMaChuyenBay.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbbMaChuyenBay.FocusedColor = Color.FromArgb(94, 148, 255);
+            cbbMaChuyenBay.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cbbMaChuyenBay.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            cbbMaChuyenBay.ForeColor = Color.FromArgb(68, 88, 112);
+            cbbMaChuyenBay.ItemHeight = 44;
+            cbbMaChuyenBay.Location = new Point(32, 82);
+            cbbMaChuyenBay.Name = "cbbMaChuyenBay";
+            cbbMaChuyenBay.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            cbbMaChuyenBay.Size = new Size(271, 50);
+            cbbMaChuyenBay.TabIndex = 42;
+            cbbMaChuyenBay.SelectedIndexChanged += cbbMaChuyenBay_SelectedIndexChanged;
+            // 
             // txtSanBayDen
             // 
             txtSanBayDen.BackColor = Color.White;
             txtSanBayDen.BorderRadius = 7;
-            txtSanBayDen.CustomizableEdges = customizableEdges1;
+            txtSanBayDen.CustomizableEdges = customizableEdges3;
             txtSanBayDen.DefaultText = "";
             txtSanBayDen.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtSanBayDen.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -137,7 +158,7 @@
             txtSanBayDen.PlaceholderText = "";
             txtSanBayDen.ReadOnly = true;
             txtSanBayDen.SelectedText = "";
-            txtSanBayDen.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            txtSanBayDen.ShadowDecoration.CustomizableEdges = customizableEdges4;
             txtSanBayDen.Size = new Size(271, 52);
             txtSanBayDen.TabIndex = 40;
             // 
@@ -145,7 +166,7 @@
             // 
             txtSanBayDi.BackColor = Color.White;
             txtSanBayDi.BorderRadius = 7;
-            txtSanBayDi.CustomizableEdges = customizableEdges3;
+            txtSanBayDi.CustomizableEdges = customizableEdges5;
             txtSanBayDi.DefaultText = "";
             txtSanBayDi.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtSanBayDi.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -159,32 +180,9 @@
             txtSanBayDi.PlaceholderText = "";
             txtSanBayDi.ReadOnly = true;
             txtSanBayDi.SelectedText = "";
-            txtSanBayDi.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            txtSanBayDi.ShadowDecoration.CustomizableEdges = customizableEdges6;
             txtSanBayDi.Size = new Size(271, 52);
             txtSanBayDi.TabIndex = 39;
-            // 
-            // txtMaChuyenBay
-            // 
-            txtMaChuyenBay.BackColor = Color.White;
-            txtMaChuyenBay.BorderRadius = 7;
-            txtMaChuyenBay.CustomizableEdges = customizableEdges5;
-            txtMaChuyenBay.DefaultText = "";
-            txtMaChuyenBay.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtMaChuyenBay.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtMaChuyenBay.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtMaChuyenBay.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtMaChuyenBay.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtMaChuyenBay.Font = new Font("Segoe UI", 9F);
-            txtMaChuyenBay.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtMaChuyenBay.Location = new Point(32, 82);
-            txtMaChuyenBay.Name = "txtMaChuyenBay";
-            txtMaChuyenBay.PlaceholderText = "";
-            txtMaChuyenBay.ReadOnly = true;
-            txtMaChuyenBay.SelectedText = "";
-            txtMaChuyenBay.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            txtMaChuyenBay.Size = new Size(249, 52);
-            txtMaChuyenBay.TabIndex = 38;
-            txtMaChuyenBay.TextChanged += txtMaChuyenBay_TextChanged;
             // 
             // txtGioBay
             // 
@@ -629,6 +627,6 @@
         private Guna.UI2.WinForms.Guna2Button btnInVe;
         private Guna.UI2.WinForms.Guna2TextBox txtSanBayDen;
         private Guna.UI2.WinForms.Guna2TextBox txtSanBayDi;
-        private Guna.UI2.WinForms.Guna2TextBox txtMaChuyenBay;
+        private Guna.UI2.WinForms.Guna2ComboBox cbbMaChuyenBay;
     }
 }
