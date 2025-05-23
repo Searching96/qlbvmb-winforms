@@ -84,8 +84,7 @@ namespace QLBVBM.GUI
                 chuyenBay = guiTimChuyenBay.thongTinChuyenBay;
                 if (chuyenBay != null)
                 {
-                    //txtMaChuyenBay.Text = chuyenBay.MaChuyenBay;
-                    cbbMaChuyenBay.SelectedItem = chuyenBay;
+                    cbbMaChuyenBay.SelectedValue = chuyenBay.MaChuyenBay;
                     txtSanBayDi.Text = busSanBay.LayTenSanBay(chuyenBay.MaSanBayDi);
                     txtSanBayDen.Text = busSanBay.LayTenSanBay(chuyenBay.MaSanBayDen);
                     dtpNgayBay.Value = chuyenBay.NgayBay.Value;
