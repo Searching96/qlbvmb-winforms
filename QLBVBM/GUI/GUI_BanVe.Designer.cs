@@ -131,7 +131,7 @@
             cbbMaChuyenBay.FocusedColor = Color.FromArgb(94, 148, 255);
             cbbMaChuyenBay.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             cbbMaChuyenBay.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            cbbMaChuyenBay.ForeColor = Color.FromArgb(68, 88, 112);
+            cbbMaChuyenBay.ForeColor = Color.Black;
             cbbMaChuyenBay.ItemHeight = 44;
             cbbMaChuyenBay.Location = new Point(32, 82);
             cbbMaChuyenBay.Name = "cbbMaChuyenBay";
@@ -143,6 +143,7 @@
             // txtSanBayDen
             // 
             txtSanBayDen.BackColor = Color.White;
+            txtSanBayDen.BorderColor = Color.Silver;
             txtSanBayDen.BorderRadius = 7;
             txtSanBayDen.CustomizableEdges = customizableEdges3;
             txtSanBayDen.DefaultText = "";
@@ -150,8 +151,10 @@
             txtSanBayDen.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             txtSanBayDen.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             txtSanBayDen.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtSanBayDen.FillColor = Color.LightGray;
             txtSanBayDen.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtSanBayDen.Font = new Font("Segoe UI", 9F);
+            txtSanBayDen.ForeColor = Color.Black;
             txtSanBayDen.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtSanBayDen.Location = new Point(358, 179);
             txtSanBayDen.Name = "txtSanBayDen";
@@ -165,6 +168,7 @@
             // txtSanBayDi
             // 
             txtSanBayDi.BackColor = Color.White;
+            txtSanBayDi.BorderColor = Color.Silver;
             txtSanBayDi.BorderRadius = 7;
             txtSanBayDi.CustomizableEdges = customizableEdges5;
             txtSanBayDi.DefaultText = "";
@@ -172,8 +176,10 @@
             txtSanBayDi.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             txtSanBayDi.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             txtSanBayDi.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtSanBayDi.FillColor = Color.LightGray;
             txtSanBayDi.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtSanBayDi.Font = new Font("Segoe UI", 9F);
+            txtSanBayDi.ForeColor = Color.Black;
             txtSanBayDi.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtSanBayDi.Location = new Point(32, 179);
             txtSanBayDi.Name = "txtSanBayDi";
@@ -196,6 +202,7 @@
             txtGioBay.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtGioBay.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtGioBay.Font = new Font("Segoe UI", 9F);
+            txtGioBay.ForeColor = Color.Black;
             txtGioBay.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtGioBay.IconRight = Properties.Resources.time;
             txtGioBay.Location = new Point(521, 82);
@@ -218,6 +225,7 @@
             dtpNgayBay.CustomizableEdges = customizableEdges9;
             dtpNgayBay.FillColor = Color.White;
             dtpNgayBay.Font = new Font("Segoe UI", 9F);
+            dtpNgayBay.ForeColor = Color.Black;
             dtpNgayBay.Format = DateTimePickerFormat.Long;
             dtpNgayBay.Location = new Point(320, 82);
             dtpNgayBay.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
@@ -310,6 +318,7 @@
             txtSDT.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtSDT.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtSDT.Font = new Font("Segoe UI", 9F);
+            txtSDT.ForeColor = Color.Black;
             txtSDT.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtSDT.IconRight = Properties.Resources.phone;
             txtSDT.Location = new Point(342, 175);
@@ -333,6 +342,7 @@
             txtCMND.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtCMND.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtCMND.Font = new Font("Segoe UI", 9F);
+            txtCMND.ForeColor = Color.Black;
             txtCMND.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtCMND.IconRight = (Image)resources.GetObject("txtCMND.IconRight");
             txtCMND.Location = new Point(33, 175);
@@ -356,6 +366,7 @@
             txtTenHanhKhach.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtTenHanhKhach.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtTenHanhKhach.Font = new Font("Segoe UI", 9F);
+            txtTenHanhKhach.ForeColor = Color.Black;
             txtTenHanhKhach.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtTenHanhKhach.Location = new Point(33, 79);
             txtTenHanhKhach.Name = "txtTenHanhKhach";
@@ -505,6 +516,7 @@
             // txtGiaTien
             // 
             txtGiaTien.BackColor = Color.White;
+            txtGiaTien.BorderColor = Color.Silver;
             txtGiaTien.BorderRadius = 7;
             txtGiaTien.CustomizableEdges = customizableEdges29;
             txtGiaTien.DefaultText = "";
@@ -512,8 +524,10 @@
             txtGiaTien.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             txtGiaTien.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             txtGiaTien.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtGiaTien.FillColor = Color.LightGray;
             txtGiaTien.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtGiaTien.Font = new Font("Segoe UI", 9F);
+            txtGiaTien.ForeColor = Color.Black;
             txtGiaTien.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtGiaTien.Location = new Point(341, 76);
             txtGiaTien.Name = "txtGiaTien";
@@ -547,7 +561,7 @@
             cbbHangVe.FocusedColor = Color.FromArgb(94, 148, 255);
             cbbHangVe.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             cbbHangVe.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            cbbHangVe.ForeColor = Color.FromArgb(68, 88, 112);
+            cbbHangVe.ForeColor = Color.Black;
             cbbHangVe.ItemHeight = 44;
             cbbHangVe.Location = new Point(32, 76);
             cbbHangVe.Name = "cbbHangVe";

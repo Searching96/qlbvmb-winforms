@@ -173,7 +173,6 @@ namespace QLBVBM.GUI
                 || cbbSanBayDen.SelectedIndex == -1
                 || cbbDSChuyenBay.SelectedIndex == -1)
             {
-                MessageBox.Show("Vui lòng chọn đầy đủ thông tin.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return true;
             }
             return false;

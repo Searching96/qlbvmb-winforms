@@ -71,7 +71,7 @@
             cbbSanBayDen.FocusedColor = Color.FromArgb(94, 148, 255);
             cbbSanBayDen.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             cbbSanBayDen.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            cbbSanBayDen.ForeColor = Color.FromArgb(68, 88, 112);
+            cbbSanBayDen.ForeColor = Color.Black;
             cbbSanBayDen.ItemHeight = 44;
             cbbSanBayDen.Location = new Point(360, 126);
             cbbSanBayDen.Name = "cbbSanBayDen";
@@ -91,7 +91,7 @@
             cbbSanBayDi.FocusedColor = Color.FromArgb(94, 148, 255);
             cbbSanBayDi.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             cbbSanBayDi.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            cbbSanBayDi.ForeColor = Color.FromArgb(68, 88, 112);
+            cbbSanBayDi.ForeColor = Color.Black;
             cbbSanBayDi.ItemHeight = 44;
             cbbSanBayDi.Location = new Point(39, 126);
             cbbSanBayDi.Name = "cbbSanBayDi";
@@ -110,6 +110,7 @@
             dtpNgayBay.CustomizableEdges = customizableEdges5;
             dtpNgayBay.FillColor = Color.White;
             dtpNgayBay.Font = new Font("Segoe UI", 9F);
+            dtpNgayBay.ForeColor = Color.Black;
             dtpNgayBay.Format = DateTimePickerFormat.Long;
             dtpNgayBay.Location = new Point(41, 235);
             dtpNgayBay.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
@@ -162,7 +163,7 @@
             cbbDSChuyenBay.FocusedColor = Color.FromArgb(94, 148, 255);
             cbbDSChuyenBay.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             cbbDSChuyenBay.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            cbbDSChuyenBay.ForeColor = Color.FromArgb(68, 88, 112);
+            cbbDSChuyenBay.ForeColor = Color.Black;
             cbbDSChuyenBay.ItemHeight = 44;
             cbbDSChuyenBay.Location = new Point(168, 375);
             cbbDSChuyenBay.Name = "cbbDSChuyenBay";
