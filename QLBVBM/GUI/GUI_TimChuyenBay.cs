@@ -135,7 +135,7 @@ namespace QLBVBM.GUI
             List<string> dsChuyenBayVaGioBay = new List<string>();
             foreach (var chuyenBay in result)
             {
-                dsChuyenBayVaGioBay.Add(chuyenBay.MaChuyenBay + "                    -         Khởi hành: " + chuyenBay.GioBay?.ToString("HH:mm"));
+                dsChuyenBayVaGioBay.Add($"{chuyenBay.MaChuyenBay}    -    Khởi hành: {chuyenBay.NgayBay?.ToString("dd/MM/yyyy")} {chuyenBay.GioBay?.ToString("HH:mm")}");
             }
 
             if (dsChuyenBayVaGioBay != null && dsChuyenBayVaGioBay.Count > 0)
