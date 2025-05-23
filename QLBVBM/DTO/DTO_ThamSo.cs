@@ -15,7 +15,7 @@ namespace QLBVBM.DTO
         private int? tgDatTruocVeToiThieu;
         //private int? tgHuyDatTruocVeToiThieu;
 
-        public DTO_ThamSo(int? soSanBayTGToiDa = null, int? tgBayToiThieu = null, int? tgDungToiThieu = null, int? tgDungToiDa = null)
+        public DTO_ThamSo(int? soSanBayTGToiDa = null, int? tgBayToiThieu = null, int? tgDungToiThieu = null, int? tgDungToiDa = null, int? tgDatTruocVeToiThieu = null)
         {
             this.soSanBayTGToiDa = soSanBayTGToiDa;
             this.tgBayToiThieu = tgBayToiThieu;

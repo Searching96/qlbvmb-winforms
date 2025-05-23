@@ -114,7 +114,7 @@ namespace QLBVBM.DAL
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"Error in CapNhatSoLuongVeDaBan (DAL_HangVeCB.cs): {ex.Message}");
+                Debug.WriteLine($"Error in CapNhatSoLuongVeDaDat (DAL_HangVeCB.cs): {ex.Message}");
                 return false;
             }
         }
