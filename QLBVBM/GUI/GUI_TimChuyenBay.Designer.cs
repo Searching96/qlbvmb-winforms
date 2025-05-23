@@ -78,7 +78,7 @@
             cbbSanBayDen.ShadowDecoration.CustomizableEdges = customizableEdges2;
             cbbSanBayDen.Size = new Size(271, 50);
             cbbSanBayDen.TabIndex = 39;
-            cbbSanBayDen.SelectedIndexChanged += FlightInfo_Changed;
+            cbbSanBayDen.SelectedIndexChanged += FlightProps_Changed;
             // 
             // cbbSanBayDi
             // 
@@ -98,7 +98,7 @@
             cbbSanBayDi.ShadowDecoration.CustomizableEdges = customizableEdges4;
             cbbSanBayDi.Size = new Size(271, 50);
             cbbSanBayDi.TabIndex = 38;
-            cbbSanBayDi.SelectedIndexChanged += FlightInfo_Changed;
+            cbbSanBayDi.SelectedIndexChanged += FlightProps_Changed;
             // 
             // dtpNgayBay
             // 
@@ -119,7 +119,7 @@
             dtpNgayBay.Size = new Size(269, 50);
             dtpNgayBay.TabIndex = 36;
             dtpNgayBay.Value = new DateTime(2025, 4, 3, 19, 48, 48, 458);
-            dtpNgayBay.ValueChanged += FlightInfo_Changed;
+            dtpNgayBay.ValueChanged += FlightProps_Changed;
             // 
             // lblNgayGioBay
             // 

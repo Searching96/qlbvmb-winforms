@@ -17,6 +17,21 @@ namespace QLBVBM.BUS
         private BUS_CTChuyenBay BUS_CTChuyenBay = new BUS_CTChuyenBay();
         private BUS_HangVeCB BUS_HangVeCB = new BUS_HangVeCB();
 
+        public List<DTO_ChuyenBay>? LayTatCaChuyenBayConTrongDuaVaoSanBayDi(string maSanBayDi)
+        {
+            return DAL_ChuyenBay.LayTatCaChuyenBayConTrongDuaVaoSanBayDi(maSanBayDi);
+        }
+
+        public List<DTO_ChuyenBay>? LayTatCaChuyenBayConTrongDuaVaoSanBayDen(string maSanBayDen)
+        {
+            return DAL_ChuyenBay.LayTatCaChuyenBayConTrongDuaVaoSanBayDen(maSanBayDen);
+        }
+
+        public List<DTO_ChuyenBay>? LayTatCaChuyenBayConTrongDuaVaoNgayBay(DateTime ngayBay)
+        {
+            return DAL_ChuyenBay.LayTatCaChuyenBayConTrongDuaVaoNgayBay(ngayBay);
+        }
+
         public List<DTO_ChuyenBay> LayTatCaChuyenBayConGheTrong()
         {
             return DAL_ChuyenBay.LayTatCaChuyenBayConGheTrong();

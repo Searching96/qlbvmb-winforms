@@ -15,6 +15,126 @@ namespace QLBVBM.DAL
     {
         private DataHelper dataHelper = new DataHelper();
 
+        public List<DTO_ChuyenBay>? LayTatCaChuyenBayConTrongDuaVaoSanBayDi(string maSanBayDi)
+        {
+            List<DTO_ChuyenBay> dsChuyenBay = new List<DTO_ChuyenBay>();
+            try
+            {
+                string query = @"
+                    SELECT cb.*
+                    FROM CHUYENBAY cb
+                    JOIN HANGVECB hv ON cb.MaChuyenBay = hv.MaChuyenBay
+                    WHERE MaSanBayDi = @MaSanBayDi  
+                    GROUP BY cb.MaChuyenBay
+                    HAVING SUM(hv.SLGheConLai) > 0";
+
+                List<MySqlParameter> parameters = new List<MySqlParameter>
+                {
+                    new MySqlParameter("@MaSanBayDi", maSanBayDi)
+                };
+
+                DataTable dt = dataHelper.ExecuteQuery(query, parameters);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    DTO_ChuyenBay cb = new DTO_ChuyenBay
+                    {
+                        MaChuyenBay = dr["MaChuyenBay"].ToString(),
+                        MaSanBayDi = dr["MaSanBayDi"].ToString(),
+                        MaSanBayDen = dr["MaSanBayDen"].ToString(),
+                        NgayBay = DateTime.Parse(dr["NgayBay"].ToString()),
+                        GioBay = DateTime.Parse(dr["GioBay"].ToString()),
+                        ThoiGianBay = int.Parse(dr["ThoiGianBay"].ToString())
+                    };
+                    dsChuyenBay.Add(cb);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error in LayTatCaChuyenBayConGheTrong (DAL_ChuyenBay.cs): {ex.Message}");
+            }
+            return dsChuyenBay;
+        }
+
+        public List<DTO_ChuyenBay>? LayTatCaChuyenBayConTrongDuaVaoSanBayDen(string maSanBayDen)
+        {
+            List<DTO_ChuyenBay> dsChuyenBay = new List<DTO_ChuyenBay>();
+            try
+            {
+                string query = @"
+                    SELECT cb.*
+                    FROM CHUYENBAY cb
+                    JOIN HANGVECB hv ON cb.MaChuyenBay = hv.MaChuyenBay
+                    WHERE MaSanBayDen = @MaSanBayDen  
+                    GROUP BY cb.MaChuyenBay
+                    HAVING SUM(hv.SLGheConLai) > 0";
+
+                List<MySqlParameter> parameters = new List<MySqlParameter>
+                {
+                    new MySqlParameter("@MaSanBayDen", maSanBayDen)
+                };
+
+                DataTable dt = dataHelper.ExecuteQuery(query, parameters);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    DTO_ChuyenBay cb = new DTO_ChuyenBay
+                    {
+                        MaChuyenBay = dr["MaChuyenBay"].ToString(),
+                        MaSanBayDi = dr["MaSanBayDi"].ToString(),
+                        MaSanBayDen = dr["MaSanBayDen"].ToString(),
+                        NgayBay = DateTime.Parse(dr["NgayBay"].ToString()),
+                        GioBay = DateTime.Parse(dr["GioBay"].ToString()),
+                        ThoiGianBay = int.Parse(dr["ThoiGianBay"].ToString())
+                    };
+                    dsChuyenBay.Add(cb);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error in LayTatCaChuyenBayConGheTrong (DAL_ChuyenBay.cs): {ex.Message}");
+            }
+            return dsChuyenBay;
+        }
+
+        public List<DTO_ChuyenBay>? LayTatCaChuyenBayConTrongDuaVaoNgayBay(DateTime ngayBay)
+        {
+            List<DTO_ChuyenBay> dsChuyenBay = new List<DTO_ChuyenBay>();
+            try
+            {
+                string query = @"
+                    SELECT cb.*
+                    FROM CHUYENBAY cb
+                    JOIN HANGVECB hv ON cb.MaChuyenBay = hv.MaChuyenBay
+                    WHERE DATE(cb.NgayBay) = @NgayBay
+                    GROUP BY cb.MaChuyenBay
+                    HAVING SUM(hv.SLGheConLai) > 0";
+
+                List<MySqlParameter> parameters = new List<MySqlParameter>
+                {
+                    new MySqlParameter("@NgayBay", ngayBay.ToString("yyyy-MM-dd"))
+                };
+
+                DataTable dt = dataHelper.ExecuteQuery(query, parameters);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    DTO_ChuyenBay cb = new DTO_ChuyenBay
+                    {
+                        MaChuyenBay = dr["MaChuyenBay"].ToString(),
+                        MaSanBayDi = dr["MaSanBayDi"].ToString(),
+                        MaSanBayDen = dr["MaSanBayDen"].ToString(),
+                        NgayBay = DateTime.Parse(dr["NgayBay"].ToString()),
+                        GioBay = DateTime.Parse(dr["GioBay"].ToString()),
+                        ThoiGianBay = int.Parse(dr["ThoiGianBay"].ToString())
+                    };
+                    dsChuyenBay.Add(cb);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error in LayTatCaChuyenBayConTrongDuaVaoNgayBay (DAL_ChuyenBay.cs): {ex.Message}");
+            }
+            return dsChuyenBay;
+        }
+
         public List<DTO_ChuyenBay> LayTatCaChuyenBayConGheTrong()
         {
             List<DTO_ChuyenBay> dsChuyenBay = new List<DTO_ChuyenBay>();

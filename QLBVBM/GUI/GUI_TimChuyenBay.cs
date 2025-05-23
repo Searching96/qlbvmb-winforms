@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,7 @@ namespace QLBVBM.GUI
             SetResponsive();
             LoadDanhSachSanBayToComboBox(cbbSanBayDi, LayDanhSachSanBay());
             LoadDanhSachSanBayToComboBox(cbbSanBayDen, LayDanhSachSanBay());
+            dtpNgayBay.Value = DateTime.Today;
         }
 
         public void SetResponsive()
@@ -58,6 +60,7 @@ namespace QLBVBM.GUI
                 cbb.DataSource = dsSanBay;
                 cbb.DisplayMember = "TenSanBay";
                 cbb.ValueMember = "MaSanBay";
+                cbb.SelectedIndex = 0;
 
                 // Add tooltip to display MaSanBay
                 ToolTip toolTip = new ToolTip();
@@ -71,54 +74,76 @@ namespace QLBVBM.GUI
             }
         }
 
-        private void FlightInfo_Changed(object sender, EventArgs e)
+        private void FlightProps_Changed(object sender, EventArgs e)
         {
-            bool isDateSelected = dtpNgayBay.Value.Date > DateTime.Today.Date;
+            string maSanBayDi = cbbSanBayDi.SelectedValue?.ToString() ?? string.Empty;
+            string maSanBayDen = cbbSanBayDen.SelectedValue?.ToString() ?? string.Empty;
+            DateTime ngayBay = new DateTime();
 
-            if (cbbSanBayDi.SelectedIndex != -1
-                && cbbSanBayDen.SelectedIndex != -1
-                && isDateSelected)
+            bool isValidDate = dtpNgayBay.Value.Date > DateTime.Today.Date;
+
+            if (isValidDate)
             {
-                cbbDSChuyenBay.Enabled = true;
-
-                // Load Flight Info
-                string maSanBayDi = cbbSanBayDi.SelectedValue.ToString();
-                string maSanBayDen = cbbSanBayDen.SelectedValue.ToString();
-                string ngayBay = dtpNgayBay.Value.ToString("yyyy-MM-dd");
-
-                if (string.IsNullOrWhiteSpace(maSanBayDi) || string.IsNullOrWhiteSpace(maSanBayDen))
-                {
-                    //MessageBox.Show("Vui lòng chọn sân bay đi và sân bay đến.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                if (maSanBayDi == maSanBayDen)
-                {
-                    //MessageBox.Show("Sân bay đi và sân bay đến không được giống nhau.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                List<DTO_ChuyenBay> dsChuyenBay = busChuyenBay.TraCuuChuyenBay(maSanBayDi, maSanBayDen, ngayBay);
-
-                List<string> dsChuyenBayVaGioBay = new List<string>();
-                foreach (var chuyenBay in dsChuyenBay)
-                {
-                    dsChuyenBayVaGioBay.Add(chuyenBay.MaChuyenBay + "                    -         Khởi hành: " + chuyenBay.GioBay?.ToString("HH:mm"));
-                }
-
-                if (dsChuyenBayVaGioBay != null && dsChuyenBayVaGioBay.Count > 0)
-                {
-                    LoadMaChuyenBay(cbbDSChuyenBay, dsChuyenBayVaGioBay);
-                }
-                else
-                {
-                    //MessageBox.Show("Không tìm thấy chuyến bay nào.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ClearCombobox(cbbDSChuyenBay);
-                }
+                ngayBay = dtpNgayBay.Value.Date;
             }
             else
             {
-                cbbDSChuyenBay.Enabled = false;
+                ngayBay = DateTime.MinValue;
+            }
+
+            List<DTO_ChuyenBay>? dsChuyenBayDuaVaoSanBayDi = string.IsNullOrWhiteSpace(maSanBayDi)
+                ? null
+                : busChuyenBay.LayTatCaChuyenBayConTrongDuaVaoSanBayDi(maSanBayDi);
+
+            List<DTO_ChuyenBay>? dsChuyenBayDuaVaoSanBayDen = string.IsNullOrWhiteSpace(maSanBayDen)
+                ? null
+                : busChuyenBay.LayTatCaChuyenBayConTrongDuaVaoSanBayDen(maSanBayDen);
+
+            List<DTO_ChuyenBay>? dsChuyenBayDuaVaoNgayBay = ngayBay == DateTime.MinValue
+                ? null
+                : busChuyenBay.LayTatCaChuyenBayConTrongDuaVaoNgayBay(ngayBay);
+
+            List<DTO_ChuyenBay> result;
+
+            // Combine not-null lists into a list
+            var lists = new List<List<DTO_ChuyenBay>>();
+            if (dsChuyenBayDuaVaoSanBayDi != null) lists.Add(dsChuyenBayDuaVaoSanBayDi);
+            if (dsChuyenBayDuaVaoSanBayDen != null) lists.Add(dsChuyenBayDuaVaoSanBayDen);
+            if (dsChuyenBayDuaVaoNgayBay != null) lists.Add(dsChuyenBayDuaVaoNgayBay);
+            
+            if (lists.Count == 0) // if all lists are null, return empty list
+            {
+                result = new List<DTO_ChuyenBay>();
+            }
+            else if (lists.Count == 1) // if only one list is not null, return that list
+            {
+                result = lists[0];
+            }
+            else
+            {
+                // get all unique MaChuyenBay from each list
+                var keySets = lists
+                    .Select(ls => new HashSet<string>(ls.Select(cb => cb.MaChuyenBay)))
+                    .ToArray();
+
+                // get the intersection of all sets
+                result = lists[0]
+                    .Where(cb => keySets.All(set => set.Contains(cb.MaChuyenBay)))
+                    .ToList();
+            }
+
+            List<string> dsChuyenBayVaGioBay = new List<string>();
+            foreach (var chuyenBay in result)
+            {
+                dsChuyenBayVaGioBay.Add(chuyenBay.MaChuyenBay + "                    -         Khởi hành: " + chuyenBay.GioBay?.ToString("HH:mm"));
+            }
+
+            if (dsChuyenBayVaGioBay != null && dsChuyenBayVaGioBay.Count > 0)
+            {
+                LoadMaChuyenBay(cbbDSChuyenBay, dsChuyenBayVaGioBay);
+            }
+            else
+            {
                 ClearCombobox(cbbDSChuyenBay);
             }
         }
