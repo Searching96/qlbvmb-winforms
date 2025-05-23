@@ -71,14 +71,14 @@
             cbbSanBayDen.FocusedColor = Color.FromArgb(94, 148, 255);
             cbbSanBayDen.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             cbbSanBayDen.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            cbbSanBayDen.ForeColor = Color.FromArgb(68, 88, 112);
+            cbbSanBayDen.ForeColor = Color.Black;
             cbbSanBayDen.ItemHeight = 44;
             cbbSanBayDen.Location = new Point(360, 126);
             cbbSanBayDen.Name = "cbbSanBayDen";
             cbbSanBayDen.ShadowDecoration.CustomizableEdges = customizableEdges2;
             cbbSanBayDen.Size = new Size(271, 50);
             cbbSanBayDen.TabIndex = 39;
-            cbbSanBayDen.SelectedIndexChanged += FlightInfo_Changed;
+            cbbSanBayDen.SelectedIndexChanged += FlightProps_Changed;
             // 
             // cbbSanBayDi
             // 
@@ -91,14 +91,14 @@
             cbbSanBayDi.FocusedColor = Color.FromArgb(94, 148, 255);
             cbbSanBayDi.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             cbbSanBayDi.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            cbbSanBayDi.ForeColor = Color.FromArgb(68, 88, 112);
+            cbbSanBayDi.ForeColor = Color.Black;
             cbbSanBayDi.ItemHeight = 44;
             cbbSanBayDi.Location = new Point(39, 126);
             cbbSanBayDi.Name = "cbbSanBayDi";
             cbbSanBayDi.ShadowDecoration.CustomizableEdges = customizableEdges4;
             cbbSanBayDi.Size = new Size(271, 50);
             cbbSanBayDi.TabIndex = 38;
-            cbbSanBayDi.SelectedIndexChanged += FlightInfo_Changed;
+            cbbSanBayDi.SelectedIndexChanged += FlightProps_Changed;
             // 
             // dtpNgayBay
             // 
@@ -110,6 +110,7 @@
             dtpNgayBay.CustomizableEdges = customizableEdges5;
             dtpNgayBay.FillColor = Color.White;
             dtpNgayBay.Font = new Font("Segoe UI", 9F);
+            dtpNgayBay.ForeColor = Color.Black;
             dtpNgayBay.Format = DateTimePickerFormat.Long;
             dtpNgayBay.Location = new Point(41, 235);
             dtpNgayBay.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
@@ -119,7 +120,7 @@
             dtpNgayBay.Size = new Size(269, 50);
             dtpNgayBay.TabIndex = 36;
             dtpNgayBay.Value = new DateTime(2025, 4, 3, 19, 48, 48, 458);
-            dtpNgayBay.ValueChanged += FlightInfo_Changed;
+            dtpNgayBay.ValueChanged += FlightProps_Changed;
             // 
             // lblNgayGioBay
             // 
@@ -162,7 +163,7 @@
             cbbDSChuyenBay.FocusedColor = Color.FromArgb(94, 148, 255);
             cbbDSChuyenBay.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             cbbDSChuyenBay.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            cbbDSChuyenBay.ForeColor = Color.FromArgb(68, 88, 112);
+            cbbDSChuyenBay.ForeColor = Color.Black;
             cbbDSChuyenBay.ItemHeight = 44;
             cbbDSChuyenBay.Location = new Point(168, 375);
             cbbDSChuyenBay.Name = "cbbDSChuyenBay";
@@ -196,7 +197,7 @@
             btnTiepNhanChuyenBay.ShadowDecoration.CustomizableEdges = customizableEdges10;
             btnTiepNhanChuyenBay.Size = new Size(183, 42);
             btnTiepNhanChuyenBay.TabIndex = 43;
-            btnTiepNhanChuyenBay.Text = "Tiếp nhận chuyến bay";
+            btnTiepNhanChuyenBay.Text = "Chọn chuyến bay";
             btnTiepNhanChuyenBay.Click += btnTiepNhanChuyenBay_Click;
             // 
             // GUI_TimChuyenBay
@@ -215,6 +216,7 @@
             Controls.Add(lblSanBayDen);
             Controls.Add(lblTraCuuChuyenBay);
             Name = "GUI_TimChuyenBay";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "GUI_TimChuyenBay";
             ResumeLayout(false);
             PerformLayout();
