@@ -22,7 +22,8 @@ namespace QLBVBM.GUI
         private BUS_DonGiaHangGhe busDonGiaHangGhe = new BUS_DonGiaHangGhe();
         private BUS_VeChuyenBay busVeChuyenBay = new BUS_VeChuyenBay();
         private ErrorProvider errorProvider = new ErrorProvider();
-        
+        private DateTime hanCuoiDatVe;
+
         public GUI_DatVe()
         {
             InitializeComponent();
@@ -61,6 +62,9 @@ namespace QLBVBM.GUI
                     txtSanBayDen.Text = busSanBay.LayTenSanBay(chuyenBay.MaSanBayDen);
                     dtpNgayBay.Value = chuyenBay.NgayBay.Value;
                     txtGioBay.Text = chuyenBay.GioBay?.ToString("HH:mm");
+
+                    hanCuoiDatVe = busChuyenBay.LayHanCuoiDatVe(chuyenBay);
+                    lblLuuYDatVe.Text = "Vui lòng đặt vé trước " + hanCuoiDatVe.ToString("HH:mm dd/MM/yyyy");
                 }
                 else
                 {
@@ -200,6 +204,12 @@ namespace QLBVBM.GUI
                 return;
             }
 
+            if (hanCuoiDatVe < DateTime.Now)
+            {
+                MessageBox.Show("Đã quá hạn đặt vé", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             DTO_VeChuyenBay veChuyenBay = new DTO_VeChuyenBay
             {
                 MaVe = busVeChuyenBay.PhatSinhMaVeChuyenBay(),
@@ -218,9 +228,9 @@ namespace QLBVBM.GUI
             };
 
 
-            bool success = busVeChuyenBay.ThemVeChuyenBayVaHangVe(veChuyenBay, hangVeCB);
+            bool success = busVeChuyenBay.DatVeChuyenBayVaHangVe(veChuyenBay, hangVeCB);
 
-            MessageBox.Show(success ? "Thêm vé thành công" : "Lỗi khi thêm vé",
+            MessageBox.Show(success ? "Đặt vé thành công" : "Lỗi khi đặt vé",
                             "Thông báo",
                             MessageBoxButtons.OK,
                             success ? MessageBoxIcon.Information : MessageBoxIcon.Error);
@@ -228,7 +238,7 @@ namespace QLBVBM.GUI
 
         private void btnInVe_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("In vé", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("In phiếu đặt", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
