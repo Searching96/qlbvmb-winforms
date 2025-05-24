@@ -21,6 +21,7 @@ namespace QLBVBM.GUI
         private BUS_ValidateThongTinHanhKhach busValidationTTHK = new BUS_ValidateThongTinHanhKhach();
         private BUS_DonGiaHangGhe busDonGiaHangGhe = new BUS_DonGiaHangGhe();
         private BUS_VeChuyenBay busVeChuyenBay = new BUS_VeChuyenBay();
+        private BUS_HangVeCB busHangVeChuyenBay = new BUS_HangVeCB();
         private ErrorProvider errorProvider = new ErrorProvider();
         private DateTime hanCuoiDatVe;
 
@@ -62,7 +63,7 @@ namespace QLBVBM.GUI
                     txtSanBayDen.Text = busSanBay.LayTenSanBay(chuyenBay.MaSanBayDen);
                     dtpNgayBay.Value = chuyenBay.NgayBay.Value;
                     txtGioBay.Text = chuyenBay.GioBay?.ToString("HH:mm");
-
+                   
                     hanCuoiDatVe = busChuyenBay.LayHanCuoiDatVe(chuyenBay);
                     lblLuuYDatVe.Text = "Vui lòng đặt vé trước " + hanCuoiDatVe.ToString("HH:mm dd/MM/yyyy");
                 }
@@ -129,7 +130,10 @@ namespace QLBVBM.GUI
             {
                 if (cbbHangVe.SelectedItem is DTO_DonGiaHangGhe selectedHangVe)
                 {
+                    DTO_HangVeCB hangVeCB = busHangVeChuyenBay.TraCuuMotHangVe(txtMaChuyenBay.Text, selectedHangVe.MaHangGhe);
+                   
                     txtGiaTien.Text = selectedHangVe.DonGia.ToString() ?? "";
+                    txtSoVeConLai.Text = hangVeCB.SoLuongGheConLai.ToString() ?? "";
                 }
             }
         }
@@ -204,9 +208,15 @@ namespace QLBVBM.GUI
                 return;
             }
 
+            if(Int32.Parse(txtSoVeConLai.Text) == 0)
+            {
+                MessageBox.Show("Rất tiếc, đã hết vé", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (hanCuoiDatVe < DateTime.Now)
             {
-                MessageBox.Show("Đã quá hạn đặt vé", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Rất tiếc, đã quá hạn đặt vé", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 

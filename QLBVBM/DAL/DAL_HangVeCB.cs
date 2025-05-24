@@ -118,5 +118,36 @@ namespace QLBVBM.DAL
                 return false;
             }
         }
+
+        public DTO_HangVeCB TraCuuMotHangVe(string maChuyenBay, string maHangGhe)
+        {
+            DTO_HangVeCB hangVe = new DTO_HangVeCB();
+
+            try
+            {
+                string query = $"SELECT * FROM HANGVECB WHERE MaChuyenBay = '{maChuyenBay}' AND MaHangGhe = '{maHangGhe}'";
+                DataTable dt = dataHelper.ExecuteQuery(query);
+
+                if (dt.Rows.Count > 0)
+                {
+                    DataRow dr = dt.Rows[0];
+                    DTO_HangVeCB hangVeCB = new DTO_HangVeCB
+                    {
+                        MaChuyenBay = dr["MaChuyenBay"].ToString(),
+                        MaHangGhe = dr["MaHangGhe"].ToString(),
+                        SoLuongGhe = Convert.ToInt32(dr["SoLuongGhe"]),
+                        SoLuongGheConLai = Convert.ToInt32(dr["SLGheConLai"]),
+                    };
+                    return hangVeCB;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error in TraCuuMotHangVe (DAL_HangVeCB.cs): {ex.Message}");
+                return new DTO_HangVeCB();
+            }
+
+            return hangVe;
+        }
     }
 }
