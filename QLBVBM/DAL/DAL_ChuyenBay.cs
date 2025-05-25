@@ -302,7 +302,8 @@ namespace QLBVBM.DAL
             string maSanBayTG2 = null, string ghiChuSanBayTG2 = null,
             int? thoiGianDungSBTG2_Tu = null, int? thoiGianDungSBTG2_Den = null,
             string maHangGhe_Ten = null,
-            string maHangGhe_DonGia = null, int? donGiaHangVeTu = null, int? donGiaHangVeDen = null,
+            string maHangGhe_DonGia = null, int? donGiaHangVeTuyenBayTu = null, int? donGiaHangVeTuyenBayDen = null,
+            string maSanBayDi_TuyenBay = null, string maSanBayDen_TuyenBay = null,
             string maHangGhe_SLGhe = null, int? soLuongGheHangVeTu = null, int? soLuongGheHangVeDen = null,
             string maHangGhe_SLGheConLai = null, int? soLuongGheHangVeConLaiTu = null, int? soLuongGheHangVeConLaiDen = null,
             string maVeChuyenBay = null, int? trangThaiVe = null,
@@ -313,7 +314,7 @@ namespace QLBVBM.DAL
             List<DTO_ChuyenBay> dsChuyenBay = new List<DTO_ChuyenBay>();
             string query = @"
                 SELECT
-cb.MaChuyenBay,
+                   cb.MaChuyenBay,
                    cb.MaSanBayDi,
                    cb.MaSanBayDen,
                    cb.NgayBay,
@@ -330,7 +331,10 @@ cb.MaChuyenBay,
                 LEFT JOIN HANGVECB hvcb ON cb.MaChuyenBay = hvcb.MaChuyenBay
                 LEFT JOIN HANGGHE hg ON hvcb.MaHangGhe = hg.MaHangGhe
                 LEFT JOIN VECHUYENBAY vcb ON cb.MaChuyenBay = vcb.MaChuyenBay
-                                            AND vcb.MaHangGhe = hg.MaHangGhe
+                                          AND vcb.MaHangGhe = hg.MaHangGhe
+                LEFT JOIN HANGVE_TUYENBAY hvtb ON cb.MaSanBayDi = hvtb.MaSanBayDi
+                                               AND cb.MaSanBayDen = hvtb.MaSanBayDen
+                                               AND hvcb.MaHangGhe = hvtb.MaHangGhe
                 WHERE 1 = 0";
 
             List<MySqlParameter> parameters = new List<MySqlParameter>();
@@ -499,12 +503,11 @@ cb.MaChuyenBay,
                 parameters.Add(new MySqlParameter("@MaHangGhe", maHangGhe_Ten));
             }
 
-            // Xử lý điều kiện ở các trường thông tin liên quan đến hạng ghế.
+            // Xử lý điều kiện ở các trường thông tin liên quan đến số lượng ghế các hạng ghế.
             List<string> hangGhe_conditions = new List<string>();
 
             var fieldGheMappings = new Dictionary<string, (string maHangGhe, int? tu, int? den)>
             {
-                { "DonGia", (maHangGhe_DonGia, donGiaHangVeTu, donGiaHangVeDen) },
                 { "SoLuongGhe", (maHangGhe_SLGhe, soLuongGheHangVeTu, soLuongGheHangVeDen) },
                 { "SoLuongGheDaBan", (maHangGhe_SLGheConLai, soLuongGheHangVeConLaiTu, soLuongGheHangVeConLaiDen) }
             };
@@ -544,6 +547,53 @@ cb.MaChuyenBay,
             {
                 query += " OR (" + string.Join(" OR ", hangGhe_conditions) + ")";
             }
+
+            // Xử lý điều kiện ở các trường thông tin liên quan đến tuyến bay 
+            List<string> tuyenBayConditions = new List<string>();
+
+            var tuyenBayMappings = new List<(string field, string value, int? tu, int? den)>
+            {
+                ("MaHangGhe", maHangGhe_DonGia, null, null),
+                ("MaSanBayDi", maSanBayDi_TuyenBay, null, null),
+                ("MaSanBayDen", maSanBayDen_TuyenBay, null, null),
+                ("DonGiaQuyDinh", null, donGiaHangVeTuyenBayTu, donGiaHangVeTuyenBayDen)
+            };
+
+            foreach (var (field, value, tu, den) in tuyenBayMappings)
+            {
+                List<string> fieldConditions = new List<string>();
+
+                if (!string.IsNullOrEmpty(value) && !value.Equals("ALL"))
+                {
+                    fieldConditions.Add($"hvtb.{field} = @TuyenBay_{field}");
+                    parameters.Add(new MySqlParameter($"@TuyenBay_{field}", value));
+                }
+
+                if (field == "DonGiaQuyDinh" && (tu.HasValue || den.HasValue))
+                {
+                    if (tu.HasValue)
+                    {
+                        fieldConditions.Add($"hvtb.{field} >= @TuyenBay_{field}_Tu");
+                        parameters.Add(new MySqlParameter($"@TuyenBay_{field}_Tu", tu.Value));
+                    }
+                    if (den.HasValue)
+                    {
+                        fieldConditions.Add($"hvtb.{field} <= @TuyenBay_{field}_Den");
+                        parameters.Add(new MySqlParameter($"@TuyenBay_{field}_Den", den.Value));
+                    }
+                }
+
+                if (fieldConditions.Count > 0)
+                {
+                    tuyenBayConditions.Add("(" + string.Join(" AND ", fieldConditions) + ")");
+                }
+            }
+
+            if (tuyenBayConditions.Count > 0)
+            {
+                query += " OR (" + string.Join(" AND ", tuyenBayConditions) + ")";
+            }
+
 
             if (!string.IsNullOrEmpty(maVeChuyenBay))
             {
