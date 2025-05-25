@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace QLBVBM.DAL
 {
@@ -13,80 +14,101 @@ namespace QLBVBM.DAL
     {
         private DataHelper dataHelper = new DataHelper();
 
-        public bool ThemHangVe(DTO_HangVeCB hangVeCB)
+        public bool ThemHangVeCB(DTO_HangVeCB hangVeCB)
         {
-            string query = "INSERT INTO HANGVECB (MaChuyenBay, MaHangGhe, SoLuongGhe, SoLuongGheDaBan, SLGheDaDat, DonGia) " +
-                "VALUES (@MaChuyenBay, @MaHangGhe, @SoLuongGhe, @SoLuongGheDaBan, @SLGheDaDat, @DonGia)";
-
-            List<MySqlParameter> parameters = new List<MySqlParameter>
+            try
             {
-                new MySqlParameter("@MaChuyenBay", hangVeCB.MaChuyenBay),
-                new MySqlParameter("@MaHangGhe", hangVeCB.MaHangGhe),
-                new MySqlParameter("@SoLuongGhe", hangVeCB.SoLuongGhe),
-                new MySqlParameter("@SoLuongGheDaBan", hangVeCB.SoLuongGheDaBan ?? 0),
-                new MySqlParameter("@SLGheDaDat", hangVeCB.SoLuongGheDaDat ?? 0),
-                new MySqlParameter("@DonGia", hangVeCB.DonGia)
-            };
+                string query = "INSERT INTO HANGVECB (MaChuyenBay, MaHangGhe, SoLuongGhe, SLGheConLai) " +
+                "VALUES (@MaChuyenBay, @MaHangGhe, @SoLuongGhe, @SoLuongGheConLai)";
 
-            int result = dataHelper.ExecuteNonQuery(query, parameters);
-            return result > 0;
+                List<MySqlParameter> parameters = new List<MySqlParameter>
+                {
+                    new MySqlParameter("@MaChuyenBay", hangVeCB.MaChuyenBay),
+                    new MySqlParameter("@MaHangGhe", hangVeCB.MaHangGhe),
+                    new MySqlParameter("@SoLuongGhe", hangVeCB.SoLuongGhe),
+                    new MySqlParameter("@SoLuongGheConLai", hangVeCB.SoLuongGheConLai ?? 0),
+                };
+
+                int result = dataHelper.ExecuteNonQuery(query, parameters);
+                return result > 0;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error in ThemHangVeCB (DAL_HangVeCB.cs): {ex.Message}");
+                return false;
+            }
         }
 
         public bool CapNhatSoLuongVeDaBan(string maChuyenBay, string maHangGhe)
         {
-            string query = @"UPDATE HANGVECB 
-                            SET SoLuongGheDaBan = SoLuongGheDaBan + 1 
+            try
+            {
+                string query = @"UPDATE HANGVECB 
+                            SET SLGheConLai = SLGheConLai - 1 
                             WHERE MaChuyenBay = @MaChuyenBay 
                             AND MaHangGhe = @MaHangGhe";
 
-            List<MySqlParameter> parameters = new List<MySqlParameter>
-            {
-                new MySqlParameter("@MaChuyenBay", maChuyenBay),
-                new MySqlParameter("@MaHangGhe", maHangGhe)
-            };
+                List<MySqlParameter> parameters = new List<MySqlParameter>
+                {
+                    new MySqlParameter("@MaChuyenBay", maChuyenBay),
+                    new MySqlParameter("@MaHangGhe", maHangGhe)
+                };
 
-            int result = dataHelper.ExecuteNonQuery(query, parameters);
-            return result > 0;
+                int result = dataHelper.ExecuteNonQuery(query, parameters);
+                return result > 0;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error in CapNhatSoLuongVeDaBan (DAL_HangVeCB.cs): {ex.Message}");
+                return false;
+            }
         }
 
         public List<DTO_HangVeCB> TraCuuHangVe(string maChuyenBay)
         {
             List<DTO_HangVeCB> dsHangVe = new List<DTO_HangVeCB>();
 
-            string query = $"SELECT * FROM HANGVECB WHERE MaChuyenBay = '{maChuyenBay}'";
-            DataTable dt = dataHelper.ExecuteQuery(query);
-
-            foreach (DataRow dr in dt.Rows)
+            try
             {
-                DTO_HangVeCB hangVeCB = new DTO_HangVeCB
+                string query = $"SELECT * FROM HANGVECB WHERE MaChuyenBay = '{maChuyenBay}'";
+                DataTable dt = dataHelper.ExecuteQuery(query);
+
+                foreach (DataRow dr in dt.Rows)
                 {
-                    MaChuyenBay = dr["MaChuyenBay"].ToString(),
-                    MaHangGhe = dr["MaHangGhe"].ToString(),
-                    SoLuongGhe = Convert.ToInt32(dr["SoLuongGhe"]),
-                    SoLuongGheDaBan = Convert.ToInt32(dr["SoLuongGheDaBan"]),
-                    DonGia = Convert.ToInt32(dr["DonGia"])
-                };
-                dsHangVe.Add(hangVeCB);
+                    DTO_HangVeCB hangVeCB = new DTO_HangVeCB
+                    {
+                        MaChuyenBay = dr["MaChuyenBay"].ToString(),
+                        MaHangGhe = dr["MaHangGhe"].ToString(),
+                        SoLuongGhe = Convert.ToInt32(dr["SoLuongGhe"]),
+                        SoLuongGheConLai = Convert.ToInt32(dr["SLGheConLai"]),
+                    };
+                    dsHangVe.Add(hangVeCB);
+                }
             }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error in TraCuuHangVe (DAL_HangVeCB.cs): {ex.Message}");
+                return new List<DTO_HangVeCB>();
+            }
+
             return dsHangVe;
         }
 
-        public bool CapNhatSoLuongGheDaDat(string maChuyenBay, string maHangGhe)
-        {
-            string query = @"UPDATE HANGVECB 
-                            SET SLGheDaDat = SLGheDaDat + 1 
-                            WHERE MaChuyenBay = @MaChuyenBay 
-                            AND MaHangGhe = @MaHangGhe";
+        //public bool CapNhatSoLuongGheDaDat(string maChuyenBay, string maHangGhe)
+        //{
+        //    string query = @"UPDATE HANGVECB 
+        //                    SET SLGheDaDat = SLGheDaDat + 1 
+        //                    WHERE MaChuyenBay = @MaChuyenBay 
+        //                    AND MaHangGhe = @MaHangGhe";
 
-            List<MySqlParameter> parameters = new List<MySqlParameter>
-            {
-                new MySqlParameter("@MaChuyenBay", maChuyenBay),
-                new MySqlParameter("@MaHangGhe", maHangGhe)
-            };
-
-            int result = dataHelper.ExecuteNonQuery(query, parameters);
-            return result > 0;
-        }
+        //    List<MySqlParameter> parameters = new List<MySqlParameter>
+        //    {
+        //        new MySqlParameter("@MaChuyenBay", maChuyenBay),
+        //        new MySqlParameter("@MaHangGhe", maHangGhe)
+        //    };
+        //    int result = dataHelper.ExecuteNonQuery(query, parameters);
+        //    return result > 0;
+        //}
 
         public DTO_HangVeCB LayHangVeTheoVeChuyenBay(string maChuyenBay, string maHangGhe)
         {

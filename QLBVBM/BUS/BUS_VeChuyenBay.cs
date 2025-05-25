@@ -21,10 +21,10 @@ namespace QLBVBM.BUS
             return DAL_VeChuyenBay.ThemVeChuyenBay(veChuyenBay);
         }
 
-        public bool DatVeChuyenBay(DTO_VeChuyenBay veChuyenBay)
-        {
-            return DAL_VeChuyenBay.DatVeChuyenBay(veChuyenBay);
-        }
+        //public bool DatVeChuyenBay(DTO_VeChuyenBay veChuyenBay)
+        //{
+        //    return DAL_VeChuyenBay.DatVeChuyenBay(veChuyenBay);
+        //}
 
         public string PhatSinhMaVeChuyenBay()
         {
@@ -69,40 +69,40 @@ namespace QLBVBM.BUS
             }
         }
 
-        public bool DatVeChuyenBayVaHangVe(DTO_VeChuyenBay veChuyenBay, DTO_HangVeCB hangVeCB)
-        {
-            using (var transaction = new TransactionScope())
-            {
-                try
-                {
-                    if (!DatVeChuyenBay(veChuyenBay))
-                    {
-                        transaction.Dispose();
-                        return false;
-                    }
+        //public bool DatVeChuyenBayVaHangVe(DTO_VeChuyenBay veChuyenBay, DTO_HangVeCB hangVeCB)
+        //{
+        //    using (var transaction = new TransactionScope())
+        //    {
+        //        try
+        //        {
+        //            if (!DatVeChuyenBay(veChuyenBay))
+        //            {
+        //                transaction.Dispose();
+        //                return false;
+        //            }
 
-                    // Update the number of seats booked
-                    if (!BUS_HangVeCB.CapNhatSoLuongGheDaDat(hangVeCB.MaChuyenBay, hangVeCB.MaHangGhe))
-                    {
-                        transaction.Dispose();
-                        return false;
-                    }
-
-                    transaction.Complete();
-                    return true;
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine($"Error: {ex.Message}");
-                    transaction.Dispose();
-                    return false;
-                }
-            }
-        }
+        //            // Update the number of seats booked
+        //            if (!BUS_HangVeCB.CapNhatSoLuongGheDaDat(hangVeCB.MaChuyenBay, hangVeCB.MaHangGhe))
+        //            {
+        //                transaction.Dispose();
+        //                return false;
+        //            }
+        //            transaction.Complete();
+        //            return true;
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            Debug.WriteLine($"Error: {ex.Message}");
+        //            transaction.Dispose();
+        //            return false;
+        //        }
+        //    }
+        //}
 
         public List<DTO_VeChuyenBay> LayVeThanhToanTheoThangNam(int thang, int nam)
         {
             return DAL_VeChuyenBay.LayDanhSachVeDaThanhToan(thang, nam);
         }
+        
     }
 }
