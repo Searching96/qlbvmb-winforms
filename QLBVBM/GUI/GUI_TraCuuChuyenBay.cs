@@ -27,17 +27,15 @@ namespace QLBVBM.GUI
             txtThoiGianDungSBTG2_Tu.Tag = "Thời gian dừng sân bay trung gian";
             txtThoiGianDungSBTG2_Den.Tag = "Thời gian dừng sân bay trung gian";
 
-            txtDonGiaHangVeTu.Tag = "Đơn giá của hạng vé";
-            txtDonGiaHangVeDen.Tag = "Đơn giá của hạng vé";
+            txtDonGiaQuyDinhHangVeTu.Tag = "Đơn giá của hạng vé";
+            txtDonGiaQuyDinhHangVeDen.Tag = "Đơn giá của hạng vé";
 
             txtSLGheHangVeTu.Tag = "Số lượng ghế của hạng vé";
             txtSLGheHangVeDen.Tag = "Số lượng ghế của hạng vé";
 
-            txtSLGheDaBanHangVeTu.Tag = "Số lượng ghế đã bán của hạng vé";
-            txtSLGheDaBanHangVeDen.Tag = "Số lượng ghế đã bán của hạng vé";
+            txtSLGheConLaiHangVeTu.Tag = "Số lượng ghế đã bán của hạng vé";
+            txtSLGheConLaiHangVeDen.Tag = "Số lượng ghế đã bán của hạng vé";
 
-            txtSLGheDaDatHangVeTu.Tag = "Số lượng ghế đã đặt của hạng vé";
-            txtSLGheDaDatHangVeDen.Tag = "Số lượng ghế đã đặt của hạng vé";
 
             txtSoCMNDHanhKhach.Tag = "Số chứng minh nhân dân của hành khách";
             txtSoDienThoaiHanhKhach.Tag = "Số điện thoại của hành khách";
@@ -46,8 +44,6 @@ namespace QLBVBM.GUI
             dtpNgayBayDen.Value = DateTime.Now;
             dtpGioBayTu.Value = DateTime.Now;
             dtpGioBayDen.Value = DateTime.Now;
-            dtpThoiDiemThanhToanVeTu.Value = DateTime.Now;
-            dtpThoiDiemThanhToanVeDen.Value = DateTime.Now;
             ConfigureDataGridView();
 
             try
@@ -80,16 +76,16 @@ namespace QLBVBM.GUI
                         var dsHangGhe_SLGheDaDat = new List<DTO_HangGhe>(dsHangGhe);
 
                         LoadDanhSachHangGheToComboBox(cbbTenHangGhe, dsHangGhe_Ten);
-                        LoadDanhSachHangGheToComboBox(cbbHangVe_DonGia, dsHangGhe_DonGia);
+                        LoadDanhSachHangGheToComboBox(cbbHangVe_DonGiaQuyDinh, dsHangGhe_DonGia);
                         LoadDanhSachHangGheToComboBox(cbbHangVe_SLGhe, dsHangGhe_SLGhe);
-                        LoadDanhSachHangGheToComboBox(cbbHangVe_SLGheDaBan, dsHangGhe_SLGheDaBan);
-                        LoadDanhSachHangGheToComboBox(cbbHangVe_SLGheDaDat, dsHangGhe_SLGheDaDat);
+                        LoadDanhSachHangGheToComboBox(cbbHangVe_SLGheConLai, dsHangGhe_SLGheDaBan);
+
 
                         if (cbbTenHangGhe.Items.Count > 0) cbbTenHangGhe.SelectedIndex = 0;
-                        if (cbbHangVe_DonGia.Items.Count > 0) cbbHangVe_DonGia.SelectedIndex = 0;
+                        if (cbbHangVe_DonGiaQuyDinh.Items.Count > 0) cbbHangVe_DonGiaQuyDinh.SelectedIndex = 0;
                         if (cbbHangVe_SLGhe.Items.Count > 0) cbbHangVe_SLGhe.SelectedIndex = 0;
-                        if (cbbHangVe_SLGheDaBan.Items.Count > 0) cbbHangVe_SLGheDaBan.SelectedIndex = 0;
-                        if (cbbHangVe_SLGheDaDat.Items.Count > 0) cbbHangVe_SLGheDaDat.SelectedIndex = 0;
+                        if (cbbHangVe_SLGheConLai.Items.Count > 0) cbbHangVe_SLGheConLai.SelectedIndex = 0;
+
 
                         LoadTrangThaiOptions();
                     });
@@ -190,10 +186,9 @@ namespace QLBVBM.GUI
                      txtThoiGianBayTu, txtThoiGianBayDen,
                      txtThoiGianDungSBTG1_Tu, txtThoiGianDungSBTG1_Den,
                      txtThoiGianDungSBTG2_Tu, txtThoiGianDungSBTG2_Den,
-                     txtDonGiaHangVeTu, txtDonGiaHangVeDen,
+                     txtDonGiaQuyDinhHangVeTu, txtDonGiaQuyDinhHangVeDen,
                      txtSLGheHangVeTu, txtSLGheHangVeDen,
-                     txtSLGheDaBanHangVeTu, txtSLGheDaBanHangVeDen,
-                     txtSLGheDaDatHangVeTu, txtSLGheDaDatHangVeDen,
+                     txtSLGheConLaiHangVeTu, txtSLGheConLaiHangVeDen,
                      txtSoCMNDHanhKhach, txtSoDienThoaiHanhKhach
                 };
 
@@ -227,25 +222,20 @@ namespace QLBVBM.GUI
                 int? thoiGianDungSBTG2_Tu = string.IsNullOrWhiteSpace(txtThoiGianDungSBTG2_Tu.Text) ? null : int.TryParse(txtThoiGianDungSBTG2_Tu.Text, out result) ? result : null;
                 int? thoiGianDungSBTG2_Den = string.IsNullOrWhiteSpace(txtThoiGianDungSBTG2_Den.Text) ? null : int.TryParse(txtThoiGianDungSBTG2_Den.Text, out result) ? result : null;
                 string maHangGhe_Ten = cbbTenHangGhe.SelectedValue?.ToString() ?? "ALL";
-                string maHangGhe_DonGia = cbbHangVe_DonGia.SelectedValue?.ToString() ?? "ALL";
-                int? donGiaHangVeTu = string.IsNullOrWhiteSpace(txtDonGiaHangVeTu.Text) ? null : int.TryParse(txtDonGiaHangVeTu.Text, out result) ? result : null;
-                int? donGiaHangVeDen = string.IsNullOrWhiteSpace(txtDonGiaHangVeDen.Text) ? null : int.TryParse(txtDonGiaHangVeDen.Text, out result) ? result : null;
+                string maHangGhe_DonGia = cbbHangVe_DonGiaQuyDinh.SelectedValue?.ToString() ?? "ALL";
+                int? donGiaHangVeTu = string.IsNullOrWhiteSpace(txtDonGiaQuyDinhHangVeTu.Text) ? null : int.TryParse(txtDonGiaQuyDinhHangVeTu.Text, out result) ? result : null;
+                int? donGiaHangVeDen = string.IsNullOrWhiteSpace(txtDonGiaQuyDinhHangVeDen.Text) ? null : int.TryParse(txtDonGiaQuyDinhHangVeDen.Text, out result) ? result : null;
                 string maHangGhe_SLGhe = cbbHangVe_SLGhe.SelectedValue?.ToString() ?? "ALL";
                 int? soLuongGheHangVeTu = string.IsNullOrWhiteSpace(txtSLGheHangVeTu.Text) ? null : int.TryParse(txtSLGheHangVeTu.Text, out result) ? result : null;
                 int? soLuongGheHangVeDen = string.IsNullOrWhiteSpace(txtSLGheHangVeDen.Text) ? null : int.TryParse(txtSLGheHangVeDen.Text, out result) ? result : null;
-                string maHangGhe_SLGheDaBan = cbbHangVe_SLGheDaBan.SelectedValue?.ToString() ?? "ALL";
-                int? soLuongGheHangVeDaBanTu = string.IsNullOrWhiteSpace(txtSLGheDaBanHangVeTu.Text) ? null : int.TryParse(txtSLGheDaBanHangVeTu.Text, out result) ? result : null;
-                int? soLuongGheHangVeDaBanDen = string.IsNullOrWhiteSpace(txtSLGheDaBanHangVeDen.Text) ? null : int.TryParse(txtSLGheDaBanHangVeDen.Text, out result) ? result : null;
-                string maHangGhe_SLGheDaDat = cbbHangVe_SLGheDaDat.SelectedValue?.ToString() ?? "ALL";
-                int? soLuongGheHangVeDaDatTu = string.IsNullOrWhiteSpace(txtSLGheDaDatHangVeTu.Text) ? null : int.TryParse(txtSLGheDaDatHangVeTu.Text, out result) ? result : null;
-                int? soLuongGheHangVeDaDatDen = string.IsNullOrWhiteSpace(txtSLGheDaDatHangVeDen.Text) ? null : int.TryParse(txtSLGheDaDatHangVeDen.Text, out result) ? result : null;
+                string maHangGhe_SLGheDaBan = cbbHangVe_SLGheConLai.SelectedValue?.ToString() ?? "ALL";
+                int? soLuongGheHangVeDaBanTu = string.IsNullOrWhiteSpace(txtSLGheConLaiHangVeTu.Text) ? null : int.TryParse(txtSLGheConLaiHangVeTu.Text, out result) ? result : null;
+                int? soLuongGheHangVeDaBanDen = string.IsNullOrWhiteSpace(txtSLGheConLaiHangVeDen.Text) ? null : int.TryParse(txtSLGheConLaiHangVeDen.Text, out result) ? result : null;
                 string maVeChuyenBay = string.IsNullOrWhiteSpace(txtMaVeChuyenBay.Text) ? null : txtMaVeChuyenBay.Text.Trim();
                 int? trangThaiVe = cbbTrangThaiVe.SelectedValue != null && int.TryParse(cbbTrangThaiVe.SelectedValue.ToString(), out result) ? result : -1;
                 string tenHanhKhach = string.IsNullOrWhiteSpace(txtTenHanhKhach.Text) ? null : txtTenHanhKhach.Text.Trim();
                 string soCMND = string.IsNullOrWhiteSpace(txtSoCMNDHanhKhach.Text) ? null : txtSoCMNDHanhKhach.Text.Trim();
                 string soDT = string.IsNullOrWhiteSpace(txtSoDienThoaiHanhKhach.Text) ? null : txtSoDienThoaiHanhKhach.Text.Trim();
-                DateTime? thoiDiemThanhToanTu = dtpThoiDiemThanhToanVeTu.Checked ? dtpThoiDiemThanhToanVeTu.Value : null;
-                DateTime? thoiDiemThanhToanDen = dtpThoiDiemThanhToanVeDen.Checked ? dtpThoiDiemThanhToanVeDen.Value : null;
 
                 var dsChuyenBay = busChuyenBay.TraCuuChuyenBayNangCao(
                     maChuyenBay, maSanBayDi, maSanBayDen, ngayBayTu, ngayBayDen,
@@ -255,10 +245,7 @@ namespace QLBVBM.GUI
                     maHangGhe_Ten, maHangGhe_DonGia, donGiaHangVeTu, donGiaHangVeDen,
                     maHangGhe_SLGhe, soLuongGheHangVeTu, soLuongGheHangVeDen,
                     maHangGhe_SLGheDaBan, soLuongGheHangVeDaBanTu, soLuongGheHangVeDaBanDen,
-                    maHangGhe_SLGheDaDat, soLuongGheHangVeDaDatTu, soLuongGheHangVeDaDatDen,
-                    maVeChuyenBay, trangThaiVe, tenHanhKhach, soCMND, soDT,
-                    thoiDiemThanhToanTu, thoiDiemThanhToanDen);
-
+                    maVeChuyenBay, trangThaiVe, tenHanhKhach, soCMND, soDT);
                 if (dsChuyenBay != null && dsChuyenBay.Count > 0)
                 {
                     dgvDanhSachChuyenBay.DataSource = dsChuyenBay;
@@ -512,20 +499,15 @@ namespace QLBVBM.GUI
             }
         }
 
-        private void txtSLGheDaDatHangVeTu_KeyPress(object sender, KeyPressEventArgs e)
+
+        private void cbbTenHangGhe_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+
         }
 
-        private void txtSLGheDaDatHangVeDen_KeyPress(object sender, KeyPressEventArgs e)
+        private void guna2ComboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+
         }
     }
 }
