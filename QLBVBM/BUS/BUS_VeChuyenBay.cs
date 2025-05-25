@@ -69,6 +69,12 @@ namespace QLBVBM.BUS
             }
         }
 
+        public bool LayVeChuyenBayTheoMaChuyenBay(string maChuyenBay, out List<DTO_VeChuyenBay> dsVeChuyenBay)
+        {
+            dsVeChuyenBay = DAL_VeChuyenBay.LayVeChuyenBayTheoMaChuyenBay(maChuyenBay);
+            return dsVeChuyenBay != null && dsVeChuyenBay.Count > 0;
+        }
+
         //public bool DatVeChuyenBayVaHangVe(DTO_VeChuyenBay veChuyenBay, DTO_HangVeCB hangVeCB)
         //{
         //    using (var transaction = new TransactionScope())

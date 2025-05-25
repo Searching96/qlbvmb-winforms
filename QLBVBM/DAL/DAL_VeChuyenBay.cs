@@ -115,5 +115,44 @@ namespace QLBVBM.DAL
 
             return dsVeChuyenBay;
         }
+
+        public List<DTO_VeChuyenBay> LayVeChuyenBayTheoMaChuyenBay(string maChuyenBay)
+        {
+            List<DTO_VeChuyenBay> dsVeChuyenBay = new List<DTO_VeChuyenBay>();
+
+            try
+            {
+                string query = "SELECT * FROM VECHUYENBAY WHERE MaChuyenBay = @MaChuyenBay";
+                List<MySqlParameter> parameters = new List<MySqlParameter>
+                {
+                    new MySqlParameter("@MaChuyenBay", maChuyenBay)
+                };
+
+                DataTable dt = dataHelper.ExecuteQuery(query, parameters);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    DTO_VeChuyenBay veChuyenBay = new DTO_VeChuyenBay
+                    {
+                        MaVe = dr["MaVe"].ToString(),
+                        MaChuyenBay = dr["MaChuyenBay"].ToString(),
+                        MaHangGhe = dr["MaHangGhe"].ToString(),
+                        TenHanhKhach = dr["TenHanhKhach"].ToString(),
+                        SoCMND = dr["CMND"].ToString(),
+                        SoDT = dr["SoDienThoai"].ToString(),
+                        DonGia = Convert.ToInt32(dr["DonGia"]),
+                        TrangThaiVe = dr["TrangThaiVe"].ToString(),
+                    };
+                    dsVeChuyenBay.Add(veChuyenBay);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error in LayVeChuyenBayTheoMaChuyenBay (DAL_VeChuyenBay.cs): {ex.Message}");
+                return new List<DTO_VeChuyenBay>();
+            }
+
+            return dsVeChuyenBay;
+        }
+
     }
 }

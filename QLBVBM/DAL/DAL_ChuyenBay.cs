@@ -328,5 +328,45 @@ namespace QLBVBM.DAL
                 return new Tuple<string, string>("", "");
             }
         }
+
+        public List<DTO_ChuyenBay> LayChuyenBayTheoNam(int nam)
+        {
+            List<DTO_ChuyenBay> dsChuyenBay = new List<DTO_ChuyenBay>();
+            try
+            {
+                string query = @"
+            SELECT cb.*
+            FROM CHUYENBAY cb
+            WHERE YEAR(cb.NgayBay) = @Nam
+            ORDER BY cb.NgayBay, cb.GioBay";
+
+                List<MySqlParameter> parameters = new List<MySqlParameter>
+                {
+                    new MySqlParameter("@Nam", nam)
+                };
+
+                DataTable dt = dataHelper.ExecuteQuery(query, parameters);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    DTO_ChuyenBay cb = new DTO_ChuyenBay
+                    {
+                        MaChuyenBay = dr["MaChuyenBay"].ToString(),
+                        MaSanBayDi = dr["MaSanBayDi"].ToString(),
+                        MaSanBayDen = dr["MaSanBayDen"].ToString(),
+                        NgayBay = DateTime.Parse(dr["NgayBay"].ToString()),
+                        GioBay = DateTime.Parse(dr["GioBay"].ToString()),
+                        ThoiGianBay = int.Parse(dr["ThoiGianBay"].ToString())
+                    };
+                    dsChuyenBay.Add(cb);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error in LayChuyenBayTheoNam (DAL_ChuyenBay.cs): {ex.Message}");
+                return new List<DTO_ChuyenBay>();
+            }
+
+            return dsChuyenBay;
+        }
     }
 }

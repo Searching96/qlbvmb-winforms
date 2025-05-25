@@ -13,7 +13,8 @@ namespace QLBVBM
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new GUI_BanVe());
+            Application.Run(new GUI_BaoCaoDoanhThuNam());
+            Application.Run(new GUI_TiepNhanLichChuyenBay());
         }
     }
 }
