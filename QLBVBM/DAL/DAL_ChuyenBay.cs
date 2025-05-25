@@ -1,11 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
-using Org.BouncyCastle.Math.Field;
 using QLBVBM.DTO;
 using System.Data;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QLBVBM.DAL
 {
@@ -194,7 +190,7 @@ namespace QLBVBM.DAL
             {
                 Debug.WriteLine($"Error in TimChuyenBayTheoMa (DAL_ChuyenBay.cs): {ex.Message}");
             }
-            return null;    
+            return null;
         }
 
         public bool ThemChuyenBay(DTO_ChuyenBay chuyenBay)
@@ -308,24 +304,24 @@ namespace QLBVBM.DAL
             string maHangGhe_Ten = null,
             string maHangGhe_DonGia = null, int? donGiaHangVeTu = null, int? donGiaHangVeDen = null,
             string maHangGhe_SLGhe = null, int? soLuongGheHangVeTu = null, int? soLuongGheHangVeDen = null,
-            string maHangGhe_SLGheDaBan = null, int? soLuongGheHangVeDaBanTu = null, int? soLuongGheHangVeDaBanDen = null,
-            string maHangGhe_SLGheDaDat = null, int? soLuongGheHangVeDaDatTu = null, int? soLuongGheHangVeDaDatDen = null,
+            string maHangGhe_SLGheConLai = null, int? soLuongGheHangVeConLaiTu = null, int? soLuongGheHangVeConLaiDen = null,
             string maVeChuyenBay = null, int? trangThaiVe = null,
-            string tenHanhKhach = null, string soCMND = null, string soDT = null,
-            DateTime? thoiDiemThanhToanTu = null, DateTime? thoiDiemThanhToanDen = null)
+            int? donGiaVeChuyenBayTu = null, int? donGiaVeChuyenBayDen = null,
+            string tenHanhKhach = null, string soCMND = null, string soDT = null
+            )
         {
             List<DTO_ChuyenBay> dsChuyenBay = new List<DTO_ChuyenBay>();
             string query = @"
                 SELECT
-                    cb.MaChuyenBay,
-                    cb.MaSanBayDi,
-                    cb.MaSanBayDen,
-                    cb.NgayBay,
-                    cb.GioBay,
-                    cb.ThoiGianBay,
-                    COALESCE(SUM(hvcb.SoLuongGhe), 0) AS TongSoGhe,
-                    COALESCE(SUM(hvcb.SoLuongGheDaBan), 0) + COALESCE(SUM(hvcb.SLGheDaDat), 0) AS SoGheDat,
-                    COALESCE(SUM(hvcb.SoLuongGhe), 0) - (COALESCE(SUM(hvcb.SoLuongGheDaBan), 0) + COALESCE(SUM(hvcb.SLGheDaDat), 0)) AS SoGheTrong
+cb.MaChuyenBay,
+                   cb.MaSanBayDi,
+                   cb.MaSanBayDen,
+                   cb.NgayBay,
+                   cb.GioBay,
+                   cb.ThoiGianBay,
+                   COALESCE(SUM(hvcb.SoLuongGhe), 0) AS TongSoGhe,
+                   COALESCE(SUM(hvcb.SoLuongGhe), 0) - COALESCE(SUM(hvcb.SLGheConLai), 0) AS SoGheDat,
+                   COALESCE(SUM(hvcb.SLGheConLai), 0) AS SoGheTrong
                 FROM CHUYENBAY cb
                 JOIN SANBAY sbDi ON cb.MaSanBayDi = sbDi.MaSanBay
                 JOIN SANBAY sbDen ON cb.MaSanBayDen = sbDen.MaSanBay
@@ -510,8 +506,7 @@ namespace QLBVBM.DAL
             {
                 { "DonGia", (maHangGhe_DonGia, donGiaHangVeTu, donGiaHangVeDen) },
                 { "SoLuongGhe", (maHangGhe_SLGhe, soLuongGheHangVeTu, soLuongGheHangVeDen) },
-                { "SoLuongGheDaBan", (maHangGhe_SLGheDaBan, soLuongGheHangVeDaBanTu, soLuongGheHangVeDaBanDen) },
-                { "SLGheDaDat", (maHangGhe_SLGheDaDat, soLuongGheHangVeDaDatTu, soLuongGheHangVeDaDatDen) }
+                { "SoLuongGheDaBan", (maHangGhe_SLGheConLai, soLuongGheHangVeConLaiTu, soLuongGheHangVeConLaiDen) }
             };
             foreach (var mapping in fieldGheMappings)
             {
@@ -560,6 +555,25 @@ namespace QLBVBM.DAL
                 query += " OR vcb.TrangThaiVe = @TrangThaiVe";
                 parameters.Add(new MySqlParameter("@TrangThaiVe", trangThaiVe.Value));
             }
+
+            if (donGiaVeChuyenBayTu.HasValue || donGiaVeChuyenBayDen.HasValue)
+            {
+                List<string> donGiaConditions = new List<string>();
+                if (donGiaVeChuyenBayTu.HasValue)
+                {
+                    donGiaConditions.Add("vcb.DonGia >= @DonGiaVeChuyenBayTu");
+                    parameters.Add(new MySqlParameter("@DonGiaVeChuyenBayTu", donGiaVeChuyenBayTu.Value));
+                }
+                if (donGiaVeChuyenBayDen.HasValue)
+                {
+                    donGiaConditions.Add("vcb.DonGia <= @DonGiaVeChuyenBayDen");
+                    parameters.Add(new MySqlParameter("@DonGiaVeChuyenBayDen", donGiaVeChuyenBayDen.Value));
+                }
+                if (donGiaConditions.Count > 0)
+                {
+                    query += " OR " + "(" + string.Join(" AND ", donGiaConditions) + ")";
+                }
+            }
             if (!string.IsNullOrEmpty(tenHanhKhach))
             {
                 query += " OR vcb.TenHanhKhach LIKE @TenHanhKhach";
@@ -574,24 +588,6 @@ namespace QLBVBM.DAL
             {
                 query += " OR vcb.SoDienThoai LIKE @SoDT";
                 parameters.Add(new MySqlParameter("@SoDT", $"%{soDT}%"));
-            }
-            if (thoiDiemThanhToanTu.HasValue || thoiDiemThanhToanDen.HasValue)
-            {
-                List<string> thoiDiemThanhToanConditions = new List<string>();
-                if (thoiDiemThanhToanTu.HasValue)
-                {
-                    thoiDiemThanhToanConditions.Add("vcb.ThoiDiemThanhToan >= @ThoiDiemThanhToanTu");
-                    parameters.Add(new MySqlParameter("@ThoiDiemThanhToanTu", thoiDiemThanhToanTu.Value));
-                }
-                if (thoiDiemThanhToanDen.HasValue)
-                {
-                    thoiDiemThanhToanConditions.Add("vcb.ThoiDiemThanhToan <= @ThoiDiemThanhToanDen");
-                    parameters.Add(new MySqlParameter("@ThoiDiemThanhToanDen", thoiDiemThanhToanDen.Value));
-                }
-                if (thoiDiemThanhToanConditions.Count > 0)
-                {
-                    query += " OR " + "(" + string.Join(" AND ", thoiDiemThanhToanConditions) + ")";
-                }
             }
 
             query += " GROUP BY cb.MaChuyenBay, cb.MaSanBayDi, cb.MaSanBayDen, cb.NgayBay, cb.GioBay, cb.ThoiGianBay";

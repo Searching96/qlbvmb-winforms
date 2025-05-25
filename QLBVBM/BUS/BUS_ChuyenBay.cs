@@ -207,11 +207,10 @@ namespace QLBVBM.BUS
            string maHangGhe_Ten = null,
            string maHangGhe_DonGia = null, int? donGiaHangVeTu = null, int? donGiaHangVeDen = null,
            string maHangGhe_SLGhe = null, int? soLuongGheHangVeTu = null, int? soLuongGheHangVeDen = null,
-           string maHangGhe_SLGheDaBan = null, int? soLuongGheHangVeDaBanTu = null, int? soLuongGheHangVeDaBanDen = null,
-           string maHangGhe_SLGheDaDat = null, int? soLuongGheHangVeDaDatTu = null, int? soLuongGheHangVeDaDatDen = null,
+           string maHangGhe_SLGheConLai = null, int? soLuongGheHangVeConLaiTu = null, int? soLuongGheHangVeConLaiDen = null,
            string maVeChuyenBay = null, int? trangThaiVe = null,
-           string tenHanhKhach = null, string soCMND = null, string soDT = null,
-           DateTime? thoiDiemThanhToanTu = null, DateTime? thoiDiemThanhToanDen = null)
+           int? donGiaVeChuyenBayTu = null, int? donGiaVeChuyenBayDen = null,
+           string tenHanhKhach = null, string soCMND = null, string soDT = null)
         {
             return DAL_ChuyenBay.TraCuuChuyenBayNangCao(maChuyenBay, maSanBayDi, maSanBayDen, ngayBayTu, ngayBayDen,
                     gioBayTu, gioBayDen, thoiGianBayTu, thoiGianBayDen,
@@ -219,10 +218,9 @@ namespace QLBVBM.BUS
                     maSanBayTG2, ghiChuSanBayTG2, thoiGianDungSBTG2_Tu, thoiGianDungSBTG2_Den,
                     maHangGhe_Ten, maHangGhe_DonGia, donGiaHangVeTu, donGiaHangVeDen,
                     maHangGhe_SLGhe, soLuongGheHangVeTu, soLuongGheHangVeDen,
-                    maHangGhe_SLGheDaBan, soLuongGheHangVeDaBanTu, soLuongGheHangVeDaBanDen,
-                    maHangGhe_SLGheDaDat, soLuongGheHangVeDaDatTu, soLuongGheHangVeDaDatDen,
-                    maVeChuyenBay, trangThaiVe, tenHanhKhach, soCMND, soDT,
-                    thoiDiemThanhToanTu, thoiDiemThanhToanDen);
+                    maHangGhe_SLGheConLai, soLuongGheHangVeConLaiTu, soLuongGheHangVeConLaiDen,
+                    maVeChuyenBay, trangThaiVe, donGiaVeChuyenBayTu, donGiaVeChuyenBayDen, tenHanhKhach, soCMND, soDT
+                    );
         }
         //public DateTime LayHanCuoiDatVe(DTO_ChuyenBay chuyenBay)
         //{
