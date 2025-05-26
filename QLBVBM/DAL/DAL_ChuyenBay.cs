@@ -506,7 +506,7 @@ namespace QLBVBM.DAL
             var fieldGheMappings = new Dictionary<string, (string maHangGhe, int? tu, int? den)>
             {
                 { "SoLuongGhe", (maHangGhe_SLGhe, soLuongGheHangVeTu, soLuongGheHangVeDen) },
-                { "SoLuongGheDaBan", (maHangGhe_SLGheConLai, soLuongGheHangVeConLaiTu, soLuongGheHangVeConLaiDen) }
+                { "SLGheConLai", (maHangGhe_SLGheConLai, soLuongGheHangVeConLaiTu, soLuongGheHangVeConLaiDen) }
             };
             foreach (var mapping in fieldGheMappings)
             {
