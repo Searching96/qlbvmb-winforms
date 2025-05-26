@@ -99,9 +99,17 @@ namespace QLBVBM.BUS
         //    }
         //}
 
-        public List<DTO_VeChuyenBay> LayVeThanhToanTheoThangNam(int thang, int nam)
+        public List<DTO_VeChuyenBay> LayVeThanhToanTheoChuyenBay(List<DTO_ChuyenBay> dsChuyenBay)
         {
-            return DAL_VeChuyenBay.LayDanhSachVeDaThanhToan(thang, nam);
+            List<DTO_VeChuyenBay> dsVeChuyenBay = new List<DTO_VeChuyenBay>();
+            foreach (DTO_ChuyenBay chuyenBay in dsChuyenBay)
+            {
+                foreach (DTO_VeChuyenBay veChuyenBay in DAL_VeChuyenBay.LayDanhSachVeDaThanhToan(chuyenBay.MaChuyenBay))
+                {
+                    dsVeChuyenBay.Add(veChuyenBay);
+                };
+            }
+            return dsVeChuyenBay;
         }
         
     }

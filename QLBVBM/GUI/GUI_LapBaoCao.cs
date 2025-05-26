@@ -14,8 +14,8 @@ namespace QLBVBM.GUI
 {
     public partial class GUI_LapBaoCao : Form
     {
-        private BUS_HangVeCB busHangVeCB = new BUS_HangVeCB();
         private BUS_VeChuyenBay busVeChuyenBay = new BUS_VeChuyenBay();
+        private BUS_ChuyenBay busChuyenBay = new BUS_ChuyenBay();
 
         public GUI_LapBaoCao()
         {
@@ -32,46 +32,48 @@ namespace QLBVBM.GUI
         }
         private void btnLapBaoCaoDoanhThu_Click(object sender, EventArgs e)
         {
+            dgvBaoCaoDoanhThu.Rows.Clear();
+            txtTongDoanhThu.Text = "";
+
             int thang = dtpThangBaoCao.Value.Month;
             int nam = dtpNamBaoCao.Value.Year;
 
-            List<DTO_VeChuyenBay> dsVeChuyenBay = busVeChuyenBay.LayVeThanhToanTheoThangNam(thang, nam);
+            List<DTO_ChuyenBay> dsChuyenBay = busChuyenBay.LayTatCaChuyenBayDuaVaoThangNamBay(thang, nam);
 
-            if (dsVeChuyenBay != null && dsVeChuyenBay.Count > 0)
+            //lay ve da thanh toan theo chuyen bay
+            if (dsChuyenBay != null && dsChuyenBay.Count > 0)
             {
-                List<DTO_HangVeCB> dsHangVeCB = new List<DTO_HangVeCB>();
-
-                foreach (var ve in dsVeChuyenBay)
-                {
-                    DTO_HangVeCB hangVe = busHangVeCB.LayHangVeTheoVeChuyenBay(ve.MaChuyenBay, ve.MaHangGhe);
-                    if (hangVe != null) dsHangVeCB.Add(hangVe);
-                }
-
+                List<DTO_VeChuyenBay> dsVeChuyenBayDaThanhToan = new List<DTO_VeChuyenBay>();
+                
+                dsVeChuyenBayDaThanhToan = busVeChuyenBay.LayVeThanhToanTheoChuyenBay(dsChuyenBay);
 
                 dgvBaoCaoDoanhThu.Rows.Clear();
 
                 //tong doanh thu
-                var tongDoanhThu = dsHangVeCB
-                    .Sum(h => h.SoLuongGheDaBan * h.DonGia);
+                var tongDoanhThu = dsVeChuyenBayDaThanhToan
+                    .Sum(h => h.DonGia);
                 txtTongDoanhThu.Text = string.Format("{0:0,0}", tongDoanhThu);
+                /*foreach (var ve in dsVeChuyenBayDaThanhToan)
+                {
+                    MessageBox.Show($"Ve: {ve.MaChuyenBay} - DonGia: {ve.DonGia}");
+                }*/
 
                 //dgv doanh thu
-                var dsMaChuyenBay = dsHangVeCB
+                var dsMaChuyenBay = dsChuyenBay
                     .Select(h => h.MaChuyenBay)
                     .Distinct();
 
                 int stt = 1;
                 foreach (var maChuyenBay in dsMaChuyenBay)
                 {
-                    var dsHangVeCuaChuyenBay = dsHangVeCB
+                    var dsVeCuaChuyenBay = dsVeChuyenBayDaThanhToan
                         .Where(h => h.MaChuyenBay == maChuyenBay)
                         .ToList();
 
-                    var tongSoLuongDaBan = dsHangVeCuaChuyenBay
-                        .Sum(h => h.SoLuongGheDaBan);
+                    var tongSoLuongDaBan = dsVeCuaChuyenBay.Count();
 
-                    var doanhThu = dsHangVeCuaChuyenBay
-                        .Sum(h => h.SoLuongGheDaBan * h.DonGia);
+                    var doanhThu = dsVeCuaChuyenBay
+                        .Sum(h => h.DonGia);
 
                     decimal tyLe = 0;
                     if (doanhThu > 0 && tongDoanhThu > 0)
@@ -90,7 +92,7 @@ namespace QLBVBM.GUI
             }
             else
             {
-                MessageBox.Show("Không tìm thấy vé chuyến bay đã thanh toán trong thời gian trên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Không tìm thấy chuyến bay đã bay trong thời gian trên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

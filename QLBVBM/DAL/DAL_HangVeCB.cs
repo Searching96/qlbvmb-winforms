@@ -134,13 +134,13 @@ namespace QLBVBM.DAL
                 MaChuyenBay = dr["MaChuyenBay"].ToString(),
                 MaHangGhe = dr["MaHangGhe"].ToString(),
                 SoLuongGhe = Convert.ToInt32(dr["SoLuongGhe"]),
-                SoLuongGheDaBan = dr["SoLuongGheDaBan"] != DBNull.Value
+               /* SoLuongGheDaBan = dr["SoLuongGheDaBan"] != DBNull.Value
                                     ? Convert.ToInt32(dr["SoLuongGheDaBan"])
                                     : 0,
                 SoLuongGheDaDat = dr.Table.Columns.Contains("SLGheDaDat") && dr["SLGheDaDat"] != DBNull.Value
                                     ? Convert.ToInt32(dr["SLGheDaDat"])
                                     : 0,
-                DonGia = Convert.ToInt32(dr["DonGia"])
+                DonGia = Convert.ToInt32(dr["DonGia"])*/
             };
         }
 
