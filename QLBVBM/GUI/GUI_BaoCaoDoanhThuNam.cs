@@ -16,16 +16,63 @@ namespace QLBVBM.GUI
     {
         private BUS_ChuyenBay busChuyenBay = new BUS_ChuyenBay();
         private BUS_VeChuyenBay busVeChuyenBay = new BUS_VeChuyenBay();
+        private ComboBox cbbNam; // Declare the ComboBox for years
 
         public GUI_BaoCaoDoanhThuNam()
         {
             InitializeComponent();
+            ConfigureYearComboBox();
+        }
+
+        private void ConfigureYearComboBox()
+        {
+            // Get the position and size of the existing dtpNam control
+            var location = dtpNam.Location;
+            var size = dtpNam.Size;
+
+            // Create and configure the ComboBox
+            cbbNam = new ComboBox();
+            cbbNam.Location = location;
+            cbbNam.Size = size;
+            cbbNam.DropDownStyle = ComboBoxStyle.DropDownList; // Prevent direct text entry
+            cbbNam.Font = dtpNam.Font;
+
+            // Populate the ComboBox with years (for example, from 2000 to current year + 5)
+            int currentYear = DateTime.Now.Year;
+            for (int year = 2000; year <= currentYear; year++)
+            {
+                cbbNam.Items.Add(year);
+            }
+
+            // Set the current year as default
+            cbbNam.SelectedItem = currentYear;
+
+            // Add the control to the form
+            this.Controls.Add(cbbNam);
+
+            // Hide the original DateTimePicker
+            dtpNam.Visible = false;
         }
 
         private void GUI_BaoCaoDoanhThuNam_Load(object sender, EventArgs e)
         {
-            dtpNam.Value = DateTime.Now;
             SetupDataGridView();
+        }
+
+        private void btnLapBaoCaoDoanhThu_Click(object sender, EventArgs e)
+        {
+            if (cbbNam.SelectedItem == null)
+            {
+                MessageBox.Show("Vui lòng chọn năm để lập báo cáo.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Use the ComboBox selected value
+            int nam = (int)cbbNam.SelectedItem;
+            decimal tongDoanhThu = LoadDoanhThuTheoNam(nam);
+
+            // Display total revenue in the textbox
+            txtTongDoanhThuCacChuyenBayTrongNam.Text = tongDoanhThu.ToString("N0") + " VND";
         }
 
         private void SetupDataGridView()
@@ -85,15 +132,6 @@ namespace QLBVBM.GUI
                 }
                 e.Handled = true;
             }
-        }
-
-        private void btnLapBaoCaoDoanhThu_Click(object sender, EventArgs e)
-        {
-            int nam = dtpNam.Value.Year;
-            decimal tongDoanhThu = LoadDoanhThuTheoNam(nam);
-
-            // Display total revenue in the textbox
-            txtTongDoanhThuCacChuyenBayTrongNam.Text = tongDoanhThu.ToString("N0") + " VND";
         }
 
         private decimal LoadDoanhThuTheoNam(int nam)

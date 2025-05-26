@@ -14,7 +14,6 @@ namespace QLBVBM
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new GUI_BaoCaoDoanhThuNam());
-            Application.Run(new GUI_TiepNhanLichChuyenBay());
         }
     }
 }
