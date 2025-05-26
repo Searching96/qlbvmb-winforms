@@ -10,7 +10,6 @@ CREATE TABLE IF NOT EXISTS THAMSO
     TGDungToiThieu INT NOT NULL, -- phut
     TGDungToiDa INT NOT NULL, -- phut
     TGDatTruocVeToiThieu INT NOT NULL
-    -- TGHuyDatTruocVeToiThieu INT NOT NULL
 );    
 
 CREATE TABLE IF NOT EXISTS SANBAY
@@ -106,7 +105,6 @@ INSERT INTO HANGGHE VALUES ('HG00003', 'Hạng sang');
 INSERT INTO HANGGHE VALUES ('HG00004', 'Hạng siêu sang');
 
 INSERT INTO THAMSO VALUES (2, 30, 10, 20, 1);
--- INSERT INTO THAMSO VALUES (2, 30, 10, 50);
 
 -- --------------------------------- CHUYENBAY -------------------------------------------------
 INSERT INTO CHUYENBAY VALUES ('CB00001', 'SB00001', 'SB00002', '2025-06-01', '08:00:00', 180);
