@@ -15,7 +15,7 @@ namespace QLBVBM.DTO
         private string? CMND;
         private string? SDT;
         private int? donGia;
-        //private int? trangThaiVe;
+        private int? trangThaiVe;
         //private DateTime? thoiDiemThanhToan;
 
         public DTO_VeChuyenBay(string? maVe = null, string? maChuyenBay = null, 
@@ -29,7 +29,7 @@ namespace QLBVBM.DTO
             this.CMND = CMND;
             this.SDT = SDT;
             this.donGia = donGia;
-            //this.trangThaiVe = trangThaiVe;
+            this.trangThaiVe = trangThaiVe;
             //this.thoiDiemThanhToan = thoiDiemThanhToan;
         }
 
@@ -40,7 +40,7 @@ namespace QLBVBM.DTO
         public string? SoCMND { get => CMND; set => CMND = value; }
         public string? SoDT { get => SDT; set => SDT = value; }
         public int? DonGia { get => donGia; set => donGia = value; }
-        //public int? TrangThaiVe { get => trangThaiVe; set => trangThaiVe = value; }
+        public int? TrangThaiVe { get => trangThaiVe; set => trangThaiVe = value; }
         //public DateTime? ThoiDiemThanhToan { get => thoiDiemThanhToan; set => thoiDiemThanhToan = value; }
     }
 }
