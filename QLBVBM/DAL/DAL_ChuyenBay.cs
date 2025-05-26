@@ -319,10 +319,7 @@ namespace QLBVBM.DAL
                    cb.MaSanBayDen,
                    cb.NgayBay,
                    cb.GioBay,
-                   cb.ThoiGianBay,
-                   COALESCE(SUM(hvcb.SoLuongGhe), 0) AS TongSoGhe,
-                   COALESCE(SUM(hvcb.SoLuongGhe), 0) - COALESCE(SUM(hvcb.SLGheConLai), 0) AS SoGheDat,
-                   COALESCE(SUM(hvcb.SLGheConLai), 0) AS SoGheTrong
+                   cb.ThoiGianBay
                 FROM CHUYENBAY cb
                 JOIN SANBAY sbDi ON cb.MaSanBayDi = sbDi.MaSanBay
                 JOIN SANBAY sbDen ON cb.MaSanBayDen = sbDen.MaSanBay
@@ -654,10 +651,46 @@ namespace QLBVBM.DAL
                     NgayBay = DateTime.TryParse(dr["NgayBay"].ToString(), out DateTime ngayBay) ? ngayBay : null,
                     GioBay = DateTime.TryParse(dr["GioBay"].ToString(), out DateTime gioBay) ? gioBay : null,
                     ThoiGianBay = int.TryParse(dr["ThoiGianBay"].ToString(), out int thoiGianBay) ? thoiGianBay : null,
-                    SoGheDat = int.TryParse(dr["SoGheDat"].ToString(), out int soGheDat) ? soGheDat : 0,
-                    SoGheTrong = int.TryParse(dr["SoGheTrong"].ToString(), out int soGheTrong) ? soGheTrong : 0
+                    SoGheDat = 0,
+                    SoGheTrong = 0
                 };
                 dsChuyenBay.Add(cb);
+            }
+
+            // Lấy thông tin số lượng ghế đã đặt và còn trống cho các chuyến bay đã được truy vấn.
+            if (dsChuyenBay.Count > 0)
+            {
+                List<string> maChuyenBayList = dsChuyenBay.Select(cb => cb.MaChuyenBay).ToList();
+                string seatQuery = @"
+                    SELECT
+                        MaChuyenBay,
+                        COALESCE(SUM(SoLuongGhe), 0) - COALESCE(SUM(SLGheConLai), 0) AS SoGheDat,
+                        COALESCE(SUM(SLGheConLai), 0) AS SoGheTrong
+                    FROM HANGVECB
+                    WHERE MaChuyenBay IN ({0})
+                    GROUP BY MaChuyenBay";
+
+                var placeholders = string.Join(",", maChuyenBayList.Select((_, i) => $"@MaChuyenBay{i}"));
+                seatQuery = string.Format(seatQuery, placeholders);
+
+                List<MySqlParameter> seatParameters = new List<MySqlParameter>();
+                for (int i = 0; i < maChuyenBayList.Count; i++)
+                {
+                    seatParameters.Add(new MySqlParameter($"@MaChuyenBay{i}", maChuyenBayList[i]));
+                }
+
+                DataTable seatDt = dataHelper.ExecuteQuery(seatQuery, seatParameters);
+
+                foreach (DataRow seatRow in seatDt.Rows)
+                {
+                    string maChuyenBaySeat = seatRow["MaChuyenBay"].ToString();
+                    var chuyenBay = dsChuyenBay.FirstOrDefault(cb => cb.MaChuyenBay == maChuyenBaySeat);
+                    if (chuyenBay != null)
+                    {
+                        chuyenBay.SoGheDat = int.TryParse(seatRow["SoGheDat"].ToString(), out int soGheDat) ? soGheDat : 0;
+                        chuyenBay.SoGheTrong = int.TryParse(seatRow["SoGheTrong"].ToString(), out int soGheTrong) ? soGheTrong : 0;
+                    }
+                }
             }
             return dsChuyenBay;
         }
