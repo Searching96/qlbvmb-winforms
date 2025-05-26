@@ -10,10 +10,22 @@ namespace QLBVBM.GUI
         private BUS_ChuyenBay busChuyenBay = new BUS_ChuyenBay();
         private BUS_HangGhe busHangGhe = new BUS_HangGhe();
         private ToolTip toolTip = new ToolTip();
+        private readonly Guna2TextBox[] numericTextBoxes;
 
         public GUI_TraCuuChuyenBay()
         {
             InitializeComponent();
+            numericTextBoxes =
+            [
+                 txtThoiGianBayTu, txtThoiGianBayDen,
+                 txtThoiGianDungSBTG1_Tu, txtThoiGianDungSBTG1_Den,
+                 txtThoiGianDungSBTG2_Tu, txtThoiGianDungSBTG2_Den,
+                 txtDonGiaQuyDinhHangVeTu, txtDonGiaQuyDinhHangVeDen,
+                 txtSLGheHangVeTu, txtSLGheHangVeDen,
+                 txtSLGheConLaiHangVeTu, txtSLGheConLaiHangVeDen,
+                 txtDonGiaVeTu, txtDonGiaVeDen,
+                 txtSoCMNDHanhKhach, txtSoDienThoaiHanhKhach
+            ];
             SetResponsive();
         }
 
@@ -27,23 +39,30 @@ namespace QLBVBM.GUI
             txtThoiGianDungSBTG2_Tu.Tag = "Thời gian dừng sân bay trung gian";
             txtThoiGianDungSBTG2_Den.Tag = "Thời gian dừng sân bay trung gian";
 
-            txtDonGiaQuyDinhHangVeTu.Tag = "Đơn giá của hạng vé";
-            txtDonGiaQuyDinhHangVeDen.Tag = "Đơn giá của hạng vé";
+            txtDonGiaQuyDinhHangVeTu.Tag = "Đơn giá quy định của hạng vé";
+            txtDonGiaQuyDinhHangVeDen.Tag = "Đơn giá quy định của hạng vé";
 
             txtSLGheHangVeTu.Tag = "Số lượng ghế của hạng vé";
             txtSLGheHangVeDen.Tag = "Số lượng ghế của hạng vé";
 
-            txtSLGheConLaiHangVeTu.Tag = "Số lượng ghế đã bán của hạng vé";
-            txtSLGheConLaiHangVeDen.Tag = "Số lượng ghế đã bán của hạng vé";
+            txtSLGheConLaiHangVeTu.Tag = "Số lượng ghế còn lại của hạng vé";
+            txtSLGheConLaiHangVeDen.Tag = "Số lượng ghế còn lại của hạng vé";
 
+            txtDonGiaVeTu.Tag = "Đơn giá vé chuyến bay";
+            txtDonGiaVeDen.Tag = "Đơn giá vé chuyến bay";
 
             txtSoCMNDHanhKhach.Tag = "Số chứng minh nhân dân của hành khách";
             txtSoDienThoaiHanhKhach.Tag = "Số điện thoại của hành khách";
 
-            dtpNgayBayTu.Value = DateTime.Now;
-            dtpNgayBayDen.Value = DateTime.Now;
-            dtpGioBayTu.Value = DateTime.Now;
-            dtpGioBayDen.Value = DateTime.Now;
+            ConfigureDateTimePicker(dtpNgayBayTu, "dddd, dd/MM/yyyy");
+            ConfigureDateTimePicker(dtpNgayBayDen, "dddd, dd/MM/yyyy");
+            ConfigureDateTimePicker(dtpGioBayTu, "HH:mm");
+            ConfigureDateTimePicker(dtpGioBayDen, "HH:mm");
+            foreach (var textBox in numericTextBoxes)
+            {
+                textBox.KeyPress += RestrictToDigitsOnly;
+            }
+
             ConfigureDataGridView();
 
             try
@@ -58,27 +77,32 @@ namespace QLBVBM.GUI
                         var dsSanBayDen = new List<DTO_SanBay>(dsSanBay);
                         var dsSanBayTG1 = new List<DTO_SanBay>(dsSanBay);
                         var dsSanBayTG2 = new List<DTO_SanBay>(dsSanBay);
+                        var dsSanBayDi_TuyenBay = new List<DTO_SanBay>(dsSanBay);
+                        var dsSanBayDen_TuyenBay = new List<DTO_SanBay>(dsSanBay);
 
                         LoadDanhSachSanBayToComboBox(cbbTenSanBayDi, dsSanBayDi);
                         LoadDanhSachSanBayToComboBox(cbbTenSanBayDen, dsSanBayDen);
                         LoadDanhSachSanBayToComboBox(cbbTenSanBayTG1, dsSanBayTG1);
                         LoadDanhSachSanBayToComboBox(cbbTenSanBayTG2, dsSanBayTG2);
+                        LoadDanhSachSanBayToComboBox(cbbTuyenBay_SBDi, dsSanBayDi_TuyenBay);
+                        LoadDanhSachSanBayToComboBox(cbbTuyenBay_SBDen, dsSanBayDen_TuyenBay);
 
                         if (cbbTenSanBayDi.Items.Count > 0) cbbTenSanBayDi.SelectedIndex = 0;
                         if (cbbTenSanBayDen.Items.Count > 0) cbbTenSanBayDen.SelectedIndex = 0;
                         if (cbbTenSanBayTG1.Items.Count > 0) cbbTenSanBayTG1.SelectedIndex = 0;
                         if (cbbTenSanBayTG2.Items.Count > 0) cbbTenSanBayTG2.SelectedIndex = 0;
+                        if (cbbTuyenBay_SBDi.Items.Count > 0) cbbTuyenBay_SBDi.SelectedIndex = 0;
+                        if (cbbTuyenBay_SBDen.Items.Count > 0) cbbTuyenBay_SBDen.SelectedIndex = 0;
 
                         var dsHangGhe_Ten = new List<DTO_HangGhe>(dsHangGhe);
                         var dsHangGhe_DonGia = new List<DTO_HangGhe>(dsHangGhe);
                         var dsHangGhe_SLGhe = new List<DTO_HangGhe>(dsHangGhe);
-                        var dsHangGhe_SLGheDaBan = new List<DTO_HangGhe>(dsHangGhe);
-                        var dsHangGhe_SLGheDaDat = new List<DTO_HangGhe>(dsHangGhe);
+                        var dsHangGhe_SLGheConLai = new List<DTO_HangGhe>(dsHangGhe);
 
                         LoadDanhSachHangGheToComboBox(cbbTenHangGhe, dsHangGhe_Ten);
                         LoadDanhSachHangGheToComboBox(cbbHangVe_DonGiaQuyDinh, dsHangGhe_DonGia);
                         LoadDanhSachHangGheToComboBox(cbbHangVe_SLGhe, dsHangGhe_SLGhe);
-                        LoadDanhSachHangGheToComboBox(cbbHangVe_SLGheConLai, dsHangGhe_SLGheDaBan);
+                        LoadDanhSachHangGheToComboBox(cbbHangVe_SLGheConLai, dsHangGhe_SLGheConLai);
 
 
                         if (cbbTenHangGhe.Items.Count > 0) cbbTenHangGhe.SelectedIndex = 0;
@@ -95,6 +119,19 @@ namespace QLBVBM.GUI
             {
                 MessageBox.Show($"Lỗi khi nạp dữ liệu: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void ConfigureDateTimePicker(Guna2DateTimePicker dtp, string format)
+        {
+            dtp.Checked = false;
+            dtp.Format = DateTimePickerFormat.Custom;
+            dtp.CustomFormat = " "; // Hiển thị trống khi không chọn
+            dtp.Value = DateTime.Now;
+
+            dtp.CheckedChanged += (s, e) =>
+            {
+                dtp.CustomFormat = dtp.Checked ? format : " ";
+            };
         }
 
         #region non-logic code block
@@ -179,19 +216,13 @@ namespace QLBVBM.GUI
 
         private void btnTraCuu_Click(object sender, EventArgs e)
         {
+            if (!CheckInputData())
+            {
+                MessageBox.Show("Vui lòng nhập ít nhất 1 thông tin.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             try
             {
-                Guna2TextBox[] numericTextBoxes = new Guna2TextBox[]
-                {
-                     txtThoiGianBayTu, txtThoiGianBayDen,
-                     txtThoiGianDungSBTG1_Tu, txtThoiGianDungSBTG1_Den,
-                     txtThoiGianDungSBTG2_Tu, txtThoiGianDungSBTG2_Den,
-                     txtDonGiaQuyDinhHangVeTu, txtDonGiaQuyDinhHangVeDen,
-                     txtSLGheHangVeTu, txtSLGheHangVeDen,
-                     txtSLGheConLaiHangVeTu, txtSLGheConLaiHangVeDen,
-                     txtSoCMNDHanhKhach, txtSoDienThoaiHanhKhach
-                };
-
                 foreach (var textBox in numericTextBoxes)
                 {
                     if (!string.IsNullOrWhiteSpace(textBox.Text) && !int.TryParse(textBox.Text.Trim(), out _))
@@ -228,11 +259,15 @@ namespace QLBVBM.GUI
                 string maHangGhe_SLGhe = cbbHangVe_SLGhe.SelectedValue?.ToString() ?? "ALL";
                 int? soLuongGheHangVeTu = string.IsNullOrWhiteSpace(txtSLGheHangVeTu.Text) ? null : int.TryParse(txtSLGheHangVeTu.Text, out result) ? result : null;
                 int? soLuongGheHangVeDen = string.IsNullOrWhiteSpace(txtSLGheHangVeDen.Text) ? null : int.TryParse(txtSLGheHangVeDen.Text, out result) ? result : null;
-                string maHangGhe_SLGheDaBan = cbbHangVe_SLGheConLai.SelectedValue?.ToString() ?? "ALL";
-                int? soLuongGheHangVeDaBanTu = string.IsNullOrWhiteSpace(txtSLGheConLaiHangVeTu.Text) ? null : int.TryParse(txtSLGheConLaiHangVeTu.Text, out result) ? result : null;
-                int? soLuongGheHangVeDaBanDen = string.IsNullOrWhiteSpace(txtSLGheConLaiHangVeDen.Text) ? null : int.TryParse(txtSLGheConLaiHangVeDen.Text, out result) ? result : null;
+                string maHangGhe_SLGheConLai = cbbHangVe_SLGheConLai.SelectedValue?.ToString() ?? "ALL";
+                int? soLuongGheConLaiHangVeTu = string.IsNullOrWhiteSpace(txtSLGheConLaiHangVeTu.Text) ? null : int.TryParse(txtSLGheConLaiHangVeTu.Text, out result) ? result : null;
+                int? soLuongGheConLaiHangVeDen = string.IsNullOrWhiteSpace(txtSLGheConLaiHangVeDen.Text) ? null : int.TryParse(txtSLGheConLaiHangVeDen.Text, out result) ? result : null;
+                string maSanBayDi_TuyenBay = cbbTuyenBay_SBDi.SelectedValue?.ToString() ?? "ALL";
+                string maSanBayDen_TuyenBay = cbbTuyenBay_SBDen.SelectedValue?.ToString() ?? "ALL";
                 string maVeChuyenBay = string.IsNullOrWhiteSpace(txtMaVeChuyenBay.Text) ? null : txtMaVeChuyenBay.Text.Trim();
                 int? trangThaiVe = cbbTrangThaiVe.SelectedValue != null && int.TryParse(cbbTrangThaiVe.SelectedValue.ToString(), out result) ? result : -1;
+                int? donGiaVeChuyenBayTu = string.IsNullOrWhiteSpace(txtDonGiaVeTu.Text) ? null : int.TryParse(txtDonGiaVeTu.Text, out result) ? result : null;
+                int? donGiaVeChuyenBayDen = string.IsNullOrWhiteSpace(txtDonGiaVeDen.Text) ? null : int.TryParse(txtDonGiaVeDen.Text, out result) ? result : null;
                 string tenHanhKhach = string.IsNullOrWhiteSpace(txtTenHanhKhach.Text) ? null : txtTenHanhKhach.Text.Trim();
                 string soCMND = string.IsNullOrWhiteSpace(txtSoCMNDHanhKhach.Text) ? null : txtSoCMNDHanhKhach.Text.Trim();
                 string soDT = string.IsNullOrWhiteSpace(txtSoDienThoaiHanhKhach.Text) ? null : txtSoDienThoaiHanhKhach.Text.Trim();
@@ -243,9 +278,10 @@ namespace QLBVBM.GUI
                     maSanBayTG1, ghiChuSanBayTG1, thoiGianDungSBTG1_Tu, thoiGianDungSBTG1_Den,
                     maSanBayTG2, ghiChuSanBayTG2, thoiGianDungSBTG2_Tu, thoiGianDungSBTG2_Den,
                     maHangGhe_Ten, maHangGhe_DonGia, donGiaHangVeTu, donGiaHangVeDen,
+                    maSanBayDi_TuyenBay, maSanBayDen_TuyenBay,
                     maHangGhe_SLGhe, soLuongGheHangVeTu, soLuongGheHangVeDen,
-                    maHangGhe_SLGheDaBan, soLuongGheHangVeDaBanTu, soLuongGheHangVeDaBanDen,
-                    maVeChuyenBay, trangThaiVe, tenHanhKhach, soCMND, soDT);
+                    maHangGhe_SLGheConLai, soLuongGheConLaiHangVeTu, soLuongGheConLaiHangVeDen,
+                    maVeChuyenBay, trangThaiVe, donGiaVeChuyenBayTu, donGiaVeChuyenBayDen, tenHanhKhach, soCMND, soDT);
                 if (dsChuyenBay != null && dsChuyenBay.Count > 0)
                 {
                     dgvDanhSachChuyenBay.DataSource = dsChuyenBay;
@@ -387,7 +423,7 @@ namespace QLBVBM.GUI
             }
         }
 
-        private void txtSoDienThoaiHanhKhach_KeyPress(object sender, KeyPressEventArgs e)
+        private void RestrictToDigitsOnly(object? sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
@@ -395,119 +431,70 @@ namespace QLBVBM.GUI
             }
         }
 
-        private void txtSoCMNDHanhKhach_KeyPress(object sender, KeyPressEventArgs e)
+        private bool CheckInputData()
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            foreach (var textBox in numericTextBoxes)
             {
-                e.Handled = true;
+                if (!string.IsNullOrWhiteSpace(textBox.Text))
+                {
+                    return true;
+                }
             }
-        }
 
-        private void txtThoiGianBayTu_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            var otherTextBoxes = new[]
             {
-                e.Handled = true;
-            }
-        }
-
-        private void txtThoiGianBayDen_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+               txtMaChuyenBay,
+               txtGhiChuSBTG1,
+               txtGhiChuSBTG2,
+               txtMaVeChuyenBay,
+               txtTenHanhKhach
+           };
+            foreach (var textBox in otherTextBoxes)
             {
-                e.Handled = true;
+                if (!string.IsNullOrWhiteSpace(textBox.Text))
+                {
+                    return true;
+                }
             }
-        }
 
-        private void txtThoiGianDungSBTG1_Tu_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            var comboBoxes = new[]
             {
-                e.Handled = true;
-            }
-        }
+               cbbTenSanBayDi,
+               cbbTenSanBayDen,
+               cbbTenSanBayTG1,
+               cbbTenSanBayTG2,
+               cbbTuyenBay_SBDi,
+               cbbTuyenBay_SBDen,
+               cbbTenHangGhe,
+               cbbHangVe_DonGiaQuyDinh,
+               cbbHangVe_SLGhe,
+               cbbHangVe_SLGheConLai,
+               cbbTrangThaiVe
+           };
 
-        private void txtThoiGianDungSBTG1_Den_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            foreach (var comboBox in comboBoxes)
             {
-                e.Handled = true;
+                if (comboBox.SelectedIndex > 0 && comboBox.Text != "ALL")
+                {
+                    return true;
+                }
             }
-        }
 
-        private void txtThoiGianDungSBTG2_Tu_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            var dateTimePickers = new[]
             {
-                e.Handled = true;
-            }
-        }
-
-        private void txtThoiGianDungSBTG2_Den_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+               dtpNgayBayTu,
+               dtpNgayBayDen,
+               dtpGioBayTu,
+               dtpGioBayDen
+           };
+            foreach (var dtp in dateTimePickers)
             {
-                e.Handled = true;
+                if (dtp.Checked)
+                {
+                    return true;
+                }
             }
-        }
-
-        private void txtDonGiaHangVeTu_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void txtDonGiaHangVeDen_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void txtSLGheHangVeTu_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void txtSLGheHangVeDen_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void txtSLGheDaBanHangVeTu_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void txtSLGheDaBanHangVeDen_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-
-        private void cbbTenHangGhe_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2ComboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            return false;
         }
     }
 }
