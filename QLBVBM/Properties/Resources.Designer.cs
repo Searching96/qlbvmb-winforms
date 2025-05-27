@@ -63,9 +63,29 @@ namespace QLBVBM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logout_32_sprint_04 {
+            get {
+                object obj = ResourceManager.GetObject("logout-32-sprint-04", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap phone {
             get {
                 object obj = ResourceManager.GetObject("phone", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap search_13_32_sprint_04 {
+            get {
+                object obj = ResourceManager.GetObject("search-13-32-sprint-04", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

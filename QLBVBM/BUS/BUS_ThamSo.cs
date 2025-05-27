@@ -48,11 +48,11 @@ namespace QLBVBM.BUS
                 () => DAL_ThamSo.LayThoiGianDungToiDa());
         }
 
-        //public int LayThoiGianDatVeToiThieu()
-        //{
-        //    return GetCachedValue(nameof(LayThoiGianDatVeToiThieu),
-        //        () => DAL_ThamSo.LayThoiGianDatVeToiThieu());
-        //}
+        public int LayThoiGianDatVeToiThieu()
+        {
+            return GetCachedValue(nameof(LayThoiGianDatVeToiThieu),
+                () => DAL_ThamSo.LayThoiGianDatVeToiThieu());
+        }
 
         //public int LayThoiGianHuyDatVeToiThieu()
         //{

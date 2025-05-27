@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Transactions;
-using QLBVBM.DAL;
+﻿using QLBVBM.DAL;
 using QLBVBM.DTO;
 using System.Diagnostics;
+using System.Transactions;
 
 namespace QLBVBM.BUS
 {
@@ -14,17 +9,27 @@ namespace QLBVBM.BUS
     {
         private BUS_HangVeCB BUS_HangVeCB = new BUS_HangVeCB();
         private DAL_VeChuyenBay DAL_VeChuyenBay = new DAL_VeChuyenBay();
-        //private BUS_HanhKhach BUS_HanhKhach = new BUS_HanhKhach();
 
         public bool ThemVeChuyenBay(DTO_VeChuyenBay veChuyenBay)
         {
             return DAL_VeChuyenBay.ThemVeChuyenBay(veChuyenBay);
         }
 
-        //public bool DatVeChuyenBay(DTO_VeChuyenBay veChuyenBay)
-        //{
-        //    return DAL_VeChuyenBay.DatVeChuyenBay(veChuyenBay);
-        //}
+        public bool DatVeChuyenBay(DTO_VeChuyenBay veChuyenBay)
+        {
+            return DAL_VeChuyenBay.DatVeChuyenBay(veChuyenBay);
+        }
+
+        public Dictionary<int, string> GetTrangThaiOptions()
+        {
+            return new Dictionary<int, string>
+            {
+                { (int)DTO.TrangThaiVe.TatCa, "Tất cả" },
+                { (int)DTO.TrangThaiVe.DaHuy, "Đã huỷ" },
+                { (int)DTO.TrangThaiVe.DaThanhToan, "Đã thanh toán" },
+                { (int)DTO.TrangThaiVe.ChuaThanhToan, "Chưa thanh toán" }
+            };
+        }
 
         public string PhatSinhMaVeChuyenBay()
         {
@@ -46,7 +51,7 @@ namespace QLBVBM.BUS
                 {
                     if (!ThemVeChuyenBay(veChuyenBay))
                     {
-                        transaction.Dispose(); 
+                        transaction.Dispose();
                         return false;
                     }
 
@@ -75,35 +80,48 @@ namespace QLBVBM.BUS
             return dsVeChuyenBay != null && dsVeChuyenBay.Count > 0;
         }
 
-        //public bool DatVeChuyenBayVaHangVe(DTO_VeChuyenBay veChuyenBay, DTO_HangVeCB hangVeCB)
-        //{
-        //    using (var transaction = new TransactionScope())
-        //    {
-        //        try
-        //        {
-        //            if (!DatVeChuyenBay(veChuyenBay))
-        //            {
-        //                transaction.Dispose();
-        //                return false;
-        //            }
+        public bool DatVeChuyenBayVaHangVe(DTO_VeChuyenBay veChuyenBay, DTO_HangVeCB hangVeCB)
+        {
+            using (var transaction = new TransactionScope())
+            {
+                try
+                {
+                    if (!DatVeChuyenBay(veChuyenBay))
+                    {
+                        transaction.Dispose();
+                        return false;
+                    }
+                  
+                    // Update the number of seats booked
+                    if (!BUS_HangVeCB.CapNhatSoLuongVeDaDat(hangVeCB.MaChuyenBay, hangVeCB.MaHangGhe))
+                    {
+                        transaction.Dispose();
+                        return false;
+                    }
 
-        //            // Update the number of seats booked
-        //            if (!BUS_HangVeCB.CapNhatSoLuongGheDaDat(hangVeCB.MaChuyenBay, hangVeCB.MaHangGhe))
-        //            {
-        //                transaction.Dispose();
-        //                return false;
-        //            }
+                    transaction.Complete();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"Error: {ex.Message}");
+                    transaction.Dispose();
+                    return false;
+                }
+            }
+        }
 
-        //            transaction.Complete();
-        //            return true;
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            Debug.WriteLine($"Error: {ex.Message}");
-        //            transaction.Dispose();
-        //            return false;
-        //        }
-        //    }
-        //}
+        public List<DTO_VeChuyenBay> LayVeThanhToanTheoChuyenBay(List<DTO_ChuyenBay> dsChuyenBay)
+        {
+            List<DTO_VeChuyenBay> dsVeChuyenBay = new List<DTO_VeChuyenBay>();
+            foreach (DTO_ChuyenBay chuyenBay in dsChuyenBay)
+            {
+                foreach (DTO_VeChuyenBay veChuyenBay in DAL_VeChuyenBay.LayDanhSachVeDaThanhToan(chuyenBay.MaChuyenBay))
+                {
+                    dsVeChuyenBay.Add(veChuyenBay);
+                };
+            }
+            return dsVeChuyenBay;
+        }
     }
 }

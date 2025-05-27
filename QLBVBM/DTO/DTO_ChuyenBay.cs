@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace QLBVBM.DTO
+﻿namespace QLBVBM.DTO
 {
     public class DTO_ChuyenBay
     {
@@ -15,7 +9,7 @@ namespace QLBVBM.DTO
         private DateTime? gioBay;
         private int? thoiGianBay;
 
-        public DTO_ChuyenBay(string? maChuyenBay = null, string? maSanBayDi = null, string? maSanBayDen = null, 
+        public DTO_ChuyenBay(string? maChuyenBay = null, string? maSanBayDi = null, string? maSanBayDen = null,
             DateTime? ngayBay = null, DateTime? gioBay = null, int? thoiGianBay = null)
         {
             this.maChuyenBay = maChuyenBay;
@@ -32,5 +26,7 @@ namespace QLBVBM.DTO
         public DateTime? NgayBay { get => ngayBay; set => ngayBay = value; }
         public DateTime? GioBay { get => gioBay; set => gioBay = value; }
         public int? ThoiGianBay { get => thoiGianBay; set => thoiGianBay = value; }
+        public int SoGheDat { get; set; }
+        public int SoGheTrong { get; set; }
     }
 }
