@@ -374,6 +374,7 @@
             cbbHangGhe.ShadowDecoration.CustomizableEdges = customizableEdges18;
             cbbHangGhe.Size = new Size(254, 50);
             cbbHangGhe.TabIndex = 55;
+            cbbHangGhe.SelectedIndexChanged += cbbHangGhe_SelectedIndexChanged;
             // 
             // lblHangGhe
             // 

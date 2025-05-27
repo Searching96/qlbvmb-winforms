@@ -38,7 +38,7 @@ namespace QLBVBM.DAL
                     DataRow dr = dt.Rows[0];
                     return Convert.ToInt32(dr["DonGiaQuyDinh"]);
                 }
-                else throw new Exception("Không tìm thấy thông tin giá vé cho tuyến bay này.");
+                else return 0;
             }
             catch (Exception ex)
             {

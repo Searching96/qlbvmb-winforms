@@ -27,6 +27,12 @@ namespace QLBVBM.GUI
             LoadDanhSachSanBayToComboBox(cbbSanBayDi, LayDanhSachSanBay());
         }
 
+        public void ClearCombobox(Guna2ComboBox cbb) // clear the combobox and set it to disabled
+        {
+            cbb.DataSource = null;
+            cbb.SelectedIndex = -1;
+        }
+
         public void SetResponsive()
         {
             foreach (Control control in this.Controls)
@@ -64,7 +70,7 @@ namespace QLBVBM.GUI
                 cbb.DataSource = dsSanBay;
                 cbb.DisplayMember = "TenSanBay";
                 cbb.ValueMember = "MaSanBay";
-                cbb.SelectedItem = dsSanBay[0];
+                cbb.SelectedIndex = -1;
             }
         }
 
@@ -75,7 +81,7 @@ namespace QLBVBM.GUI
                 cbb.DataSource = dsHangGhe;
                 cbb.DisplayMember = "TenHangGhe";
                 cbb.ValueMember = "MaHangGhe";
-                cbb.SelectedItem = dsHangGhe[0];
+                cbb.SelectedIndex = -1;
             }
         }
 
@@ -100,11 +106,16 @@ namespace QLBVBM.GUI
 
                 if (danhSachSanBayDen == null || danhSachSanBayDen.Count == 0)
                 {
-                    cbbSanBayDen.DataSource = null;
+                    ClearCombobox(cbbSanBayDen);
                     return;
                 }
 
                 LoadDanhSachSanBayToComboBox(cbbSanBayDen, danhSachSanBayDen);
+            }
+            else
+            {
+                ClearCombobox(cbbSanBayDen);
+                ClearCombobox(cbbHangGhe);
             }
         }
 
@@ -119,11 +130,37 @@ namespace QLBVBM.GUI
 
                 if (dsHangGhe == null || dsHangGhe.Count == 0)
                 {
-                    cbbHangGhe.DataSource = null;
+                    ClearCombobox(cbbHangGhe);
                     return;
                 }
 
                 LoadDanhSachHangGheToComboBox(cbbHangGhe, dsHangGhe);
+            }
+            else
+            {
+                ClearCombobox(cbbHangGhe);
+            }
+        }
+
+        private void cbbHangGhe_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbbSanBayDen.SelectedIndex != -1
+                && cbbSanBayDi.SelectedIndex != -1
+                && cbbHangGhe.SelectedIndex != -1)
+            {
+                string maSanBayDi = cbbSanBayDi.SelectedValue.ToString() ?? string.Empty;
+                string maSanBayDen = cbbSanBayDen.SelectedValue.ToString() ?? string.Empty;
+                string maHangGhe = cbbHangGhe.SelectedValue.ToString() ?? string.Empty;
+
+                int donGiaQuyDinh = busHangVeTuyenBay.LayDonGiaQuyDinh(maSanBayDi, maSanBayDen, maHangGhe);
+
+                if (donGiaQuyDinh > 0)
+                    txtDonGia.Text = donGiaQuyDinh.ToString();
+                else txtDonGia.Text = string.Empty;
+            }
+            else
+            {
+                txtDonGia.Text = string.Empty;
             }
         }
 
