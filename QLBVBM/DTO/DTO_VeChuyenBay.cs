@@ -1,4 +1,10 @@
-﻿namespace QLBVBM.DTO
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace QLBVBM.DTO
 {
     public enum TrangThaiVe
     {
@@ -17,30 +23,30 @@
         private string? CMND;
         private string? SDT;
         private int? donGia;
-        private int? trangThaiVe; 
-    }
+        private int? trangThaiVe;
 
-    public DTO_VeChuyenBay(string? maVe = null, string? maChuyenBay = null,
+        public DTO_VeChuyenBay(string? maVe = null, string? maChuyenBay = null,
                         string? maHangGhe = null, string? tenHanhKhach = null,
-                        string? CMND = null, string? SDT = null, int? donGia = null, 
+                        string? CMND = null, string? SDT = null, int? donGia = null,
                         int? trangThaiVe = null)
-    {
-        this.maVe = maVe;
-        this.maChuyenBay = maChuyenBay;
-        this.maHangGhe = maHangGhe;
-        this.tenHanhKhach = tenHanhKhach;
-        this.CMND = CMND;
-        this.SDT = SDT;
-        this.donGia = donGia;
-        this.trangThaiVe = trangThaiVe;
-    }
+        {
+            this.maVe = maVe;
+            this.maChuyenBay = maChuyenBay;
+            this.maHangGhe = maHangGhe;
+            this.tenHanhKhach = tenHanhKhach;
+            this.CMND = CMND;
+            this.SDT = SDT;
+            this.donGia = donGia;
+            this.trangThaiVe = trangThaiVe;
+        }
 
-    public string? MaVe { get => maVe; set => maVe = value; }
-    public string? MaChuyenBay { get => maChuyenBay; set => maChuyenBay = value; }
-    public string? MaHangGhe { get => maHangGhe; set => maHangGhe = value; }
-    public string? TenHanhKhach { get => tenHanhKhach; set => tenHanhKhach = value; }
-    public string? SoCMND { get => CMND; set => CMND = value; }
-    public string? SoDT { get => SDT; set => SDT = value; }
-    public int? DonGia { get => donGia; set => donGia = value; }
-    public int? TrangThaiVe { get => trangThaiVe; set => trangThaiVe = value; }
+        public string? MaVe { get => maVe; set => maVe = value; }
+        public string? MaChuyenBay { get => maChuyenBay; set => maChuyenBay = value; }
+        public string? MaHangGhe { get => maHangGhe; set => maHangGhe = value; }
+        public string? TenHanhKhach { get => tenHanhKhach; set => tenHanhKhach = value; }
+        public string? SoCMND { get => CMND; set => CMND = value; }
+        public string? SoDT { get => SDT; set => SDT = value; }
+        public int? DonGia { get => donGia; set => donGia = value; }
+        public int? TrangThaiVe { get => trangThaiVe; set => trangThaiVe = value; }
+    }
 }

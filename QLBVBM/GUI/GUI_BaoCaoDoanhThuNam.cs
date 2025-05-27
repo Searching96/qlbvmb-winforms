@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Guna.UI2.WinForms;
 
 namespace QLBVBM.GUI
 {
@@ -16,42 +17,34 @@ namespace QLBVBM.GUI
     {
         private BUS_ChuyenBay busChuyenBay = new BUS_ChuyenBay();
         private BUS_VeChuyenBay busVeChuyenBay = new BUS_VeChuyenBay();
-        private ComboBox cbbNam; // Declare the ComboBox for years
 
         public GUI_BaoCaoDoanhThuNam()
         {
             InitializeComponent();
+            SetResponsive();
             ConfigureYearComboBox();
+        }
+
+        public void SetResponsive()
+        {
+            foreach (Control control in this.Controls)
+            {
+                control.Anchor = AnchorStyles.None;
+            }
         }
 
         private void ConfigureYearComboBox()
         {
-            // Get the position and size of the existing dtpNam control
-            var location = dtpNam.Location;
-            var size = dtpNam.Size;
-
-            // Create and configure the ComboBox
-            cbbNam = new ComboBox();
-            cbbNam.Location = location;
-            cbbNam.Size = size;
-            cbbNam.DropDownStyle = ComboBoxStyle.DropDownList; // Prevent direct text entry
-            cbbNam.Font = dtpNam.Font;
-
-            // Populate the ComboBox with years (for example, from 2000 to current year + 5)
+            List<int> years = new List<int>();
             int currentYear = DateTime.Now.Year;
             for (int year = 2000; year <= currentYear; year++)
             {
-                cbbNam.Items.Add(year);
+                //cbbNam.Items.Add(year);
+                years.Add(year);
             }
+            cbbNam.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            // Set the current year as default
-            cbbNam.SelectedItem = currentYear;
-
-            // Add the control to the form
-            this.Controls.Add(cbbNam);
-
-            // Hide the original DateTimePicker
-            dtpNam.Visible = false;
+            cbbNam.DataSource = years;
         }
 
         private void GUI_BaoCaoDoanhThuNam_Load(object sender, EventArgs e)
