@@ -26,5 +26,10 @@ namespace QLBVBM.BUS
         {
             return DAL_HangVeTuyenBay.LayHangGheTheoTuyenBay(maSanBayDi, maSanBayDen);
         }
+
+        public bool CapNhatDonGiaQuyDinh(string maSanBayDi, string maSanBayDen, string maHangGhe, int donGiaQuyDinh)
+        {
+            return DAL_HangVeTuyenBay.CapNhatDonGiaQuyDinh(maSanBayDi, maSanBayDen, maHangGhe, donGiaQuyDinh);
+        }
     }
 }

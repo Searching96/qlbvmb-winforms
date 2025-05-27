@@ -119,5 +119,31 @@ namespace QLBVBM.DAL
 
             return dsHangGhe;
         }
+
+        public bool CapNhatDonGiaQuyDinh(string maSanBayDi, string maSanBayDen, string maHangGhe, int donGiaQuyDinh)
+        {
+            try
+            {
+                string query = @"UPDATE HANGVE_TUYENBAY 
+                                SET DonGiaQuyDinh = @DonGiaQuyDinh 
+                                WHERE MaSanBayDi = @MaSanBayDi 
+                                AND MaSanBayDen = @MaSanBayDen 
+                                AND MaHangGhe = @MaHangGhe";
+                List<MySqlParameter> parameters = new List<MySqlParameter>
+                {
+                    new MySqlParameter("@MaSanBayDi", maSanBayDi),
+                    new MySqlParameter("@MaSanBayDen", maSanBayDen),
+                    new MySqlParameter("@MaHangGhe", maHangGhe),
+                    new MySqlParameter("@DonGiaQuyDinh", donGiaQuyDinh) 
+                };
+                int rowsAffected = dataHelper.ExecuteNonQuery(query, parameters);
+                return rowsAffected > 0;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error in CapNhatDonGiaQuyDinh (DAL_HangVeTuyenBay.cs): {ex.Message}");
+                return false;
+            }
+        }
     }
 }

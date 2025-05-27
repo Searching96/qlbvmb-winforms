@@ -92,7 +92,8 @@ namespace QLBVBM.GUI
                 || !busThamSo.ValidateThamSo(txtTGDungToiThieu.Text)
                 || !busThamSo.ValidateThamSo(txtTGDungToiDa.Text)
                 || !busThamSo.ValidateThamSo(txtTGDatTruocVe.Text)
-                || !busThamSo.ValidateThamSo(txtTGHuyDatVe.Text))
+                || !busThamSo.ValidateThamSo(txtTGHuyDatVe.Text)
+                || !busThamSo.ValidateThamSo(txtDonGia.Text))
                 return true;
             return false;
         }
@@ -172,6 +173,11 @@ namespace QLBVBM.GUI
                 return;
             }
 
+            string maSanBayDi = cbbSanBayDi.SelectedValue.ToString() ?? string.Empty;
+            string maSanBayDen = cbbSanBayDen.SelectedValue.ToString() ?? string.Empty;
+            string maHangGhe = cbbHangGhe.SelectedValue.ToString() ?? string.Empty;
+            int donGiaQuyDinh = txtDonGia.Text != string.Empty ? int.Parse(txtDonGia.Text) : 0;
+
             DTO_ThamSo thamSoCapNhat = new DTO_ThamSo
             {
                 SoSanBayTGToiDa = int.Parse(txtSoSBTGToiDa.Text),
@@ -182,15 +188,22 @@ namespace QLBVBM.GUI
                 TgHuyDatTruocVeToiThieu = int.Parse(txtTGHuyDatVe.Text)
             };
 
-            if (busThamSo.CapNhatThamSo(thamSoCapNhat))
+            if (busThamSo.CapNhatThamSo(thamSoCapNhat)
+                && busHangVeTuyenBay.CapNhatDonGiaQuyDinh(maSanBayDi, maSanBayDen, maHangGhe, donGiaQuyDinh))
             {
-                MessageBox.Show("Cập nhật tham số thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Thay đổi quy định thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadThamSo();
+                LoadDanhSachSanBayToComboBox(cbbSanBayDi, LayDanhSachSanBay());
             }
             else
             {
-                MessageBox.Show("Cập nhật tham số thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Thay đổi quy định thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

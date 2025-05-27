@@ -476,6 +476,7 @@
             btnThoat.Size = new Size(141, 42);
             btnThoat.TabIndex = 61;
             btnThoat.Text = "Thoát";
+            btnThoat.Click += btnThoat_Click;
             // 
             // GUI_ThayDoiQuyDinh
             // 

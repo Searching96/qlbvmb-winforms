@@ -68,9 +68,6 @@ namespace QLBVBM.GUI
         public void ClearCombobox(Guna2ComboBox cbb) // clear the combobox and set it to disabled
         {
             cbb.DataSource = null;
-            cbb.Items.Clear();
-            cbb.Enabled = false;
-            cbb.Text = "";
             cbb.SelectedIndex = -1;
         }
 
@@ -128,7 +125,6 @@ namespace QLBVBM.GUI
         {
             if (dsHangVeCB != null)
             {
-                cbbHangVe.Enabled = true; // turn on the combobox
                 cbbHangVe.DataSource = dsHangVeCB;
                 cbbHangVe.DisplayMember = "TenHangGhe";
                 cbbHangVe.ValueMember = "MaHangGhe";
