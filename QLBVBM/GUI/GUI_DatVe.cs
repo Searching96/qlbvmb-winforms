@@ -11,6 +11,7 @@ using QLBVBM.DAL;
 using QLBVBM.DTO;
 using QLBVBM.BUS;
 using Guna.UI2.WinForms;
+using System.Diagnostics;
 
 namespace QLBVBM.GUI
 {
@@ -28,7 +29,35 @@ namespace QLBVBM.GUI
         public GUI_DatVe()
         {
             InitializeComponent();
+            LoadMaChuyenBayToComboBox(cbbMaChuyenBay, LayDanhSachChuyenBay());
             SetResponsive();
+        }
+
+        private List<DTO_ChuyenBay> LayDanhSachChuyenBay()
+        {
+            List<DTO_ChuyenBay> dsChuyenBay = busChuyenBay.LayTatCaChuyenBayConGheTrong();
+            return dsChuyenBay;
+        }
+
+        public void LoadMaChuyenBayToComboBox(Guna2ComboBox cbb, List<DTO_ChuyenBay> dsChuyenBay)
+        {
+            if (dsChuyenBay != null && dsChuyenBay.Count > 0)
+            {
+                cbb.DataSource = dsChuyenBay;
+                cbb.DisplayMember = "MaChuyenBay";
+                cbb.ValueMember = "MaChuyenBay";
+                cbb.SelectedItem = dsChuyenBay[0];
+                // Add tooltip to display MaChuyenBay
+
+                ToolTip toolTip = new ToolTip();
+                cbb.SelectedIndexChanged += (s, e) =>
+                {
+                    if (cbb.SelectedItem is DTO_ChuyenBay selectedChuyenBay)
+                    {
+                        toolTip.SetToolTip(cbb, selectedChuyenBay.MaChuyenBay);
+                    }
+                };
+            }
         }
 
         public void SetResponsive()
@@ -58,14 +87,11 @@ namespace QLBVBM.GUI
                 chuyenBay = guiTimChuyenBay.thongTinChuyenBay;
                 if (chuyenBay != null)
                 {
-                    txtMaChuyenBay.Text = chuyenBay.MaChuyenBay;
+                    cbbMaChuyenBay.SelectedValue = chuyenBay.MaChuyenBay;
                     txtSanBayDi.Text = busSanBay.LayTenSanBay(chuyenBay.MaSanBayDi);
                     txtSanBayDen.Text = busSanBay.LayTenSanBay(chuyenBay.MaSanBayDen);
                     dtpNgayBay.Value = chuyenBay.NgayBay.Value;
                     txtGioBay.Text = chuyenBay.GioBay?.ToString("HH:mm");
-                   
-                    hanCuoiDatVe = busChuyenBay.LayHanCuoiDatVe(chuyenBay);
-                    lblLuuYDatVe.Text = "Vui lòng đặt vé trước " + hanCuoiDatVe.ToString("HH:mm dd/MM/yyyy");
                 }
                 else
                 {
@@ -75,19 +101,27 @@ namespace QLBVBM.GUI
             }
         }
 
-        private void txtMaChuyenBay_TextChanged(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtMaChuyenBay.Text))
+        private void cbbMaChuyenBay_SelectedIndexChanged(object sender, EventArgs e)
+        { 
+            if (cbbMaChuyenBay.SelectedIndex == -1)
             {
-                ClearCombobox(cbbHangVe);
+                txtGioBay.Text = string.Empty;
             }
             else
             {
-                DTO_ChuyenBay chuyenBay = busChuyenBay.TimChuyenBayTheoMa(txtMaChuyenBay.Text);
-                if (chuyenBay != null)
+                DTO_ChuyenBay selectedChuyenBay = cbbMaChuyenBay.SelectedItem as DTO_ChuyenBay;
+
+                if (selectedChuyenBay != null)
                 {
-                    List<DTO_DonGiaHangGhe> dsHangGhe = busDonGiaHangGhe.LayDanhSachTenHangGheChuyenBay(chuyenBay?.MaChuyenBay);
+                    txtSanBayDi.Text = busSanBay.LayTenSanBay(selectedChuyenBay.MaSanBayDi);
+                    txtSanBayDen.Text = busSanBay.LayTenSanBay(selectedChuyenBay.MaSanBayDen);
+                    dtpNgayBay.Value = selectedChuyenBay.NgayBay.Value;
+                    txtGioBay.Text = selectedChuyenBay.GioBay?.ToString("HH:mm");
+                    List<DTO_DonGiaHangGhe> dsHangGhe = busDonGiaHangGhe.LayDanhSachTenHangGheChuyenBay(selectedChuyenBay?.MaChuyenBay);
                     LoadDanhSachHangVeCB(dsHangGhe);
+
+                    hanCuoiDatVe = busChuyenBay.LayHanCuoiDatVe(selectedChuyenBay);
+                    lblLuuYDatVe.Text = "Vui lòng đặt vé trước " + hanCuoiDatVe.ToString("HH:mm dd/MM/yyyy");
                 }
                 else
                 {
@@ -104,6 +138,7 @@ namespace QLBVBM.GUI
                 cbbHangVe.DataSource = dsHangVeCB;
                 cbbHangVe.DisplayMember = "TenHangGhe";
                 cbbHangVe.ValueMember = "MaHangGhe";
+
                 // Add tooltip to display MaHangGhe
                 ToolTip toolTip = new ToolTip();
                 cbbHangVe.SelectedIndexChanged += (s, e) =>
@@ -125,12 +160,13 @@ namespace QLBVBM.GUI
             if (cbbHangVe.SelectedIndex == -1)
             {
                 txtGiaTien.Text = "";
+                txtSoVeConLai.Text = "";
             }
             else
             {
                 if (cbbHangVe.SelectedItem is DTO_DonGiaHangGhe selectedHangVe)
                 {
-                    DTO_HangVeCB hangVeCB = busHangVeChuyenBay.TraCuuMotHangVe(txtMaChuyenBay.Text, selectedHangVe.MaHangGhe);
+                    DTO_HangVeCB hangVeCB = busHangVeChuyenBay.TraCuuMotHangVe(selectedHangVe.MaChuyenBay, selectedHangVe.MaHangGhe);
                    
                     txtGiaTien.Text = selectedHangVe.DonGia.ToString() ?? "";
                     txtSoVeConLai.Text = hangVeCB.SoLuongGheConLai.ToString() ?? "";
@@ -177,7 +213,7 @@ namespace QLBVBM.GUI
         private bool HasErrors()
         {
             // Check for errors in form controls
-            if (string.IsNullOrWhiteSpace(txtMaChuyenBay.Text)
+            if (cbbMaChuyenBay.SelectedIndex == -1
                 || string.IsNullOrWhiteSpace(txtSanBayDi.Text)
                 || string.IsNullOrWhiteSpace(txtSanBayDen.Text)
                 || string.IsNullOrWhiteSpace(txtGioBay.Text)
@@ -223,7 +259,7 @@ namespace QLBVBM.GUI
             DTO_VeChuyenBay veChuyenBay = new DTO_VeChuyenBay
             {
                 MaVe = busVeChuyenBay.PhatSinhMaVeChuyenBay(),
-                MaChuyenBay = txtMaChuyenBay.Text, // change to txtBox
+                MaChuyenBay = cbbMaChuyenBay.SelectedValue.ToString(),
                 MaHangGhe = cbbHangVe.SelectedValue.ToString(),
                 TenHanhKhach = txtTenHanhKhach.Text,
                 SoCMND = txtCMND.Text,
@@ -233,7 +269,7 @@ namespace QLBVBM.GUI
 
             DTO_HangVeCB hangVeCB = new DTO_HangVeCB
             {
-                MaChuyenBay = txtMaChuyenBay.Text,
+                MaChuyenBay = cbbMaChuyenBay.SelectedValue.ToString(),
                 MaHangGhe = cbbHangVe.SelectedValue.ToString()
             };
 
