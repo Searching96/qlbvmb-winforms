@@ -8,9 +8,9 @@ CREATE TABLE IF NOT EXISTS THAMSO
 	SoSanBayTGToiDa INT NOT NULL,
     TGBayToiThieu INT NOT NULL, -- phut
     TGDungToiThieu INT NOT NULL, -- phut
-    TGDungToiDa INT NOT NULL -- phut
-    -- TGDatTruocVeToiThieu INT NOT NULL,
-    -- TGHuyDatTruocVeToiThieu INT NOT NULL
+    TGDungToiDa INT NOT NULL, -- phut
+    TGDatTruocVeToiThieu INT NOT NULL,
+    TGHuyDatTruocVeToiThieu INT NOT NULL
 );    
 
 CREATE TABLE IF NOT EXISTS SANBAY
@@ -108,7 +108,7 @@ INSERT INTO HANGGHE VALUES
 
 -- ------------------------------------ THAMSO ------------------------------------------------
 INSERT INTO THAMSO VALUES 
-(2, 30, 10, 50);
+(2, 30, 10, 50, 1, 1);
 
 -- --------------------------------- CHUYENBAY -------------------------------------------------
 INSERT INTO CHUYENBAY VALUES 
