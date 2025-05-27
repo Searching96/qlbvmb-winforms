@@ -1,11 +1,6 @@
 ﻿using QLBVBM.DAL;
 using QLBVBM.DTO;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Transactions;
 
 namespace QLBVBM.BUS
@@ -35,6 +30,11 @@ namespace QLBVBM.BUS
         public List<DTO_ChuyenBay> LayTatCaChuyenBayConGheTrong()
         {
             return DAL_ChuyenBay.LayTatCaChuyenBayConGheTrong();
+        }
+
+        public List<DTO_ChuyenBay> LayTatCaChuyenBayTheoNam(int nam)
+        {
+            return DAL_ChuyenBay.LayChuyenBayTheoNam(nam);
         }
 
         public DTO_ChuyenBay? TimChuyenBayTheoMa(string maChuyenBay)
@@ -198,11 +198,48 @@ namespace QLBVBM.BUS
             return DateTime.Now <= hanCuoiDatVe;
         }
 
+
+
+        public List<DTO_ChuyenBay> TraCuuChuyenBayNangCao(
+           string maChuyenBay = null, string maSanBayDi = null, string maSanBayDen = null,
+           DateTime? ngayBayTu = null, DateTime? ngayBayDen = null,
+           DateTime? gioBayTu = null, DateTime? gioBayDen = null,
+           int? thoiGianBayTu = null, int? thoiGianBayDen = null,
+           string maSanBayTG1 = null, string ghiChuSanBayTG1 = null,
+           int? thoiGianDungSBTG1_Tu = null, int? thoiGianDungSBTG1_Den = null,
+           string maSanBayTG2 = null, string ghiChuSanBayTG2 = null,
+           int? thoiGianDungSBTG2_Tu = null, int? thoiGianDungSBTG2_Den = null,
+           string maHangGhe_Ten = null,
+           string maHangGhe_DonGia = null, int? donGiaHangVeTuyenBayTu = null, int? donGiaHangVeTuyenBayDen = null,
+           string maSanBayDi_TuyenBay = null, string maSanBayDen_TuyenBay = null,
+           string maHangGhe_SLGhe = null, int? soLuongGheHangVeTu = null, int? soLuongGheHangVeDen = null,
+           string maHangGhe_SLGheConLai = null, int? soLuongGheHangVeConLaiTu = null, int? soLuongGheHangVeConLaiDen = null,
+           string maVeChuyenBay = null, int? trangThaiVe = null,
+           int? donGiaVeChuyenBayTu = null, int? donGiaVeChuyenBayDen = null,
+           string tenHanhKhach = null, string soCMND = null, string soDT = null)
+        {
+            return DAL_ChuyenBay.TraCuuChuyenBayNangCao(maChuyenBay, maSanBayDi, maSanBayDen, ngayBayTu, ngayBayDen,
+                    gioBayTu, gioBayDen, thoiGianBayTu, thoiGianBayDen,
+                    maSanBayTG1, ghiChuSanBayTG1, thoiGianDungSBTG1_Tu, thoiGianDungSBTG1_Den,
+                    maSanBayTG2, ghiChuSanBayTG2, thoiGianDungSBTG2_Tu, thoiGianDungSBTG2_Den,
+                    maHangGhe_Ten, maHangGhe_DonGia, donGiaHangVeTuyenBayTu, donGiaHangVeTuyenBayDen,
+                    maSanBayDi_TuyenBay, maSanBayDen_TuyenBay,
+                    maHangGhe_SLGhe, soLuongGheHangVeTu, soLuongGheHangVeDen,
+                    maHangGhe_SLGheConLai, soLuongGheHangVeConLaiTu, soLuongGheHangVeConLaiDen,
+                    maVeChuyenBay, trangThaiVe, donGiaVeChuyenBayTu, donGiaVeChuyenBayDen, tenHanhKhach, soCMND, soDT
+                    );
+        }
+        
         public DateTime LayHanCuoiDatVe(DTO_ChuyenBay chuyenBay)
         {
             DateTime thoiGianBay = chuyenBay.NgayBay.Value.Date + chuyenBay.GioBay.Value.TimeOfDay;
             DateTime hanCuoiDatVe = thoiGianBay.AddDays(-BUS_ThamSo.LayThoiGianDatVeToiThieu());
             return hanCuoiDatVe;
+        }
+
+        public List<DTO_ChuyenBay>? LayTatCaChuyenBayDuaVaoThangNamBay(int thang, int nam)
+        {
+            return DAL_ChuyenBay.LayTatCaChuyenBayDuaVaoThangNamBay(thang, nam);
         }
     }
 }

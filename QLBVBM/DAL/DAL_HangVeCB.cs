@@ -149,5 +149,32 @@ namespace QLBVBM.DAL
 
             return hangVe;
         }
+
+        public DTO_HangVeCB LayHangVeTheoVeChuyenBay(string maChuyenBay, string maHangGhe)
+        {
+            string query = @"
+                SELECT *
+                FROM HANGVECB
+                WHERE MaChuyenBay = @MaChuyenBay
+                AND MaHangGhe = @MaHangGhe
+                LIMIT 1";
+
+            var parameters = new List<MySqlParameter>
+            {
+                new MySqlParameter("@MaChuyenBay", maChuyenBay),
+                new MySqlParameter("@MaHangGhe", maHangGhe)
+            };
+
+            DataTable dt = dataHelper.ExecuteQuery(query, parameters);
+            if (dt.Rows.Count == 0) return null;
+
+            DataRow dr = dt.Rows[0];
+            return new DTO_HangVeCB
+            {
+                MaChuyenBay = dr["MaChuyenBay"].ToString(),
+                MaHangGhe = dr["MaHangGhe"].ToString(),
+                SoLuongGhe = Convert.ToInt32(dr["SoLuongGhe"])
+            };
+        }
     }
 }

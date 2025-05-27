@@ -99,6 +99,7 @@
             // 
             // panelThongTinChuyenBay
             // 
+            panelThongTinChuyenBay.BackColor = Color.White;
             panelThongTinChuyenBay.BorderColor = Color.Black;
             panelThongTinChuyenBay.BorderThickness = 1;
             panelThongTinChuyenBay.Controls.Add(cbbMaChuyenBay);
@@ -112,6 +113,9 @@
             panelThongTinChuyenBay.Controls.Add(lblMaChuyenBay);
             panelThongTinChuyenBay.Controls.Add(lblThongTinChuyenBay);
             panelThongTinChuyenBay.CustomizableEdges = customizableEdges11;
+            panelThongTinChuyenBay.FillColor = Color.WhiteSmoke;
+            panelThongTinChuyenBay.FillColor2 = Color.WhiteSmoke;
+            panelThongTinChuyenBay.FillColor3 = Color.WhiteSmoke;
             panelThongTinChuyenBay.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
             panelThongTinChuyenBay.Location = new Point(-6, -3);
             panelThongTinChuyenBay.Name = "panelThongTinChuyenBay";
@@ -299,7 +303,7 @@
             panelThongTinHanhKhach.Controls.Add(lblSDT);
             panelThongTinHanhKhach.Controls.Add(lblThongTinHanhKhach);
             panelThongTinHanhKhach.CustomizableEdges = customizableEdges19;
-            panelThongTinHanhKhach.FillColor = Color.White;
+            panelThongTinHanhKhach.FillColor = Color.WhiteSmoke;
             panelThongTinHanhKhach.Location = new Point(-6, 316);
             panelThongTinHanhKhach.Name = "panelThongTinHanhKhach";
             panelThongTinHanhKhach.ShadowDecoration.CustomizableEdges = customizableEdges20;
@@ -431,6 +435,9 @@
             panelThongTinVe.Controls.Add(txtHangVe);
             panelThongTinVe.Controls.Add(lblThongTinVe);
             panelThongTinVe.CustomizableEdges = customizableEdges33;
+            panelThongTinVe.FillColor = Color.WhiteSmoke;
+            panelThongTinVe.FillColor2 = Color.WhiteSmoke;
+            panelThongTinVe.FillColor3 = Color.WhiteSmoke;
             panelThongTinVe.Location = new Point(-6, 626);
             panelThongTinVe.Name = "panelThongTinVe";
             panelThongTinVe.ShadowDecoration.CustomizableEdges = customizableEdges34;

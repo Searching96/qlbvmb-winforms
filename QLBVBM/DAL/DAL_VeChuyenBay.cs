@@ -7,6 +7,7 @@ using MySql.Data.MySqlClient;
 using QLBVBM.DTO;
 using System.Data;
 using System.Diagnostics;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace QLBVBM.DAL
 {
@@ -111,7 +112,6 @@ namespace QLBVBM.DAL
                         SoDT = dr["SoDienThoai"].ToString(),
                         DonGia = Convert.ToInt32(dr["DonGia"]),
                         TrangThaiVe = Convert.ToInt32(dr["TrangThaiVe"]),
-                        //ThoiDiemThanhToan = dr["ThoiDiemThanhToan"] != DBNull.Value ? (DateTime?)Convert.ToDateTime(dr["ThoiDiemThanhToan"]) : null
                     };
                     dsVeChuyenBay.Add(veChuyenBay);
                 }
@@ -123,6 +123,82 @@ namespace QLBVBM.DAL
             }
 
             return dsVeChuyenBay;
+        }
+
+        public List<DTO_VeChuyenBay> LayVeChuyenBayTheoMaChuyenBay(string maChuyenBay)
+        {
+            List<DTO_VeChuyenBay> dsVeChuyenBay = new List<DTO_VeChuyenBay>();
+
+            try
+            {
+                string query = "SELECT * FROM VECHUYENBAY WHERE MaChuyenBay = @MaChuyenBay";
+                List<MySqlParameter> parameters = new List<MySqlParameter>
+                {
+                    new MySqlParameter("@MaChuyenBay", maChuyenBay)
+                };
+
+                DataTable dt = dataHelper.ExecuteQuery(query, parameters);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    DTO_VeChuyenBay veChuyenBay = new DTO_VeChuyenBay
+                    {
+                        MaVe = dr["MaVe"].ToString(),
+                        MaChuyenBay = dr["MaChuyenBay"].ToString(),
+                        MaHangGhe = dr["MaHangGhe"].ToString(),
+                        TenHanhKhach = dr["TenHanhKhach"].ToString(),
+                        SoCMND = dr["CMND"].ToString(),
+                        SoDT = dr["SoDienThoai"].ToString(),
+                        DonGia = Convert.ToInt32(dr["DonGia"]),
+                        TrangThaiVe = Convert.ToInt32(dr["TrangThaiVe"]),
+                    };
+                    dsVeChuyenBay.Add(veChuyenBay);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error in LayVeChuyenBayTheoMaChuyenBay (DAL_VeChuyenBay.cs): {ex.Message}");
+                return new List<DTO_VeChuyenBay>();
+            }
+
+            return dsVeChuyenBay;
+        }
+      
+        public List<DTO_VeChuyenBay> LayDanhSachVeDaThanhToan(String maChuyenBay)
+        {
+            List<DTO_VeChuyenBay> dsVeThanhToan = new List<DTO_VeChuyenBay>();
+
+            string query = @"
+            SELECT vcb.*
+            FROM VECHUYENBAY vcb
+            JOIN HANGVE_CHUYENBAY hvcb ON vcb.MaChuyenBay = hvcb.MaChuyenBay
+            AND vcb.MaHangGhe = hvcb.MaHangGhe 
+            WHERE TrangThaiVe = 1
+            AND vcb.MaChuyenBay = @maChuyenBay
+            ";
+
+            var parameters = new List<MySqlParameter>
+            {
+                new MySqlParameter("@maChuyenBay", maChuyenBay)
+            };
+
+            DataTable dt = dataHelper.ExecuteQuery(query, parameters);
+            foreach (DataRow dr in dt.Rows)
+            {
+                DTO_VeChuyenBay ve = new DTO_VeChuyenBay
+                {
+                    MaVe = dr["MaVe"].ToString(),
+                    MaChuyenBay = dr["MaChuyenBay"].ToString(),
+                    MaHangGhe = dr["MaHangGhe"].ToString(),
+                    TenHanhKhach = dr["TenHanhKhach"].ToString(),
+                    SoCMND = dr["CMND"].ToString(),
+                    SoDT = dr["SDT"].ToString(),
+                    DonGia = Convert.ToInt32(dr["DonGia"]),
+                    TrangThaiVe = Convert.ToInt32(dr["TrangThaiVe"])
+                };
+                dsVeThanhToan.Add(ve);
+            }
+
+            return dsVeThanhToan;
         }
     }
 }
