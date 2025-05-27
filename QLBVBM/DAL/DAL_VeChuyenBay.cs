@@ -112,7 +112,6 @@ namespace QLBVBM.DAL
                         SoDT = dr["SoDienThoai"].ToString(),
                         DonGia = Convert.ToInt32(dr["DonGia"]),
                         TrangThaiVe = Convert.ToInt32(dr["TrangThaiVe"]),
-                        //ThoiDiemThanhToan = dr["ThoiDiemThanhToan"] != DBNull.Value ? (DateTime?)Convert.ToDateTime(dr["ThoiDiemThanhToan"]) : null
                     };
                     dsVeChuyenBay.Add(veChuyenBay);
                 }
