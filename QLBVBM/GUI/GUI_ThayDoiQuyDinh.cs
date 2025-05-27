@@ -17,7 +17,7 @@ namespace QLBVBM.GUI
     {
         public BUS_ThamSo busThamSo = new BUS_ThamSo();
         public BUS_SanBay busSanBay = new BUS_SanBay();
-        public BUS_HangVeTuyenBay BUS_HangVeTuyenBay = new BUS_HangVeTuyenBay();
+        public BUS_HangVeTuyenBay busHangVeTuyenBay = new BUS_HangVeTuyenBay();
 
         public GUI_ThayDoiQuyDinh()
         {
@@ -68,6 +68,17 @@ namespace QLBVBM.GUI
             }
         }
 
+        public void LoadDanhSachHangGheToComboBox(Guna2ComboBox cbb, List<DTO_HangGhe> dsHangGhe)
+        {
+            if (dsHangGhe != null && dsHangGhe.Count > 0)
+            {
+                cbb.DataSource = dsHangGhe;
+                cbb.DisplayMember = "TenHangGhe";
+                cbb.ValueMember = "MaHangGhe";
+                cbb.SelectedItem = dsHangGhe[0];
+            }
+        }
+
         public bool HasErrors()
         {
             if (!busThamSo.ValidateThamSo(txtSoSBTGToiDa.Text)
@@ -85,13 +96,34 @@ namespace QLBVBM.GUI
             if (cbbSanBayDi.SelectedIndex != -1)
             {
                 string maSanBayDi = cbbSanBayDi.SelectedValue.ToString() ?? string.Empty;
-                List<DTO_SanBay> danhSachSanBayDen = BUS_HangVeTuyenBay.LaySanBayDenTheoSanBayDi(maSanBayDi);
+                List<DTO_SanBay> danhSachSanBayDen = busHangVeTuyenBay.LaySanBayDenTheoSanBayDi(maSanBayDi);
+
                 if (danhSachSanBayDen == null || danhSachSanBayDen.Count == 0)
                 {
                     cbbSanBayDen.DataSource = null;
                     return;
                 }
+
                 LoadDanhSachSanBayToComboBox(cbbSanBayDen, danhSachSanBayDen);
+            }
+        }
+
+        private void cbbSanBayDen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbbSanBayDen.SelectedIndex != -1 && cbbSanBayDi.SelectedIndex != -1)
+            {
+                string maSanBayDi = cbbSanBayDi.SelectedValue.ToString() ?? string.Empty;
+                string maSanBayDen = cbbSanBayDen.SelectedValue.ToString() ?? string.Empty;
+
+                List<DTO_HangGhe> dsHangGhe = busHangVeTuyenBay.LayHangGheTheoTuyenBay(maSanBayDi, maSanBayDen);
+
+                if (dsHangGhe == null || dsHangGhe.Count == 0)
+                {
+                    cbbHangGhe.DataSource = null;
+                    return;
+                }
+
+                LoadDanhSachHangGheToComboBox(cbbHangGhe, dsHangGhe);
             }
         }
 
@@ -123,7 +155,5 @@ namespace QLBVBM.GUI
                 MessageBox.Show("Cập nhật tham số thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        
     }
 }

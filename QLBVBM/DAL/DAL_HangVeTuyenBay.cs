@@ -60,6 +60,7 @@ namespace QLBVBM.DAL
                 {
                     new MySqlParameter("@MaSanBayDi", maSanBayDi)
                 };
+
                 DataTable dt = dataHelper.ExecuteQuery(query, parameters);
                 foreach (DataRow dr in dt.Rows)
                 {
@@ -76,7 +77,47 @@ namespace QLBVBM.DAL
                 Debug.WriteLine($"Error in LaySanBayDenTheoSanBayDi (DAL_HangVeTuyenBay.cs): {ex.Message}");
                 return new List<DTO_SanBay>();
             }
+
             return dsSanBayDen;
+        }
+
+        public List<DTO_HangGhe> LayHangGheTheoTuyenBay(string maSanBayDi, string maSanBayDen)
+        {
+            List<DTO_HangGhe> dsHangGhe = new List<DTO_HangGhe>();
+
+            try
+            {
+                string query = @"SELECT hg.MaHangGhe, hg.TenHangGhe
+                                FROM HANGGHE hg
+                                JOIN HANGVE_TUYENBAY hvtb 
+                                ON hg.MaHangGhe = hvtb.MaHangGhe
+                                WHERE hvtb.MaSanBayDi = @MaSanBayDi
+                                AND hvtb.MaSanBayDen = @MaSanBayDen";
+
+                List<MySqlParameter> parameters = new List<MySqlParameter>
+                {
+                    new MySqlParameter("@MaSanBayDi", maSanBayDi),
+                    new MySqlParameter("@MaSanBayDen", maSanBayDen)
+                };
+
+                DataTable dt = dataHelper.ExecuteQuery(query, parameters);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    DTO_HangGhe hangGhe = new DTO_HangGhe
+                    {
+                        MaHangGhe = dr["MaHangGhe"].ToString(),
+                        TenHangGhe = dr["TenHangGhe"].ToString()
+                    };
+                    dsHangGhe.Add(hangGhe);
+                }
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine($"Error in LayHangGheTheoTuyenBay (DAL_HangVeTuyenBay.cs): {ex.Message}");
+                return new List<DTO_HangGhe>();
+            }
+
+            return dsHangGhe;
         }
     }
 }
