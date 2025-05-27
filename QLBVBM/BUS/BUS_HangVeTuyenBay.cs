@@ -1,4 +1,5 @@
 ﻿using QLBVBM.DAL;
+using QLBVBM.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,21 @@ namespace QLBVBM.BUS
         public int LayDonGiaQuyDinh(string maSanBayDi, string maSanBayDen, string maHangGhe)
         {
             return DAL_HangVeTuyenBay.LayDonGiaQuyDinh(maSanBayDi, maSanBayDen, maHangGhe);
+        }
+
+        public List<DTO_SanBay> LaySanBayDenTheoSanBayDi(string maSanBayDi)
+        {
+            return DAL_HangVeTuyenBay.LaySanBayDenTheoSanBayDi(maSanBayDi);
+        }
+
+        public List<DTO_HangGhe> LayHangGheTheoTuyenBay(string maSanBayDi, string maSanBayDen)
+        {
+            return DAL_HangVeTuyenBay.LayHangGheTheoTuyenBay(maSanBayDi, maSanBayDen);
+        }
+
+        public bool CapNhatDonGiaQuyDinh(string maSanBayDi, string maSanBayDen, string maHangGhe, int donGiaQuyDinh)
+        {
+            return DAL_HangVeTuyenBay.CapNhatDonGiaQuyDinh(maSanBayDi, maSanBayDen, maHangGhe, donGiaQuyDinh);
         }
     }
 }

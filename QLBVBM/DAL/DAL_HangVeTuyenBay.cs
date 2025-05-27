@@ -38,12 +38,111 @@ namespace QLBVBM.DAL
                     DataRow dr = dt.Rows[0];
                     return Convert.ToInt32(dr["DonGiaQuyDinh"]);
                 }
-                else throw new Exception("Không tìm thấy thông tin giá vé cho tuyến bay này.");
+                else return 0;
             }
             catch (Exception ex)
             {
                 Debug.WriteLine($"Error in LayDonGiaQuyDinh (DAL_HangVeTuyenBay.cs): {ex.Message}");
                 return 0;
+            }
+        }
+
+        public List<DTO_SanBay> LaySanBayDenTheoSanBayDi(string maSanBayDi)
+        {
+            List<DTO_SanBay> dsSanBayDen = new List<DTO_SanBay>();
+            try
+            {
+                string query = @"SELECT DISTINCT sb.MaSanBay, sb.TenSanBay 
+                                FROM SANBAY sb 
+                                JOIN HANGVE_TUYENBAY hvtb ON sb.MaSanBay = hvtb.MaSanBayDen 
+                                WHERE hvtb.MaSanBayDi = @MaSanBayDi";
+                List<MySqlParameter> parameters = new List<MySqlParameter>
+                {
+                    new MySqlParameter("@MaSanBayDi", maSanBayDi)
+                };
+
+                DataTable dt = dataHelper.ExecuteQuery(query, parameters);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    DTO_SanBay sanBay = new DTO_SanBay
+                    {
+                        MaSanBay = dr["MaSanBay"].ToString(),
+                        TenSanBay = dr["TenSanBay"].ToString()
+                    };
+                    dsSanBayDen.Add(sanBay);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error in LaySanBayDenTheoSanBayDi (DAL_HangVeTuyenBay.cs): {ex.Message}");
+                return new List<DTO_SanBay>();
+            }
+
+            return dsSanBayDen;
+        }
+
+        public List<DTO_HangGhe> LayHangGheTheoTuyenBay(string maSanBayDi, string maSanBayDen)
+        {
+            List<DTO_HangGhe> dsHangGhe = new List<DTO_HangGhe>();
+
+            try
+            {
+                string query = @"SELECT hg.MaHangGhe, hg.TenHangGhe
+                                FROM HANGGHE hg
+                                JOIN HANGVE_TUYENBAY hvtb 
+                                ON hg.MaHangGhe = hvtb.MaHangGhe
+                                WHERE hvtb.MaSanBayDi = @MaSanBayDi
+                                AND hvtb.MaSanBayDen = @MaSanBayDen";
+
+                List<MySqlParameter> parameters = new List<MySqlParameter>
+                {
+                    new MySqlParameter("@MaSanBayDi", maSanBayDi),
+                    new MySqlParameter("@MaSanBayDen", maSanBayDen)
+                };
+
+                DataTable dt = dataHelper.ExecuteQuery(query, parameters);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    DTO_HangGhe hangGhe = new DTO_HangGhe
+                    {
+                        MaHangGhe = dr["MaHangGhe"].ToString(),
+                        TenHangGhe = dr["TenHangGhe"].ToString()
+                    };
+                    dsHangGhe.Add(hangGhe);
+                }
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine($"Error in LayHangGheTheoTuyenBay (DAL_HangVeTuyenBay.cs): {ex.Message}");
+                return new List<DTO_HangGhe>();
+            }
+
+            return dsHangGhe;
+        }
+
+        public bool CapNhatDonGiaQuyDinh(string maSanBayDi, string maSanBayDen, string maHangGhe, int donGiaQuyDinh)
+        {
+            try
+            {
+                string query = @"UPDATE HANGVE_TUYENBAY 
+                                SET DonGiaQuyDinh = @DonGiaQuyDinh 
+                                WHERE MaSanBayDi = @MaSanBayDi 
+                                AND MaSanBayDen = @MaSanBayDen 
+                                AND MaHangGhe = @MaHangGhe";
+                List<MySqlParameter> parameters = new List<MySqlParameter>
+                {
+                    new MySqlParameter("@MaSanBayDi", maSanBayDi),
+                    new MySqlParameter("@MaSanBayDen", maSanBayDen),
+                    new MySqlParameter("@MaHangGhe", maHangGhe),
+                    new MySqlParameter("@DonGiaQuyDinh", donGiaQuyDinh) 
+                };
+                int rowsAffected = dataHelper.ExecuteNonQuery(query, parameters);
+                return rowsAffected > 0;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error in CapNhatDonGiaQuyDinh (DAL_HangVeTuyenBay.cs): {ex.Message}");
+                return false;
             }
         }
     }
