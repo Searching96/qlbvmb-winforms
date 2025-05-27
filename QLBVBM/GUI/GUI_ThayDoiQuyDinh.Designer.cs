@@ -314,6 +314,7 @@
             cbbSanBayDi.ShadowDecoration.CustomizableEdges = customizableEdges14;
             cbbSanBayDi.Size = new Size(254, 50);
             cbbSanBayDi.TabIndex = 51;
+            cbbSanBayDi.SelectedIndexChanged += cbbSanBayDi_SelectedIndexChanged;
             // 
             // lblSanBayDi
             // 

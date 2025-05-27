@@ -17,13 +17,14 @@ namespace QLBVBM.GUI
     {
         public BUS_ThamSo busThamSo = new BUS_ThamSo();
         public BUS_SanBay busSanBay = new BUS_SanBay();
+        public BUS_HangVeTuyenBay BUS_HangVeTuyenBay = new BUS_HangVeTuyenBay();
 
         public GUI_ThayDoiQuyDinh()
         {
             InitializeComponent();
             SetResponsive();
             LoadThamSo();
-            LoadDanhSachSanBayToComboBoxSanBayDi(cbbSanBayDi, LayDanhSachSanBay());
+            LoadDanhSachSanBayToComboBox(cbbSanBayDi, LayDanhSachSanBay());
         }
 
         public void SetResponsive()
@@ -56,7 +57,7 @@ namespace QLBVBM.GUI
             return new List<DTO_SanBay>();
         }
 
-        public void LoadDanhSachSanBayToComboBoxSanBayDi(Guna2ComboBox cbb, List<DTO_SanBay> dsSanBay)
+        public void LoadDanhSachSanBayToComboBox(Guna2ComboBox cbb, List<DTO_SanBay> dsSanBay)
         {
             if (dsSanBay != null && dsSanBay.Count > 0)
             {
@@ -77,6 +78,21 @@ namespace QLBVBM.GUI
                 || !busThamSo.ValidateThamSo(txtTGHuyDatVe.Text))
                 return true;
             return false;
+        }
+
+        private void cbbSanBayDi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbbSanBayDi.SelectedIndex != -1)
+            {
+                string maSanBayDi = cbbSanBayDi.SelectedValue.ToString() ?? string.Empty;
+                List<DTO_SanBay> danhSachSanBayDen = BUS_HangVeTuyenBay.LaySanBayDenTheoSanBayDi(maSanBayDi);
+                if (danhSachSanBayDen == null || danhSachSanBayDen.Count == 0)
+                {
+                    cbbSanBayDen.DataSource = null;
+                    return;
+                }
+                LoadDanhSachSanBayToComboBox(cbbSanBayDen, danhSachSanBayDen);
+            }
         }
 
         private void btnThayDoiQuyDinh_Click(object sender, EventArgs e)
@@ -107,5 +123,7 @@ namespace QLBVBM.GUI
                 MessageBox.Show("Cập nhật tham số thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        
     }
 }

@@ -46,5 +46,37 @@ namespace QLBVBM.DAL
                 return 0;
             }
         }
+
+        public List<DTO_SanBay> LaySanBayDenTheoSanBayDi(string maSanBayDi)
+        {
+            List<DTO_SanBay> dsSanBayDen = new List<DTO_SanBay>();
+            try
+            {
+                string query = @"SELECT DISTINCT sb.MaSanBay, sb.TenSanBay 
+                                FROM SANBAY sb 
+                                JOIN HANGVE_TUYENBAY hvtb ON sb.MaSanBay = hvtb.MaSanBayDen 
+                                WHERE hvtb.MaSanBayDi = @MaSanBayDi";
+                List<MySqlParameter> parameters = new List<MySqlParameter>
+                {
+                    new MySqlParameter("@MaSanBayDi", maSanBayDi)
+                };
+                DataTable dt = dataHelper.ExecuteQuery(query, parameters);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    DTO_SanBay sanBay = new DTO_SanBay
+                    {
+                        MaSanBay = dr["MaSanBay"].ToString(),
+                        TenSanBay = dr["TenSanBay"].ToString()
+                    };
+                    dsSanBayDen.Add(sanBay);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error in LaySanBayDenTheoSanBayDi (DAL_HangVeTuyenBay.cs): {ex.Message}");
+                return new List<DTO_SanBay>();
+            }
+            return dsSanBayDen;
+        }
     }
 }
