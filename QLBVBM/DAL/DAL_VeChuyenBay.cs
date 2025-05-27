@@ -140,7 +140,7 @@ namespace QLBVBM.DAL
                         SoCMND = dr["CMND"].ToString(),
                         SoDT = dr["SoDienThoai"].ToString(),
                         DonGia = Convert.ToInt32(dr["DonGia"]),
-                        TrangThaiVe = dr["TrangThaiVe"].ToString(),
+                        TrangThaiVe = Convert.ToInt32(dr["TrangThaiVe"]),
                     };
                     dsVeChuyenBay.Add(veChuyenBay);
                 }

@@ -157,7 +157,7 @@ namespace QLBVBM.GUI
 
             // Step 4: Calculate total revenue for PAID tickets in the year
             // Giả sử trạng thái vé đã thanh toán là DonGia > 0 và có thể có thêm trường trạng thái nếu bạn bổ sung
-            var veDaThanhToan = dsVeChuyenBay.Where(v => v.DonGia.HasValue && v.TrangThaiVe == "Da_Thanh_Toan").ToList();
+            var veDaThanhToan = dsVeChuyenBay.Where(v => v.DonGia.HasValue && v.TrangThaiVe == 1).ToList();
             decimal tongDoanhThuNam = veDaThanhToan.Sum(v => v.DonGia ?? 0);
 
             // Step 5: List months with flights
