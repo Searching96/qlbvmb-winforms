@@ -21,6 +21,17 @@ namespace QLBVBM.BUS
             return DAL_VeChuyenBay.DatVeChuyenBay(veChuyenBay);
         }
 
+        public Dictionary<int, string> GetTrangThaiOptions()
+        {
+            return new Dictionary<int, string>
+            {
+                { (int)DTO.TrangThaiVe.TatCa, "Tất cả" },
+                { (int)DTO.TrangThaiVe.DaHuy, "Đã huỷ" },
+                { (int)DTO.TrangThaiVe.DaThanhToan, "Đã thanh toán" },
+                { (int)DTO.TrangThaiVe.ChuaThanhToan, "Chưa thanh toán" }
+            };
+        }
+
         public string PhatSinhMaVeChuyenBay()
         {
             DTO_VeChuyenBay veChuyenBayCuoi = DAL_VeChuyenBay.LayVeChuyenBayCuoi();
