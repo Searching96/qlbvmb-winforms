@@ -7,6 +7,7 @@ using MySql.Data.MySqlClient;
 using QLBVBM.DTO;
 using System.Data;
 using System.Diagnostics;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace QLBVBM.DAL
 {
@@ -124,5 +125,44 @@ namespace QLBVBM.DAL
 
             return dsVeChuyenBay;
         }
+
+        public List<DTO_VeChuyenBay> LayDanhSachVeDaThanhToan(String maChuyenBay)
+        {
+            List<DTO_VeChuyenBay> dsVeThanhToan = new List<DTO_VeChuyenBay>();
+
+            string query = @"
+            SELECT vcb.*
+            FROM VECHUYENBAY vcb
+            JOIN HANGVE_CHUYENBAY hvcb ON vcb.MaChuyenBay = hvcb.MaChuyenBay
+            AND vcb.MaHangGhe = hvcb.MaHangGhe 
+            WHERE TrangThaiVe = 1
+            AND vcb.MaChuyenBay = @maChuyenBay
+            ";
+
+            var parameters = new List<MySqlParameter>
+            {
+                new MySqlParameter("@maChuyenBay", maChuyenBay)
+            };
+
+            DataTable dt = dataHelper.ExecuteQuery(query, parameters);
+            foreach (DataRow dr in dt.Rows)
+            {
+                DTO_VeChuyenBay ve = new DTO_VeChuyenBay
+                {
+                    MaVe = dr["MaVe"].ToString(),
+                    MaChuyenBay = dr["MaChuyenBay"].ToString(),
+                    MaHangGhe = dr["MaHangGhe"].ToString(),
+                    TenHanhKhach = dr["TenHanhKhach"].ToString(),
+                    SoCMND = dr["CMND"].ToString(),
+                    SoDT = dr["SDT"].ToString(),
+                    DonGia = Convert.ToInt32(dr["DonGia"]),
+                    TrangThaiVe = Convert.ToInt32(dr["TrangThaiVe"])
+                };
+                dsVeThanhToan.Add(ve);
+            }
+
+            return dsVeThanhToan;
+        }
+
     }
 }

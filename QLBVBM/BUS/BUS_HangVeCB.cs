@@ -36,5 +36,10 @@ namespace QLBVBM.BUS
         {
             return DAL_HangVeCB.TraCuuMotHangVe(maChuyenBay, maHangGhe);
         }
+
+        public DTO_HangVeCB LayHangVeTheoVeChuyenBay(string maChuyenBay, string maHangGhe)
+        {
+            return DAL_HangVeCB.LayHangVeTheoVeChuyenBay(maChuyenBay, maHangGhe);
+        }
     }
 }

@@ -231,5 +231,10 @@ namespace QLBVBM.BUS
             DateTime hanCuoiDatVe = thoiGianBay.AddDays(-BUS_ThamSo.LayThoiGianDatVeToiThieu());
             return hanCuoiDatVe;
         }
+
+        public List<DTO_ChuyenBay>? LayTatCaChuyenBayDuaVaoThangNamBay(int thang, int nam)
+        {
+            return DAL_ChuyenBay.LayTatCaChuyenBayDuaVaoThangNamBay(thang, nam);
+        }
     }
 }

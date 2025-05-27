@@ -725,5 +725,43 @@ namespace QLBVBM.DAL
                 return new Tuple<string, string>("", "");
             }
         }
+        public List<DTO_ChuyenBay> LayTatCaChuyenBayDuaVaoThangNamBay(int thang, int nam)
+        {
+            List<DTO_ChuyenBay> dsChuyenBay = new List<DTO_ChuyenBay>();
+            try
+            {
+                string query = @"
+                    SELECT cb.*
+                    FROM CHUYENBAY cb
+                    WHERE MONTH(cb.NgayBay) = @thang
+                    AND YEAR(cb.NgayBay) = @nam";
+
+                List<MySqlParameter> parameters = new List<MySqlParameter>
+                {
+                    new MySqlParameter("@thang", thang),
+                    new MySqlParameter("@nam", nam)
+                };
+
+                DataTable dt = dataHelper.ExecuteQuery(query, parameters);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    DTO_ChuyenBay cb = new DTO_ChuyenBay
+                    {
+                        MaChuyenBay = dr["MaChuyenBay"].ToString(),
+                        MaSanBayDi = dr["MaSanBayDi"].ToString(),
+                        MaSanBayDen = dr["MaSanBayDen"].ToString(),
+                        NgayBay = DateTime.Parse(dr["NgayBay"].ToString()),
+                        GioBay = DateTime.Parse(dr["GioBay"].ToString()),
+                        ThoiGianBay = int.Parse(dr["ThoiGianBay"].ToString())
+                    };
+                    dsChuyenBay.Add(cb);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error in LayTatCaChuyenBayDuaVaoThangNamBay (DAL_ChuyenBay.cs): {ex.Message}");
+            }
+            return dsChuyenBay;
+        }
     }
 }
