@@ -1,4 +1,5 @@
-﻿using QLBVBM.BUS;
+﻿using Guna.UI2.WinForms;
+using QLBVBM.BUS;
 using QLBVBM.DTO;
 using System;
 using System.Collections.Generic;
@@ -15,12 +16,14 @@ namespace QLBVBM.GUI
     public partial class GUI_ThayDoiQuyDinh : Form
     {
         public BUS_ThamSo busThamSo = new BUS_ThamSo();
+        public BUS_SanBay busSanBay = new BUS_SanBay();
 
         public GUI_ThayDoiQuyDinh()
         {
             InitializeComponent();
             SetResponsive();
             LoadThamSo();
+            LoadDanhSachSanBayToComboBoxSanBayDi(cbbSanBayDi, LayDanhSachSanBay());
         }
 
         public void SetResponsive()
@@ -39,6 +42,29 @@ namespace QLBVBM.GUI
             txtTGDungToiDa.Text = busThamSo.LayThoiGianDungToiDa().ToString();
             txtTGDatTruocVe.Text = busThamSo.LayThoiGianDatVeToiThieu().ToString();
             txtTGHuyDatVe.Text = busThamSo.LayThoiGianHuyDatVeToiThieu().ToString();
+        }
+
+        public List<DTO_SanBay> LayDanhSachSanBay()
+        {
+            List<DTO_SanBay> danhSachSanBay = busSanBay.LayDanhSachSanBay();
+
+            if (danhSachSanBay.Count > 0)
+            {
+                return danhSachSanBay;
+            }
+
+            return new List<DTO_SanBay>();
+        }
+
+        public void LoadDanhSachSanBayToComboBoxSanBayDi(Guna2ComboBox cbb, List<DTO_SanBay> dsSanBay)
+        {
+            if (dsSanBay != null && dsSanBay.Count > 0)
+            {
+                cbb.DataSource = dsSanBay;
+                cbb.DisplayMember = "TenSanBay";
+                cbb.ValueMember = "MaSanBay";
+                cbb.SelectedItem = dsSanBay[0];
+            }
         }
 
         public bool HasErrors()
