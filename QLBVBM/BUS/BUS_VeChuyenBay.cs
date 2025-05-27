@@ -9,7 +9,6 @@ namespace QLBVBM.BUS
     {
         private BUS_HangVeCB BUS_HangVeCB = new BUS_HangVeCB();
         private DAL_VeChuyenBay DAL_VeChuyenBay = new DAL_VeChuyenBay();
-        //private BUS_HanhKhach BUS_HanhKhach = new BUS_HanhKhach();
 
         public bool ThemVeChuyenBay(DTO_VeChuyenBay veChuyenBay)
         {
@@ -75,6 +74,12 @@ namespace QLBVBM.BUS
             }
         }
 
+        public bool LayVeChuyenBayTheoMaChuyenBay(string maChuyenBay, out List<DTO_VeChuyenBay> dsVeChuyenBay)
+        {
+            dsVeChuyenBay = DAL_VeChuyenBay.LayVeChuyenBayTheoMaChuyenBay(maChuyenBay);
+            return dsVeChuyenBay != null && dsVeChuyenBay.Count > 0;
+        }
+
         public bool DatVeChuyenBayVaHangVe(DTO_VeChuyenBay veChuyenBay, DTO_HangVeCB hangVeCB)
         {
             using (var transaction = new TransactionScope())
@@ -86,7 +91,7 @@ namespace QLBVBM.BUS
                         transaction.Dispose();
                         return false;
                     }
-
+                  
                     // Update the number of seats booked
                     if (!BUS_HangVeCB.CapNhatSoLuongVeDaDat(hangVeCB.MaChuyenBay, hangVeCB.MaHangGhe))
                     {
