@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Transactions;
-using QLBVBM.DAL;
+﻿using QLBVBM.DAL;
 using QLBVBM.DTO;
 using System.Diagnostics;
+using System.Transactions;
 
 namespace QLBVBM.BUS
 {
@@ -46,7 +41,7 @@ namespace QLBVBM.BUS
                 {
                     if (!ThemVeChuyenBay(veChuyenBay))
                     {
-                        transaction.Dispose(); 
+                        transaction.Dispose();
                         return false;
                     }
 

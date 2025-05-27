@@ -1,11 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace QLBVBM.DTO
+﻿namespace QLBVBM.DTO
 {
+    public enum TrangThaiVe
+    {
+        TatCa = -1,
+        DaHuy = 0,
+        DaThanhToan = 1,
+        ChuaThanhToan = 2
+    }
     public class DTO_VeChuyenBay
     {
         private string? maVe;
@@ -17,7 +18,7 @@ namespace QLBVBM.DTO
         private int? donGia;
         private int? trangThaiVe;
 
-        public DTO_VeChuyenBay(string? maVe = null, string? maChuyenBay = null, 
+        public DTO_VeChuyenBay(string? maVe = null, string? maChuyenBay = null,
                             string? maHangGhe = null, string? tenHanhKhach = null,
                             string? CMND = null, string? SDT = null, int? donGia = null, int? trangThaiVe = null)
         {
