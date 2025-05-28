@@ -323,6 +323,7 @@
             Margin = new Padding(3, 2, 3, 2);
             MinimumSize = new Size(803, 422);
             Name = "GUI_LapBaoCao";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "GUI_LapBaoCao";
             ((System.ComponentModel.ISupportInitialize)dgvBaoCaoDoanhThu).EndInit();
             ResumeLayout(false);
