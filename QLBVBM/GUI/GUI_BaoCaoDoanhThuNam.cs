@@ -35,15 +35,25 @@ namespace QLBVBM.GUI
 
         private void ConfigureYearComboBox()
         {
+            // Get the earliest and latest years with flights that have tickets
+            var namRange = busChuyenBay.LayNamDauTienVaCuoiCungChoVe();
+            int minYear = namRange.Item1;
+            int maxYear = namRange.Item2;
+
+            // Create a list of years from min to max
             List<int> years = new List<int>();
-            int currentYear = DateTime.Now.Year;
-            for (int year = 2000; year <= currentYear; year++)
+            for (int year = minYear; year <= maxYear; year++)
             {
-                //cbbNam.Items.Add(year);
                 years.Add(year);
             }
-            cbbNam.DropDownStyle = ComboBoxStyle.DropDownList;
 
+            // If the list is empty (should never happen due to fallback in DAL), use current year
+            if (years.Count == 0)
+            {
+                years.Add(DateTime.Now.Year);
+            }
+
+            cbbNam.DropDownStyle = ComboBoxStyle.DropDownList;
             cbbNam.DataSource = years;
         }
 

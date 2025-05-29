@@ -765,7 +765,46 @@ namespace QLBVBM.DAL
 
             return dsChuyenBay;
         }
-      
+
+        public Tuple<int, int> LayNamDauTienVaCuoiCung()
+        {
+            int minYear = DateTime.Now.Year;
+            int maxYear = DateTime.Now.Year;
+            bool foundFlights = false;
+
+            try
+            {
+                string query = "SELECT MIN(YEAR(NgayBay)) AS MinYear, MAX(YEAR(NgayBay)) AS MaxYear " +
+                              "FROM CHUYENBAY " +
+                              "WHERE CHUYENBAY.MaChuyenBay IN (SELECT DISTINCT MaChuyenBay FROM VECHUYENBAY)";
+
+                DataTable dt = dataHelper.ExecuteQuery(query);
+                if (dt.Rows.Count > 0)
+                {
+                    var row = dt.Rows[0];
+                    if (!row.IsNull("MinYear") && !row.IsNull("MaxYear"))
+                    {
+                        minYear = Convert.ToInt32(row["MinYear"]);
+                        maxYear = Convert.ToInt32(row["MaxYear"]);
+                        foundFlights = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error in LayNamDauTienVaCuoiCung (DAL_ChuyenBay.cs): {ex.Message}");
+            }
+
+            if (!foundFlights)
+            {
+                // If no flights with tickets found, return current year for both
+                return new Tuple<int, int>(DateTime.Now.Year, DateTime.Now.Year);
+            }
+
+            return new Tuple<int, int>(minYear, maxYear);
+        }
+
+
         public List<DTO_ChuyenBay> LayTatCaChuyenBayDuaVaoThangNamBay(int thang, int nam)
         {
             List<DTO_ChuyenBay> dsChuyenBay = new List<DTO_ChuyenBay>();

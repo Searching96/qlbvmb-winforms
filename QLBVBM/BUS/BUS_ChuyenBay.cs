@@ -37,6 +37,11 @@ namespace QLBVBM.BUS
             return DAL_ChuyenBay.LayChuyenBayTheoNam(nam);
         }
 
+        public Tuple<int, int> LayNamDauTienVaCuoiCungChoVe()
+        {
+            return DAL_ChuyenBay.LayNamDauTienVaCuoiCung();
+        }
+
         public DTO_ChuyenBay? TimChuyenBayTheoMa(string maChuyenBay)
         {
             return DAL_ChuyenBay.TimChuyenBayTheoMa(maChuyenBay);
