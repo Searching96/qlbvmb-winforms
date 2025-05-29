@@ -11,7 +11,7 @@ using Guna.UI2.WinForms;
 
 namespace QLBVBM.GUI
 {
-    public partial class GUI_Home: Form
+    public partial class GUI_Home : Form
     {
         private Guna2Panel navPanel;
         private Guna2Panel mainPanel;
@@ -20,7 +20,7 @@ namespace QLBVBM.GUI
         {
             InitializeComponent();
             InitializePanels();
-            AddExitButton(); 
+            AddExitButton();
         }
 
         private void InitializePanels()
@@ -33,7 +33,7 @@ namespace QLBVBM.GUI
             // Tạo panel NavBar bên trái
             navPanel = new Guna2Panel();
             navPanel.Dock = DockStyle.Left;
-            navPanel.Width = 220;
+            navPanel.Width = 270;
             navPanel.FillColor = Color.FromArgb(45, 45, 60);
 
             // Thêm mainPanel trước -> chiếm phần còn lại bên phải
@@ -61,6 +61,15 @@ namespace QLBVBM.GUI
                 ("Thay đổi quy định", () => new UC_ThayDoiQuyDinh())
             };
 
+            // Tạo panel chứa các nút để căn giữa
+            var buttonContainer = new Guna2Panel
+            {
+                Size = new Size(navPanel.Width, menuItems.Count * 65), // 60 (button height) + 5 (margin)
+                Location = new Point(0, (navPanel.Height - menuItems.Count * 65) / 2), // Căn giữa theo chiều dọc
+                FillColor = Color.Transparent
+            };
+            navPanel.Controls.Add(buttonContainer);
+
             // Duyệt qua danh sách và tạo nút
             foreach (var item in menuItems)
             {
@@ -73,10 +82,9 @@ namespace QLBVBM.GUI
                     mainPanel.Controls.Add(uc);
                 };
 
-                navPanel.Controls.Add(btn);
-                navPanel.Controls.SetChildIndex(btn, 0); // Đặt nút ở đầu panel
+                buttonContainer.Controls.Add(btn);
+                buttonContainer.Controls.SetChildIndex(btn, 0); // Đặt nút ở đầu panel
             }
-
         }
 
         private Guna2Button CreateNavButton(string text)
@@ -88,15 +96,15 @@ namespace QLBVBM.GUI
                 ImageSize = new Size(24, 24),
                 TextOffset = new Point(15, 0),
                 Dock = DockStyle.Top,
-                Height = 60, // tăng chiều cao nút
+                Height = 65, // tăng chiều cao nút
                 FillColor = Color.FromArgb(60, 60, 80),
                 HoverState = { FillColor = Color.FromArgb(75, 75, 100) },
-                Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                Font = new Font("Segoe UI", 14, FontStyle.Bold),
                 ForeColor = Color.White,
                 TextAlign = HorizontalAlignment.Left,
                 ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton,
                 CheckedState = { FillColor = Color.FromArgb(90, 90, 120) },
-                BorderRadius = 4,
+                BorderRadius = 1,
                 Margin = new Padding(0, 5, 0, 5) // thêm khoảng cách giữa các nút
             };
         }
@@ -117,7 +125,7 @@ namespace QLBVBM.GUI
             // Đặt dock bottom để luôn nằm cuối
             exitBtn.Dock = DockStyle.Bottom;
 
-            // Không thêm vào navButtons (không tính vào tổng chiều cao căn giữa)
+            // Thêm vào navPanel
             navPanel.Controls.Add(exitBtn);
         }
     }
