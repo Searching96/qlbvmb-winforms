@@ -80,16 +80,7 @@ namespace QLBVBM.GUI
             string maSanBayDen = cbbSanBayDen.SelectedValue?.ToString() ?? string.Empty;
             DateTime ngayBay = new DateTime();
 
-            bool isValidDate = dtpNgayBay.Value.Date > DateTime.Today.Date;
-
-            if (isValidDate)
-            {
-                ngayBay = dtpNgayBay.Value.Date;
-            }
-            else
-            {
-                ngayBay = DateTime.MinValue;
-            }
+            ngayBay = dtpNgayBay.Value.Date;
 
             List<DTO_ChuyenBay>? dsChuyenBayDuaVaoSanBayDi = string.IsNullOrWhiteSpace(maSanBayDi)
                 ? null
