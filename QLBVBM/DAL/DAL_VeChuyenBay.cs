@@ -167,36 +167,45 @@ namespace QLBVBM.DAL
         {
             List<DTO_VeChuyenBay> dsVeThanhToan = new List<DTO_VeChuyenBay>();
 
-            string query = @"
-            SELECT vcb.*
-            FROM VECHUYENBAY vcb
-            JOIN HANGVE_CHUYENBAY hvcb ON vcb.MaChuyenBay = hvcb.MaChuyenBay
-            AND vcb.MaHangGhe = hvcb.MaHangGhe 
-            WHERE TrangThaiVe = 1
-            AND vcb.MaChuyenBay = @maChuyenBay
-            ";
+            try
+            {
+                string query = @"
+                                SELECT vcb.*
+                                FROM VECHUYENBAY vcb
+                                JOIN HANGVECB hvcb ON vcb.MaChuyenBay = hvcb.MaChuyenBay
+                                AND vcb.MaHangGhe = hvcb.MaHangGhe 
+                                WHERE TrangThaiVe = 1
+                                AND vcb.MaChuyenBay = @maChuyenBay
+                                ";
 
-            var parameters = new List<MySqlParameter>
+                var parameters = new List<MySqlParameter>
             {
                 new MySqlParameter("@maChuyenBay", maChuyenBay)
             };
 
-            DataTable dt = dataHelper.ExecuteQuery(query, parameters);
-            foreach (DataRow dr in dt.Rows)
-            {
-                DTO_VeChuyenBay ve = new DTO_VeChuyenBay
+                DataTable dt = dataHelper.ExecuteQuery(query, parameters);
+                foreach (DataRow dr in dt.Rows)
                 {
-                    MaVe = dr["MaVe"].ToString(),
-                    MaChuyenBay = dr["MaChuyenBay"].ToString(),
-                    MaHangGhe = dr["MaHangGhe"].ToString(),
-                    TenHanhKhach = dr["TenHanhKhach"].ToString(),
-                    SoCMND = dr["CMND"].ToString(),
-                    SoDT = dr["SDT"].ToString(),
-                    DonGia = Convert.ToInt32(dr["DonGia"]),
-                    TrangThaiVe = Convert.ToInt32(dr["TrangThaiVe"])
-                };
-                dsVeThanhToan.Add(ve);
+                    DTO_VeChuyenBay ve = new DTO_VeChuyenBay
+                    {
+                        MaVe = dr["MaVe"].ToString(),
+                        MaChuyenBay = dr["MaChuyenBay"].ToString(),
+                        MaHangGhe = dr["MaHangGhe"].ToString(),
+                        TenHanhKhach = dr["TenHanhKhach"].ToString(),
+                        SoCMND = dr["CMND"].ToString(),
+                        SoDT = dr["SoDienThoai"].ToString(),
+                        DonGia = Convert.ToInt32(dr["DonGia"]),
+                        TrangThaiVe = Convert.ToInt32(dr["TrangThaiVe"])
+                    };
+                    dsVeThanhToan.Add(ve);
+                }
             }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error in LayDanhSachVeDaThanhToan (DAL_VeChuyenBay.cs): {ex.Message}");
+                return new List<DTO_VeChuyenBay>();
+            }
+            
 
             return dsVeThanhToan;
         }

@@ -23,6 +23,7 @@ namespace QLBVBM.GUI
             SetResponsive();
             PopulateMonthsAndYears();
         }
+
         public void SetResponsive()
         {
             foreach (Control control in this.Controls)
@@ -30,6 +31,7 @@ namespace QLBVBM.GUI
                 control.Anchor = AnchorStyles.None;
             }
         }
+
         private void PopulateMonthsAndYears()
         {
             //month
@@ -54,6 +56,7 @@ namespace QLBVBM.GUI
             }
             cbbNamBaoCao.SelectedItem = lastFlightYear;
         }
+
         private void btnLapBaoCaoDoanhThu_Click(object sender, EventArgs e)
         {
             dgvBaoCaoDoanhThu.Rows.Clear();
