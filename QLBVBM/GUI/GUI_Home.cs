@@ -70,6 +70,8 @@ namespace QLBVBM.GUI
             };
             navPanel.Controls.Add(buttonContainer);
 
+            Guna2Button firstButton = null;
+
             // Duyệt qua danh sách và tạo nút
             foreach (var item in menuItems)
             {
@@ -84,6 +86,19 @@ namespace QLBVBM.GUI
 
                 buttonContainer.Controls.Add(btn);
                 buttonContainer.Controls.SetChildIndex(btn, 0); // Đặt nút ở đầu panel
+
+                if (firstButton == null)
+                    firstButton = btn;
+            }
+
+            // Chọn mặc định nút "Tiếp nhận lịch chuyến bay"
+            if (firstButton != null)
+            {
+                firstButton.Checked = true;
+                mainPanel.Controls.Clear();
+                var uc = menuItems[0].CreateControl();
+                uc.Dock = DockStyle.Fill;
+                mainPanel.Controls.Add(uc);
             }
         }
 
