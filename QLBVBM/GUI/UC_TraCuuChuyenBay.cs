@@ -4,7 +4,7 @@ using QLBVBM.DTO;
 
 namespace QLBVBM.GUI
 {
-    public partial class GUI_TraCuuChuyenBay : Form
+    public partial class UC_TraCuuChuyenBay : UserControl
     {
         private BUS_SanBay busSanBay = new BUS_SanBay();
         private BUS_ChuyenBay busChuyenBay = new BUS_ChuyenBay();
@@ -12,7 +12,7 @@ namespace QLBVBM.GUI
         private ToolTip toolTip = new ToolTip();
         private readonly Guna2TextBox[] numericTextBoxes;
 
-        public GUI_TraCuuChuyenBay()
+        public UC_TraCuuChuyenBay()
         {
             InitializeComponent();
             numericTextBoxes =
@@ -207,11 +207,6 @@ namespace QLBVBM.GUI
             cbbTrangThaiVe.DataSource = new BindingSource(bus_VeChuyenBay.GetTrangThaiOptions(), null);
             cbbTrangThaiVe.DisplayMember = "Value";
             cbbTrangThaiVe.ValueMember = "Key";
-        }
-
-        private void btnThoat_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void btnTraCuu_Click(object sender, EventArgs e)

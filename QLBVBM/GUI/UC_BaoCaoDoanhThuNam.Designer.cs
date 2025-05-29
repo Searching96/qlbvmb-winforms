@@ -1,6 +1,6 @@
 ﻿namespace QLBVBM.GUI
 {
-    partial class GUI_BaoCaoDoanhThuNam
+    partial class UC_BaoCaoDoanhThuNam
     {
         /// <summary>
         /// Required designer variable.
@@ -39,6 +39,8 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             btnLapBaoCaoDoanhThu = new Guna.UI2.WinForms.Guna2Button();
             btnThoat = new Guna.UI2.WinForms.Guna2Button();
             lblTongDoanhThuCacChuyenBayTrongNam = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -46,6 +48,7 @@
             dgvBaoCaoDoanhThuNam = new Guna.UI2.WinForms.Guna2DataGridView();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             cbbNam = new Guna.UI2.WinForms.Guna2ComboBox();
+            pnlLine = new Guna.UI2.WinForms.Guna2Panel();
             ((System.ComponentModel.ISupportInitialize)dgvBaoCaoDoanhThuNam).BeginInit();
             SuspendLayout();
             // 
@@ -60,7 +63,7 @@
             btnLapBaoCaoDoanhThu.FillColor = Color.FromArgb(64, 64, 64);
             btnLapBaoCaoDoanhThu.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 163);
             btnLapBaoCaoDoanhThu.ForeColor = Color.White;
-            btnLapBaoCaoDoanhThu.Location = new Point(447, 88);
+            btnLapBaoCaoDoanhThu.Location = new Point(435, 128);
             btnLapBaoCaoDoanhThu.Margin = new Padding(2, 1, 2, 1);
             btnLapBaoCaoDoanhThu.Name = "btnLapBaoCaoDoanhThu";
             btnLapBaoCaoDoanhThu.ShadowDecoration.CustomizableEdges = customizableEdges2;
@@ -80,20 +83,19 @@
             btnThoat.FillColor = Color.Silver;
             btnThoat.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 163);
             btnThoat.ForeColor = Color.Black;
-            btnThoat.Location = new Point(680, 88);
+            btnThoat.Location = new Point(668, 128);
             btnThoat.Margin = new Padding(2, 1, 2, 1);
             btnThoat.Name = "btnThoat";
             btnThoat.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btnThoat.Size = new Size(92, 45);
             btnThoat.TabIndex = 41;
             btnThoat.Text = "Thoát";
-            btnThoat.Click += btnThoat_Click;
             // 
             // lblTongDoanhThuCacChuyenBayTrongNam
             // 
             lblTongDoanhThuCacChuyenBayTrongNam.BackColor = Color.Transparent;
             lblTongDoanhThuCacChuyenBayTrongNam.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            lblTongDoanhThuCacChuyenBayTrongNam.Location = new Point(57, 193);
+            lblTongDoanhThuCacChuyenBayTrongNam.Location = new Point(39, 265);
             lblTongDoanhThuCacChuyenBayTrongNam.Margin = new Padding(2, 1, 2, 1);
             lblTongDoanhThuCacChuyenBayTrongNam.Name = "lblTongDoanhThuCacChuyenBayTrongNam";
             lblTongDoanhThuCacChuyenBayTrongNam.Size = new Size(359, 21);
@@ -103,7 +105,7 @@
             // 
             // txtTongDoanhThuCacChuyenBayTrongNam
             // 
-            txtTongDoanhThuCacChuyenBayTrongNam.BackColor = Color.White;
+            txtTongDoanhThuCacChuyenBayTrongNam.BackColor = SystemColors.Control;
             txtTongDoanhThuCacChuyenBayTrongNam.BorderColor = Color.Silver;
             txtTongDoanhThuCacChuyenBayTrongNam.BorderRadius = 7;
             txtTongDoanhThuCacChuyenBayTrongNam.CustomizableEdges = customizableEdges5;
@@ -117,7 +119,7 @@
             txtTongDoanhThuCacChuyenBayTrongNam.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 163);
             txtTongDoanhThuCacChuyenBayTrongNam.ForeColor = Color.Black;
             txtTongDoanhThuCacChuyenBayTrongNam.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtTongDoanhThuCacChuyenBayTrongNam.Location = new Point(447, 182);
+            txtTongDoanhThuCacChuyenBayTrongNam.Location = new Point(435, 255);
             txtTongDoanhThuCacChuyenBayTrongNam.Margin = new Padding(4);
             txtTongDoanhThuCacChuyenBayTrongNam.Name = "txtTongDoanhThuCacChuyenBayTrongNam";
             txtTongDoanhThuCacChuyenBayTrongNam.PlaceholderText = "";
@@ -150,7 +152,7 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dgvBaoCaoDoanhThuNam.DefaultCellStyle = dataGridViewCellStyle3;
             dgvBaoCaoDoanhThuNam.GridColor = Color.FromArgb(231, 229, 255);
-            dgvBaoCaoDoanhThuNam.Location = new Point(29, 270);
+            dgvBaoCaoDoanhThuNam.Location = new Point(39, 328);
             dgvBaoCaoDoanhThuNam.Margin = new Padding(2, 1, 2, 1);
             dgvBaoCaoDoanhThuNam.Name = "dgvBaoCaoDoanhThuNam";
             dgvBaoCaoDoanhThuNam.RowHeadersVisible = false;
@@ -186,7 +188,7 @@
             // 
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            guna2HtmlLabel1.Location = new Point(57, 40);
+            guna2HtmlLabel1.Location = new Point(39, 87);
             guna2HtmlLabel1.Margin = new Padding(2, 1, 2, 1);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             guna2HtmlLabel1.Size = new Size(156, 24);
@@ -209,17 +211,28 @@
             cbbNam.ForeColor = Color.Black;
             cbbNam.IntegralHeight = false;
             cbbNam.ItemHeight = 44;
-            cbbNam.Location = new Point(57, 83);
+            cbbNam.Location = new Point(39, 128);
             cbbNam.Name = "cbbNam";
             cbbNam.ShadowDecoration.CustomizableEdges = customizableEdges8;
             cbbNam.Size = new Size(271, 50);
             cbbNam.TabIndex = 47;
             // 
-            // GUI_BaoCaoDoanhThuNam
+            // pnlLine
+            // 
+            pnlLine.BackColor = SystemColors.WindowText;
+            pnlLine.CustomizableEdges = customizableEdges9;
+            pnlLine.Location = new Point(19, 220);
+            pnlLine.Margin = new Padding(3, 2, 3, 2);
+            pnlLine.Name = "pnlLine";
+            pnlLine.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            pnlLine.Size = new Size(800, 1);
+            pnlLine.TabIndex = 52;
+            // 
+            // UC_BaoCaoDoanhThuNam
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(802, 556);
+            Controls.Add(pnlLine);
             Controls.Add(cbbNam);
             Controls.Add(guna2HtmlLabel1);
             Controls.Add(dgvBaoCaoDoanhThuNam);
@@ -228,9 +241,8 @@
             Controls.Add(btnThoat);
             Controls.Add(btnLapBaoCaoDoanhThu);
             Margin = new Padding(2, 1, 2, 1);
-            Name = "GUI_BaoCaoDoanhThuNam";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Báo cáo doanh thu năm";
+            Name = "UC_BaoCaoDoanhThuNam";
+            Size = new Size(852, 620);
             Load += GUI_BaoCaoDoanhThuNam_Load;
             ((System.ComponentModel.ISupportInitialize)dgvBaoCaoDoanhThuNam).EndInit();
             ResumeLayout(false);
@@ -246,5 +258,6 @@
         private Guna.UI2.WinForms.Guna2DataGridView dgvBaoCaoDoanhThuNam;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2ComboBox cbbNam;
+        private Guna.UI2.WinForms.Guna2Panel pnlLine;
     }
 }

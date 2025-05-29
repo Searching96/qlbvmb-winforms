@@ -11,22 +11,26 @@ using QLBVBM.DAL;
 using QLBVBM.DTO;
 using QLBVBM.BUS;
 using Guna.UI2.WinForms;
+using System.Diagnostics;
 
 namespace QLBVBM.GUI
 {
-    public partial class GUI_BanVe : Form
+    public partial class UC_DatVe : UserControl
     {
         private BUS_SanBay busSanBay = new BUS_SanBay();
         private BUS_ChuyenBay busChuyenBay = new BUS_ChuyenBay();
         private BUS_ValidateThongTinHanhKhach busValidationTTHK = new BUS_ValidateThongTinHanhKhach();
         private BUS_DonGiaHangGhe busDonGiaHangGhe = new BUS_DonGiaHangGhe();
         private BUS_VeChuyenBay busVeChuyenBay = new BUS_VeChuyenBay();
+        private BUS_HangVeCB busHangVeChuyenBay = new BUS_HangVeCB();
         private ErrorProvider errorProvider = new ErrorProvider();
+        private DateTime hanCuoiDatVe;
 
-        public GUI_BanVe()
+        public UC_DatVe()
         {
             InitializeComponent();
             LoadMaChuyenBayToComboBox(cbbMaChuyenBay, LayDanhSachChuyenBay());
+            cbbMaChuyenBay.DropDownStyle = ComboBoxStyle.DropDownList;
             SetResponsive();
         }
 
@@ -68,6 +72,9 @@ namespace QLBVBM.GUI
         public void ClearCombobox(Guna2ComboBox cbb) // clear the combobox and set it to disabled
         {
             cbb.DataSource = null;
+            cbb.Items.Clear();
+            cbb.Enabled = false;
+            cbb.Text = "";
             cbb.SelectedIndex = -1;
         }
 
@@ -113,6 +120,9 @@ namespace QLBVBM.GUI
                     txtGioBay.Text = selectedChuyenBay.GioBay?.ToString("HH:mm");
                     List<DTO_DonGiaHangGhe> dsHangGhe = busDonGiaHangGhe.LayDanhSachTenHangGheChuyenBay(selectedChuyenBay?.MaChuyenBay);
                     LoadDanhSachHangVeCB(dsHangGhe);
+
+                    hanCuoiDatVe = busChuyenBay.LayHanCuoiDatVe(selectedChuyenBay);
+                    lblLuuYDatVe.Text = "Vui lòng đặt vé trước " + hanCuoiDatVe.ToString("HH:mm dd/MM/yyyy");
                 }
                 else
                 {
@@ -125,9 +135,11 @@ namespace QLBVBM.GUI
         {
             if (dsHangVeCB != null)
             {
+                cbbHangVe.Enabled = true; // turn on the combobox
                 cbbHangVe.DataSource = dsHangVeCB;
                 cbbHangVe.DisplayMember = "TenHangGhe";
                 cbbHangVe.ValueMember = "MaHangGhe";
+
                 // Add tooltip to display MaHangGhe
                 ToolTip toolTip = new ToolTip();
                 cbbHangVe.SelectedIndexChanged += (s, e) =>
@@ -149,12 +161,16 @@ namespace QLBVBM.GUI
             if (cbbHangVe.SelectedIndex == -1)
             {
                 txtGiaTien.Text = "";
+                txtSoVeConLai.Text = "";
             }
             else
             {
                 if (cbbHangVe.SelectedItem is DTO_DonGiaHangGhe selectedHangVe)
                 {
+                    DTO_HangVeCB hangVeCB = busHangVeChuyenBay.TraCuuMotHangVe(selectedHangVe.MaChuyenBay, selectedHangVe.MaHangGhe);
+
                     txtGiaTien.Text = selectedHangVe.DonGia.ToString() ?? "";
+                    txtSoVeConLai.Text = hangVeCB.SoLuongGheConLai.ToString() ?? "";
                 }
             }
         }
@@ -229,10 +245,22 @@ namespace QLBVBM.GUI
                 return;
             }
 
+            if (Int32.Parse(txtSoVeConLai.Text) == 0)
+            {
+                MessageBox.Show("Rất tiếc, đã hết vé", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (hanCuoiDatVe < DateTime.Now)
+            {
+                MessageBox.Show("Rất tiếc, đã quá hạn đặt vé", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             DTO_VeChuyenBay veChuyenBay = new DTO_VeChuyenBay
             {
                 MaVe = busVeChuyenBay.PhatSinhMaVeChuyenBay(),
-                MaChuyenBay = cbbMaChuyenBay.SelectedValue.ToString(), // change to txtBox
+                MaChuyenBay = cbbMaChuyenBay.SelectedValue.ToString(),
                 MaHangGhe = cbbHangVe.SelectedValue.ToString(),
                 TenHanhKhach = txtTenHanhKhach.Text,
                 SoCMND = txtCMND.Text,
@@ -247,9 +275,9 @@ namespace QLBVBM.GUI
             };
 
 
-            bool success = busVeChuyenBay.ThemVeChuyenBayVaHangVe(veChuyenBay, hangVeCB);
+            bool success = busVeChuyenBay.DatVeChuyenBayVaHangVe(veChuyenBay, hangVeCB);
 
-            MessageBox.Show(success ? "Thêm vé thành công" : "Lỗi khi thêm vé",
+            MessageBox.Show(success ? "Đặt vé thành công" : "Lỗi khi đặt vé",
                             "Thông báo",
                             MessageBoxButtons.OK,
                             success ? MessageBoxIcon.Information : MessageBoxIcon.Error);
@@ -257,12 +285,7 @@ namespace QLBVBM.GUI
 
         private void btnInVe_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("In vé", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void btnThoat_Click(object sender, EventArgs e)
-        {
-            this.Close();
+            MessageBox.Show("In phiếu đặt", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace QLBVBM.GUI
 {
-    public partial class GUI_TiepNhanLichChuyenBay : Form
+    public partial class UC_TiepNhanLichChuyenBay : UserControl
     {
         private BUS_SanBay BUS_SanBay = new BUS_SanBay();
         private BUS_ChuyenBay BUS_ChuyenBay = new BUS_ChuyenBay();
@@ -23,7 +23,7 @@ namespace QLBVBM.GUI
 
         private ErrorProvider errorProvider = new ErrorProvider();
 
-        public GUI_TiepNhanLichChuyenBay()
+        public UC_TiepNhanLichChuyenBay()
         {
             InitializeComponent();
 
@@ -579,11 +579,6 @@ namespace QLBVBM.GUI
             {
                 errorProvider.SetError(dtpNgayBay, string.Empty);
             }
-        }
-
-        private void btnThoat_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void dgvDSHangGhe_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)

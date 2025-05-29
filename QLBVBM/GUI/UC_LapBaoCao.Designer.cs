@@ -1,6 +1,6 @@
 ﻿namespace QLBVBM.GUI
 {
-    partial class GUI_LapBaoCao
+    partial class UC_LapBaoCao
     {
         /// <summary>
         /// Required designer variable.
@@ -65,7 +65,6 @@
             // 
             // btnLapBaoCaoDoanhThu
             // 
-            btnLapBaoCaoDoanhThu.Anchor = AnchorStyles.None;
             btnLapBaoCaoDoanhThu.BorderRadius = 10;
             btnLapBaoCaoDoanhThu.CustomizableEdges = customizableEdges1;
             btnLapBaoCaoDoanhThu.DisabledState.BorderColor = Color.DarkGray;
@@ -75,7 +74,7 @@
             btnLapBaoCaoDoanhThu.FillColor = Color.FromArgb(64, 64, 64);
             btnLapBaoCaoDoanhThu.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 163);
             btnLapBaoCaoDoanhThu.ForeColor = Color.White;
-            btnLapBaoCaoDoanhThu.Location = new Point(527, 77);
+            btnLapBaoCaoDoanhThu.Location = new Point(527, 140);
             btnLapBaoCaoDoanhThu.Margin = new Padding(3, 2, 3, 2);
             btnLapBaoCaoDoanhThu.Name = "btnLapBaoCaoDoanhThu";
             btnLapBaoCaoDoanhThu.ShadowDecoration.CustomizableEdges = customizableEdges2;
@@ -86,7 +85,6 @@
             // 
             // btnThoat
             // 
-            btnThoat.Anchor = AnchorStyles.None;
             btnThoat.BorderRadius = 10;
             btnThoat.CustomizableEdges = customizableEdges3;
             btnThoat.DisabledState.BorderColor = Color.DarkGray;
@@ -96,20 +94,19 @@
             btnThoat.FillColor = Color.Silver;
             btnThoat.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 163);
             btnThoat.ForeColor = Color.Black;
-            btnThoat.Location = new Point(776, 77);
+            btnThoat.Location = new Point(776, 140);
             btnThoat.Margin = new Padding(3, 2, 3, 2);
             btnThoat.Name = "btnThoat";
             btnThoat.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btnThoat.Size = new Size(90, 49);
             btnThoat.TabIndex = 50;
             btnThoat.Text = "Thoát";
-            btnThoat.Click += btnThoat_Click;
             // 
             // lblThangLapBaoCao
             // 
             lblThangLapBaoCao.BackColor = Color.Transparent;
             lblThangLapBaoCao.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            lblThangLapBaoCao.Location = new Point(52, 34);
+            lblThangLapBaoCao.Location = new Point(78, 88);
             lblThangLapBaoCao.Margin = new Padding(3, 2, 3, 2);
             lblThangLapBaoCao.Name = "lblThangLapBaoCao";
             lblThangLapBaoCao.Size = new Size(132, 20);
@@ -120,7 +117,7 @@
             // 
             lblNamLapBaoCao.BackColor = Color.Transparent;
             lblNamLapBaoCao.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            lblNamLapBaoCao.Location = new Point(273, 35);
+            lblNamLapBaoCao.Location = new Point(296, 88);
             lblNamLapBaoCao.Margin = new Padding(3, 2, 3, 2);
             lblNamLapBaoCao.Name = "lblNamLapBaoCao";
             lblNamLapBaoCao.Size = new Size(118, 20);
@@ -131,7 +128,7 @@
             // 
             pnlLine.BackColor = SystemColors.WindowText;
             pnlLine.CustomizableEdges = customizableEdges5;
-            pnlLine.Location = new Point(1, 173);
+            pnlLine.Location = new Point(39, 227);
             pnlLine.Margin = new Padding(3, 2, 3, 2);
             pnlLine.Name = "pnlLine";
             pnlLine.ShadowDecoration.CustomizableEdges = customizableEdges6;
@@ -163,13 +160,13 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dgvBaoCaoDoanhThu.DefaultCellStyle = dataGridViewCellStyle3;
             dgvBaoCaoDoanhThu.GridColor = Color.Gray;
-            dgvBaoCaoDoanhThu.Location = new Point(52, 263);
+            dgvBaoCaoDoanhThu.Location = new Point(78, 338);
             dgvBaoCaoDoanhThu.Margin = new Padding(3, 2, 3, 2);
             dgvBaoCaoDoanhThu.Name = "dgvBaoCaoDoanhThu";
             dgvBaoCaoDoanhThu.RowHeadersVisible = false;
             dgvBaoCaoDoanhThu.RowHeadersWidth = 51;
             dgvBaoCaoDoanhThu.RowTemplate.Height = 29;
-            dgvBaoCaoDoanhThu.Size = new Size(788, 231);
+            dgvBaoCaoDoanhThu.Size = new Size(788, 360);
             dgvBaoCaoDoanhThu.TabIndex = 52;
             dgvBaoCaoDoanhThu.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             dgvBaoCaoDoanhThu.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -227,7 +224,7 @@
             // 
             lblTongDoanhThu.BackColor = Color.Transparent;
             lblTongDoanhThu.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            lblTongDoanhThu.Location = new Point(52, 210);
+            lblTongDoanhThu.Location = new Point(78, 263);
             lblTongDoanhThu.Margin = new Padding(3, 2, 3, 2);
             lblTongDoanhThu.Name = "lblTongDoanhThu";
             lblTongDoanhThu.Size = new Size(348, 21);
@@ -236,7 +233,6 @@
             // 
             // txtTongDoanhThu
             // 
-            txtTongDoanhThu.Anchor = AnchorStyles.None;
             txtTongDoanhThu.BorderRadius = 7;
             txtTongDoanhThu.CustomizableEdges = customizableEdges7;
             txtTongDoanhThu.DefaultText = "";
@@ -248,7 +244,7 @@
             txtTongDoanhThu.Font = new Font("Arial", 11F);
             txtTongDoanhThu.ForeColor = Color.Black;
             txtTongDoanhThu.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtTongDoanhThu.Location = new Point(500, 202);
+            txtTongDoanhThu.Location = new Point(527, 248);
             txtTongDoanhThu.Name = "txtTongDoanhThu";
             txtTongDoanhThu.PlaceholderText = "";
             txtTongDoanhThu.ReadOnly = true;
@@ -259,7 +255,6 @@
             // 
             // cbbThangBaoCao
             // 
-            cbbThangBaoCao.Anchor = AnchorStyles.None;
             cbbThangBaoCao.BackColor = Color.Transparent;
             cbbThangBaoCao.BorderColor = Color.Silver;
             cbbThangBaoCao.BorderRadius = 7;
@@ -273,7 +268,7 @@
             cbbThangBaoCao.ForeColor = Color.Black;
             cbbThangBaoCao.IntegralHeight = false;
             cbbThangBaoCao.ItemHeight = 44;
-            cbbThangBaoCao.Location = new Point(52, 77);
+            cbbThangBaoCao.Location = new Point(78, 140);
             cbbThangBaoCao.Name = "cbbThangBaoCao";
             cbbThangBaoCao.ShadowDecoration.CustomizableEdges = customizableEdges10;
             cbbThangBaoCao.Size = new Size(173, 50);
@@ -281,7 +276,6 @@
             // 
             // cbbNamBaoCao
             // 
-            cbbNamBaoCao.Anchor = AnchorStyles.None;
             cbbNamBaoCao.BackColor = Color.Transparent;
             cbbNamBaoCao.BorderColor = Color.Silver;
             cbbNamBaoCao.BorderRadius = 7;
@@ -295,17 +289,16 @@
             cbbNamBaoCao.ForeColor = Color.Black;
             cbbNamBaoCao.IntegralHeight = false;
             cbbNamBaoCao.ItemHeight = 44;
-            cbbNamBaoCao.Location = new Point(273, 77);
+            cbbNamBaoCao.Location = new Point(296, 140);
             cbbNamBaoCao.Name = "cbbNamBaoCao";
             cbbNamBaoCao.ShadowDecoration.CustomizableEdges = customizableEdges12;
             cbbNamBaoCao.Size = new Size(173, 50);
             cbbNamBaoCao.TabIndex = 59;
             // 
-            // GUI_LapBaoCao
+            // UC_LapBaoCao
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(898, 530);
             Controls.Add(cbbNamBaoCao);
             Controls.Add(cbbThangBaoCao);
             Controls.Add(txtTongDoanhThu);
@@ -318,9 +311,8 @@
             Controls.Add(lblNamLapBaoCao);
             Margin = new Padding(3, 2, 3, 2);
             MinimumSize = new Size(803, 422);
-            Name = "GUI_LapBaoCao";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "GUI_LapBaoCao";
+            Name = "UC_LapBaoCao";
+            Size = new Size(966, 740);
             ((System.ComponentModel.ISupportInitialize)dgvBaoCaoDoanhThu).EndInit();
             ResumeLayout(false);
             PerformLayout();

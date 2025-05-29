@@ -13,12 +13,12 @@ using Guna.UI2.WinForms;
 
 namespace QLBVBM.GUI
 {
-    public partial class GUI_BaoCaoDoanhThuNam : Form
+    public partial class UC_BaoCaoDoanhThuNam : UserControl
     {
         private BUS_ChuyenBay busChuyenBay = new BUS_ChuyenBay();
         private BUS_VeChuyenBay busVeChuyenBay = new BUS_VeChuyenBay();
 
-        public GUI_BaoCaoDoanhThuNam()
+        public UC_BaoCaoDoanhThuNam()
         {
             InitializeComponent();
             SetResponsive();
@@ -89,17 +89,17 @@ namespace QLBVBM.GUI
             dgvBaoCaoDoanhThuNam.Columns.Add("DoanhThu", "Doanh thu");
             dgvBaoCaoDoanhThuNam.Columns.Add("TyLe", "Tỷ lệ");
 
-            // Align numbers to the right
-            dgvBaoCaoDoanhThuNam.Columns["Thang"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dgvBaoCaoDoanhThuNam.Columns["SoChuyenBay"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dgvBaoCaoDoanhThuNam.Columns["DoanhThu"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dgvBaoCaoDoanhThuNam.Columns["TyLe"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            // Align all cell content to center
+            foreach (DataGridViewColumn col in dgvBaoCaoDoanhThuNam.Columns)
+            {
+                col.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            }
 
             // Center header text
             dgvBaoCaoDoanhThuNam.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-            // Make header font bold and set colors
-            dgvBaoCaoDoanhThuNam.ColumnHeadersDefaultCellStyle.Font = new Font(dgvBaoCaoDoanhThuNam.Font, FontStyle.Bold);
+            // Make header font bigger, bold and set colors
+            dgvBaoCaoDoanhThuNam.ColumnHeadersDefaultCellStyle.Font = new Font(dgvBaoCaoDoanhThuNam.Font.FontFamily, 14, FontStyle.Bold);
             dgvBaoCaoDoanhThuNam.EnableHeadersVisualStyles = false;
             dgvBaoCaoDoanhThuNam.ColumnHeadersDefaultCellStyle.BackColor = Color.DarkGray;
             dgvBaoCaoDoanhThuNam.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
@@ -211,11 +211,6 @@ namespace QLBVBM.GUI
         private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-        }
-
-        private void btnThoat_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

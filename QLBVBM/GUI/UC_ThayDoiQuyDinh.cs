@@ -13,13 +13,13 @@ using System.Windows.Forms;
 
 namespace QLBVBM.GUI
 {
-    public partial class GUI_ThayDoiQuyDinh : Form
+    public partial class UC_ThayDoiQuyDinh : UserControl
     {
         public BUS_ThamSo busThamSo = new BUS_ThamSo();
         public BUS_SanBay busSanBay = new BUS_SanBay();
         public BUS_HangVeTuyenBay busHangVeTuyenBay = new BUS_HangVeTuyenBay();
 
-        public GUI_ThayDoiQuyDinh()
+        public UC_ThayDoiQuyDinh()
         {
             InitializeComponent();
             SetResponsive();
@@ -199,11 +199,6 @@ namespace QLBVBM.GUI
             {
                 MessageBox.Show("Thay đổi quy định thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void btnThoat_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

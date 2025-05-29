@@ -12,12 +12,12 @@ using QLBVBM.DTO;
 
 namespace QLBVBM.GUI
 {
-    public partial class GUI_LapBaoCao : Form
+    public partial class UC_LapBaoCao : UserControl
     {
         private BUS_VeChuyenBay busVeChuyenBay = new BUS_VeChuyenBay();
         private BUS_ChuyenBay busChuyenBay = new BUS_ChuyenBay();
 
-        public GUI_LapBaoCao()
+        public UC_LapBaoCao()
         {
             InitializeComponent();
             SetResponsive();
@@ -31,7 +31,6 @@ namespace QLBVBM.GUI
                 control.Anchor = AnchorStyles.None;
             }
         }
-
         private void PopulateMonthsAndYears()
         {
             //month
@@ -44,19 +43,15 @@ namespace QLBVBM.GUI
 
             //year
             cbbNamBaoCao.Items.Clear();
-            var chuyenBayCuoi = busChuyenBay.LayChuyenBayGanNhat();
-            int lastFlightYear = DateTime.Now.Year; 
-            if (chuyenBayCuoi != null && chuyenBayCuoi.NgayBay.HasValue)
+            var namRange = busChuyenBay.LayNamDauTienVaCuoiCungChoVe();
+            int minYear = namRange.Item1;
+            int maxYear = namRange.Item2;
+            for (int year = minYear; year <= maxYear; year++)
             {
-                lastFlightYear = ((DateTime)chuyenBayCuoi.NgayBay).Year;
+                cbbNamBaoCao.Items.Add(year);
             }
-            for (int nam = 2000; nam <= lastFlightYear; nam++)
-            {
-                cbbNamBaoCao.Items.Add(nam);
-            }
-            cbbNamBaoCao.SelectedItem = lastFlightYear;
+            cbbNamBaoCao.SelectedItem = maxYear;
         }
-
         private void btnLapBaoCaoDoanhThu_Click(object sender, EventArgs e)
         {
             dgvBaoCaoDoanhThu.Rows.Clear();
@@ -71,7 +66,7 @@ namespace QLBVBM.GUI
             if (dsChuyenBay != null && dsChuyenBay.Count > 0)
             {
                 List<DTO_VeChuyenBay> dsVeChuyenBayDaThanhToan = new List<DTO_VeChuyenBay>();
-                
+
                 dsVeChuyenBayDaThanhToan = busVeChuyenBay.LayVeThanhToanTheoChuyenBay(dsChuyenBay);
 
                 dgvBaoCaoDoanhThu.Rows.Clear();
@@ -86,7 +81,7 @@ namespace QLBVBM.GUI
                 }*/
 
                 //dgv doanh thu
-                var dsMaChuyenBay = dsChuyenBay
+                var dsMaChuyenBay = dsVeChuyenBayDaThanhToan
                     .Select(h => h.MaChuyenBay)
                     .Distinct();
 
@@ -121,11 +116,6 @@ namespace QLBVBM.GUI
             {
                 MessageBox.Show("Không tìm thấy chuyến bay đã bay trong thời gian trên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-        }
-
-        private void btnThoat_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Data;
 
 namespace QLBVBM.GUI
 {
-    partial class GUI_TiepNhanLichChuyenBay
+    partial class UC_TiepNhanLichChuyenBay
     {
         /// <summary>
         /// Required designer variable.
@@ -467,7 +467,6 @@ namespace QLBVBM.GUI
             btnThoat.Size = new Size(214, 44);
             btnThoat.TabIndex = 42;
             btnThoat.Text = "Thoát";
-            btnThoat.Click += btnThoat_Click;
             // 
             // dtpGioBay
             // 
@@ -532,7 +531,6 @@ namespace QLBVBM.GUI
             MaximumSize = new Size(1700, 1194);
             MinimumSize = new Size(775, 769);
             Name = "GUI_TiepNhanLichChuyenBay";
-            StartPosition = FormStartPosition.CenterScreen;
             Text = "Tiếp Nhận Lịch Chuyến Bay";
             ((System.ComponentModel.ISupportInitialize)dgvDSSanBayTG).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvDSHangGhe).EndInit();
