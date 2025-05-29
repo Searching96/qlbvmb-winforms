@@ -34,7 +34,7 @@ namespace QLBVBM.GUI
             navPanel = new Guna2Panel();
             navPanel.Dock = DockStyle.Left;
             navPanel.Width = 270;
-            navPanel.FillColor = Color.FromArgb(45, 45, 60);
+            navPanel.FillColor = Color.FromArgb(64, 64, 64);
 
             // Thêm mainPanel trước -> chiếm phần còn lại bên phải
             this.Controls.Add(mainPanel);
@@ -97,13 +97,13 @@ namespace QLBVBM.GUI
                 TextOffset = new Point(15, 0),
                 Dock = DockStyle.Top,
                 Height = 65, // tăng chiều cao nút
-                FillColor = Color.FromArgb(60, 60, 80),
-                HoverState = { FillColor = Color.FromArgb(75, 75, 100) },
+                FillColor = Color.FromArgb(80, 80, 80),
+                HoverState = { FillColor = Color.FromArgb(100, 100, 100) },
                 Font = new Font("Segoe UI", 14, FontStyle.Bold),
                 ForeColor = Color.White,
                 TextAlign = HorizontalAlignment.Left,
                 ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton,
-                CheckedState = { FillColor = Color.FromArgb(90, 90, 120) },
+                CheckedState = { FillColor = Color.FromArgb(120, 120, 140) },
                 BorderRadius = 1,
                 Margin = new Padding(0, 5, 0, 5) // thêm khoảng cách giữa các nút
             };
@@ -114,10 +114,10 @@ namespace QLBVBM.GUI
             // Tạo nút Thoát
             var exitBtn = CreateNavButton("Thoát");
 
-            // Thay đổi màu cho đặc biệt
-            exitBtn.FillColor = Color.FromArgb(200, 60, 60);
-            exitBtn.HoverState.FillColor = Color.FromArgb(220, 80, 80);
-            exitBtn.CheckedState.FillColor = Color.FromArgb(220, 80, 80);
+            // Chỉnh màu đỏ cho mát hơn
+            exitBtn.FillColor = Color.FromArgb(180, 40, 60);
+            exitBtn.HoverState.FillColor = Color.FromArgb(200, 60, 80);
+            exitBtn.CheckedState.FillColor = Color.FromArgb(200, 60, 80);
 
             // Bắt sự kiện đóng form
             exitBtn.Click += (s, e) => this.Close();
