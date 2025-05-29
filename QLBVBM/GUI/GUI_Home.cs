@@ -20,6 +20,7 @@ namespace QLBVBM.GUI
         {
             InitializeComponent();
             InitializePanels();
+            AddExitButton(); 
         }
 
         private void InitializePanels()
@@ -32,7 +33,7 @@ namespace QLBVBM.GUI
             // Tạo panel NavBar bên trái
             navPanel = new Guna2Panel();
             navPanel.Dock = DockStyle.Left;
-            navPanel.Width = 200;
+            navPanel.Width = 220;
             navPanel.FillColor = Color.FromArgb(45, 45, 60);
 
             // Thêm mainPanel trước -> chiếm phần còn lại bên phải
@@ -75,6 +76,7 @@ namespace QLBVBM.GUI
                 navPanel.Controls.Add(btn);
                 navPanel.Controls.SetChildIndex(btn, 0); // Đặt nút ở đầu panel
             }
+
         }
 
         private Guna2Button CreateNavButton(string text)
@@ -86,15 +88,37 @@ namespace QLBVBM.GUI
                 ImageSize = new Size(24, 24),
                 TextOffset = new Point(15, 0),
                 Dock = DockStyle.Top,
-                Height = 50,
+                Height = 60, // tăng chiều cao nút
                 FillColor = Color.FromArgb(60, 60, 80),
                 HoverState = { FillColor = Color.FromArgb(75, 75, 100) },
-                Font = new Font("Segoe UI", 10),
+                Font = new Font("Segoe UI", 10, FontStyle.Bold),
                 ForeColor = Color.White,
                 TextAlign = HorizontalAlignment.Left,
                 ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton,
-                CheckedState = { FillColor = Color.FromArgb(90, 90, 120) }
+                CheckedState = { FillColor = Color.FromArgb(90, 90, 120) },
+                BorderRadius = 4,
+                Margin = new Padding(0, 5, 0, 5) // thêm khoảng cách giữa các nút
             };
+        }
+
+        private void AddExitButton()
+        {
+            // Tạo nút Thoát
+            var exitBtn = CreateNavButton("Thoát");
+
+            // Thay đổi màu cho đặc biệt
+            exitBtn.FillColor = Color.FromArgb(200, 60, 60);
+            exitBtn.HoverState.FillColor = Color.FromArgb(220, 80, 80);
+            exitBtn.CheckedState.FillColor = Color.FromArgb(220, 80, 80);
+
+            // Bắt sự kiện đóng form
+            exitBtn.Click += (s, e) => this.Close();
+
+            // Đặt dock bottom để luôn nằm cuối
+            exitBtn.Dock = DockStyle.Bottom;
+
+            // Không thêm vào navButtons (không tính vào tổng chiều cao căn giữa)
+            navPanel.Controls.Add(exitBtn);
         }
     }
 }
