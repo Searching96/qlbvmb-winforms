@@ -200,7 +200,5 @@ namespace QLBVBM.GUI
                 MessageBox.Show("Thay đổi quy định thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        
     }
 }

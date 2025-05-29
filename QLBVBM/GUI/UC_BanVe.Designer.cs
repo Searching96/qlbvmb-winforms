@@ -52,12 +52,12 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             cbbMaChuyenBay = new Guna.UI2.WinForms.Guna2ComboBox();
             txtSanBayDen = new Guna.UI2.WinForms.Guna2TextBox();
             txtSanBayDi = new Guna.UI2.WinForms.Guna2TextBox();
@@ -83,16 +83,14 @@
             txtHangVe = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblThongTinVe = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            guna2CustomGradientPanel3 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            pnlLine = new Guna.UI2.WinForms.Guna2Panel();
             guna2CustomGradientPanel1.SuspendLayout();
-            guna2CustomGradientPanel2.SuspendLayout();
-            guna2CustomGradientPanel3.SuspendLayout();
             SuspendLayout();
             // 
             // cbbMaChuyenBay
             // 
-            cbbMaChuyenBay.Anchor = AnchorStyles.Left;
+            cbbMaChuyenBay.Anchor = AnchorStyles.Top;
             cbbMaChuyenBay.BackColor = Color.Transparent;
             cbbMaChuyenBay.BorderColor = Color.Silver;
             cbbMaChuyenBay.BorderRadius = 7;
@@ -106,7 +104,7 @@
             cbbMaChuyenBay.ForeColor = Color.Black;
             cbbMaChuyenBay.IntegralHeight = false;
             cbbMaChuyenBay.ItemHeight = 44;
-            cbbMaChuyenBay.Location = new Point(24, 97);
+            cbbMaChuyenBay.Location = new Point(24, 114);
             cbbMaChuyenBay.Name = "cbbMaChuyenBay";
             cbbMaChuyenBay.ShadowDecoration.CustomizableEdges = customizableEdges2;
             cbbMaChuyenBay.Size = new Size(271, 50);
@@ -115,7 +113,7 @@
             // 
             // txtSanBayDen
             // 
-            txtSanBayDen.Anchor = AnchorStyles.Left;
+            txtSanBayDen.Anchor = AnchorStyles.Top;
             txtSanBayDen.BackColor = Color.Transparent;
             txtSanBayDen.BorderColor = Color.Silver;
             txtSanBayDen.BorderRadius = 7;
@@ -130,7 +128,7 @@
             txtSanBayDen.Font = new Font("Segoe UI", 9F);
             txtSanBayDen.ForeColor = Color.Black;
             txtSanBayDen.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtSanBayDen.Location = new Point(389, 204);
+            txtSanBayDen.Location = new Point(389, 221);
             txtSanBayDen.Name = "txtSanBayDen";
             txtSanBayDen.PlaceholderText = "";
             txtSanBayDen.ReadOnly = true;
@@ -141,7 +139,7 @@
             // 
             // txtSanBayDi
             // 
-            txtSanBayDi.Anchor = AnchorStyles.Left;
+            txtSanBayDi.Anchor = AnchorStyles.Top;
             txtSanBayDi.BackColor = Color.Transparent;
             txtSanBayDi.BorderColor = Color.Silver;
             txtSanBayDi.BorderRadius = 7;
@@ -156,7 +154,7 @@
             txtSanBayDi.Font = new Font("Segoe UI", 9F);
             txtSanBayDi.ForeColor = Color.Black;
             txtSanBayDi.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtSanBayDi.Location = new Point(25, 204);
+            txtSanBayDi.Location = new Point(25, 221);
             txtSanBayDi.Name = "txtSanBayDi";
             txtSanBayDi.PlaceholderText = "";
             txtSanBayDi.ReadOnly = true;
@@ -167,7 +165,7 @@
             // 
             // txtGioBay
             // 
-            txtGioBay.Anchor = AnchorStyles.Left;
+            txtGioBay.Anchor = AnchorStyles.Top;
             txtGioBay.BackColor = Color.Transparent;
             txtGioBay.BorderRadius = 7;
             txtGioBay.CustomizableEdges = customizableEdges7;
@@ -182,7 +180,7 @@
             txtGioBay.ForeColor = Color.Black;
             txtGioBay.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtGioBay.IconRight = Properties.Resources.time;
-            txtGioBay.Location = new Point(560, 97);
+            txtGioBay.Location = new Point(560, 114);
             txtGioBay.Name = "txtGioBay";
             txtGioBay.PlaceholderText = "";
             txtGioBay.ReadOnly = true;
@@ -194,7 +192,7 @@
             // 
             // dtpNgayBay
             // 
-            dtpNgayBay.Anchor = AnchorStyles.Left;
+            dtpNgayBay.Anchor = AnchorStyles.Top;
             dtpNgayBay.BackColor = Color.Transparent;
             dtpNgayBay.BorderColor = Color.Silver;
             dtpNgayBay.BorderRadius = 7;
@@ -205,7 +203,7 @@
             dtpNgayBay.Font = new Font("Segoe UI", 9F);
             dtpNgayBay.ForeColor = Color.Black;
             dtpNgayBay.Format = DateTimePickerFormat.Long;
-            dtpNgayBay.Location = new Point(352, 97);
+            dtpNgayBay.Location = new Point(352, 114);
             dtpNgayBay.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             dtpNgayBay.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             dtpNgayBay.Name = "dtpNgayBay";
@@ -216,10 +214,10 @@
             // 
             // lblNgayGioBay
             // 
-            lblNgayGioBay.Anchor = AnchorStyles.Left;
+            lblNgayGioBay.Anchor = AnchorStyles.Top;
             lblNgayGioBay.BackColor = Color.Transparent;
             lblNgayGioBay.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            lblNgayGioBay.Location = new Point(352, 72);
+            lblNgayGioBay.Location = new Point(352, 89);
             lblNgayGioBay.Name = "lblNgayGioBay";
             lblNgayGioBay.Size = new Size(97, 19);
             lblNgayGioBay.TabIndex = 4;
@@ -227,10 +225,10 @@
             // 
             // lblSanBayDi
             // 
-            lblSanBayDi.Anchor = AnchorStyles.Left;
+            lblSanBayDi.Anchor = AnchorStyles.Top;
             lblSanBayDi.BackColor = Color.Transparent;
             lblSanBayDi.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            lblSanBayDi.Location = new Point(25, 179);
+            lblSanBayDi.Location = new Point(25, 196);
             lblSanBayDi.Name = "lblSanBayDi";
             lblSanBayDi.Size = new Size(71, 19);
             lblSanBayDi.TabIndex = 3;
@@ -238,10 +236,10 @@
             // 
             // lblSanBayDen
             // 
-            lblSanBayDen.Anchor = AnchorStyles.Left;
+            lblSanBayDen.Anchor = AnchorStyles.Top;
             lblSanBayDen.BackColor = Color.Transparent;
             lblSanBayDen.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            lblSanBayDen.Location = new Point(405, 179);
+            lblSanBayDen.Location = new Point(405, 196);
             lblSanBayDen.Name = "lblSanBayDen";
             lblSanBayDen.Size = new Size(84, 19);
             lblSanBayDen.TabIndex = 2;
@@ -249,10 +247,10 @@
             // 
             // lblMaChuyenBay
             // 
-            lblMaChuyenBay.Anchor = AnchorStyles.Left;
+            lblMaChuyenBay.Anchor = AnchorStyles.Top;
             lblMaChuyenBay.BackColor = Color.Transparent;
             lblMaChuyenBay.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            lblMaChuyenBay.Location = new Point(25, 72);
+            lblMaChuyenBay.Location = new Point(25, 89);
             lblMaChuyenBay.Name = "lblMaChuyenBay";
             lblMaChuyenBay.Size = new Size(100, 19);
             lblMaChuyenBay.TabIndex = 1;
@@ -260,10 +258,10 @@
             // 
             // lblThongTinChuyenBay
             // 
-            lblThongTinChuyenBay.Anchor = AnchorStyles.Left;
+            lblThongTinChuyenBay.Anchor = AnchorStyles.Top;
             lblThongTinChuyenBay.BackColor = Color.Transparent;
             lblThongTinChuyenBay.Font = new Font("Arial", 18.75F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            lblThongTinChuyenBay.Location = new Point(216, 14);
+            lblThongTinChuyenBay.Location = new Point(216, 31);
             lblThongTinChuyenBay.Name = "lblThongTinChuyenBay";
             lblThongTinChuyenBay.Size = new Size(257, 32);
             lblThongTinChuyenBay.TabIndex = 0;
@@ -285,7 +283,7 @@
             txtSDT.ForeColor = Color.Black;
             txtSDT.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtSDT.IconRight = Properties.Resources.phone;
-            txtSDT.Location = new Point(389, 205);
+            txtSDT.Location = new Point(389, 490);
             txtSDT.Name = "txtSDT";
             txtSDT.PlaceholderText = "";
             txtSDT.SelectedText = "";
@@ -309,7 +307,7 @@
             txtCMND.Font = new Font("Segoe UI", 9F);
             txtCMND.ForeColor = Color.Black;
             txtCMND.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtCMND.Location = new Point(25, 205);
+            txtCMND.Location = new Point(25, 490);
             txtCMND.Name = "txtCMND";
             txtCMND.PlaceholderText = "";
             txtCMND.SelectedText = "";
@@ -333,7 +331,7 @@
             txtTenHanhKhach.Font = new Font("Segoe UI", 9F);
             txtTenHanhKhach.ForeColor = Color.Black;
             txtTenHanhKhach.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtTenHanhKhach.Location = new Point(25, 103);
+            txtTenHanhKhach.Location = new Point(25, 388);
             txtTenHanhKhach.Name = "txtTenHanhKhach";
             txtTenHanhKhach.PlaceholderText = "";
             txtTenHanhKhach.SelectedText = "";
@@ -347,7 +345,7 @@
             lblTenHanhKhach.Anchor = AnchorStyles.Left;
             lblTenHanhKhach.BackColor = Color.Transparent;
             lblTenHanhKhach.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            lblTenHanhKhach.Location = new Point(26, 78);
+            lblTenHanhKhach.Location = new Point(26, 363);
             lblTenHanhKhach.Name = "lblTenHanhKhach";
             lblTenHanhKhach.Size = new Size(107, 19);
             lblTenHanhKhach.TabIndex = 34;
@@ -357,7 +355,7 @@
             // 
             lblCMND.BackColor = Color.Transparent;
             lblCMND.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            lblCMND.Location = new Point(26, 180);
+            lblCMND.Location = new Point(26, 465);
             lblCMND.Name = "lblCMND";
             lblCMND.Size = new Size(46, 19);
             lblCMND.TabIndex = 33;
@@ -368,7 +366,7 @@
             lblSDT.Anchor = AnchorStyles.Left;
             lblSDT.BackColor = Color.Transparent;
             lblSDT.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            lblSDT.Location = new Point(389, 180);
+            lblSDT.Location = new Point(389, 465);
             lblSDT.Name = "lblSDT";
             lblSDT.Size = new Size(87, 19);
             lblSDT.TabIndex = 32;
@@ -379,7 +377,7 @@
             lblThongTinHanhKhach.Anchor = AnchorStyles.Left;
             lblThongTinHanhKhach.BackColor = Color.Transparent;
             lblThongTinHanhKhach.Font = new Font("Arial", 18.75F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            lblThongTinHanhKhach.Location = new Point(216, 16);
+            lblThongTinHanhKhach.Location = new Point(216, 309);
             lblThongTinHanhKhach.Name = "lblThongTinHanhKhach";
             lblThongTinHanhKhach.Size = new Size(260, 32);
             lblThongTinHanhKhach.TabIndex = 31;
@@ -397,7 +395,7 @@
             btnTimChuyenBay.FillColor = Color.Silver;
             btnTimChuyenBay.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 163);
             btnTimChuyenBay.ForeColor = Color.Black;
-            btnTimChuyenBay.Location = new Point(389, 182);
+            btnTimChuyenBay.Location = new Point(390, 763);
             btnTimChuyenBay.Name = "btnTimChuyenBay";
             btnTimChuyenBay.ShadowDecoration.CustomizableEdges = customizableEdges18;
             btnTimChuyenBay.Size = new Size(152, 42);
@@ -417,7 +415,7 @@
             btnLuuVe.FillColor = Color.FromArgb(64, 64, 64);
             btnLuuVe.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 163);
             btnLuuVe.ForeColor = Color.White;
-            btnLuuVe.Location = new Point(143, 182);
+            btnLuuVe.Location = new Point(144, 763);
             btnLuuVe.Name = "btnLuuVe";
             btnLuuVe.ShadowDecoration.CustomizableEdges = customizableEdges20;
             btnLuuVe.Size = new Size(152, 42);
@@ -442,7 +440,7 @@
             txtGiaTien.Font = new Font("Segoe UI", 9F);
             txtGiaTien.ForeColor = Color.Black;
             txtGiaTien.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtGiaTien.Location = new Point(389, 100);
+            txtGiaTien.Location = new Point(390, 681);
             txtGiaTien.Name = "txtGiaTien";
             txtGiaTien.PlaceholderText = "";
             txtGiaTien.ReadOnly = true;
@@ -457,7 +455,7 @@
             lblGiaTien.Anchor = AnchorStyles.Left;
             lblGiaTien.BackColor = Color.Transparent;
             lblGiaTien.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            lblGiaTien.Location = new Point(389, 75);
+            lblGiaTien.Location = new Point(390, 656);
             lblGiaTien.Name = "lblGiaTien";
             lblGiaTien.Size = new Size(52, 19);
             lblGiaTien.TabIndex = 38;
@@ -477,7 +475,7 @@
             cbbHangVe.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 163);
             cbbHangVe.ForeColor = Color.Black;
             cbbHangVe.ItemHeight = 44;
-            cbbHangVe.Location = new Point(24, 100);
+            cbbHangVe.Location = new Point(25, 681);
             cbbHangVe.Name = "cbbHangVe";
             cbbHangVe.ShadowDecoration.CustomizableEdges = customizableEdges24;
             cbbHangVe.Size = new Size(271, 50);
@@ -488,7 +486,7 @@
             // 
             txtHangVe.BackColor = Color.Transparent;
             txtHangVe.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            txtHangVe.Location = new Point(24, 75);
+            txtHangVe.Location = new Point(25, 656);
             txtHangVe.Name = "txtHangVe";
             txtHangVe.Size = new Size(56, 19);
             txtHangVe.TabIndex = 38;
@@ -499,7 +497,7 @@
             lblThongTinVe.Anchor = AnchorStyles.Left;
             lblThongTinVe.BackColor = Color.Transparent;
             lblThongTinVe.Font = new Font("Arial", 18.75F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            lblThongTinVe.Location = new Point(254, 12);
+            lblThongTinVe.Location = new Point(254, 618);
             lblThongTinVe.Name = "lblThongTinVe";
             lblThongTinVe.Size = new Size(151, 32);
             lblThongTinVe.TabIndex = 38;
@@ -508,85 +506,76 @@
             // guna2CustomGradientPanel1
             // 
             guna2CustomGradientPanel1.BorderColor = Color.Black;
+            guna2CustomGradientPanel1.BorderRadius = 20;
             guna2CustomGradientPanel1.BorderThickness = 1;
+            guna2CustomGradientPanel1.Controls.Add(guna2Panel1);
+            guna2CustomGradientPanel1.Controls.Add(pnlLine);
+            guna2CustomGradientPanel1.Controls.Add(lblThongTinVe);
+            guna2CustomGradientPanel1.Controls.Add(cbbHangVe);
             guna2CustomGradientPanel1.Controls.Add(lblThongTinChuyenBay);
+            guna2CustomGradientPanel1.Controls.Add(txtHangVe);
             guna2CustomGradientPanel1.Controls.Add(dtpNgayBay);
+            guna2CustomGradientPanel1.Controls.Add(btnTimChuyenBay);
+            guna2CustomGradientPanel1.Controls.Add(lblThongTinHanhKhach);
+            guna2CustomGradientPanel1.Controls.Add(txtGiaTien);
             guna2CustomGradientPanel1.Controls.Add(txtSanBayDen);
+            guna2CustomGradientPanel1.Controls.Add(btnLuuVe);
+            guna2CustomGradientPanel1.Controls.Add(txtTenHanhKhach);
+            guna2CustomGradientPanel1.Controls.Add(lblGiaTien);
             guna2CustomGradientPanel1.Controls.Add(lblMaChuyenBay);
             guna2CustomGradientPanel1.Controls.Add(cbbMaChuyenBay);
             guna2CustomGradientPanel1.Controls.Add(txtSanBayDi);
+            guna2CustomGradientPanel1.Controls.Add(lblTenHanhKhach);
             guna2CustomGradientPanel1.Controls.Add(lblNgayGioBay);
             guna2CustomGradientPanel1.Controls.Add(lblSanBayDi);
+            guna2CustomGradientPanel1.Controls.Add(lblSDT);
             guna2CustomGradientPanel1.Controls.Add(lblSanBayDen);
             guna2CustomGradientPanel1.Controls.Add(txtGioBay);
-            guna2CustomGradientPanel1.CustomizableEdges = customizableEdges25;
+            guna2CustomGradientPanel1.Controls.Add(txtSDT);
+            guna2CustomGradientPanel1.Controls.Add(lblCMND);
+            guna2CustomGradientPanel1.Controls.Add(txtCMND);
+            guna2CustomGradientPanel1.CustomizableEdges = customizableEdges29;
             guna2CustomGradientPanel1.FillColor = SystemColors.Control;
             guna2CustomGradientPanel1.FillColor2 = SystemColors.Control;
             guna2CustomGradientPanel1.FillColor3 = SystemColors.Control;
             guna2CustomGradientPanel1.Location = new Point(15, 3);
             guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
-            guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges26;
-            guna2CustomGradientPanel1.Size = new Size(710, 304);
+            guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges30;
+            guna2CustomGradientPanel1.Size = new Size(710, 833);
             guna2CustomGradientPanel1.TabIndex = 43;
             // 
-            // guna2CustomGradientPanel2
+            // guna2Panel1
             // 
-            guna2CustomGradientPanel2.BorderColor = Color.Black;
-            guna2CustomGradientPanel2.BorderThickness = 1;
-            guna2CustomGradientPanel2.Controls.Add(lblThongTinHanhKhach);
-            guna2CustomGradientPanel2.Controls.Add(txtTenHanhKhach);
-            guna2CustomGradientPanel2.Controls.Add(lblTenHanhKhach);
-            guna2CustomGradientPanel2.Controls.Add(lblSDT);
-            guna2CustomGradientPanel2.Controls.Add(lblCMND);
-            guna2CustomGradientPanel2.Controls.Add(txtSDT);
-            guna2CustomGradientPanel2.Controls.Add(txtCMND);
-            guna2CustomGradientPanel2.CustomizableEdges = customizableEdges27;
-            guna2CustomGradientPanel2.FillColor = SystemColors.Control;
-            guna2CustomGradientPanel2.FillColor2 = SystemColors.Control;
-            guna2CustomGradientPanel2.FillColor3 = SystemColors.Control;
-            guna2CustomGradientPanel2.Location = new Point(15, 304);
-            guna2CustomGradientPanel2.Name = "guna2CustomGradientPanel2";
-            guna2CustomGradientPanel2.ShadowDecoration.CustomizableEdges = customizableEdges28;
-            guna2CustomGradientPanel2.Size = new Size(710, 304);
-            guna2CustomGradientPanel2.TabIndex = 44;
+            guna2Panel1.BackColor = SystemColors.WindowText;
+            guna2Panel1.CustomizableEdges = customizableEdges25;
+            guna2Panel1.Location = new Point(0, 596);
+            guna2Panel1.Margin = new Padding(3, 2, 3, 2);
+            guna2Panel1.Name = "guna2Panel1";
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges26;
+            guna2Panel1.Size = new Size(710, 1);
+            guna2Panel1.TabIndex = 54;
             // 
-            // guna2CustomGradientPanel3
+            // pnlLine
             // 
-            guna2CustomGradientPanel3.BorderColor = Color.Black;
-            guna2CustomGradientPanel3.BorderThickness = 1;
-            guna2CustomGradientPanel3.Controls.Add(lblThongTinVe);
-            guna2CustomGradientPanel3.Controls.Add(cbbHangVe);
-            guna2CustomGradientPanel3.Controls.Add(txtHangVe);
-            guna2CustomGradientPanel3.Controls.Add(btnTimChuyenBay);
-            guna2CustomGradientPanel3.Controls.Add(txtGiaTien);
-            guna2CustomGradientPanel3.Controls.Add(btnLuuVe);
-            guna2CustomGradientPanel3.Controls.Add(lblGiaTien);
-            guna2CustomGradientPanel3.CustomizableEdges = customizableEdges29;
-            guna2CustomGradientPanel3.FillColor = SystemColors.Control;
-            guna2CustomGradientPanel3.FillColor2 = SystemColors.Control;
-            guna2CustomGradientPanel3.FillColor3 = SystemColors.Control;
-            guna2CustomGradientPanel3.Location = new Point(15, 605);
-            guna2CustomGradientPanel3.Name = "guna2CustomGradientPanel3";
-            guna2CustomGradientPanel3.ShadowDecoration.CustomizableEdges = customizableEdges30;
-            guna2CustomGradientPanel3.Size = new Size(710, 243);
-            guna2CustomGradientPanel3.TabIndex = 45;
+            pnlLine.BackColor = SystemColors.WindowText;
+            pnlLine.CustomizableEdges = customizableEdges27;
+            pnlLine.Location = new Point(0, 295);
+            pnlLine.Margin = new Padding(3, 2, 3, 2);
+            pnlLine.Name = "pnlLine";
+            pnlLine.ShadowDecoration.CustomizableEdges = customizableEdges28;
+            pnlLine.Size = new Size(710, 1);
+            pnlLine.TabIndex = 53;
             // 
             // UC_BanVe
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = SystemColors.Control;
-            Controls.Add(guna2CustomGradientPanel3);
-            Controls.Add(guna2CustomGradientPanel2);
             Controls.Add(guna2CustomGradientPanel1);
             MinimumSize = new Size(668, 900);
             Name = "UC_BanVe";
-            Size = new Size(751, 900);
+            Size = new Size(741, 900);
             guna2CustomGradientPanel1.ResumeLayout(false);
             guna2CustomGradientPanel1.PerformLayout();
-            guna2CustomGradientPanel2.ResumeLayout(false);
-            guna2CustomGradientPanel2.PerformLayout();
-            guna2CustomGradientPanel3.ResumeLayout(false);
-            guna2CustomGradientPanel3.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -616,7 +605,7 @@
         private Guna.UI2.WinForms.Guna2TextBox txtSanBayDi;
         private Guna.UI2.WinForms.Guna2ComboBox cbbMaChuyenBay;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
-        private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel2;
-        private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel3;
+        private Guna.UI2.WinForms.Guna2Panel pnlLine;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
     }
 }
