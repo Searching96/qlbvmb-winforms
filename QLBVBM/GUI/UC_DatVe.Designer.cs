@@ -183,11 +183,13 @@
             cbbMaChuyenBay.BorderRadius = 7;
             cbbMaChuyenBay.CustomizableEdges = customizableEdges5;
             cbbMaChuyenBay.DrawMode = DrawMode.OwnerDrawFixed;
+            cbbMaChuyenBay.DropDownHeight = 250;
             cbbMaChuyenBay.DropDownStyle = ComboBoxStyle.DropDownList;
             cbbMaChuyenBay.FocusedColor = Color.FromArgb(94, 148, 255);
             cbbMaChuyenBay.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             cbbMaChuyenBay.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 163);
             cbbMaChuyenBay.ForeColor = Color.Black;
+            cbbMaChuyenBay.IntegralHeight = false;
             cbbMaChuyenBay.ItemHeight = 44;
             cbbMaChuyenBay.Location = new Point(32, 109);
             cbbMaChuyenBay.Name = "cbbMaChuyenBay";

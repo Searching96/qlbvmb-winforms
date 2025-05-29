@@ -30,6 +30,7 @@ namespace QLBVBM.GUI
         {
             InitializeComponent();
             LoadMaChuyenBayToComboBox(cbbMaChuyenBay, LayDanhSachChuyenBay());
+            cbbMaChuyenBay.DropDownStyle = ComboBoxStyle.DropDownList;
             SetResponsive();
         }
 
