@@ -843,6 +843,38 @@ namespace QLBVBM.DAL
             }
             return dsChuyenBay;
         }
-      
+
+        public DTO_ChuyenBay? LayChuyenBayGanNhat()
+        {
+            try
+            {
+                string query = @"
+                    SELECT * FROM CHUYENBAY 
+                    WHERE NgayBay IS NOT NULL 
+                    ORDER BY ABS(DATEDIFF(NgayBay, NOW())) ASC 
+                    LIMIT 1";
+
+                DataTable dt = dataHelper.ExecuteQuery(query);
+
+                if (dt.Rows.Count > 0)
+                {
+                    DataRow dr = dt.Rows[0];
+                    return new DTO_ChuyenBay
+                    {
+                        MaChuyenBay = dr["MaChuyenBay"].ToString(),
+                        NgayBay = dr["NgayBay"] != DBNull.Value ? Convert.ToDateTime(dr["NgayBay"]) : null
+                    };
+                }
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error in LayChuyenBayGanNhat (DAL_ChuyenBay.cs): {ex.Message}");
+                return null;
+            }
+        }
+
+
     }
 }

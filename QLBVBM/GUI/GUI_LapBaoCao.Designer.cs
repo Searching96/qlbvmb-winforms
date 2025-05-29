@@ -58,8 +58,8 @@
             lblTongDoanhThu = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtTongDoanhThu = new Guna.UI2.WinForms.Guna2TextBox();
             guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(components);
-            dtpThangBaoCao = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            dtpNamBaoCao = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            cbbThangBaoCao = new Guna.UI2.WinForms.Guna2ComboBox();
+            cbbNamBaoCao = new Guna.UI2.WinForms.Guna2ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvBaoCaoDoanhThu).BeginInit();
             SuspendLayout();
             // 
@@ -257,61 +257,57 @@
             txtTongDoanhThu.Size = new Size(255, 46);
             txtTongDoanhThu.TabIndex = 55;
             // 
-            // dtpThangBaoCao
+            // cbbThangBaoCao
             // 
-            dtpThangBaoCao.Anchor = AnchorStyles.None;
-            dtpThangBaoCao.BackColor = SystemColors.Control;
-            dtpThangBaoCao.BorderColor = Color.Silver;
-            dtpThangBaoCao.BorderRadius = 7;
-            dtpThangBaoCao.BorderThickness = 1;
-            dtpThangBaoCao.Checked = true;
-            dtpThangBaoCao.CustomFormat = "MM";
-            dtpThangBaoCao.CustomizableEdges = customizableEdges9;
-            dtpThangBaoCao.FillColor = Color.White;
-            dtpThangBaoCao.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            dtpThangBaoCao.Format = DateTimePickerFormat.Custom;
-            dtpThangBaoCao.Location = new Point(52, 77);
-            dtpThangBaoCao.Margin = new Padding(3, 2, 3, 2);
-            dtpThangBaoCao.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
-            dtpThangBaoCao.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
-            dtpThangBaoCao.Name = "dtpThangBaoCao";
-            dtpThangBaoCao.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            dtpThangBaoCao.ShowUpDown = true;
-            dtpThangBaoCao.Size = new Size(173, 49);
-            dtpThangBaoCao.TabIndex = 56;
-            dtpThangBaoCao.Value = new DateTime(2025, 5, 18, 0, 0, 0, 0);
+            cbbThangBaoCao.Anchor = AnchorStyles.None;
+            cbbThangBaoCao.BackColor = Color.Transparent;
+            cbbThangBaoCao.BorderColor = Color.Silver;
+            cbbThangBaoCao.BorderRadius = 7;
+            cbbThangBaoCao.CustomizableEdges = customizableEdges9;
+            cbbThangBaoCao.DrawMode = DrawMode.OwnerDrawFixed;
+            cbbThangBaoCao.DropDownHeight = 250;
+            cbbThangBaoCao.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbbThangBaoCao.FocusedColor = Color.FromArgb(94, 148, 255);
+            cbbThangBaoCao.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cbbThangBaoCao.Font = new Font("Arial", 11.25F);
+            cbbThangBaoCao.ForeColor = Color.Black;
+            cbbThangBaoCao.IntegralHeight = false;
+            cbbThangBaoCao.ItemHeight = 44;
+            cbbThangBaoCao.Location = new Point(52, 77);
+            cbbThangBaoCao.Name = "cbbThangBaoCao";
+            cbbThangBaoCao.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            cbbThangBaoCao.Size = new Size(173, 50);
+            cbbThangBaoCao.TabIndex = 58;
             // 
-            // dtpNamBaoCao
+            // cbbNamBaoCao
             // 
-            dtpNamBaoCao.Anchor = AnchorStyles.None;
-            dtpNamBaoCao.BackColor = SystemColors.Control;
-            dtpNamBaoCao.BorderColor = Color.Silver;
-            dtpNamBaoCao.BorderRadius = 7;
-            dtpNamBaoCao.BorderThickness = 1;
-            dtpNamBaoCao.Checked = true;
-            dtpNamBaoCao.CustomFormat = "yyyy";
-            dtpNamBaoCao.CustomizableEdges = customizableEdges11;
-            dtpNamBaoCao.FillColor = Color.White;
-            dtpNamBaoCao.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            dtpNamBaoCao.Format = DateTimePickerFormat.Custom;
-            dtpNamBaoCao.Location = new Point(273, 77);
-            dtpNamBaoCao.Margin = new Padding(3, 2, 3, 2);
-            dtpNamBaoCao.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
-            dtpNamBaoCao.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
-            dtpNamBaoCao.Name = "dtpNamBaoCao";
-            dtpNamBaoCao.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            dtpNamBaoCao.ShowUpDown = true;
-            dtpNamBaoCao.Size = new Size(178, 49);
-            dtpNamBaoCao.TabIndex = 57;
-            dtpNamBaoCao.Value = new DateTime(2025, 5, 18, 20, 7, 41, 566);
+            cbbNamBaoCao.Anchor = AnchorStyles.None;
+            cbbNamBaoCao.BackColor = Color.Transparent;
+            cbbNamBaoCao.BorderColor = Color.Silver;
+            cbbNamBaoCao.BorderRadius = 7;
+            cbbNamBaoCao.CustomizableEdges = customizableEdges11;
+            cbbNamBaoCao.DrawMode = DrawMode.OwnerDrawFixed;
+            cbbNamBaoCao.DropDownHeight = 250;
+            cbbNamBaoCao.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbbNamBaoCao.FocusedColor = Color.FromArgb(94, 148, 255);
+            cbbNamBaoCao.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cbbNamBaoCao.Font = new Font("Arial", 11.25F);
+            cbbNamBaoCao.ForeColor = Color.Black;
+            cbbNamBaoCao.IntegralHeight = false;
+            cbbNamBaoCao.ItemHeight = 44;
+            cbbNamBaoCao.Location = new Point(273, 77);
+            cbbNamBaoCao.Name = "cbbNamBaoCao";
+            cbbNamBaoCao.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            cbbNamBaoCao.Size = new Size(173, 50);
+            cbbNamBaoCao.TabIndex = 59;
             // 
             // GUI_LapBaoCao
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(898, 530);
-            Controls.Add(dtpNamBaoCao);
-            Controls.Add(dtpThangBaoCao);
+            Controls.Add(cbbNamBaoCao);
+            Controls.Add(cbbThangBaoCao);
             Controls.Add(txtTongDoanhThu);
             Controls.Add(lblTongDoanhThu);
             Controls.Add(dgvBaoCaoDoanhThu);
@@ -346,7 +342,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel lblTongDoanhThu;
         private Guna.UI2.WinForms.Guna2TextBox txtTongDoanhThu;
         private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
-        private Guna.UI2.WinForms.Guna2DateTimePicker dtpThangBaoCao;
-        private Guna.UI2.WinForms.Guna2DateTimePicker dtpNamBaoCao;
+        private Guna.UI2.WinForms.Guna2ComboBox cbbThangBaoCao;
+        private Guna.UI2.WinForms.Guna2ComboBox cbbNamBaoCao;
     }
 }
