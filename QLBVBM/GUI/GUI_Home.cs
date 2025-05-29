@@ -53,7 +53,8 @@ namespace QLBVBM.GUI
                 ("Bán vé", () => new UC_BanVe()),
                 ("Đặt vé", () => new UC_DatVe()),
                 ("Tra cứu chuyến bay", () => new UC_TraCuuChuyenBay()),
-                ("Lập báo cáo theo tháng", () => new UC_LapBaoCao())
+                ("Lập báo cáo theo tháng", () => new UC_LapBaoCao()),
+                ("Lập báo cáo theo năm", () => new UC_BaoCaoDoanhThuNam())
             };
 
             // Duyệt qua danh sách và tạo nút
