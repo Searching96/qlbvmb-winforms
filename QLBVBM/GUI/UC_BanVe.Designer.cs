@@ -114,7 +114,7 @@
             // txtSanBayDen
             // 
             txtSanBayDen.Anchor = AnchorStyles.Left;
-            txtSanBayDen.BackColor = Color.White;
+            txtSanBayDen.BackColor = Color.Transparent;
             txtSanBayDen.BorderColor = Color.Silver;
             txtSanBayDen.BorderRadius = 7;
             txtSanBayDen.CustomizableEdges = customizableEdges3;
@@ -140,7 +140,7 @@
             // txtSanBayDi
             // 
             txtSanBayDi.Anchor = AnchorStyles.Left;
-            txtSanBayDi.BackColor = Color.White;
+            txtSanBayDi.BackColor = Color.Transparent;
             txtSanBayDi.BorderColor = Color.Silver;
             txtSanBayDi.BorderRadius = 7;
             txtSanBayDi.CustomizableEdges = customizableEdges5;
@@ -166,7 +166,7 @@
             // txtGioBay
             // 
             txtGioBay.Anchor = AnchorStyles.Left;
-            txtGioBay.BackColor = Color.White;
+            txtGioBay.BackColor = Color.Transparent;
             txtGioBay.BorderRadius = 7;
             txtGioBay.CustomizableEdges = customizableEdges7;
             txtGioBay.DefaultText = "";
@@ -174,6 +174,7 @@
             txtGioBay.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             txtGioBay.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             txtGioBay.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtGioBay.FillColor = Color.LightGray;
             txtGioBay.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtGioBay.Font = new Font("Segoe UI", 9F);
             txtGioBay.ForeColor = Color.Black;
@@ -192,7 +193,7 @@
             // dtpNgayBay
             // 
             dtpNgayBay.Anchor = AnchorStyles.Left;
-            dtpNgayBay.BackColor = Color.White;
+            dtpNgayBay.BackColor = Color.Transparent;
             dtpNgayBay.BorderColor = Color.Silver;
             dtpNgayBay.BorderRadius = 7;
             dtpNgayBay.BorderThickness = 1;
@@ -269,7 +270,7 @@
             // txtSDT
             // 
             txtSDT.Anchor = AnchorStyles.Left;
-            txtSDT.BackColor = Color.White;
+            txtSDT.BackColor = Color.Transparent;
             txtSDT.BorderRadius = 7;
             txtSDT.CustomizableEdges = customizableEdges11;
             txtSDT.DefaultText = "";
@@ -294,7 +295,7 @@
             // txtCMND
             // 
             txtCMND.Anchor = AnchorStyles.Left;
-            txtCMND.BackColor = Color.White;
+            txtCMND.BackColor = Color.Transparent;
             txtCMND.BorderRadius = 7;
             txtCMND.CustomizableEdges = customizableEdges13;
             txtCMND.DefaultText = "";
@@ -318,7 +319,7 @@
             // txtTenHanhKhach
             // 
             txtTenHanhKhach.Anchor = AnchorStyles.Left;
-            txtTenHanhKhach.BackColor = Color.White;
+            txtTenHanhKhach.BackColor = Color.Transparent;
             txtTenHanhKhach.BorderRadius = 7;
             txtTenHanhKhach.CustomizableEdges = customizableEdges15;
             txtTenHanhKhach.DefaultText = "";
@@ -425,7 +426,7 @@
             // txtGiaTien
             // 
             txtGiaTien.Anchor = AnchorStyles.Left;
-            txtGiaTien.BackColor = Color.White;
+            txtGiaTien.BackColor = Color.Transparent;
             txtGiaTien.BorderColor = Color.Silver;
             txtGiaTien.BorderRadius = 7;
             txtGiaTien.CustomizableEdges = customizableEdges21;

@@ -105,7 +105,7 @@
             // 
             // txtTongDoanhThuCacChuyenBayTrongNam
             // 
-            txtTongDoanhThuCacChuyenBayTrongNam.BackColor = Color.White;
+            txtTongDoanhThuCacChuyenBayTrongNam.BackColor = SystemColors.Control;
             txtTongDoanhThuCacChuyenBayTrongNam.BorderColor = Color.Silver;
             txtTongDoanhThuCacChuyenBayTrongNam.BorderRadius = 7;
             txtTongDoanhThuCacChuyenBayTrongNam.CustomizableEdges = customizableEdges5;

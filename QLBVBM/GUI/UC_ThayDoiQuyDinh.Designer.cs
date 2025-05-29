@@ -89,7 +89,7 @@
             // 
             // txtSoSBTGToiDa
             // 
-            txtSoSBTGToiDa.BackColor = Color.White;
+            txtSoSBTGToiDa.BackColor = SystemColors.Control;
             txtSoSBTGToiDa.BorderRadius = 7;
             txtSoSBTGToiDa.CustomizableEdges = customizableEdges1;
             txtSoSBTGToiDa.DefaultText = "";
@@ -131,7 +131,7 @@
             // 
             // txtTGBayToiThieu
             // 
-            txtTGBayToiThieu.BackColor = Color.White;
+            txtTGBayToiThieu.BackColor = SystemColors.Control;
             txtTGBayToiThieu.BorderRadius = 7;
             txtTGBayToiThieu.CustomizableEdges = customizableEdges3;
             txtTGBayToiThieu.DefaultText = "";
@@ -163,7 +163,7 @@
             // 
             // txtTGDungToiThieu
             // 
-            txtTGDungToiThieu.BackColor = Color.White;
+            txtTGDungToiThieu.BackColor = SystemColors.Control;
             txtTGDungToiThieu.BorderRadius = 7;
             txtTGDungToiThieu.CustomizableEdges = customizableEdges5;
             txtTGDungToiThieu.DefaultText = "";
@@ -195,7 +195,7 @@
             // 
             // txtTGDungToiDa
             // 
-            txtTGDungToiDa.BackColor = Color.White;
+            txtTGDungToiDa.BackColor = SystemColors.Control;
             txtTGDungToiDa.BorderRadius = 7;
             txtTGDungToiDa.CustomizableEdges = customizableEdges7;
             txtTGDungToiDa.DefaultText = "";
@@ -227,7 +227,7 @@
             // 
             // txtTGDatTruocVe
             // 
-            txtTGDatTruocVe.BackColor = Color.White;
+            txtTGDatTruocVe.BackColor = SystemColors.Control;
             txtTGDatTruocVe.BorderRadius = 7;
             txtTGDatTruocVe.CustomizableEdges = customizableEdges9;
             txtTGDatTruocVe.DefaultText = "";
@@ -259,7 +259,7 @@
             // 
             // txtTGHuyDatVe
             // 
-            txtTGHuyDatVe.BackColor = Color.White;
+            txtTGHuyDatVe.BackColor = SystemColors.Control;
             txtTGHuyDatVe.BorderRadius = 7;
             txtTGHuyDatVe.CustomizableEdges = customizableEdges11;
             txtTGHuyDatVe.DefaultText = "";
@@ -391,7 +391,7 @@
             // 
             // txtDonGia
             // 
-            txtDonGia.BackColor = Color.White;
+            txtDonGia.BackColor = Color.Transparent;
             txtDonGia.BorderRadius = 7;
             txtDonGia.CustomizableEdges = customizableEdges19;
             txtDonGia.DefaultText = "";

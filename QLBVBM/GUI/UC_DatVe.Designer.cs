@@ -125,7 +125,7 @@
             // 
             // txtSanBayDen
             // 
-            txtSanBayDen.BackColor = Color.White;
+            txtSanBayDen.BackColor = Color.Transparent;
             txtSanBayDen.BorderColor = Color.Silver;
             txtSanBayDen.BorderRadius = 7;
             txtSanBayDen.CustomizableEdges = customizableEdges1;
@@ -151,7 +151,7 @@
             // 
             // txtSanBayDi
             // 
-            txtSanBayDi.BackColor = Color.White;
+            txtSanBayDi.BackColor = Color.Transparent;
             txtSanBayDi.BorderColor = Color.Silver;
             txtSanBayDi.BorderRadius = 7;
             txtSanBayDi.CustomizableEdges = customizableEdges3;
@@ -198,7 +198,7 @@
             // 
             // txtGioBay
             // 
-            txtGioBay.BackColor = Color.White;
+            txtGioBay.BackColor = Color.Transparent;
             txtGioBay.BorderRadius = 7;
             txtGioBay.CustomizableEdges = customizableEdges7;
             txtGioBay.DefaultText = "";
@@ -225,7 +225,7 @@
             // 
             // dtpNgayBay
             // 
-            dtpNgayBay.BackColor = Color.White;
+            dtpNgayBay.BackColor = Color.Transparent;
             dtpNgayBay.BorderColor = Color.Silver;
             dtpNgayBay.BorderRadius = 7;
             dtpNgayBay.BorderThickness = 1;
@@ -317,7 +317,7 @@
             // 
             // txtSDT
             // 
-            txtSDT.BackColor = Color.White;
+            txtSDT.BackColor = Color.Transparent;
             txtSDT.BorderRadius = 7;
             txtSDT.CustomizableEdges = customizableEdges13;
             txtSDT.DefaultText = "";
@@ -342,7 +342,7 @@
             // 
             // txtCMND
             // 
-            txtCMND.BackColor = Color.White;
+            txtCMND.BackColor = Color.Transparent;
             txtCMND.BorderRadius = 7;
             txtCMND.CustomizableEdges = customizableEdges15;
             txtCMND.DefaultText = "";
@@ -366,7 +366,7 @@
             // 
             // txtTenHanhKhach
             // 
-            txtTenHanhKhach.BackColor = Color.White;
+            txtTenHanhKhach.BackColor = Color.Transparent;
             txtTenHanhKhach.BorderRadius = 7;
             txtTenHanhKhach.CustomizableEdges = customizableEdges17;
             txtTenHanhKhach.DefaultText = "";
@@ -455,7 +455,7 @@
             // 
             // txtSoVeConLai
             // 
-            txtSoVeConLai.BackColor = Color.White;
+            txtSoVeConLai.BackColor = Color.Transparent;
             txtSoVeConLai.BorderRadius = 7;
             txtSoVeConLai.CustomizableEdges = customizableEdges21;
             txtSoVeConLai.DefaultText = "";
@@ -540,7 +540,7 @@
             // 
             // txtGiaTien
             // 
-            txtGiaTien.BackColor = Color.White;
+            txtGiaTien.BackColor = Color.Transparent;
             txtGiaTien.BorderColor = Color.Silver;
             txtGiaTien.BorderRadius = 7;
             txtGiaTien.CustomizableEdges = customizableEdges27;
