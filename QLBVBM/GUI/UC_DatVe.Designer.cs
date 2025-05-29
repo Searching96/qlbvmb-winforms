@@ -31,67 +31,67 @@
             components = new System.ComponentModel.Container();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges31 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges31 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panelThongTinChuyenBay = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            txtSoVeConLai = new Guna.UI2.WinForms.Guna2TextBox();
             txtSanBayDen = new Guna.UI2.WinForms.Guna2TextBox();
+            lblSoVeConLai = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            txtSDT = new Guna.UI2.WinForms.Guna2TextBox();
+            lblLuuYDatVe = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtSanBayDi = new Guna.UI2.WinForms.Guna2TextBox();
+            btnTimChuyenBay = new Guna.UI2.WinForms.Guna2Button();
             cbbMaChuyenBay = new Guna.UI2.WinForms.Guna2ComboBox();
+            btnLuuPhieuDat = new Guna.UI2.WinForms.Guna2Button();
             txtGioBay = new Guna.UI2.WinForms.Guna2TextBox();
+            txtCMND = new Guna.UI2.WinForms.Guna2TextBox();
+            txtGiaTien = new Guna.UI2.WinForms.Guna2TextBox();
             dtpNgayBay = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            lblGiaTien = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblNgayGioBay = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            cbbHangVe = new Guna.UI2.WinForms.Guna2ComboBox();
+            txtTenHanhKhach = new Guna.UI2.WinForms.Guna2TextBox();
+            txtHangVe = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblSanBayDi = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            lblThongTinVe = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblSanBayDen = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblMaChuyenBay = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblThongTinChuyenBay = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            txtSDT = new Guna.UI2.WinForms.Guna2TextBox();
-            txtCMND = new Guna.UI2.WinForms.Guna2TextBox();
-            txtTenHanhKhach = new Guna.UI2.WinForms.Guna2TextBox();
             lblTenHanhKhach = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            lblCMND = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            lblSDT = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblThongTinHanhKhach = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            txtSoVeConLai = new Guna.UI2.WinForms.Guna2TextBox();
-            lblSoVeConLai = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            lblLuuYDatVe = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            btnTimChuyenBay = new Guna.UI2.WinForms.Guna2Button();
-            btnLuuPhieuDat = new Guna.UI2.WinForms.Guna2Button();
-            txtGiaTien = new Guna.UI2.WinForms.Guna2TextBox();
-            lblGiaTien = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            cbbHangVe = new Guna.UI2.WinForms.Guna2ComboBox();
-            txtHangVe = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            lblThongTinVe = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            lblSDT = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            lblCMND = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(components);
             pnlLine = new Guna.UI2.WinForms.Guna2Panel();
-            guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             panelThongTinChuyenBay.SuspendLayout();
             SuspendLayout();
             // 
@@ -140,6 +140,43 @@
             panelThongTinChuyenBay.Size = new Size(881, 827);
             panelThongTinChuyenBay.TabIndex = 0;
             // 
+            // guna2Panel1
+            // 
+            guna2Panel1.BackColor = SystemColors.WindowText;
+            guna2Panel1.CustomizableEdges = customizableEdges1;
+            guna2Panel1.Location = new Point(0, 570);
+            guna2Panel1.Margin = new Padding(3, 2, 3, 2);
+            guna2Panel1.Name = "guna2Panel1";
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2Panel1.Size = new Size(881, 1);
+            guna2Panel1.TabIndex = 55;
+            // 
+            // txtSoVeConLai
+            // 
+            txtSoVeConLai.BackColor = Color.Transparent;
+            txtSoVeConLai.BorderRadius = 7;
+            txtSoVeConLai.CustomizableEdges = customizableEdges3;
+            txtSoVeConLai.DefaultText = "";
+            txtSoVeConLai.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtSoVeConLai.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtSoVeConLai.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtSoVeConLai.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtSoVeConLai.FillColor = Color.LightGray;
+            txtSoVeConLai.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtSoVeConLai.Font = new Font("Segoe UI", 9F);
+            txtSoVeConLai.ForeColor = Color.Black;
+            txtSoVeConLai.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtSoVeConLai.Location = new Point(595, 640);
+            txtSoVeConLai.Margin = new Padding(3, 4, 3, 4);
+            txtSoVeConLai.Name = "txtSoVeConLai";
+            txtSoVeConLai.PlaceholderText = "";
+            txtSoVeConLai.ReadOnly = true;
+            txtSoVeConLai.SelectedText = "";
+            txtSoVeConLai.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            txtSoVeConLai.Size = new Size(252, 52);
+            txtSoVeConLai.TabIndex = 44;
+            txtSoVeConLai.TabStop = false;
+            // 
             // txtSanBayDen
             // 
             txtSanBayDen.Anchor = AnchorStyles.Top;
@@ -157,15 +194,61 @@
             txtSanBayDen.Font = new Font("Segoe UI", 9F);
             txtSanBayDen.ForeColor = Color.Black;
             txtSanBayDen.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtSanBayDen.Location = new Point(436, 207);
+            txtSanBayDen.Location = new Point(472, 207);
             txtSanBayDen.Margin = new Padding(3, 4, 3, 4);
             txtSanBayDen.Name = "txtSanBayDen";
             txtSanBayDen.PlaceholderText = "";
             txtSanBayDen.ReadOnly = true;
             txtSanBayDen.SelectedText = "";
             txtSanBayDen.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            txtSanBayDen.Size = new Size(418, 52);
+            txtSanBayDen.Size = new Size(375, 52);
             txtSanBayDen.TabIndex = 40;
+            // 
+            // lblSoVeConLai
+            // 
+            lblSoVeConLai.BackColor = Color.Transparent;
+            lblSoVeConLai.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            lblSoVeConLai.Location = new Point(595, 615);
+            lblSoVeConLai.Name = "lblSoVeConLai";
+            lblSoVeConLai.Size = new Size(129, 19);
+            lblSoVeConLai.TabIndex = 45;
+            lblSoVeConLai.Text = "Số lượng vé còn lại";
+            // 
+            // txtSDT
+            // 
+            txtSDT.BackColor = Color.Transparent;
+            txtSDT.BorderRadius = 7;
+            txtSDT.CustomizableEdges = customizableEdges7;
+            txtSDT.DefaultText = "";
+            txtSDT.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtSDT.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtSDT.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtSDT.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtSDT.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtSDT.Font = new Font("Segoe UI", 9F);
+            txtSDT.ForeColor = Color.Black;
+            txtSDT.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtSDT.IconRight = Properties.Resources.phone;
+            txtSDT.Location = new Point(476, 470);
+            txtSDT.Margin = new Padding(3, 4, 3, 4);
+            txtSDT.Name = "txtSDT";
+            txtSDT.PlaceholderText = "";
+            txtSDT.SelectedText = "";
+            txtSDT.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            txtSDT.Size = new Size(375, 52);
+            txtSDT.TabIndex = 37;
+            txtSDT.TextChanged += txtSDT_TextChanged;
+            // 
+            // lblLuuYDatVe
+            // 
+            lblLuuYDatVe.BackColor = Color.Transparent;
+            lblLuuYDatVe.Font = new Font("Arial", 11.25F);
+            lblLuuYDatVe.ForeColor = SystemColors.ControlDarkDark;
+            lblLuuYDatVe.Location = new Point(25, 696);
+            lblLuuYDatVe.Name = "lblLuuYDatVe";
+            lblLuuYDatVe.Size = new Size(156, 19);
+            lblLuuYDatVe.TabIndex = 42;
+            lblLuuYDatVe.Text = "Vui lòng tìm chuyến bay";
             // 
             // txtSanBayDi
             // 
@@ -194,295 +277,6 @@
             txtSanBayDi.Size = new Size(375, 52);
             txtSanBayDi.TabIndex = 39;
             // 
-            // cbbMaChuyenBay
-            // 
-            cbbMaChuyenBay.Anchor = AnchorStyles.Top;
-            cbbMaChuyenBay.BackColor = Color.Transparent;
-            cbbMaChuyenBay.BorderColor = Color.Silver;
-            cbbMaChuyenBay.BorderRadius = 7;
-            cbbMaChuyenBay.CustomizableEdges = customizableEdges13;
-            cbbMaChuyenBay.DrawMode = DrawMode.OwnerDrawFixed;
-            cbbMaChuyenBay.DropDownHeight = 250;
-            cbbMaChuyenBay.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbbMaChuyenBay.FocusedColor = Color.FromArgb(94, 148, 255);
-            cbbMaChuyenBay.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            cbbMaChuyenBay.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            cbbMaChuyenBay.ForeColor = Color.Black;
-            cbbMaChuyenBay.IntegralHeight = false;
-            cbbMaChuyenBay.ItemHeight = 44;
-            cbbMaChuyenBay.Location = new Point(32, 109);
-            cbbMaChuyenBay.Name = "cbbMaChuyenBay";
-            cbbMaChuyenBay.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            cbbMaChuyenBay.Size = new Size(271, 50);
-            cbbMaChuyenBay.TabIndex = 42;
-            cbbMaChuyenBay.SelectedIndexChanged += cbbMaChuyenBay_SelectedIndexChanged;
-            // 
-            // txtGioBay
-            // 
-            txtGioBay.Anchor = AnchorStyles.Top;
-            txtGioBay.BackColor = Color.Transparent;
-            txtGioBay.BorderRadius = 7;
-            txtGioBay.CustomizableEdges = customizableEdges17;
-            txtGioBay.DefaultText = "";
-            txtGioBay.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtGioBay.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtGioBay.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtGioBay.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtGioBay.FillColor = Color.LightGray;
-            txtGioBay.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtGioBay.Font = new Font("Segoe UI", 9F);
-            txtGioBay.ForeColor = Color.Black;
-            txtGioBay.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtGioBay.IconRight = Properties.Resources.time;
-            txtGioBay.Location = new Point(713, 109);
-            txtGioBay.Margin = new Padding(3, 4, 3, 4);
-            txtGioBay.Name = "txtGioBay";
-            txtGioBay.PlaceholderText = "";
-            txtGioBay.ReadOnly = true;
-            txtGioBay.SelectedText = "";
-            txtGioBay.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            txtGioBay.Size = new Size(141, 50);
-            txtGioBay.TabIndex = 28;
-            txtGioBay.TabStop = false;
-            // 
-            // dtpNgayBay
-            // 
-            dtpNgayBay.Anchor = AnchorStyles.Top;
-            dtpNgayBay.BackColor = Color.Transparent;
-            dtpNgayBay.BorderColor = Color.Silver;
-            dtpNgayBay.BorderRadius = 7;
-            dtpNgayBay.BorderThickness = 1;
-            dtpNgayBay.Checked = true;
-            dtpNgayBay.CustomizableEdges = customizableEdges23;
-            dtpNgayBay.Enabled = false;
-            dtpNgayBay.FillColor = Color.White;
-            dtpNgayBay.Font = new Font("Segoe UI", 9F);
-            dtpNgayBay.ForeColor = Color.Black;
-            dtpNgayBay.Format = DateTimePickerFormat.Long;
-            dtpNgayBay.Location = new Point(436, 109);
-            dtpNgayBay.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
-            dtpNgayBay.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
-            dtpNgayBay.Name = "dtpNgayBay";
-            dtpNgayBay.ShadowDecoration.CustomizableEdges = customizableEdges24;
-            dtpNgayBay.Size = new Size(271, 50);
-            dtpNgayBay.TabIndex = 27;
-            dtpNgayBay.Value = new DateTime(2025, 4, 3, 19, 48, 48, 458);
-            // 
-            // lblNgayGioBay
-            // 
-            lblNgayGioBay.Anchor = AnchorStyles.Top;
-            lblNgayGioBay.BackColor = Color.Transparent;
-            lblNgayGioBay.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            lblNgayGioBay.Location = new Point(436, 82);
-            lblNgayGioBay.Name = "lblNgayGioBay";
-            lblNgayGioBay.Size = new Size(97, 19);
-            lblNgayGioBay.TabIndex = 4;
-            lblNgayGioBay.Text = "Ngày - giờ bay";
-            // 
-            // lblSanBayDi
-            // 
-            lblSanBayDi.Anchor = AnchorStyles.Top;
-            lblSanBayDi.BackColor = Color.Transparent;
-            lblSanBayDi.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            lblSanBayDi.Location = new Point(33, 181);
-            lblSanBayDi.Name = "lblSanBayDi";
-            lblSanBayDi.Size = new Size(71, 19);
-            lblSanBayDi.TabIndex = 3;
-            lblSanBayDi.Text = "Sân bay đi";
-            // 
-            // lblSanBayDen
-            // 
-            lblSanBayDen.Anchor = AnchorStyles.Top;
-            lblSanBayDen.BackColor = Color.Transparent;
-            lblSanBayDen.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            lblSanBayDen.Location = new Point(436, 181);
-            lblSanBayDen.Name = "lblSanBayDen";
-            lblSanBayDen.Size = new Size(84, 19);
-            lblSanBayDen.TabIndex = 2;
-            lblSanBayDen.Text = "Sân bay đến";
-            // 
-            // lblMaChuyenBay
-            // 
-            lblMaChuyenBay.Anchor = AnchorStyles.Top;
-            lblMaChuyenBay.BackColor = Color.Transparent;
-            lblMaChuyenBay.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            lblMaChuyenBay.Location = new Point(32, 82);
-            lblMaChuyenBay.Name = "lblMaChuyenBay";
-            lblMaChuyenBay.Size = new Size(100, 19);
-            lblMaChuyenBay.TabIndex = 1;
-            lblMaChuyenBay.Text = "Mã chuyến bay";
-            // 
-            // lblThongTinChuyenBay
-            // 
-            lblThongTinChuyenBay.Anchor = AnchorStyles.Top;
-            lblThongTinChuyenBay.BackColor = Color.Transparent;
-            lblThongTinChuyenBay.Font = new Font("Arial", 18.75F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            lblThongTinChuyenBay.Location = new Point(300, 26);
-            lblThongTinChuyenBay.Name = "lblThongTinChuyenBay";
-            lblThongTinChuyenBay.Size = new Size(257, 32);
-            lblThongTinChuyenBay.TabIndex = 0;
-            lblThongTinChuyenBay.Text = "Thông tin chuyến bay";
-            // 
-            // txtSDT
-            // 
-            txtSDT.BackColor = Color.Transparent;
-            txtSDT.BorderRadius = 7;
-            txtSDT.CustomizableEdges = customizableEdges7;
-            txtSDT.DefaultText = "";
-            txtSDT.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtSDT.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtSDT.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtSDT.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtSDT.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtSDT.Font = new Font("Segoe UI", 9F);
-            txtSDT.ForeColor = Color.Black;
-            txtSDT.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtSDT.IconRight = Properties.Resources.phone;
-            txtSDT.Location = new Point(433, 470);
-            txtSDT.Margin = new Padding(3, 4, 3, 4);
-            txtSDT.Name = "txtSDT";
-            txtSDT.PlaceholderText = "";
-            txtSDT.SelectedText = "";
-            txtSDT.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            txtSDT.Size = new Size(418, 52);
-            txtSDT.TabIndex = 37;
-            txtSDT.TextChanged += txtSDT_TextChanged;
-            // 
-            // txtCMND
-            // 
-            txtCMND.BackColor = Color.Transparent;
-            txtCMND.BorderRadius = 7;
-            txtCMND.CustomizableEdges = customizableEdges19;
-            txtCMND.DefaultText = "";
-            txtCMND.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtCMND.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtCMND.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtCMND.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtCMND.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtCMND.Font = new Font("Segoe UI", 9F);
-            txtCMND.ForeColor = Color.Black;
-            txtCMND.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtCMND.Location = new Point(25, 470);
-            txtCMND.Margin = new Padding(3, 4, 3, 4);
-            txtCMND.Name = "txtCMND";
-            txtCMND.PlaceholderText = "";
-            txtCMND.SelectedText = "";
-            txtCMND.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            txtCMND.Size = new Size(374, 52);
-            txtCMND.TabIndex = 36;
-            txtCMND.TextChanged += txtCMND_TextChanged;
-            // 
-            // txtTenHanhKhach
-            // 
-            txtTenHanhKhach.BackColor = Color.Transparent;
-            txtTenHanhKhach.BorderRadius = 7;
-            txtTenHanhKhach.CustomizableEdges = customizableEdges27;
-            txtTenHanhKhach.DefaultText = "";
-            txtTenHanhKhach.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtTenHanhKhach.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtTenHanhKhach.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtTenHanhKhach.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtTenHanhKhach.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtTenHanhKhach.Font = new Font("Segoe UI", 9F);
-            txtTenHanhKhach.ForeColor = Color.Black;
-            txtTenHanhKhach.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtTenHanhKhach.Location = new Point(30, 374);
-            txtTenHanhKhach.Margin = new Padding(3, 4, 3, 4);
-            txtTenHanhKhach.Name = "txtTenHanhKhach";
-            txtTenHanhKhach.PlaceholderText = "";
-            txtTenHanhKhach.SelectedText = "";
-            txtTenHanhKhach.ShadowDecoration.CustomizableEdges = customizableEdges28;
-            txtTenHanhKhach.Size = new Size(821, 52);
-            txtTenHanhKhach.TabIndex = 35;
-            txtTenHanhKhach.TextChanged += txtTenHanhKhach_TextChanged;
-            // 
-            // lblTenHanhKhach
-            // 
-            lblTenHanhKhach.BackColor = Color.Transparent;
-            lblTenHanhKhach.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            lblTenHanhKhach.Location = new Point(29, 349);
-            lblTenHanhKhach.Name = "lblTenHanhKhach";
-            lblTenHanhKhach.Size = new Size(107, 19);
-            lblTenHanhKhach.TabIndex = 34;
-            lblTenHanhKhach.Text = "Tên hành khách";
-            // 
-            // lblCMND
-            // 
-            lblCMND.BackColor = Color.Transparent;
-            lblCMND.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            lblCMND.Location = new Point(30, 445);
-            lblCMND.Name = "lblCMND";
-            lblCMND.Size = new Size(46, 19);
-            lblCMND.TabIndex = 33;
-            lblCMND.Text = "CMND";
-            // 
-            // lblSDT
-            // 
-            lblSDT.BackColor = Color.Transparent;
-            lblSDT.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            lblSDT.Location = new Point(433, 445);
-            lblSDT.Name = "lblSDT";
-            lblSDT.Size = new Size(87, 19);
-            lblSDT.TabIndex = 32;
-            lblSDT.Text = "Số điện thoại";
-            // 
-            // lblThongTinHanhKhach
-            // 
-            lblThongTinHanhKhach.BackColor = Color.Transparent;
-            lblThongTinHanhKhach.Font = new Font("Arial", 18.75F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            lblThongTinHanhKhach.Location = new Point(297, 305);
-            lblThongTinHanhKhach.Name = "lblThongTinHanhKhach";
-            lblThongTinHanhKhach.Size = new Size(260, 32);
-            lblThongTinHanhKhach.TabIndex = 31;
-            lblThongTinHanhKhach.Text = "Thông tin hành khách";
-            // 
-            // txtSoVeConLai
-            // 
-            txtSoVeConLai.BackColor = Color.Transparent;
-            txtSoVeConLai.BorderRadius = 7;
-            txtSoVeConLai.CustomizableEdges = customizableEdges3;
-            txtSoVeConLai.DefaultText = "";
-            txtSoVeConLai.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtSoVeConLai.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtSoVeConLai.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtSoVeConLai.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtSoVeConLai.FillColor = Color.LightGray;
-            txtSoVeConLai.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtSoVeConLai.Font = new Font("Segoe UI", 9F);
-            txtSoVeConLai.ForeColor = Color.Black;
-            txtSoVeConLai.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtSoVeConLai.Location = new Point(595, 640);
-            txtSoVeConLai.Margin = new Padding(3, 4, 3, 4);
-            txtSoVeConLai.Name = "txtSoVeConLai";
-            txtSoVeConLai.PlaceholderText = "";
-            txtSoVeConLai.ReadOnly = true;
-            txtSoVeConLai.SelectedText = "";
-            txtSoVeConLai.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            txtSoVeConLai.Size = new Size(252, 52);
-            txtSoVeConLai.TabIndex = 44;
-            txtSoVeConLai.TabStop = false;
-            // 
-            // lblSoVeConLai
-            // 
-            lblSoVeConLai.BackColor = Color.Transparent;
-            lblSoVeConLai.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            lblSoVeConLai.Location = new Point(595, 615);
-            lblSoVeConLai.Name = "lblSoVeConLai";
-            lblSoVeConLai.Size = new Size(129, 19);
-            lblSoVeConLai.TabIndex = 45;
-            lblSoVeConLai.Text = "Số lượng vé còn lại";
-            // 
-            // lblLuuYDatVe
-            // 
-            lblLuuYDatVe.BackColor = Color.Transparent;
-            lblLuuYDatVe.Font = new Font("Arial", 11.25F);
-            lblLuuYDatVe.ForeColor = SystemColors.ControlDarkDark;
-            lblLuuYDatVe.Location = new Point(25, 696);
-            lblLuuYDatVe.Name = "lblLuuYDatVe";
-            lblLuuYDatVe.Size = new Size(156, 19);
-            lblLuuYDatVe.TabIndex = 42;
-            lblLuuYDatVe.Text = "Vui lòng tìm chuyến bay";
-            // 
             // btnTimChuyenBay
             // 
             btnTimChuyenBay.BorderRadius = 10;
@@ -502,6 +296,29 @@
             btnTimChuyenBay.Text = "Tìm chuyến bay";
             btnTimChuyenBay.Click += btnTimChuyenBay_Click;
             // 
+            // cbbMaChuyenBay
+            // 
+            cbbMaChuyenBay.Anchor = AnchorStyles.Top;
+            cbbMaChuyenBay.BackColor = Color.Transparent;
+            cbbMaChuyenBay.BorderColor = Color.Silver;
+            cbbMaChuyenBay.BorderRadius = 7;
+            cbbMaChuyenBay.CustomizableEdges = customizableEdges13;
+            cbbMaChuyenBay.DrawMode = DrawMode.OwnerDrawFixed;
+            cbbMaChuyenBay.DropDownHeight = 250;
+            cbbMaChuyenBay.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbbMaChuyenBay.FocusedColor = Color.FromArgb(94, 148, 255);
+            cbbMaChuyenBay.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cbbMaChuyenBay.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            cbbMaChuyenBay.ForeColor = Color.Black;
+            cbbMaChuyenBay.IntegralHeight = false;
+            cbbMaChuyenBay.ItemHeight = 44;
+            cbbMaChuyenBay.Location = new Point(32, 109);
+            cbbMaChuyenBay.Name = "cbbMaChuyenBay";
+            cbbMaChuyenBay.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            cbbMaChuyenBay.Size = new Size(375, 50);
+            cbbMaChuyenBay.TabIndex = 42;
+            cbbMaChuyenBay.SelectedIndexChanged += cbbMaChuyenBay_SelectedIndexChanged;
+            // 
             // btnLuuPhieuDat
             // 
             btnLuuPhieuDat.BorderRadius = 10;
@@ -520,6 +337,58 @@
             btnLuuPhieuDat.TabIndex = 38;
             btnLuuPhieuDat.Text = "Đặt vé";
             btnLuuPhieuDat.Click += btnLuuVe_Click;
+            // 
+            // txtGioBay
+            // 
+            txtGioBay.Anchor = AnchorStyles.Top;
+            txtGioBay.BackColor = Color.Transparent;
+            txtGioBay.BorderRadius = 7;
+            txtGioBay.CustomizableEdges = customizableEdges17;
+            txtGioBay.DefaultText = "";
+            txtGioBay.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtGioBay.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtGioBay.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtGioBay.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtGioBay.FillColor = Color.LightGray;
+            txtGioBay.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtGioBay.Font = new Font("Segoe UI", 9F);
+            txtGioBay.ForeColor = Color.Black;
+            txtGioBay.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtGioBay.IconRight = Properties.Resources.time;
+            txtGioBay.Location = new Point(706, 109);
+            txtGioBay.Margin = new Padding(3, 4, 3, 4);
+            txtGioBay.Name = "txtGioBay";
+            txtGioBay.PlaceholderText = "";
+            txtGioBay.ReadOnly = true;
+            txtGioBay.SelectedText = "";
+            txtGioBay.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            txtGioBay.Size = new Size(148, 50);
+            txtGioBay.TabIndex = 28;
+            txtGioBay.TabStop = false;
+            // 
+            // txtCMND
+            // 
+            txtCMND.BackColor = Color.Transparent;
+            txtCMND.BorderRadius = 7;
+            txtCMND.CustomizableEdges = customizableEdges19;
+            txtCMND.DefaultText = "";
+            txtCMND.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtCMND.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtCMND.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtCMND.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtCMND.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtCMND.Font = new Font("Segoe UI", 9F);
+            txtCMND.ForeColor = Color.Black;
+            txtCMND.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtCMND.Location = new Point(33, 470);
+            txtCMND.Margin = new Padding(3, 4, 3, 4);
+            txtCMND.Name = "txtCMND";
+            txtCMND.PlaceholderText = "";
+            txtCMND.SelectedText = "";
+            txtCMND.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            txtCMND.Size = new Size(375, 52);
+            txtCMND.TabIndex = 36;
+            txtCMND.TextChanged += txtCMND_TextChanged;
             // 
             // txtGiaTien
             // 
@@ -548,6 +417,29 @@
             txtGiaTien.TabIndex = 38;
             txtGiaTien.TabStop = false;
             // 
+            // dtpNgayBay
+            // 
+            dtpNgayBay.Anchor = AnchorStyles.Top;
+            dtpNgayBay.BackColor = Color.Transparent;
+            dtpNgayBay.BorderColor = Color.Silver;
+            dtpNgayBay.BorderRadius = 7;
+            dtpNgayBay.BorderThickness = 1;
+            dtpNgayBay.Checked = true;
+            dtpNgayBay.CustomizableEdges = customizableEdges23;
+            dtpNgayBay.Enabled = false;
+            dtpNgayBay.FillColor = Color.White;
+            dtpNgayBay.Font = new Font("Segoe UI", 9F);
+            dtpNgayBay.ForeColor = Color.Black;
+            dtpNgayBay.Format = DateTimePickerFormat.Long;
+            dtpNgayBay.Location = new Point(472, 109);
+            dtpNgayBay.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
+            dtpNgayBay.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
+            dtpNgayBay.Name = "dtpNgayBay";
+            dtpNgayBay.ShadowDecoration.CustomizableEdges = customizableEdges24;
+            dtpNgayBay.Size = new Size(235, 50);
+            dtpNgayBay.TabIndex = 27;
+            dtpNgayBay.Value = new DateTime(2025, 4, 3, 19, 48, 48, 458);
+            // 
             // lblGiaTien
             // 
             lblGiaTien.BackColor = Color.Transparent;
@@ -557,6 +449,17 @@
             lblGiaTien.Size = new Size(52, 19);
             lblGiaTien.TabIndex = 38;
             lblGiaTien.Text = "Giá tiền";
+            // 
+            // lblNgayGioBay
+            // 
+            lblNgayGioBay.Anchor = AnchorStyles.Top;
+            lblNgayGioBay.BackColor = Color.Transparent;
+            lblNgayGioBay.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            lblNgayGioBay.Location = new Point(472, 84);
+            lblNgayGioBay.Name = "lblNgayGioBay";
+            lblNgayGioBay.Size = new Size(97, 19);
+            lblNgayGioBay.TabIndex = 4;
+            lblNgayGioBay.Text = "Ngày - giờ bay";
             // 
             // cbbHangVe
             // 
@@ -572,22 +475,57 @@
             cbbHangVe.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 163);
             cbbHangVe.ForeColor = Color.Black;
             cbbHangVe.ItemHeight = 44;
-            cbbHangVe.Location = new Point(25, 640);
+            cbbHangVe.Location = new Point(33, 640);
             cbbHangVe.Name = "cbbHangVe";
             cbbHangVe.ShadowDecoration.CustomizableEdges = customizableEdges26;
-            cbbHangVe.Size = new Size(271, 50);
+            cbbHangVe.Size = new Size(263, 50);
             cbbHangVe.TabIndex = 31;
             cbbHangVe.SelectedIndexChanged += cbbHangVe_SelectedIndexChanged;
+            // 
+            // txtTenHanhKhach
+            // 
+            txtTenHanhKhach.BackColor = Color.Transparent;
+            txtTenHanhKhach.BorderRadius = 7;
+            txtTenHanhKhach.CustomizableEdges = customizableEdges27;
+            txtTenHanhKhach.DefaultText = "";
+            txtTenHanhKhach.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtTenHanhKhach.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtTenHanhKhach.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtTenHanhKhach.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtTenHanhKhach.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtTenHanhKhach.Font = new Font("Segoe UI", 9F);
+            txtTenHanhKhach.ForeColor = Color.Black;
+            txtTenHanhKhach.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtTenHanhKhach.Location = new Point(33, 374);
+            txtTenHanhKhach.Margin = new Padding(3, 4, 3, 4);
+            txtTenHanhKhach.Name = "txtTenHanhKhach";
+            txtTenHanhKhach.PlaceholderText = "";
+            txtTenHanhKhach.SelectedText = "";
+            txtTenHanhKhach.ShadowDecoration.CustomizableEdges = customizableEdges28;
+            txtTenHanhKhach.Size = new Size(814, 52);
+            txtTenHanhKhach.TabIndex = 35;
+            txtTenHanhKhach.TextChanged += txtTenHanhKhach_TextChanged;
             // 
             // txtHangVe
             // 
             txtHangVe.BackColor = Color.Transparent;
             txtHangVe.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            txtHangVe.Location = new Point(25, 615);
+            txtHangVe.Location = new Point(33, 615);
             txtHangVe.Name = "txtHangVe";
             txtHangVe.Size = new Size(56, 19);
             txtHangVe.TabIndex = 38;
             txtHangVe.Text = "Hạng vé";
+            // 
+            // lblSanBayDi
+            // 
+            lblSanBayDi.Anchor = AnchorStyles.Top;
+            lblSanBayDi.BackColor = Color.Transparent;
+            lblSanBayDi.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            lblSanBayDi.Location = new Point(33, 181);
+            lblSanBayDi.Name = "lblSanBayDi";
+            lblSanBayDi.Size = new Size(71, 19);
+            lblSanBayDi.TabIndex = 3;
+            lblSanBayDi.Text = "Sân bay đi";
             // 
             // lblThongTinVe
             // 
@@ -599,6 +537,79 @@
             lblThongTinVe.TabIndex = 38;
             lblThongTinVe.Text = "Thông tin vé";
             // 
+            // lblSanBayDen
+            // 
+            lblSanBayDen.Anchor = AnchorStyles.Top;
+            lblSanBayDen.BackColor = Color.Transparent;
+            lblSanBayDen.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            lblSanBayDen.Location = new Point(472, 181);
+            lblSanBayDen.Name = "lblSanBayDen";
+            lblSanBayDen.Size = new Size(84, 19);
+            lblSanBayDen.TabIndex = 2;
+            lblSanBayDen.Text = "Sân bay đến";
+            // 
+            // lblMaChuyenBay
+            // 
+            lblMaChuyenBay.Anchor = AnchorStyles.Top;
+            lblMaChuyenBay.BackColor = Color.Transparent;
+            lblMaChuyenBay.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            lblMaChuyenBay.Location = new Point(32, 82);
+            lblMaChuyenBay.Name = "lblMaChuyenBay";
+            lblMaChuyenBay.Size = new Size(100, 19);
+            lblMaChuyenBay.TabIndex = 1;
+            lblMaChuyenBay.Text = "Mã chuyến bay";
+            // 
+            // lblThongTinChuyenBay
+            // 
+            lblThongTinChuyenBay.Anchor = AnchorStyles.Top;
+            lblThongTinChuyenBay.BackColor = Color.Transparent;
+            lblThongTinChuyenBay.Font = new Font("Arial", 18.75F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            lblThongTinChuyenBay.Location = new Point(300, 26);
+            lblThongTinChuyenBay.Name = "lblThongTinChuyenBay";
+            lblThongTinChuyenBay.Size = new Size(257, 32);
+            lblThongTinChuyenBay.TabIndex = 0;
+            lblThongTinChuyenBay.Text = "Thông tin chuyến bay";
+            // 
+            // lblTenHanhKhach
+            // 
+            lblTenHanhKhach.BackColor = Color.Transparent;
+            lblTenHanhKhach.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            lblTenHanhKhach.Location = new Point(33, 348);
+            lblTenHanhKhach.Name = "lblTenHanhKhach";
+            lblTenHanhKhach.Size = new Size(107, 19);
+            lblTenHanhKhach.TabIndex = 34;
+            lblTenHanhKhach.Text = "Tên hành khách";
+            // 
+            // lblThongTinHanhKhach
+            // 
+            lblThongTinHanhKhach.BackColor = Color.Transparent;
+            lblThongTinHanhKhach.Font = new Font("Arial", 18.75F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            lblThongTinHanhKhach.Location = new Point(297, 305);
+            lblThongTinHanhKhach.Name = "lblThongTinHanhKhach";
+            lblThongTinHanhKhach.Size = new Size(260, 32);
+            lblThongTinHanhKhach.TabIndex = 31;
+            lblThongTinHanhKhach.Text = "Thông tin hành khách";
+            // 
+            // lblSDT
+            // 
+            lblSDT.BackColor = Color.Transparent;
+            lblSDT.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            lblSDT.Location = new Point(476, 445);
+            lblSDT.Name = "lblSDT";
+            lblSDT.Size = new Size(87, 19);
+            lblSDT.TabIndex = 32;
+            lblSDT.Text = "Số điện thoại";
+            // 
+            // lblCMND
+            // 
+            lblCMND.BackColor = Color.Transparent;
+            lblCMND.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            lblCMND.Location = new Point(33, 445);
+            lblCMND.Name = "lblCMND";
+            lblCMND.Size = new Size(46, 19);
+            lblCMND.TabIndex = 33;
+            lblCMND.Text = "CMND";
+            // 
             // pnlLine
             // 
             pnlLine.BackColor = SystemColors.WindowText;
@@ -609,17 +620,6 @@
             pnlLine.ShadowDecoration.CustomizableEdges = customizableEdges32;
             pnlLine.Size = new Size(881, 1);
             pnlLine.TabIndex = 54;
-            // 
-            // guna2Panel1
-            // 
-            guna2Panel1.BackColor = SystemColors.WindowText;
-            guna2Panel1.CustomizableEdges = customizableEdges1;
-            guna2Panel1.Location = new Point(0, 570);
-            guna2Panel1.Margin = new Padding(3, 2, 3, 2);
-            guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2Panel1.Size = new Size(881, 1);
-            guna2Panel1.TabIndex = 55;
             // 
             // UC_DatVe
             // 

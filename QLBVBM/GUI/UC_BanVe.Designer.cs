@@ -203,12 +203,12 @@
             dtpNgayBay.Font = new Font("Segoe UI", 9F);
             dtpNgayBay.ForeColor = Color.Black;
             dtpNgayBay.Format = DateTimePickerFormat.Long;
-            dtpNgayBay.Location = new Point(352, 114);
+            dtpNgayBay.Location = new Point(389, 114);
             dtpNgayBay.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             dtpNgayBay.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             dtpNgayBay.Name = "dtpNgayBay";
             dtpNgayBay.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            dtpNgayBay.Size = new Size(202, 50);
+            dtpNgayBay.Size = new Size(174, 50);
             dtpNgayBay.TabIndex = 27;
             dtpNgayBay.Value = new DateTime(2025, 4, 3, 19, 48, 48, 458);
             // 
@@ -217,7 +217,7 @@
             lblNgayGioBay.Anchor = AnchorStyles.Top;
             lblNgayGioBay.BackColor = Color.Transparent;
             lblNgayGioBay.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            lblNgayGioBay.Location = new Point(352, 89);
+            lblNgayGioBay.Location = new Point(389, 89);
             lblNgayGioBay.Name = "lblNgayGioBay";
             lblNgayGioBay.Size = new Size(97, 19);
             lblNgayGioBay.TabIndex = 4;
@@ -239,7 +239,7 @@
             lblSanBayDen.Anchor = AnchorStyles.Top;
             lblSanBayDen.BackColor = Color.Transparent;
             lblSanBayDen.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            lblSanBayDen.Location = new Point(405, 196);
+            lblSanBayDen.Location = new Point(389, 196);
             lblSanBayDen.Name = "lblSanBayDen";
             lblSanBayDen.Size = new Size(84, 19);
             lblSanBayDen.TabIndex = 2;
