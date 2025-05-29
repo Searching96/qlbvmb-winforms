@@ -34,7 +34,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1534, 861);
+            ClientSize = new Size(1784, 861);
             Name = "GUI_Home";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "GUI_Home";
