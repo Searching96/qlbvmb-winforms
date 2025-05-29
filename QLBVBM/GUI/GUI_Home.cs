@@ -56,6 +56,7 @@ namespace QLBVBM.GUI
                 ("Lập báo cáo theo tháng", () => new UC_LapBaoCao()),
                 ("Lập báo cáo theo năm", () => new UC_BaoCaoDoanhThuNam()),
                 ("Thêm sân bay", () => new UC_ThemSanBay()),
+                ("Thêm hạng ghế", () => new UC_ThemHangGhe()),
                 ("Thay đổi quy định", () => new UC_ThayDoiQuyDinh())
             };
 
