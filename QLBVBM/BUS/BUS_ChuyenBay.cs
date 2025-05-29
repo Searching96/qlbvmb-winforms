@@ -241,5 +241,10 @@ namespace QLBVBM.BUS
         {
             return DAL_ChuyenBay.LayTatCaChuyenBayDuaVaoThangNamBay(thang, nam);
         }
+
+        public DTO_ChuyenBay? LayChuyenBayGanNhat()
+        {
+            return DAL_ChuyenBay.LayChuyenBayGanNhat();
+        }
     }
 }

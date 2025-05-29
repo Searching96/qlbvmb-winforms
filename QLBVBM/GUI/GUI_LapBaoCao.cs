@@ -21,7 +21,7 @@ namespace QLBVBM.GUI
         {
             InitializeComponent();
             SetResponsive();
-
+            PopulateMonthsAndYears();
         }
         public void SetResponsive()
         {
@@ -30,13 +30,37 @@ namespace QLBVBM.GUI
                 control.Anchor = AnchorStyles.None;
             }
         }
+        private void PopulateMonthsAndYears()
+        {
+            //month
+            cbbThangBaoCao.Items.Clear();
+            for (int thang = 1; thang <= 12; thang++)
+            {
+                cbbThangBaoCao.Items.Add(thang);
+            }
+            cbbThangBaoCao.SelectedItem = DateTime.Now.Month;
+
+            //year
+            cbbNamBaoCao.Items.Clear();
+            var chuyenBayCuoi = busChuyenBay.LayChuyenBayGanNhat();
+            int lastFlightYear = DateTime.Now.Year; 
+            if (chuyenBayCuoi != null && chuyenBayCuoi.NgayBay.HasValue)
+            {
+                lastFlightYear = ((DateTime)chuyenBayCuoi.NgayBay).Year;
+            }
+            for (int nam = 2000; nam <= lastFlightYear; nam++)
+            {
+                cbbNamBaoCao.Items.Add(nam);
+            }
+            cbbNamBaoCao.SelectedItem = lastFlightYear;
+        }
         private void btnLapBaoCaoDoanhThu_Click(object sender, EventArgs e)
         {
             dgvBaoCaoDoanhThu.Rows.Clear();
             txtTongDoanhThu.Text = "";
 
-            int thang = dtpThangBaoCao.Value.Month;
-            int nam = dtpNamBaoCao.Value.Year;
+            int thang = cbbThangBaoCao.SelectedItem != null ? (int)cbbThangBaoCao.SelectedItem : DateTime.Now.Month;
+            int nam = cbbNamBaoCao.SelectedItem != null ? (int)cbbNamBaoCao.SelectedItem : DateTime.Now.Year;
 
             List<DTO_ChuyenBay> dsChuyenBay = busChuyenBay.LayTatCaChuyenBayDuaVaoThangNamBay(thang, nam);
 
