@@ -208,6 +208,7 @@
             txtGioBay.BorderRadius = 7;
             txtGioBay.CustomizableEdges = customizableEdges7;
             txtGioBay.DefaultText = "";
+            txtGioBay.FillColor = Color.LightGray;
             txtGioBay.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtGioBay.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             txtGioBay.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
@@ -233,6 +234,7 @@
             dtpNgayBay.BackColor = Color.White;
             dtpNgayBay.BorderColor = Color.Silver;
             dtpNgayBay.BorderRadius = 7;
+            dtpNgayBay.Enabled = false;
             dtpNgayBay.BorderThickness = 1;
             dtpNgayBay.Checked = true;
             dtpNgayBay.CustomizableEdges = customizableEdges9;
