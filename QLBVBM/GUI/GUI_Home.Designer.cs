@@ -37,7 +37,7 @@
             ClientSize = new Size(1784, 861);
             Name = "GUI_Home";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "GUI_Home";
+            Text = "Phần mềm quản lý bán vé máy bay";
             ResumeLayout(false);
         }
 
