@@ -175,11 +175,11 @@
             // 
             lblDSChuyenBay.BackColor = Color.Transparent;
             lblDSChuyenBay.Font = new Font("Arial", 18.75F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            lblDSChuyenBay.Location = new Point(190, 319);
+            lblDSChuyenBay.Location = new Point(242, 323);
             lblDSChuyenBay.Name = "lblDSChuyenBay";
-            lblDSChuyenBay.Size = new Size(271, 32);
+            lblDSChuyenBay.Size = new Size(142, 32);
             lblDSChuyenBay.TabIndex = 42;
-            lblDSChuyenBay.Text = "Danh sách chuyến bay";
+            lblDSChuyenBay.Text = "Chuyến bay";
             // 
             // btnTiepNhanChuyenBay
             // 
