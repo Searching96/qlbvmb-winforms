@@ -27,6 +27,7 @@ namespace QLBVBM.GUI
             LoadDanhSachSanBayToComboBox(cbbSanBayDi, LayDanhSachSanBay());
             LoadDanhSachSanBayToComboBox(cbbSanBayDen, LayDanhSachSanBay());
             dtpNgayBay.Value = DateTime.Today;
+            dtpNgayBay.MinDate = DateTime.Today; // Set the minimum date to today
         }
 
         public void SetResponsive()
