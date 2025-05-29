@@ -7,13 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Guna.UI2.WinForms;
 
 namespace QLBVBM.GUI
 {
     public partial class GUI_Home: Form
     {
-        private Guna.UI2.WinForms.Guna2Panel navPanel;
-        private Guna.UI2.WinForms.Guna2Panel mainPanel;
+        private Guna2Panel navPanel;
+        private Guna2Panel mainPanel;
 
         public GUI_Home()
         {
@@ -24,12 +25,12 @@ namespace QLBVBM.GUI
         private void InitializePanels()
         {
             // Tạo panel nội dung chính (hiển thị UC)
-            mainPanel = new Guna.UI2.WinForms.Guna2Panel();
+            mainPanel = new Guna2Panel();
             mainPanel.Dock = DockStyle.Fill;
             mainPanel.FillColor = Color.White;
 
             // Tạo panel NavBar bên trái
-            navPanel = new Guna.UI2.WinForms.Guna2Panel();
+            navPanel = new Guna2Panel();
             navPanel.Dock = DockStyle.Left;
             navPanel.Width = 200;
             navPanel.FillColor = Color.FromArgb(45, 45, 60);
@@ -45,31 +46,48 @@ namespace QLBVBM.GUI
 
         private void InitializeNavBar()
         {
-            Guna.UI2.WinForms.Guna2Button btnTiepNhanChuyenBay = new Guna.UI2.WinForms.Guna2Button();
-            btnTiepNhanChuyenBay.Text = "Tiếp nhận lịch chuyến bay";
-            btnTiepNhanChuyenBay.ImageOffset = new Point(10, 0);
-            btnTiepNhanChuyenBay.ImageSize = new Size(24, 24);
-            btnTiepNhanChuyenBay.TextOffset = new Point(15, 0);
-            btnTiepNhanChuyenBay.Dock = DockStyle.Top;
-            btnTiepNhanChuyenBay.Height = 50;
-            btnTiepNhanChuyenBay.FillColor = Color.FromArgb(60, 60, 80);
-            btnTiepNhanChuyenBay.HoverState.FillColor = Color.FromArgb(75, 75, 100);
-            btnTiepNhanChuyenBay.Font = new Font("Segoe UI", 10);
-            btnTiepNhanChuyenBay.ForeColor = Color.White;
-            btnTiepNhanChuyenBay.TextAlign = HorizontalAlignment.Left;
-            btnTiepNhanChuyenBay.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            btnTiepNhanChuyenBay.CheckedState.FillColor = Color.FromArgb(90, 90, 120);
-
-            // Xử lý click để hiện UC
-            btnTiepNhanChuyenBay.Click += (s, e) =>
+            // Tạo danh sách các nút (Text, UserControl tương ứng)
+            var menuItems = new List<(string Text, Func<UserControl> CreateControl)>
             {
-                mainPanel.Controls.Clear();
-                var uc = new UC_TiepNhanLichChuyenBay();
-                uc.Dock = DockStyle.Fill;
-                mainPanel.Controls.Add(uc);
+                ("Tiếp nhận lịch chuyến bay", () => new UC_TiepNhanLichChuyenBay()),
+                ("Bán vé", () => new UC_BanVe())
             };
 
-            navPanel.Controls.Add(btnTiepNhanChuyenBay);
+            // Duyệt qua danh sách và tạo nút
+            foreach (var item in menuItems)
+            {
+                var btn = CreateNavButton(item.Text);
+                btn.Click += (s, e) =>
+                {
+                    mainPanel.Controls.Clear();
+                    var uc = item.CreateControl();
+                    uc.Dock = DockStyle.Fill;
+                    mainPanel.Controls.Add(uc);
+                };
+
+                navPanel.Controls.Add(btn);
+                navPanel.Controls.SetChildIndex(btn, 0); // Đặt nút ở đầu panel
+            }
+        }
+
+        private Guna2Button CreateNavButton(string text)
+        {
+            return new Guna2Button
+            {
+                Text = text,
+                ImageOffset = new Point(10, 0),
+                ImageSize = new Size(24, 24),
+                TextOffset = new Point(15, 0),
+                Dock = DockStyle.Top,
+                Height = 50,
+                FillColor = Color.FromArgb(60, 60, 80),
+                HoverState = { FillColor = Color.FromArgb(75, 75, 100) },
+                Font = new Font("Segoe UI", 10),
+                ForeColor = Color.White,
+                TextAlign = HorizontalAlignment.Left,
+                ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton,
+                CheckedState = { FillColor = Color.FromArgb(90, 90, 120) }
+            };
         }
     }
 }
