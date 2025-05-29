@@ -30,7 +30,7 @@ namespace QLBVBM.DAL
                     new MySqlParameter("@CMND", veChuyenBay.SoCMND),
                     new MySqlParameter("@SoDienThoai", veChuyenBay.SoDT),
                     new MySqlParameter("@DonGia", veChuyenBay.DonGia),
-                    new MySqlParameter("@TrangThaiVe", 1)
+                    new MySqlParameter("@TrangThaiVe", veChuyenBay.TrangThaiVe)
                 };
                 int result = dataHelper.ExecuteNonQuery(query, parameters);
                 return result > 0;
