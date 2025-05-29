@@ -55,6 +55,7 @@ namespace QLBVBM.GUI
                 ("Tra cứu chuyến bay", () => new UC_TraCuuChuyenBay()),
                 ("Lập báo cáo theo tháng", () => new UC_LapBaoCao()),
                 ("Lập báo cáo theo năm", () => new UC_BaoCaoDoanhThuNam()),
+                ("Thêm sân bay", () => new UC_ThemSanBay()),
                 ("Thay đổi quy định", () => new UC_ThayDoiQuyDinh())
             };
 
