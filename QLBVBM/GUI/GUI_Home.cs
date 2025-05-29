@@ -50,7 +50,8 @@ namespace QLBVBM.GUI
             var menuItems = new List<(string Text, Func<UserControl> CreateControl)>
             {
                 ("Tiếp nhận lịch chuyến bay", () => new UC_TiepNhanLichChuyenBay()),
-                ("Bán vé", () => new UC_BanVe())
+                ("Bán vé", () => new UC_BanVe()),
+                ("Đặt vé", () => new UC_DatVe())
             };
 
             // Duyệt qua danh sách và tạo nút
