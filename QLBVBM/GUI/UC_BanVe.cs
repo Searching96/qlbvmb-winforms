@@ -26,7 +26,9 @@ namespace QLBVBM.GUI
         public UC_BanVe()
         {
             InitializeComponent();
-            LoadMaChuyenBayToComboBox(cbbMaChuyenBay, LayDanhSachChuyenBay());
+            var dsChuyenBay = LayDanhSachChuyenBay();
+            dsChuyenBay.Sort((a, b) => string.Compare(a.MaChuyenBay, b.MaChuyenBay, StringComparison.Ordinal));
+            LoadMaChuyenBayToComboBox(cbbMaChuyenBay, dsChuyenBay);
             cbbMaChuyenBay.DropDownStyle = ComboBoxStyle.DropDownList;
             SetResponsive();
         }

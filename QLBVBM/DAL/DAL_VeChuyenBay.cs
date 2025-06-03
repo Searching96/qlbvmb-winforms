@@ -19,8 +19,8 @@ namespace QLBVBM.DAL
         {
             try
             {
-                string query = "INSERT INTO VECHUYENBAY (MaVe, MaChuyenBay, MaHangGhe, TenHanhKhach, CMND, SoDienThoai, DonGia) " +
-                "VALUES (@MaVe, @MaChuyenBay, @MaHangGhe, @TenHanhKhach, @CMND, @SoDienThoai, @DonGia)";
+                string query = "INSERT INTO VECHUYENBAY (MaVe, MaChuyenBay, MaHangGhe, TenHanhKhach, CMND, SoDienThoai, DonGia, TrangThaiVe) " +
+                "VALUES (@MaVe, @MaChuyenBay, @MaHangGhe, @TenHanhKhach, @CMND, @SoDienThoai, @DonGia, @TrangThaiVe)";
                 List<MySqlParameter> parameters = new List<MySqlParameter>
                 {
                     new MySqlParameter("@MaVe", veChuyenBay.MaVe),
