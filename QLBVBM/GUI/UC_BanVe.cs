@@ -21,6 +21,7 @@ namespace QLBVBM.GUI
         private BUS_ValidateThongTinHanhKhach busValidationTTHK = new BUS_ValidateThongTinHanhKhach();
         private BUS_DonGiaHangGhe busDonGiaHangGhe = new BUS_DonGiaHangGhe();
         private BUS_VeChuyenBay busVeChuyenBay = new BUS_VeChuyenBay();
+        private BUS_HangVeCB busHangVeChuyenBay = new BUS_HangVeCB();
         private ErrorProvider errorProvider = new ErrorProvider();
 
         public UC_BanVe()
@@ -157,7 +158,10 @@ namespace QLBVBM.GUI
             {
                 if (cbbHangVe.SelectedItem is DTO_DonGiaHangGhe selectedHangVe)
                 {
+                    DTO_HangVeCB hangVeCB = busHangVeChuyenBay.TraCuuMotHangVe(selectedHangVe.MaChuyenBay, selectedHangVe.MaHangGhe);
+
                     txtGiaTien.Text = selectedHangVe.DonGia.ToString() ?? "";
+                    txtSoVeConLai.Text = hangVeCB.SoLuongGheConLai.ToString() ?? "";
                 }
             }
         }
