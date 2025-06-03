@@ -491,7 +491,7 @@ namespace QLBVBM.DAL
 
             if (sbtgConditions.Count > 0)
             {
-                query += " AND (" + string.Join(" OR ", sbtgConditions) + ")";
+                query += " AND (" + string.Join(" AND ", sbtgConditions) + ")";
             }
 
             if (!string.IsNullOrEmpty(maHangGhe_Ten) && !maHangGhe_Ten.Equals("ALL"))
@@ -542,7 +542,7 @@ namespace QLBVBM.DAL
             }
             if (hangGhe_conditions.Count > 0)
             {
-                query += " AND (" + string.Join(" OR ", hangGhe_conditions) + ")";
+                query += " AND (" + string.Join(" AND ", hangGhe_conditions) + ")";
             }
 
             // Xử lý điều kiện ở các trường thông tin liên quan đến tuyến bay 
@@ -725,7 +725,7 @@ namespace QLBVBM.DAL
                 return new Tuple<string, string>("", "");
             }
         }
-      
+
         public List<DTO_ChuyenBay> LayChuyenBayTheoNam(int nam)
         {
             List<DTO_ChuyenBay> dsChuyenBay = new List<DTO_ChuyenBay>();
