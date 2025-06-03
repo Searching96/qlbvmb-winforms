@@ -155,6 +155,7 @@
             dgvBaoCaoDoanhThuNam.Location = new Point(39, 328);
             dgvBaoCaoDoanhThuNam.Margin = new Padding(2, 1, 2, 1);
             dgvBaoCaoDoanhThuNam.Name = "dgvBaoCaoDoanhThuNam";
+            dgvBaoCaoDoanhThuNam.ReadOnly = true;
             dgvBaoCaoDoanhThuNam.RowHeadersVisible = false;
             dgvBaoCaoDoanhThuNam.RowHeadersWidth = 82;
             dgvBaoCaoDoanhThuNam.RowTemplate.Height = 41;
@@ -173,7 +174,7 @@
             dgvBaoCaoDoanhThuNam.ThemeStyle.HeaderStyle.ForeColor = Color.White;
             dgvBaoCaoDoanhThuNam.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dgvBaoCaoDoanhThuNam.ThemeStyle.HeaderStyle.Height = 4;
-            dgvBaoCaoDoanhThuNam.ThemeStyle.ReadOnly = false;
+            dgvBaoCaoDoanhThuNam.ThemeStyle.ReadOnly = true;
             dgvBaoCaoDoanhThuNam.ThemeStyle.RowsStyle.BackColor = Color.White;
             dgvBaoCaoDoanhThuNam.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvBaoCaoDoanhThuNam.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F);

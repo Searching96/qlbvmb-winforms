@@ -332,23 +332,23 @@ namespace QLBVBM.DAL
                 LEFT JOIN HANGVE_TUYENBAY hvtb ON cb.MaSanBayDi = hvtb.MaSanBayDi
                                                AND cb.MaSanBayDen = hvtb.MaSanBayDen
                                                AND hvcb.MaHangGhe = hvtb.MaHangGhe
-                WHERE 1 = 0";
+                WHERE 1 = 1";
 
             List<MySqlParameter> parameters = new List<MySqlParameter>();
 
             if (!string.IsNullOrEmpty(maChuyenBay))
             {
-                query += " OR cb.MaChuyenBay LIKE @MaChuyenBay";
+                query += " AND cb.MaChuyenBay LIKE @MaChuyenBay";
                 parameters.Add(new MySqlParameter("@MaChuyenBay", $"%{maChuyenBay}%"));
             }
             if (!string.IsNullOrEmpty(maSanBayDi) && !maSanBayDi.Equals("ALL"))
             {
-                query += " OR cb.MaSanBayDi = @MaSanBayDi";
+                query += " AND cb.MaSanBayDi = @MaSanBayDi";
                 parameters.Add(new MySqlParameter("@MaSanBayDi", maSanBayDi));
             }
             if (!string.IsNullOrEmpty(maSanBayDen) && !maSanBayDen.Equals("ALL"))
             {
-                query += " OR cb.MaSanBayDen = @MaSanBayDen";
+                query += " AND cb.MaSanBayDen = @MaSanBayDen";
                 parameters.Add(new MySqlParameter("@MaSanBayDen", maSanBayDen));
             }
             if (ngayBayTu.HasValue || ngayBayDen.HasValue)
@@ -366,7 +366,7 @@ namespace QLBVBM.DAL
                 }
                 if (ngayBayConditions.Count > 0)
                 {
-                    query += " OR " + "(" + string.Join(" AND ", ngayBayConditions) + ")";
+                    query += " AND " + "(" + string.Join(" AND ", ngayBayConditions) + ")";
                 }
             }
             if (gioBayTu.HasValue || gioBayDen.HasValue)
@@ -384,7 +384,7 @@ namespace QLBVBM.DAL
                 }
                 if (gioBayConditions.Count > 0)
                 {
-                    query += " OR " + "(" + string.Join(" AND ", gioBayConditions) + ")";
+                    query += " AND " + "(" + string.Join(" AND ", gioBayConditions) + ")";
                 }
             }
             if (thoiGianBayTu.HasValue || thoiGianBayDen.HasValue)
@@ -402,7 +402,7 @@ namespace QLBVBM.DAL
                 }
                 if (thoiGianBayConditions.Count > 0)
                 {
-                    query += " OR " + "(" + string.Join(" AND ", thoiGianBayConditions) + ")";
+                    query += " AND " + "(" + string.Join(" AND ", thoiGianBayConditions) + ")";
                 }
             }
 
@@ -491,12 +491,12 @@ namespace QLBVBM.DAL
 
             if (sbtgConditions.Count > 0)
             {
-                query += " OR (" + string.Join(" OR ", sbtgConditions) + ")";
+                query += " AND (" + string.Join(" OR ", sbtgConditions) + ")";
             }
 
             if (!string.IsNullOrEmpty(maHangGhe_Ten) && !maHangGhe_Ten.Equals("ALL"))
             {
-                query += " OR hg.MaHangGhe = @MaHangGhe";
+                query += " AND hg.MaHangGhe = @MaHangGhe";
                 parameters.Add(new MySqlParameter("@MaHangGhe", maHangGhe_Ten));
             }
 
@@ -542,7 +542,7 @@ namespace QLBVBM.DAL
             }
             if (hangGhe_conditions.Count > 0)
             {
-                query += " OR (" + string.Join(" OR ", hangGhe_conditions) + ")";
+                query += " AND (" + string.Join(" OR ", hangGhe_conditions) + ")";
             }
 
             // Xử lý điều kiện ở các trường thông tin liên quan đến tuyến bay 
@@ -588,18 +588,18 @@ namespace QLBVBM.DAL
 
             if (tuyenBayConditions.Count > 0)
             {
-                query += " OR (" + string.Join(" AND ", tuyenBayConditions) + ")";
+                query += " AND (" + string.Join(" AND ", tuyenBayConditions) + ")";
             }
 
 
             if (!string.IsNullOrEmpty(maVeChuyenBay))
             {
-                query += " OR vcb.MaVe LIKE @MaVeChuyenBay";
+                query += " AND vcb.MaVe LIKE @MaVeChuyenBay";
                 parameters.Add(new MySqlParameter("@MaVeChuyenBay", $"%{maVeChuyenBay}%"));
             }
             if (trangThaiVe.HasValue && trangThaiVe != -1)
             {
-                query += " OR vcb.TrangThaiVe = @TrangThaiVe";
+                query += " AND vcb.TrangThaiVe = @TrangThaiVe";
                 parameters.Add(new MySqlParameter("@TrangThaiVe", trangThaiVe.Value));
             }
 
@@ -618,22 +618,22 @@ namespace QLBVBM.DAL
                 }
                 if (donGiaConditions.Count > 0)
                 {
-                    query += " OR " + "(" + string.Join(" AND ", donGiaConditions) + ")";
+                    query += " AND " + "(" + string.Join(" AND ", donGiaConditions) + ")";
                 }
             }
             if (!string.IsNullOrEmpty(tenHanhKhach))
             {
-                query += " OR vcb.TenHanhKhach LIKE @TenHanhKhach";
+                query += " AND vcb.TenHanhKhach LIKE @TenHanhKhach";
                 parameters.Add(new MySqlParameter("@TenHanhKhach", $"%{tenHanhKhach}%"));
             }
             if (!string.IsNullOrEmpty(soCMND))
             {
-                query += " OR vcb.CMND LIKE @SoCMND";
+                query += " AND vcb.CMND LIKE @SoCMND";
                 parameters.Add(new MySqlParameter("@SoCMND", $"%{soCMND}%"));
             }
             if (!string.IsNullOrEmpty(soDT))
             {
-                query += " OR vcb.SoDienThoai LIKE @SoDT";
+                query += " AND vcb.SoDienThoai LIKE @SoDT";
                 parameters.Add(new MySqlParameter("@SoDT", $"%{soDT}%"));
             }
 

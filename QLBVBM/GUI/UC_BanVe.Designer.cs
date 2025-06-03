@@ -199,6 +199,7 @@
             dtpNgayBay.BorderThickness = 1;
             dtpNgayBay.Checked = true;
             dtpNgayBay.CustomizableEdges = customizableEdges9;
+            dtpNgayBay.Enabled = false;
             dtpNgayBay.FillColor = Color.White;
             dtpNgayBay.Font = new Font("Segoe UI", 9F);
             dtpNgayBay.ForeColor = Color.Black;

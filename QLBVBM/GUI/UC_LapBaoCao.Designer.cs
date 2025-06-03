@@ -163,6 +163,7 @@
             dgvBaoCaoDoanhThu.Location = new Point(78, 338);
             dgvBaoCaoDoanhThu.Margin = new Padding(3, 2, 3, 2);
             dgvBaoCaoDoanhThu.Name = "dgvBaoCaoDoanhThu";
+            dgvBaoCaoDoanhThu.ReadOnly = true;
             dgvBaoCaoDoanhThu.RowHeadersVisible = false;
             dgvBaoCaoDoanhThu.RowHeadersWidth = 51;
             dgvBaoCaoDoanhThu.RowTemplate.Height = 29;
@@ -181,7 +182,7 @@
             dgvBaoCaoDoanhThu.ThemeStyle.HeaderStyle.ForeColor = Color.White;
             dgvBaoCaoDoanhThu.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dgvBaoCaoDoanhThu.ThemeStyle.HeaderStyle.Height = 32;
-            dgvBaoCaoDoanhThu.ThemeStyle.ReadOnly = false;
+            dgvBaoCaoDoanhThu.ThemeStyle.ReadOnly = true;
             dgvBaoCaoDoanhThu.ThemeStyle.RowsStyle.BackColor = Color.White;
             dgvBaoCaoDoanhThu.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvBaoCaoDoanhThu.ThemeStyle.RowsStyle.Font = new Font("Arial", 11F);
@@ -195,30 +196,35 @@
             STT.HeaderText = "STT";
             STT.MinimumWidth = 6;
             STT.Name = "STT";
+            STT.ReadOnly = true;
             // 
             // ChuyenBay
             // 
             ChuyenBay.HeaderText = "Chuyến bay";
             ChuyenBay.MinimumWidth = 6;
             ChuyenBay.Name = "ChuyenBay";
+            ChuyenBay.ReadOnly = true;
             // 
             // SoVe
             // 
             SoVe.HeaderText = "Số vé";
             SoVe.MinimumWidth = 6;
             SoVe.Name = "SoVe";
+            SoVe.ReadOnly = true;
             // 
             // TyLe
             // 
             TyLe.HeaderText = "Tỷ lệ";
             TyLe.MinimumWidth = 6;
             TyLe.Name = "TyLe";
+            TyLe.ReadOnly = true;
             // 
             // DoanhThu
             // 
             DoanhThu.HeaderText = "Doanh thu";
             DoanhThu.MinimumWidth = 6;
             DoanhThu.Name = "DoanhThu";
+            DoanhThu.ReadOnly = true;
             // 
             // lblTongDoanhThu
             // 

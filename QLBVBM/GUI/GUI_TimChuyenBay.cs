@@ -26,8 +26,8 @@ namespace QLBVBM.GUI
             SetResponsive();
             LoadDanhSachSanBayToComboBox(cbbSanBayDi, LayDanhSachSanBay());
             LoadDanhSachSanBayToComboBox(cbbSanBayDen, LayDanhSachSanBay());
-            dtpNgayBay.Value = DateTime.Today;
-            dtpNgayBay.MinDate = DateTime.Today; // Set the minimum date to today
+            dtpNgayBay.Value = DateTime.Today.AddDays(1);
+            dtpNgayBay.MinDate = DateTime.Today.AddDays(1); // Set the minimum date to today
         }
 
         public void SetResponsive()
@@ -41,9 +41,9 @@ namespace QLBVBM.GUI
         public void ClearCombobox(Guna2ComboBox cbb) // clear the combobox and set it to disabled
         {
             cbb.DataSource = null;
-            cbb.Items.Clear();
-            cbb.Enabled = false;
-            cbb.Text = "";
+            //cbb.Items.Clear();
+            //cbb.Enabled = false;
+            //cbb.Text = "";
             cbb.SelectedIndex = -1;
         }
 
