@@ -217,7 +217,7 @@
             MinimumSize = new Size(435, 540);
             Name = "GUI_ThemSanBay";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "GUI_ThemSanBay";
+            Text = "Thêm sân bay";
             Load += GUI_ThemSanBay_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDSSanBay).EndInit();
             ResumeLayout(false);
