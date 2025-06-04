@@ -75,7 +75,7 @@ namespace QLBVBM.DAL
                 string query = @"UPDATE THAMSO 
                                 SET SoSanBayTGToiDa         = @SoSanBayTGToiDa,
                                     TGBayToiThieu           = @TGBayToiThieu,
-                                    TGDungToiThieu          = @TGDungToiDa,
+                                    TGDungToiThieu          = @TGDungToiThieu,
                                     TGDungToiDa             = @TGDungToiDa,
                                     TGDatTruocVeToiThieu    = @TGDatTruocVeToiThieu,
                                     TGHuyDatTruocVeToiThieu = @TGHuyDatTruocVeToiThieu";

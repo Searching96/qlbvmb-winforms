@@ -257,6 +257,9 @@ namespace QLBVBM.GUI
 
             bool success = busVeChuyenBay.ThemVeChuyenBayVaHangVe(veChuyenBay, hangVeCB);
 
+            if (success)
+                txtSoVeConLai.Text = (int.Parse(txtSoVeConLai.Text) - 1).ToString();
+
             MessageBox.Show(success ? "Thêm vé thành công" : "Lỗi khi thêm vé",
                             "Thông báo",
                             MessageBoxButtons.OK,
