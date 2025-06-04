@@ -155,9 +155,9 @@
             lblTGBayToiThieu.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
             lblTGBayToiThieu.Location = new Point(376, 59);
             lblTGBayToiThieu.Name = "lblTGBayToiThieu";
-            lblTGBayToiThieu.Size = new Size(145, 19);
+            lblTGBayToiThieu.Size = new Size(187, 19);
             lblTGBayToiThieu.TabIndex = 39;
-            lblTGBayToiThieu.Text = "Thời gian bay tối thiểu";
+            lblTGBayToiThieu.Text = "Thời gian bay tối thiểu (phút)";
             // 
             // txtTGDungToiThieu
             // 
@@ -187,9 +187,9 @@
             lblTGDungToiThieu.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
             lblTGDungToiThieu.Location = new Point(26, 156);
             lblTGDungToiThieu.Name = "lblTGDungToiThieu";
-            lblTGDungToiThieu.Size = new Size(156, 19);
+            lblTGDungToiThieu.Size = new Size(198, 19);
             lblTGDungToiThieu.TabIndex = 41;
-            lblTGDungToiThieu.Text = "Thời gian dừng tối thiểu";
+            lblTGDungToiThieu.Text = "Thời gian dừng tối thiểu (phút)";
             // 
             // txtTGDungToiDa
             // 
@@ -219,9 +219,9 @@
             lblTGDungToiDa.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
             lblTGDungToiDa.Location = new Point(376, 156);
             lblTGDungToiDa.Name = "lblTGDungToiDa";
-            lblTGDungToiDa.Size = new Size(141, 19);
+            lblTGDungToiDa.Size = new Size(183, 19);
             lblTGDungToiDa.TabIndex = 43;
-            lblTGDungToiDa.Text = "Thời gian dừng tối đa";
+            lblTGDungToiDa.Text = "Thời gian dừng tối đa (phút)";
             // 
             // txtTGDatTruocVe
             // 
@@ -251,9 +251,9 @@
             lblTGDatTruocVe.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
             lblTGDatTruocVe.Location = new Point(26, 259);
             lblTGDatTruocVe.Name = "lblTGDatTruocVe";
-            lblTGDatTruocVe.Size = new Size(202, 19);
+            lblTGDatTruocVe.Size = new Size(247, 19);
             lblTGDatTruocVe.TabIndex = 45;
-            lblTGDatTruocVe.Text = "Thời gian đặt trước vé tối thiểu";
+            lblTGDatTruocVe.Text = "Thời gian đặt trước vé tối thiểu (ngày)";
             // 
             // txtTGHuyDatVe
             // 
@@ -283,9 +283,9 @@
             lblTGHuyDatVe.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
             lblTGHuyDatVe.Location = new Point(376, 259);
             lblTGHuyDatVe.Name = "lblTGHuyDatVe";
-            lblTGHuyDatVe.Size = new Size(229, 19);
+            lblTGHuyDatVe.Size = new Size(274, 19);
             lblTGHuyDatVe.TabIndex = 47;
-            lblTGHuyDatVe.Text = "Thời gian hủy đặt trước vé tối thiểu";
+            lblTGHuyDatVe.Text = "Thời gian hủy đặt trước vé tối thiểu (ngày)";
             // 
             // lblDonGiaQuyDinh
             // 

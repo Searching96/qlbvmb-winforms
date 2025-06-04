@@ -102,6 +102,10 @@
             // 
             // dtpNgayBay
             // 
+            // Remove or comment out the incorrect line
+            // dtpNgayBay.Format = DateTimePickerFormat.Custom("dd/MM/yyyy");
+            dtpNgayBay.Format = DateTimePickerFormat.Custom;
+            dtpNgayBay.CustomFormat = "dd/MM/yyyy";
             dtpNgayBay.BackColor = Color.White;
             dtpNgayBay.BorderColor = Color.Silver;
             dtpNgayBay.BorderRadius = 7;
@@ -111,7 +115,6 @@
             dtpNgayBay.FillColor = Color.White;
             dtpNgayBay.Font = new Font("Segoe UI", 9F);
             dtpNgayBay.ForeColor = Color.Black;
-            dtpNgayBay.Format = DateTimePickerFormat.Long;
             dtpNgayBay.Location = new Point(41, 235);
             dtpNgayBay.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             dtpNgayBay.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);

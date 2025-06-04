@@ -18,6 +18,7 @@ namespace QLBVBM.GUI
     {
         private BUS_SanBay busSanBay = new BUS_SanBay();
         private BUS_ChuyenBay busChuyenBay = new BUS_ChuyenBay();
+        private BUS_ThamSo busThamSo = new BUS_ThamSo();
         public DTO_ChuyenBay? thongTinChuyenBay { get; private set; }
 
         public GUI_TimChuyenBay()
@@ -26,8 +27,9 @@ namespace QLBVBM.GUI
             SetResponsive();
             LoadDanhSachSanBayToComboBox(cbbSanBayDi, LayDanhSachSanBay());
             LoadDanhSachSanBayToComboBox(cbbSanBayDen, LayDanhSachSanBay());
-            dtpNgayBay.Value = DateTime.Today.AddDays(1);
-            dtpNgayBay.MinDate = DateTime.Today.AddDays(1); // Set the minimum date to today
+            int soNgayDatTruocToiThieu = busThamSo.LayThoiGianDatVeToiThieu();
+            dtpNgayBay.Value = DateTime.Today.AddDays(soNgayDatTruocToiThieu);
+            dtpNgayBay.MinDate = DateTime.Today.AddDays(soNgayDatTruocToiThieu); // Set the minimum date to today
         }
 
         public void SetResponsive()
@@ -41,9 +43,6 @@ namespace QLBVBM.GUI
         public void ClearCombobox(Guna2ComboBox cbb) // clear the combobox and set it to disabled
         {
             cbb.DataSource = null;
-            //cbb.Items.Clear();
-            //cbb.Enabled = false;
-            //cbb.Text = "";
             cbb.SelectedIndex = -1;
         }
 
@@ -79,18 +78,7 @@ namespace QLBVBM.GUI
         {
             string maSanBayDi = cbbSanBayDi.SelectedValue?.ToString() ?? string.Empty;
             string maSanBayDen = cbbSanBayDen.SelectedValue?.ToString() ?? string.Empty;
-            DateTime ngayBay = new DateTime();
-
-            bool isValidDate = dtpNgayBay.Value.Date > DateTime.Today.Date;
-
-            if (isValidDate)
-            {
-                ngayBay = dtpNgayBay.Value.Date;
-            }
-            else
-            {
-                ngayBay = DateTime.MinValue;
-            }
+            DateTime ngayBay = dtpNgayBay.Value.Date;
 
             List<DTO_ChuyenBay>? dsChuyenBayDuaVaoSanBayDi = string.IsNullOrWhiteSpace(maSanBayDi)
                 ? null
@@ -100,9 +88,7 @@ namespace QLBVBM.GUI
                 ? null
                 : busChuyenBay.LayTatCaChuyenBayConTrongDuaVaoSanBayDen(maSanBayDen);
 
-            List<DTO_ChuyenBay>? dsChuyenBayDuaVaoNgayBay = ngayBay == DateTime.MinValue
-                ? null
-                : busChuyenBay.LayTatCaChuyenBayConTrongDuaVaoNgayBay(ngayBay);
+            List<DTO_ChuyenBay>? dsChuyenBayDuaVaoNgayBay = busChuyenBay.LayTatCaChuyenBayConTrongDuaVaoNgayBay(ngayBay);
 
             List<DTO_ChuyenBay> result;
 
