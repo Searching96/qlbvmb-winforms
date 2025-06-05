@@ -217,7 +217,7 @@
             MinimumSize = new Size(435, 538);
             Name = "GUI_ThemHangGhe";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "GUI_ThemHangGhe";
+            Text = "Thêm hạng ghế";
             Load += GUI_ThemHangGhe_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDSHangGhe).EndInit();
             ResumeLayout(false);

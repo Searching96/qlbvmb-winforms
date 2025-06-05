@@ -229,15 +229,16 @@ namespace QLBVBM.GUI
             dtpNgayBay.CustomizableEdges = customizableEdges9;
             dtpNgayBay.FillColor = Color.White;
             dtpNgayBay.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            dtpNgayBay.Format = DateTimePickerFormat.Short;
+            dtpNgayBay.Format = DateTimePickerFormat.Custom;
+            dtpNgayBay.CustomFormat = "dd/MM/yyyy";
             dtpNgayBay.Location = new Point(20, 143);
             dtpNgayBay.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
-            dtpNgayBay.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
+            dtpNgayBay.MinDate = DateTime.Today;
             dtpNgayBay.Name = "dtpNgayBay";
             dtpNgayBay.ShadowDecoration.CustomizableEdges = customizableEdges10;
             dtpNgayBay.Size = new Size(187, 38);
             dtpNgayBay.TabIndex = 30;
-            dtpNgayBay.Value = new DateTime(2025, 4, 30, 22, 7, 18, 129);
+            dtpNgayBay.Value = DateTime.Today;
             dtpNgayBay.ValueChanged += dtpNgayGioBay_ValueChanged;
             // 
             // lblThoiGianBay

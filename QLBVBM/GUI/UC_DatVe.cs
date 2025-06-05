@@ -93,7 +93,7 @@ namespace QLBVBM.GUI
                     cbbMaChuyenBay.SelectedValue = chuyenBay.MaChuyenBay;
                     txtSanBayDi.Text = busSanBay.LayTenSanBay(chuyenBay.MaSanBayDi);
                     txtSanBayDen.Text = busSanBay.LayTenSanBay(chuyenBay.MaSanBayDen);
-                    dtpNgayBay.Value = chuyenBay.NgayBay.Value;
+                    txtNgayBay.Text = chuyenBay.NgayBay?.ToString("dd/MM/yyyy") ?? string.Empty;
                     txtGioBay.Text = chuyenBay.GioBay?.ToString("HH:mm");
                 }
                 else
@@ -118,7 +118,7 @@ namespace QLBVBM.GUI
                 {
                     txtSanBayDi.Text = busSanBay.LayTenSanBay(selectedChuyenBay.MaSanBayDi);
                     txtSanBayDen.Text = busSanBay.LayTenSanBay(selectedChuyenBay.MaSanBayDen);
-                    dtpNgayBay.Value = selectedChuyenBay.NgayBay.Value;
+                    txtNgayBay.Text = selectedChuyenBay.NgayBay?.ToString("dd/MM/yyyy") ?? string.Empty;
                     txtGioBay.Text = selectedChuyenBay.GioBay?.ToString("HH:mm");
                     List<DTO_DonGiaHangGhe> dsHangGhe = busDonGiaHangGhe.LayDanhSachTenHangGheChuyenBay(selectedChuyenBay?.MaChuyenBay);
                     LoadDanhSachHangVeCB(dsHangGhe);
@@ -279,10 +279,16 @@ namespace QLBVBM.GUI
 
             bool success = busVeChuyenBay.DatVeChuyenBayVaHangVe(veChuyenBay, hangVeCB);
 
+            if (success)
+                txtSoVeConLai.Text = (int.Parse(txtSoVeConLai.Text) - 1).ToString();
+
             MessageBox.Show(success ? "Đặt vé thành công" : "Lỗi khi đặt vé",
                             "Thông báo",
                             MessageBoxButtons.OK,
                             success ? MessageBoxIcon.Information : MessageBoxIcon.Error);
+
+            if (success)
+                txtSoVeConLai.Text = (int.Parse(txtSoVeConLai.Text) - 1).ToString();
         }
 
         private void btnInVe_Click(object sender, EventArgs e)

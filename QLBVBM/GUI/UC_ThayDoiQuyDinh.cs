@@ -92,9 +92,31 @@ namespace QLBVBM.GUI
                 || !busThamSo.ValidateThamSo(txtTGDungToiThieu.Text)
                 || !busThamSo.ValidateThamSo(txtTGDungToiDa.Text)
                 || !busThamSo.ValidateThamSo(txtTGDatTruocVe.Text)
-                || !busThamSo.ValidateThamSo(txtTGHuyDatVe.Text)
-                || !busThamSo.ValidateThamSo(txtDonGia.Text))
+                || !busThamSo.ValidateThamSo(txtTGHuyDatVe.Text))
                 return true;
+            return false;
+        }
+
+        public bool ValidateTuyenBay()
+        {
+            if (cbbSanBayDi.SelectedIndex == -1 && cbbSanBayDen.SelectedIndex == -1 && cbbHangGhe.SelectedIndex == -1 && string.IsNullOrWhiteSpace(txtDonGia.Text))
+            {
+                return true;
+            }
+
+            if (cbbSanBayDi.SelectedIndex == -1 || cbbSanBayDen.SelectedIndex == -1 || cbbHangGhe.SelectedIndex == -1 || string.IsNullOrWhiteSpace(txtDonGia.Text))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public bool KhongDienTuyen()
+        {
+            if (cbbSanBayDi.SelectedIndex == -1 && cbbSanBayDen.SelectedIndex == -1 && cbbHangGhe.SelectedIndex == -1 && string.IsNullOrWhiteSpace(txtDonGia.Text))
+            {
+                return true;
+            }
             return false;
         }
 
@@ -167,16 +189,27 @@ namespace QLBVBM.GUI
 
         private void btnThayDoiQuyDinh_Click(object sender, EventArgs e)
         {
+            if (!ValidateTuyenBay())
+            {
+                MessageBox.Show("Vui lòng chọn đầy đủ thông tin tuyến bay!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (HasErrors())
             {
                 MessageBox.Show("Vui lòng nhập đúng định dạng tham số!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            string maSanBayDi = cbbSanBayDi.SelectedValue.ToString() ?? string.Empty;
-            string maSanBayDen = cbbSanBayDen.SelectedValue.ToString() ?? string.Empty;
-            string maHangGhe = cbbHangGhe.SelectedValue.ToString() ?? string.Empty;
-            int donGiaQuyDinh = txtDonGia.Text != string.Empty ? int.Parse(txtDonGia.Text) : 0;
+            if (!KhongDienTuyen())
+            {
+                string maSanBayDi = cbbSanBayDi.SelectedValue.ToString() ?? string.Empty;
+                string maSanBayDen = cbbSanBayDen.SelectedValue.ToString() ?? string.Empty;
+                string maHangGhe = cbbHangGhe.SelectedValue.ToString() ?? string.Empty;
+                int donGiaQuyDinh = txtDonGia.Text != string.Empty ? int.Parse(txtDonGia.Text) : 0;
+
+                busHangVeTuyenBay.CapNhatDonGiaQuyDinh(maSanBayDi, maSanBayDen, maHangGhe, donGiaQuyDinh);
+            }
 
             DTO_ThamSo thamSoCapNhat = new DTO_ThamSo
             {
@@ -188,8 +221,7 @@ namespace QLBVBM.GUI
                 TgHuyDatTruocVeToiThieu = int.Parse(txtTGHuyDatVe.Text)
             };
 
-            if (busThamSo.CapNhatThamSo(thamSoCapNhat)
-                && busHangVeTuyenBay.CapNhatDonGiaQuyDinh(maSanBayDi, maSanBayDen, maHangGhe, donGiaQuyDinh))
+            if (busThamSo.CapNhatThamSo(thamSoCapNhat))
             {
                 MessageBox.Show("Thay đổi quy định thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadThamSo();

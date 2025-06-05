@@ -107,11 +107,12 @@
             dtpNgayBay.BorderRadius = 7;
             dtpNgayBay.BorderThickness = 1;
             dtpNgayBay.Checked = true;
+            dtpNgayBay.CustomFormat = "dd/MM/yyyy";
             dtpNgayBay.CustomizableEdges = customizableEdges5;
             dtpNgayBay.FillColor = Color.White;
             dtpNgayBay.Font = new Font("Segoe UI", 9F);
             dtpNgayBay.ForeColor = Color.Black;
-            dtpNgayBay.Format = DateTimePickerFormat.Long;
+            dtpNgayBay.Format = DateTimePickerFormat.Custom;
             dtpNgayBay.Location = new Point(41, 235);
             dtpNgayBay.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             dtpNgayBay.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
@@ -217,7 +218,7 @@
             Controls.Add(lblTraCuuChuyenBay);
             Name = "GUI_TimChuyenBay";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "GUI_TimChuyenBay";
+            Text = "Tra cứu chuyến bay";
             ResumeLayout(false);
             PerformLayout();
         }
