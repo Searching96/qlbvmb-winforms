@@ -283,6 +283,9 @@ namespace QLBVBM.GUI
                             "Thông báo",
                             MessageBoxButtons.OK,
                             success ? MessageBoxIcon.Information : MessageBoxIcon.Error);
+
+            if (success)
+                txtSoVeConLai.Text = (int.Parse(txtSoVeConLai.Text) - 1).ToString();
         }
 
         private void btnInVe_Click(object sender, EventArgs e)
